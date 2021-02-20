@@ -1,0 +1,20 @@
+{
+    "app": "Widget",
+    "name": "widget",
+    "namespace": "Nemundo\\Content\\App\\Widget",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "a2a7ade1-769a-4973-9a75-e6c8bd4cdfe7",
+            "label": "test",
+            "class_name": "test",
+            "table_name": "widget_test",
+            "namespace": "Nemundo\\Content\\App\\Widget\\Data\\test",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": true,
+            "index": []
+        }
+    ]
+}

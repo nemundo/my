@@ -1,0 +1,48 @@
+{
+    "app": "Camera",
+    "name": "camera",
+    "namespace": "Nemundo\\Content\\App\\Camera",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "2a33737b-be1c-430e-b43c-5062b58d072f",
+            "label": "Camera",
+            "class_name": "Camera",
+            "table_name": "camera_camera",
+            "namespace": "Nemundo\\Content\\App\\Camera\\Data\\Camera",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "image",
+                    "label": "Image",
+                    "field_name": "image",
+                    "variable_name": "image",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "format": []
+                },
+                {
+                    "type": "text",
+                    "label": "Camera",
+                    "field_name": "camera",
+                    "variable_name": "camera",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "nemundo/framework",
+  "description": "Nemundo Framework",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Urs Lang",
+      "email": "urs.lang@gmail.com"
+    }
+  ],
+  "require": {
+    "nemundo/core": "*",
+    "nemundo/html": "*",
+    "nemundo/db": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nemundo\\": "src/"
+    }
+  }
+}

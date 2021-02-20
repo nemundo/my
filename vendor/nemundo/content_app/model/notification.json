@@ -1,0 +1,6 @@
+{
+    "app": "Notification",
+    "name": "notification",
+    "namespace": "Nemundo\\Content\\App\\Notification",
+    "is_deleted": false
+}

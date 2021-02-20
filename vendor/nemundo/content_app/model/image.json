@@ -1,0 +1,36 @@
+{
+    "app": "Image",
+    "name": "image",
+    "namespace": "Nemundo\\Content\\App\\Image",
+    "is_deleted": true,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "46e71c02-35cd-4884-bbf3-68684f49a2c2",
+            "label": "Image",
+            "class_name": "Image",
+            "table_name": "image_image",
+            "namespace": "Nemundo\\Content\\App\\Image\\Data\\Image",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "image",
+                    "label": "Image",
+                    "field_name": "image",
+                    "variable_name": "image",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "format": [
+                        {
+                            "format_type": "auto_size",
+                            "size": "400"
+                        }
+                    ]
+                }
+            ],
+            "index": []
+        }
+    ]
+}

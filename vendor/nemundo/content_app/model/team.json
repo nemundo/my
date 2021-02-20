@@ -1,0 +1,31 @@
+{
+    "app": "Team",
+    "name": "team",
+    "namespace": "Nemundo\\Content\\App\\Team",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "8e800afc-60e8-4618-925b-9cf1cc39ea23",
+            "label": "Team",
+            "class_name": "Team",
+            "table_name": "team_team",
+            "namespace": "Nemundo\\Content\\App\\Team\\Data\\Team",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Team",
+                    "field_name": "team",
+                    "variable_name": "team",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

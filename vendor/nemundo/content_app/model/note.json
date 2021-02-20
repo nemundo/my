@@ -1,0 +1,39 @@
+{
+    "app": "Note",
+    "name": "note",
+    "namespace": "Nemundo\\Content\\App\\Note",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "df64be20-1761-49a3-8abf-e56b9b543eb1",
+            "label": "Note",
+            "class_name": "Note",
+            "table_name": "note_note",
+            "namespace": "Nemundo\\Content\\App\\Note\\Data\\Note",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Title",
+                    "field_name": "title",
+                    "variable_name": "title",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Text",
+                    "field_name": "text",
+                    "variable_name": "text",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

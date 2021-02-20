@@ -1,0 +1,57 @@
+{
+    "app": "Favorite",
+    "name": "favorite",
+    "namespace": "Nemundo\\Content\\App\\Favorite",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "ddeacb3d-8964-47bc-b593-bb783cb8a25c",
+            "label": "Favorite",
+            "class_name": "Favorite",
+            "table_name": "favorite_favorite",
+            "namespace": "Nemundo\\Content\\App\\Favorite\\Data\\Favorite",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "user",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Subject",
+                    "field_name": "subject",
+                    "variable_name": "subject",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "user_content",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "user",
+                        "content"
+                    ]
+                }
+            ]
+        }
+    ]
+}

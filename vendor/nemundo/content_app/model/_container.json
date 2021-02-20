@@ -1,0 +1,62 @@
+{
+    "app": "Container",
+    "name": "container",
+    "namespace": "Nemundo\\Content\\App\\Container",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "e36b041e-64a0-4efc-8db3-43b363bb8fae",
+            "label": "Content Container",
+            "class_name": "ContentContainer",
+            "table_name": "container_content_container",
+            "namespace": "Nemundo\\Content\\App\\Container\\Data\\ContentContainer",
+            "row_class_name": "",
+            "primary_index": "text_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Subject",
+                    "field_name": "subject",
+                    "variable_name": "subject",
+                    "allow_null": true,
+                    "is_deleted": true,
+                    "length": "255"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Description",
+                    "field_name": "description",
+                    "variable_name": "description",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "image",
+                    "label": "Icon",
+                    "field_name": "icon",
+                    "variable_name": "icon",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "format": [
+                        {
+                            "format_type": "auto_size",
+                            "size": "200"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "label": "Container",
+                    "field_name": "container",
+                    "variable_name": "container",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

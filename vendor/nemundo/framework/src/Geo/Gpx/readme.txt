@@ -1,0 +1,5 @@
+
+
+https://de.wikipedia.org/wiki/GPS_Exchange_Format
+
+SchweizMobil

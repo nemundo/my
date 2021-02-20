@@ -1,0 +1,147 @@
+{
+    "app": "User",
+    "name": "user",
+    "namespace": "Nemundo\\User",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "23f00db8-b303-40e4-ab45-32054a954434",
+            "label": "User",
+            "class_name": "User",
+            "table_name": "user_user",
+            "namespace": "Nemundo\\User\\Data\\User",
+            "row_class_name": "",
+            "primary_index": "unique_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "yes_no",
+                    "label": "Active",
+                    "field_name": "active",
+                    "variable_name": "active",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Login",
+                    "field_name": "login",
+                    "variable_name": "login",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Password",
+                    "field_name": "password",
+                    "variable_name": "password",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "eMail",
+                    "field_name": "email",
+                    "variable_name": "email",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Display Name",
+                    "field_name": "display_name",
+                    "variable_name": "displayName",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Secure Token",
+                    "field_name": "secure_token",
+                    "variable_name": "secureToken",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "39eb3ac7-9bd2-4b3a-b630-a518be4b5ffa",
+            "label": "User Usergroup",
+            "class_name": "UserUsergroup",
+            "table_name": "user_user_usergroup",
+            "namespace": "Nemundo\\User\\Data\\UserUsergroup",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "23f00db8-b303-40e4-ab45-32054a954434"
+                },
+                {
+                    "type": "external",
+                    "label": "Usergroup",
+                    "field_name": "usergroup",
+                    "variable_name": "usergroup",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "ce60fb43-4204-4759-9a60-fd9fa58b33c8"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "user_usergroup",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "user",
+                        "usergroup"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "ce60fb43-4204-4759-9a60-fd9fa58b33c8",
+            "label": "Usergroup",
+            "class_name": "Usergroup",
+            "table_name": "user_usergroup",
+            "namespace": "Nemundo\\User\\Data\\Usergroup",
+            "row_class_name": "",
+            "primary_index": "text_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Usergroup",
+                    "field_name": "usergroup",
+                    "variable_name": "usergroup",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Setup Status",
+                    "field_name": "setup_status",
+                    "variable_name": "setupStatus",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

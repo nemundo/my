@@ -1,0 +1,29 @@
+.div1 {
+
+    width: 100px;
+    height:100px;
+    background-color: #0d95e8;
+
+
+}
+
+
+
+
+.nemundo_table {
+
+    background-color: #e0e0e0;
+
+}
+
+.nemundo_table tr {
+    border: none;
+}
+
+.nemundo_table tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.nemundo_table td {
+    padding: 10px;
+}

@@ -1,0 +1,186 @@
+{
+    "app": "Dashboard",
+    "name": "dashboard",
+    "namespace": "Nemundo\\Content\\App\\Dashboard",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "fae510d9-7bfd-44e7-8aae-bdcb0ecf8c68",
+            "label": "Dashboard",
+            "class_name": "Dashboard",
+            "table_name": "dashboard_dashboard",
+            "namespace": "Nemundo\\Content\\App\\Dashboard\\Data\\Dashboard",
+            "row_class_name": "",
+            "primary_index": "text_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": false,
+                    "is_deleted": true,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Setup Status",
+                    "field_name": "setup_status",
+                    "variable_name": "setupStatus",
+                    "allow_null": false,
+                    "is_deleted": true
+                },
+                {
+                    "type": "text",
+                    "label": "Unique Name",
+                    "field_name": "unique_name",
+                    "variable_name": "uniqueName",
+                    "allow_null": false,
+                    "is_deleted": true,
+                    "length": "50"
+                },
+                {
+                    "type": "number",
+                    "label": "Column Count",
+                    "field_name": "column_count",
+                    "variable_name": "columnCount",
+                    "allow_null": false,
+                    "is_deleted": true
+                },
+                {
+                    "type": "text",
+                    "label": "Dashboard",
+                    "field_name": "dashboard",
+                    "variable_name": "dashboard",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Url",
+                    "field_name": "url",
+                    "variable_name": "url",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "url",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "url"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "a7019116-97e6-436d-80cd-cd327c9bd032",
+            "label": "Dashboard Column",
+            "class_name": "DashboardColumn",
+            "table_name": "dashboard_dashboard_column",
+            "namespace": "Nemundo\\Content\\App\\Dashboard\\Data\\DashboardColumn",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Dashboard",
+                    "field_name": "dashboard",
+                    "variable_name": "dashboard",
+                    "allow_null": true,
+                    "is_deleted": true,
+                    "external_model_id": "fae510d9-7bfd-44e7-8aae-bdcb0ecf8c68"
+                },
+                {
+                    "type": "number",
+                    "label": "Column Width",
+                    "field_name": "column_width",
+                    "variable_name": "columnWidth",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "86839dd8-8b1a-49dc-bcf2-6c6571345d0a",
+            "label": "User Dashboard",
+            "class_name": "UserDashboard",
+            "table_name": "dashboard_user_dashboard",
+            "namespace": "Nemundo\\Content\\App\\Dashboard\\Data\\UserDashboard",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "user",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": false,
+                    "is_deleted": true
+                },
+                {
+                    "type": "external",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": false,
+                    "is_deleted": true,
+                    "external_model_id": "23f00db8-b303-40e4-ab45-32054a954434"
+                },
+                {
+                    "type": "external",
+                    "label": "Dashboard",
+                    "field_name": "dashboard",
+                    "variable_name": "dashboard",
+                    "allow_null": false,
+                    "is_deleted": true,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "number",
+                    "label": "Item Order",
+                    "field_name": "item_order",
+                    "variable_name": "itemOrder",
+                    "allow_null": false,
+                    "is_deleted": true
+                },
+                {
+                    "type": "created_user",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Dashboard",
+                    "field_name": "dashboard",
+                    "variable_name": "dashboard",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "user",
+                    "index_type": "index",
+                    "field_name": [
+                        "user"
+                    ]
+                }
+            ]
+        }
+    ]
+}

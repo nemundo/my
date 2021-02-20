@@ -1,0 +1,111 @@
+{
+    "app": "Chart",
+    "name": "chart",
+    "namespace": "Nemundo\\Content\\App\\Chart",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "57d5d30f-e643-4a9a-9ec0-0ceb5cbc1206",
+            "label": "Chart",
+            "class_name": "Chart",
+            "table_name": "chart_chart",
+            "namespace": "Nemundo\\Content\\App\\Chart\\Data\\Chart",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Chart",
+                    "field_name": "chart",
+                    "variable_name": "chart",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "c79d3502-f7b3-4e31-8e25-d1cd8d00e623",
+            "label": "Chart Data",
+            "class_name": "ChartData",
+            "table_name": "chart_chart_data",
+            "namespace": "Nemundo\\Content\\App\\Chart\\Data\\ChartData",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Chart",
+                    "field_name": "chart",
+                    "variable_name": "chart",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "57d5d30f-e643-4a9a-9ec0-0ceb5cbc1206"
+                },
+                {
+                    "type": "text",
+                    "label": "X Value",
+                    "field_name": "x_value",
+                    "variable_name": "xValue",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "number",
+                    "label": "Y Value",
+                    "field_name": "y_value",
+                    "variable_name": "yValue",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "chart",
+                    "index_type": "index",
+                    "field_name": [
+                        "chart"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "be5ec4ef-5521-4066-93d7-120c381b080c",
+            "label": "Chart Line",
+            "class_name": "ChartLine",
+            "table_name": "chart_chart_line",
+            "namespace": "Nemundo\\Content\\App\\Chart\\Data\\ChartLine",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Chart",
+                    "field_name": "chart",
+                    "variable_name": "chart",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "57d5d30f-e643-4a9a-9ec0-0ceb5cbc1206"
+                },
+                {
+                    "type": "text",
+                    "label": "Line Label",
+                    "field_name": "line_label",
+                    "variable_name": "lineLabel",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

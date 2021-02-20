@@ -1,0 +1,6 @@
+{
+    "app": "Translation",
+    "name": "translation",
+    "namespace": "Nemundo\\Content\\Translation",
+    "is_deleted": false
+}

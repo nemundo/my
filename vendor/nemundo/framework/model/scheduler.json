@@ -1,0 +1,199 @@
+{
+    "app": "Scheduler",
+    "name": "scheduler",
+    "namespace": "Nemundo\\App\\Scheduler",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "2ea91806-872d-4813-acbf-b33ab7059884",
+            "label": "Scheduler",
+            "class_name": "Scheduler",
+            "table_name": "scheduler_scheduler",
+            "namespace": "Nemundo\\App\\Scheduler\\Data\\Scheduler",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Script",
+                    "field_name": "script",
+                    "variable_name": "script",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "03222a83-fda9-442c-b530-00cc87588637"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Active",
+                    "field_name": "active",
+                    "variable_name": "active",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Override Setting",
+                    "field_name": "override_setting",
+                    "variable_name": "overrideSetting",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Running",
+                    "field_name": "running",
+                    "variable_name": "running",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Day",
+                    "field_name": "day",
+                    "variable_name": "day",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Hour",
+                    "field_name": "hour",
+                    "variable_name": "hour",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Minute",
+                    "field_name": "minute",
+                    "variable_name": "minute",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Specific Start Time",
+                    "field_name": "specific_start_time",
+                    "variable_name": "specificStartTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "time",
+                    "label": "Start Time",
+                    "field_name": "start_time",
+                    "variable_name": "startTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Setup Status",
+                    "field_name": "setup_status",
+                    "variable_name": "setupStatus",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "script",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "script"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "98b20d4b-dd55-4edd-9495-1c87883d831c",
+            "label": "Scheduler Log",
+            "class_name": "SchedulerLog",
+            "table_name": "scheduler_log",
+            "namespace": "Nemundo\\App\\Scheduler\\Data\\SchedulerLog",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Scheduler",
+                    "field_name": "scheduler",
+                    "variable_name": "scheduler",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "2ea91806-872d-4813-acbf-b33ab7059884"
+                },
+                {
+                    "type": "external",
+                    "label": "Scheduler Status",
+                    "field_name": "scheduler_status",
+                    "variable_name": "schedulerStatus",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "58be01d6-5944-479b-8ca1-ead2ddc7b191"
+                },
+                {
+                    "type": "date_time",
+                    "label": "Planned Date Time",
+                    "field_name": "planned_date_time",
+                    "variable_name": "plannedDateTime",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Duration",
+                    "field_name": "duration",
+                    "variable_name": "duration",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "date_time",
+                    "label": "Running Date Time",
+                    "field_name": "running_date_time",
+                    "variable_name": "runningDateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "scheduler_status",
+                    "index_type": "index",
+                    "field_name": [
+                        "scheduler",
+                        "scheduler_status"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "58be01d6-5944-479b-8ca1-ead2ddc7b191",
+            "label": "Scheduler Status",
+            "class_name": "SchedulerStatus",
+            "table_name": "scheduler_status",
+            "namespace": "Nemundo\\App\\Scheduler\\Data\\SchedulerStatus",
+            "row_class_name": "",
+            "primary_index": "number_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Scheduler Status",
+                    "field_name": "scheduler_status",
+                    "variable_name": "schedulerStatus",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

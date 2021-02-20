@@ -1,0 +1,39 @@
+{
+    "app": "Message",
+    "name": "message",
+    "namespace": "Nemundo\\Content\\App\\Message",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "31c6e2fe-d20e-492e-a694-e58b3f8d3cf5",
+            "label": "Message",
+            "class_name": "Message",
+            "table_name": "message_message",
+            "namespace": "Nemundo\\Content\\App\\Message\\Data\\Message",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "To",
+                    "field_name": "to",
+                    "variable_name": "to",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "23f00db8-b303-40e4-ab45-32054a954434"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Message",
+                    "field_name": "message",
+                    "variable_name": "message",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

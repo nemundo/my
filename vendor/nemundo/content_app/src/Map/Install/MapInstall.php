@@ -1,0 +1,33 @@
+<?php
+
+namespace Nemundo\Content\App\Map\Install;
+
+use Nemundo\App\Application\Setup\ApplicationSetup;
+use Nemundo\Content\App\Map\Application\MapApplication;
+use Nemundo\Content\App\Map\Content\GoogleMaps\GoogleMapsContentType;
+use Nemundo\Content\App\Map\Content\Route\RouteContentType;
+use Nemundo\Content\App\Map\Content\SwissMap\SwissMapContentType;
+use Nemundo\Content\App\Map\Data\MapModelCollection;
+use Nemundo\Content\Setup\ContentTypeSetup;
+use Nemundo\Model\Setup\ModelCollectionSetup;
+use Nemundo\Project\Install\AbstractInstall;
+
+class MapInstall extends AbstractInstall
+{
+    public function install()
+    {
+
+        (new ApplicationSetup())
+            ->addApplication(new MapApplication());
+
+        (new ModelCollectionSetup())
+            ->addCollection(new MapModelCollection());
+
+        (new ContentTypeSetup(new MapApplication()))
+            ->addContentType(new RouteContentType())
+            ->addContentType(new GoogleMapsContentType())
+            ->addContentType(new SwissMapContentType());
+
+
+    }
+}

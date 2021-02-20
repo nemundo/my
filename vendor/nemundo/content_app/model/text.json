@@ -1,0 +1,252 @@
+{
+    "app": "Text",
+    "name": "text",
+    "namespace": "Nemundo\\Content\\App\\Text",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "dc842ed8-a62f-431f-a650-6f2e9e70e602",
+            "label": "Large Text",
+            "class_name": "LargeText",
+            "table_name": "text_large_text",
+            "namespace": "Nemundo\\Content\\App\\Text\\Data\\LargeText",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "large_text",
+                    "label": "Large Text",
+                    "field_name": "large_text",
+                    "variable_name": "largeText",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "d98bad39-1681-4dd6-aa97-c35336c894db",
+            "label": "Text",
+            "class_name": "Text",
+            "table_name": "text_text",
+            "namespace": "Nemundo\\Content\\App\\Text\\Data\\Text",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Text",
+                    "field_name": "text",
+                    "variable_name": "text",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "bc530965-a82e-4921-ba4f-866f4898df2c",
+            "label": "Text Index",
+            "class_name": "TextIndex",
+            "table_name": "text_text_index",
+            "namespace": "Nemundo\\Content\\App\\Text\\Data\\TextIndex",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Parent",
+                    "field_name": "parent",
+                    "variable_name": "parent",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "text",
+                    "label": "Text",
+                    "field_name": "text",
+                    "variable_name": "text",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "content",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "content"
+                    ]
+                },
+                {
+                    "index_name": "parent",
+                    "index_type": "index",
+                    "field_name": [
+                        "parent"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "b718452d-2d76-4631-9e22-43b207ac40aa",
+            "label": "Text Log",
+            "class_name": "TextLog",
+            "table_name": "text_text_log",
+            "namespace": "Nemundo\\Content\\App\\Text\\Data\\TextLog",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": true,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Text Old",
+                    "field_name": "text_old",
+                    "variable_name": "textOld",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Text New",
+                    "field_name": "text_new",
+                    "variable_name": "textNew",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "55efa56d-7aa3-4cfe-baf7-9e6d5d328e56",
+            "label": "Version Large Text",
+            "class_name": "VersionLargeText",
+            "table_name": "text_version_large_text",
+            "namespace": "Nemundo\\Content\\App\\Text\\Data\\VersionLargeText",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Large Text",
+                    "field_name": "large_text",
+                    "variable_name": "largeText",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "created_user",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "ea04b0a5-0153-48fb-9db0-ae7236c5b190",
+            "label": "Version Text",
+            "class_name": "VersionText",
+            "table_name": "text_version_text",
+            "namespace": "Nemundo\\Content\\App\\Text\\Data\\VersionText",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Version Text",
+                    "field_name": "version_text",
+                    "variable_name": "versionText",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "number",
+                    "label": "Version",
+                    "field_name": "version",
+                    "variable_name": "version",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Text",
+                    "field_name": "text",
+                    "variable_name": "text",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "d98bad39-1681-4dd6-aa97-c35336c894db"
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "created_user",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "text",
+                    "index_type": "index",
+                    "field_name": [
+                        "text"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "app": "Listing",
+    "name": "listing",
+    "namespace": "Nemundo\\Content\\App\\Listing",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "5a42ae73-5506-41fd-9faf-c0654ed2c13c",
+            "label": "Listing",
+            "class_name": "Listing",
+            "table_name": "listing_listing",
+            "namespace": "Nemundo\\Content\\App\\Listing\\Data\\Listing",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "c61fe50e-e003-4be7-9e9f-5bc3eeccf37b",
+            "label": "Listing Value",
+            "class_name": "ListingValue",
+            "table_name": "listing_listing_value",
+            "namespace": "Nemundo\\Content\\App\\Listing\\Data\\ListingValue",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Listing",
+                    "field_name": "listing",
+                    "variable_name": "listing",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "5a42ae73-5506-41fd-9faf-c0654ed2c13c"
+                },
+                {
+                    "type": "text",
+                    "label": "Value",
+                    "field_name": "value",
+                    "variable_name": "value",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "listing",
+                    "index_type": "index",
+                    "field_name": [
+                        "listing"
+                    ]
+                }
+            ]
+        }
+    ]
+}

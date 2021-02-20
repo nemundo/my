@@ -1,0 +1,56 @@
+{
+    "app": "Log",
+    "name": "log",
+    "namespace": "Nemundo\\Content\\Index\\Log",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "ed560669-0e3c-4e26-98eb-b22a65e21786",
+            "label": "Log",
+            "class_name": "Log",
+            "table_name": "content_log",
+            "namespace": "Nemundo\\Content\\Index\\Log\\Data\\Log",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Content Log",
+                    "field_name": "content_log",
+                    "variable_name": "contentLog",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "created_user",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Content Item",
+                    "field_name": "content_item",
+                    "variable_name": "contentItem",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "app": "Log",
+    "name": "log",
+    "namespace": "Nemundo\\Content\\App\\Log",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "7383fdbd-ae7b-4a25-83da-6518ab26c7cb",
+            "label": "Log Mesage",
+            "class_name": "LogMessage",
+            "table_name": "log_message",
+            "namespace": "Nemundo\\Content\\App\\Log\\Data\\LogMessage",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Log",
+                    "field_name": "log",
+                    "variable_name": "log",
+                    "allow_null": true,
+                    "is_deleted": true,
+                    "length": "255"
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Message",
+                    "field_name": "message",
+                    "variable_name": "message",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "date_time",
+                    "index_type": "index",
+                    "field_name": [
+                        "date_time"
+                    ]
+                }
+            ]
+        }
+    ]
+}

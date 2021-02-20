@@ -1,0 +1,30 @@
+{
+    "app": "Store",
+    "name": "store",
+    "namespace": "Nemundo\\Content\\App\\Store",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "dac81d77-cc53-49cf-bfea-e7ae664812c3",
+            "label": "Number Store",
+            "class_name": "NumberStore",
+            "table_name": "store_number_store",
+            "namespace": "Nemundo\\Content\\App\\Store\\Data\\NumberStore",
+            "row_class_name": "",
+            "primary_index": "text_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "number",
+                    "label": "Number",
+                    "field_name": "number",
+                    "variable_name": "number",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

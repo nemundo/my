@@ -1,0 +1,81 @@
+{
+    "app": "Script",
+    "name": "script",
+    "namespace": "Nemundo\\App\\Script",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "03222a83-fda9-442c-b530-00cc87588637",
+            "label": "Script",
+            "class_name": "Script",
+            "table_name": "script_script",
+            "namespace": "Nemundo\\App\\Script\\Data\\Script",
+            "row_class_name": "Nemundo\\App\\Script\\Row\\ScriptCustomRow",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Script Name",
+                    "field_name": "script_name",
+                    "variable_name": "scriptName",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Script Class",
+                    "field_name": "script_class",
+                    "variable_name": "scriptClass",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Description",
+                    "field_name": "description",
+                    "variable_name": "description",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Application",
+                    "field_name": "application",
+                    "variable_name": "application",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "be58745e-78c3-4c3a-aadc-d2b26d233518"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Console Script",
+                    "field_name": "console_script",
+                    "variable_name": "consoleScript",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Setup Status",
+                    "field_name": "setup_status",
+                    "variable_name": "setupStatus",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "script_name",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "script_class"
+                    ]
+                }
+            ]
+        }
+    ]
+}

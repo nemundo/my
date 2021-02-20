@@ -1,0 +1,66 @@
+<?php
+
+
+namespace Nemundo\Content\Index\Group\User;
+
+
+use Nemundo\Core\Base\AbstractBase;
+use Nemundo\Content\Index\Group\Data\GroupUser\GroupUserReader;
+
+
+// move to ...
+
+//MitarbeiterLookup
+
+class GroupUserLookup extends AbstractBase
+{
+
+    private $userId;
+
+    public function __construct($userId)
+    {
+        $this->userId = $userId;
+    }
+
+
+    /*
+    public function getGroupId() {
+
+        $groupId = null;
+
+        $reader = new GroupUserReader();
+        $reader->model->loadGroup();
+        //$reader->filter->andEqual($reader->model->group->groupTypeId, (new UserGroupType())->contentId);
+        $reader->filter->andEqual($reader->model->group->groupTypeId, (new MitarbeiterGroupContentType())->typeId);
+
+        $reader->filter->andEqual($reader->model->userId,$this->userId);
+        foreach ($reader->getData() as $groupUserRow) {
+            $groupId = $groupUserRow->groupId;
+        }
+
+        return $groupId;
+
+    }*/
+
+
+    public function getGroupIdList()
+    {
+
+        //$groupId = null;
+
+        $list = [];
+
+        $reader = new GroupUserReader();
+        $reader->model->loadGroup();
+        $reader->filter->andEqual($reader->model->userId, $this->userId);
+        foreach ($reader->getData() as $groupUserRow) {
+            //$groupId = $groupUserRow->groupId;
+            $list[] = $groupUserRow->groupId;
+        }
+
+        return $list;
+
+    }
+
+
+}

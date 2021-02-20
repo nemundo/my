@@ -1,0 +1,40 @@
+{
+    "app": "WebRadio",
+    "name": "webradio",
+    "namespace": "Nemundo\\Content\\App\\WebRadio",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "9a07cdc1-7330-41a1-bd29-5a9e15f29580",
+            "label": "Web Radio",
+            "class_name": "WebRadio",
+            "table_name": "webradio_web_radio",
+            "namespace": "Nemundo\\Content\\App\\WebRadio\\Data\\WebRadio",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Web Radio",
+                    "field_name": "web_radio",
+                    "variable_name": "webRadio",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Stream Url",
+                    "field_name": "stream_url",
+                    "variable_name": "streamUrl",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

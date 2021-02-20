@@ -1,0 +1,47 @@
+{
+    "app": "Feiertag",
+    "name": "feiertag",
+    "namespace": "Nemundo\\Content\\App\\Feiertag",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "9a4d9859-7c25-4112-a819-c38fc1ac244d",
+            "label": "Feiertag",
+            "class_name": "Feiertag",
+            "table_name": "feiertag_feiertag",
+            "namespace": "Nemundo\\Content\\App\\Feiertag\\Data\\Feiertag",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "date",
+                    "label": "Datum",
+                    "field_name": "datum",
+                    "variable_name": "datum",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Feiertag",
+                    "field_name": "feiertag",
+                    "variable_name": "feiertag",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "datum",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "datum"
+                    ]
+                }
+            ]
+        }
+    ]
+}

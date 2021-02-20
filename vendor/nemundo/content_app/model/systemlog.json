@@ -1,0 +1,39 @@
+{
+    "app": "SystemLog",
+    "name": "systemlog",
+    "namespace": "Nemundo\\Content\\App\\SystemLog",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "bc6e3e7a-d159-452d-a9aa-c5e2e87108c9",
+            "label": "System Log",
+            "class_name": "SystemLog",
+            "table_name": "systemlog_system_log",
+            "namespace": "Nemundo\\Content\\App\\SystemLog\\Data\\SystemLog",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Message",
+                    "field_name": "message",
+                    "variable_name": "message",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "app": "ImageTimeline",
+    "name": "imagetimeline",
+    "namespace": "Nemundo\\Content\\App\\ImageTimeline",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "4e58e6de-0548-4081-9945-bcf8712d6d4d",
+            "label": "Image Timeline",
+            "class_name": "ImageTimeline",
+            "table_name": "imagetimeline_image_timeline",
+            "namespace": "Nemundo\\Content\\App\\ImageTimeline\\Data\\ImageTimeline",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Timeline",
+                    "field_name": "timeline",
+                    "variable_name": "timeline",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Image Url",
+                    "field_name": "image_url",
+                    "variable_name": "imageUrl",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

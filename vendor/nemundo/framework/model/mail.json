@@ -1,0 +1,80 @@
+{
+    "app": "Mail",
+    "name": "mail",
+    "namespace": "Nemundo\\App\\Mail",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "e75e5f42-ecf6-451a-b529-6d5ebb41833a",
+            "label": "Mail Queue",
+            "class_name": "MailQueue",
+            "table_name": "mail_queue",
+            "namespace": "Nemundo\\App\\Mail\\Data\\MailQueue",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "yes_no",
+                    "label": "Send",
+                    "field_name": "send",
+                    "variable_name": "send",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "date_time",
+                    "label": "Date Time Send",
+                    "field_name": "date_time_send",
+                    "variable_name": "dateTimeSend",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Mail To",
+                    "field_name": "mail_to",
+                    "variable_name": "mailTo",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Subject",
+                    "field_name": "subject",
+                    "variable_name": "subject",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Text",
+                    "field_name": "text",
+                    "variable_name": "text",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time Created",
+                    "field_name": "date_time_created",
+                    "variable_name": "dateTimeCreated",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "send",
+                    "index_type": "index",
+                    "field_name": [
+                        "send"
+                    ]
+                }
+            ]
+        }
+    ]
+}

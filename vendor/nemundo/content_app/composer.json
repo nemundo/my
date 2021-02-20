@@ -1,0 +1,19 @@
+{
+  "name": "nemundo/content_app",
+  "description": "Content App",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Urs Lang",
+      "email": "urs.lang@gmail.com"
+    }
+  ],
+  "require": {
+    "nemundo/content": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nemundo\\Content\\App\\": "src/"
+    }
+  }
+}

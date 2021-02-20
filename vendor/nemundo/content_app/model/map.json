@@ -1,0 +1,100 @@
+{
+    "app": "Map",
+    "name": "map",
+    "namespace": "Nemundo\\Content\\App\\Map",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "cdbc2347-3200-4938-8534-e89e2b60a582",
+            "label": "Route",
+            "class_name": "Route",
+            "table_name": "map_route",
+            "namespace": "Nemundo\\Content\\App\\Map\\Data\\Route",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Route",
+                    "field_name": "route",
+                    "variable_name": "route",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "file",
+                    "label": "Gpx File",
+                    "field_name": "gpx_file",
+                    "variable_name": "gpxFile",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "05dd5202-30af-443e-9a8e-d8e6be739e6b",
+            "label": "Route Coordinate",
+            "class_name": "RouteCoordinate",
+            "table_name": "map_route_coordinate",
+            "namespace": "Nemundo\\Content\\App\\Map\\Data\\RouteCoordinate",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Route",
+                    "field_name": "route",
+                    "variable_name": "route",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "cdbc2347-3200-4938-8534-e89e2b60a582"
+                },
+                {
+                    "type": "geo_coordinate_altitude",
+                    "label": "Geo Coordinate",
+                    "field_name": "geo_coordinate",
+                    "variable_name": "geoCoordinate",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "route",
+                    "index_type": "index",
+                    "field_name": [
+                        "route"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "874a546b-9fd1-42eb-a72a-08f265d8cfda",
+            "label": "Swiss Map Content",
+            "class_name": "SwissMapContent",
+            "table_name": "map_swiss_map_content",
+            "namespace": "Nemundo\\Content\\App\\Map\\Data\\SwissMapContent",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "geo_coordinate",
+                    "label": "Geo Coordinate",
+                    "field_name": "geo_coordinate",
+                    "variable_name": "geoCoordinate",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

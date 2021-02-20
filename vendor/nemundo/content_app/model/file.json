@@ -1,0 +1,414 @@
+{
+    "app": "File",
+    "name": "file",
+    "namespace": "Nemundo\\Content\\App\\File",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "3fdfcf8b-5f0f-44f3-a47a-09d9ccdae51b",
+            "label": "Audio",
+            "class_name": "Audio",
+            "table_name": "file_audio",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\Audio",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "file",
+                    "label": "Audio",
+                    "field_name": "audio",
+                    "variable_name": "audio",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Length",
+                    "field_name": "length",
+                    "variable_name": "length",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Orginal Filename",
+                    "field_name": "orginal_filename",
+                    "variable_name": "orginalFilename",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "a70acf33-34e1-42e9-8d3d-2caa596db29e",
+            "label": "Document",
+            "class_name": "Document",
+            "table_name": "file_document",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\Document",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "redirect_filename",
+                    "label": "Document",
+                    "field_name": "document",
+                    "variable_name": "document",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "large_text",
+                    "label": "Text",
+                    "field_name": "text",
+                    "variable_name": "text",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "27a9e38b-2d06-4b6d-b8b6-fd80920ed6e4",
+            "label": "Document Index",
+            "class_name": "DocumentIndex",
+            "table_name": "file_document_index",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\DocumentIndex",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": true,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Parent",
+                    "field_name": "parent",
+                    "variable_name": "parent",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "text",
+                    "label": "Filename",
+                    "field_name": "filename",
+                    "variable_name": "filename",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "content",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "content"
+                    ]
+                },
+                {
+                    "index_name": "parent",
+                    "index_type": "index",
+                    "field_name": [
+                        "parent"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "51eef234-361f-4ae8-8af0-3f6e5ca08673",
+            "label": "Download Job",
+            "class_name": "DownloadJob",
+            "table_name": "file_download_job",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\DownloadJob",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Url",
+                    "field_name": "url",
+                    "variable_name": "url",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Done",
+                    "field_name": "done",
+                    "variable_name": "done",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "0e90779e-3529-4d88-abda-9966c75c6300",
+            "label": "File",
+            "class_name": "File",
+            "table_name": "file_file",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\File",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "redirect_filename",
+                    "label": "File",
+                    "field_name": "file",
+                    "variable_name": "file",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "created_user",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "aafdf359-f890-4790-af7a-f987d8dea65f",
+            "label": "File Index",
+            "class_name": "FileIndex",
+            "table_name": "file_file_index",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\FileIndex",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Parent",
+                    "field_name": "parent",
+                    "variable_name": "parent",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "external",
+                    "label": "File",
+                    "field_name": "file",
+                    "variable_name": "file",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "0e90779e-3529-4d88-abda-9966c75c6300"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "parent",
+                    "index_type": "index",
+                    "field_name": [
+                        "parent"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "17008142-21d2-4c00-a5dc-8956ab1ef751",
+            "label": "Image",
+            "class_name": "Image",
+            "table_name": "file_image",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\Image",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "image",
+                    "label": "Image",
+                    "field_name": "image",
+                    "variable_name": "image",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "format": [
+                        {
+                            "format_type": "auto_size",
+                            "size": "400"
+                        },
+                        {
+                            "format_type": "auto_size",
+                            "size": "1200"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "label": "File Extension",
+                    "field_name": "file_extension",
+                    "variable_name": "fileExtension",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "5"
+                },
+                {
+                    "type": "number",
+                    "label": "Image Width",
+                    "field_name": "image_width",
+                    "variable_name": "imageWidth",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Image Height",
+                    "field_name": "image_height",
+                    "variable_name": "imageHeight",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "File Size",
+                    "field_name": "file_size",
+                    "variable_name": "fileSize",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Orginal Filename",
+                    "field_name": "orginal_filename",
+                    "variable_name": "orginalFilename",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "ee4b222c-368d-4038-ab89-5e1687233108",
+            "label": "Image Index",
+            "class_name": "ImageIndex",
+            "table_name": "file_image_index",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\ImageIndex",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "image",
+                    "label": "Image",
+                    "field_name": "image",
+                    "variable_name": "image",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "format": [
+                        {
+                            "format_type": "auto_size",
+                            "size": "200"
+                        }
+                    ]
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "925af05f-4b11-4f5a-af44-b217d74d73b7",
+            "label": "Video",
+            "class_name": "Video",
+            "table_name": "file_video",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\Video",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "file",
+                    "label": "Video",
+                    "field_name": "video",
+                    "variable_name": "video",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Orginal Filename",
+                    "field_name": "orginal_filename",
+                    "variable_name": "orginalFilename",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "6413c87a-bb62-463c-9156-96157bdd3330",
+            "label": "Web File",
+            "class_name": "WebFile",
+            "table_name": "file_web_file",
+            "namespace": "Nemundo\\Content\\App\\File\\Data\\WebFile",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "file",
+                    "label": "File",
+                    "field_name": "file",
+                    "variable_name": "file",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

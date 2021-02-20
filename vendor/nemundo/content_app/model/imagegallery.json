@@ -1,0 +1,76 @@
+{
+    "app": "ImageGallery",
+    "name": "imagegallery",
+    "namespace": "Nemundo\\Content\\App\\ImageGallery",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "d3b17d7d-8bbb-4556-962b-7f62aca568f0",
+            "label": "Image",
+            "class_name": "Image",
+            "table_name": "imagegallery_image",
+            "namespace": "Nemundo\\Content\\App\\ImageGallery\\Data\\Image",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Gallery",
+                    "field_name": "gallery",
+                    "variable_name": "gallery",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "afacaed8-e021-4747-bc99-60de1d52b4b0"
+                },
+                {
+                    "type": "image",
+                    "label": "Image",
+                    "field_name": "image",
+                    "variable_name": "image",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "format": [
+                        {
+                            "format_type": "auto_size",
+                            "size": "800"
+                        },
+                        {
+                            "format_type": "auto_size",
+                            "size": "400"
+                        },
+                        {
+                            "format_type": "auto_size",
+                            "size": "1600"
+                        }
+                    ]
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "afacaed8-e021-4747-bc99-60de1d52b4b0",
+            "label": "Image Gallery",
+            "class_name": "ImageGallery",
+            "table_name": "imagegallery_image_gallery",
+            "namespace": "Nemundo\\Content\\App\\ImageGallery\\Data\\ImageGallery",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Image Gallery",
+                    "field_name": "image_gallery",
+                    "variable_name": "imageGallery",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

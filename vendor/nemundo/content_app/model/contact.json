@@ -1,0 +1,175 @@
+{
+    "app": "Contact",
+    "name": "contact",
+    "namespace": "Nemundo\\Content\\App\\Contact",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "7985f4eb-dff4-481b-ab15-190431b33f43",
+            "label": "Contact",
+            "class_name": "Contact",
+            "table_name": "contact_contact",
+            "namespace": "Nemundo\\Content\\App\\Contact\\Data\\Contact",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Company",
+                    "field_name": "company",
+                    "variable_name": "company",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Last Name",
+                    "field_name": "last_name",
+                    "variable_name": "lastName",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "First Name",
+                    "field_name": "first_name",
+                    "variable_name": "firstName",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Phone",
+                    "field_name": "phone",
+                    "variable_name": "phone",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "eMail",
+                    "field_name": "email",
+                    "variable_name": "email",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "51363de4-5c74-49f2-a04b-de064d548c53",
+            "label": "Contact Index",
+            "class_name": "ContactIndex",
+            "table_name": "contact_contact_index",
+            "namespace": "Nemundo\\Content\\App\\Contact\\Data\\ContactIndex",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "text",
+                    "label": "Company",
+                    "field_name": "company",
+                    "variable_name": "company",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Last Name",
+                    "field_name": "last_name",
+                    "variable_name": "lastName",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "First Name",
+                    "field_name": "first_name",
+                    "variable_name": "firstName",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Phone",
+                    "field_name": "phone",
+                    "variable_name": "phone",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Email",
+                    "field_name": "email",
+                    "variable_name": "email",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "external",
+                    "label": "Source",
+                    "field_name": "source",
+                    "variable_name": "source",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "content",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "content"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "941f0ce5-4c17-42b0-9e55-4e1e800923a4",
+            "label": "Phone",
+            "class_name": "Phone",
+            "table_name": "contact_phone",
+            "namespace": "Nemundo\\Content\\App\\Contact\\Data\\Phone",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Phone",
+                    "field_name": "phone",
+                    "variable_name": "phone",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

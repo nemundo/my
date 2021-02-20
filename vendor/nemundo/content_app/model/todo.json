@@ -1,0 +1,31 @@
+{
+    "app": "ToDo",
+    "name": "todo",
+    "namespace": "Nemundo\\Content\\App\\ToDo",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "48a0729e-0dff-4985-81ac-5ba9d42a6d59",
+            "label": "To Do",
+            "class_name": "ToDo",
+            "table_name": "todo_to_do",
+            "namespace": "Nemundo\\Content\\App\\ToDo\\Data\\ToDo",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "To Do",
+                    "field_name": "to_do",
+                    "variable_name": "toDo",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

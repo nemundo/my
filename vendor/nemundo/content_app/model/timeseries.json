@@ -1,0 +1,443 @@
+{
+    "app": "TimeSeries",
+    "name": "timeseries",
+    "namespace": "Nemundo\\Content\\App\\TimeSeries",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "c16de24b-aa99-49bd-8a2b-67ae79422f1c",
+            "label": "Chart",
+            "class_name": "Chart",
+            "table_name": "timeseries_chart",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\Chart",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": true,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Chart Title",
+                    "field_name": "chart_title",
+                    "variable_name": "chartTitle",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "e4076090-23d3-4743-9941-163e7f39fd3e",
+            "label": "Line",
+            "class_name": "Line",
+            "table_name": "timeseries_line",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\Line",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Time Series",
+                    "field_name": "time_series",
+                    "variable_name": "timeSeries",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "1b17282e-9c4c-4a20-b570-af3208a6fa5e"
+                },
+                {
+                    "type": "text",
+                    "label": "Line",
+                    "field_name": "line",
+                    "variable_name": "line",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Unique Name",
+                    "field_name": "unique_name",
+                    "variable_name": "uniqueName",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "50"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "time_series_unique_name",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "time_series",
+                        "unique_name"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "9ea57326-934a-407d-817b-fae991a9407e",
+            "label": "Period",
+            "class_name": "Period",
+            "table_name": "timeseries_period",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\Period",
+            "row_class_name": "Nemundo\\Content\\App\\TimeSeries\\Row\\PeriodCustomRow",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "number",
+                    "label": "Year",
+                    "field_name": "year",
+                    "variable_name": "year",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "date",
+                    "label": "Date",
+                    "field_name": "date",
+                    "variable_name": "date",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Week",
+                    "field_name": "week",
+                    "variable_name": "week",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Period Type",
+                    "field_name": "period_type",
+                    "variable_name": "periodType",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "9b72679c-0bfb-4a0b-a03b-cb7ad3ba6645"
+                },
+                {
+                    "type": "number",
+                    "label": "Week Year",
+                    "field_name": "week_year",
+                    "variable_name": "weekYear",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Month",
+                    "field_name": "month",
+                    "variable_name": "month",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Month Year",
+                    "field_name": "month_year",
+                    "variable_name": "monthYear",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "9b72679c-0bfb-4a0b-a03b-cb7ad3ba6645",
+            "label": "Period Type",
+            "class_name": "PeriodType",
+            "table_name": "timeseries_period_type",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\PeriodType",
+            "row_class_name": "",
+            "primary_index": "number_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Period Type",
+                    "field_name": "period_type",
+                    "variable_name": "periodType",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "1b17282e-9c4c-4a20-b570-af3208a6fa5e",
+            "label": "Time Series",
+            "class_name": "TimeSeries",
+            "table_name": "timeseries_time_series",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\TimeSeries",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Time Series",
+                    "field_name": "time_series",
+                    "variable_name": "timeSeries",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Unique Name",
+                    "field_name": "unique_name",
+                    "variable_name": "uniqueName",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Source",
+                    "field_name": "source",
+                    "variable_name": "source",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Source Url",
+                    "field_name": "source_url",
+                    "variable_name": "sourceUrl",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "date_time",
+                    "label": "Last Update",
+                    "field_name": "last_update",
+                    "variable_name": "lastUpdate",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "unique_name",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "unique_name"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "41127bb9-5a45-4b98-a250-39c26f641eb9",
+            "label": "Time Series Chart",
+            "class_name": "TimeSeriesChart",
+            "table_name": "timeseries_time_series_chart",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\TimeSeriesChart",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Time Series",
+                    "field_name": "time_series",
+                    "variable_name": "timeSeries",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "1b17282e-9c4c-4a20-b570-af3208a6fa5e"
+                },
+                {
+                    "type": "external",
+                    "label": "Line",
+                    "field_name": "line",
+                    "variable_name": "line",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "e4076090-23d3-4743-9941-163e7f39fd3e"
+                },
+                {
+                    "type": "date",
+                    "label": "Date From",
+                    "field_name": "date_from",
+                    "variable_name": "dateFrom",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "date",
+                    "label": "Date To",
+                    "field_name": "date_to",
+                    "variable_name": "dateTo",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Period Type",
+                    "field_name": "period_type",
+                    "variable_name": "periodType",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "9b72679c-0bfb-4a0b-a03b-cb7ad3ba6645"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "ddf666ac-d38a-4dc8-a700-62a1ac5b1ba8",
+            "label": "Time Series Data",
+            "class_name": "TimeSeriesData",
+            "table_name": "timeseries_timeseries_data",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\TimeSeriesData",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Time Series",
+                    "field_name": "time_series",
+                    "variable_name": "timeSeries",
+                    "allow_null": true,
+                    "is_deleted": true,
+                    "external_model_id": "1b17282e-9c4c-4a20-b570-af3208a6fa5e"
+                },
+                {
+                    "type": "external",
+                    "label": "Period",
+                    "field_name": "period",
+                    "variable_name": "period",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "9ea57326-934a-407d-817b-fae991a9407e"
+                },
+                {
+                    "type": "number",
+                    "label": "Value",
+                    "field_name": "value",
+                    "variable_name": "value",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Line",
+                    "field_name": "line",
+                    "variable_name": "line",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "e4076090-23d3-4743-9941-163e7f39fd3e"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "time_series_period",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "line",
+                        "period"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "2ca91993-2c80-4486-83d7-856ed31120de",
+            "label": "Time Series Period Type",
+            "class_name": "TimeSeriesPeriodType",
+            "table_name": "timeseries_time_series_period_type",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\TimeSeriesPeriodType",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Time Series",
+                    "field_name": "time_series",
+                    "variable_name": "timeSeries",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "1b17282e-9c4c-4a20-b570-af3208a6fa5e"
+                },
+                {
+                    "type": "external",
+                    "label": "Period Type",
+                    "field_name": "period_type",
+                    "variable_name": "periodType",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "9b72679c-0bfb-4a0b-a03b-cb7ad3ba6645"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "time_series_period_type",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "time_series",
+                        "period_type"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "c0b57f1c-966a-4ad6-9b9c-b65b9dee888c",
+            "label": "Unit",
+            "class_name": "Unit",
+            "table_name": "timeseries_unit",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\Unit",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Unit",
+                    "field_name": "unit",
+                    "variable_name": "unit",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "20"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "a58bd2cc-5dab-44e3-bdbd-f53779bd2fff",
+            "label": "Widget Line",
+            "class_name": "WidgetLine",
+            "table_name": "timeseries_widget_line",
+            "namespace": "Nemundo\\Content\\App\\TimeSeries\\Data\\WidgetLine",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Line",
+                    "field_name": "line",
+                    "variable_name": "line",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "e4076090-23d3-4743-9941-163e7f39fd3e"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

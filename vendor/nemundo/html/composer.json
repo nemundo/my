@@ -1,0 +1,17 @@
+{
+    "name": "nemundo/html",
+    "description": "Html Generator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nemundo",
+            "email": "urs.lang@gmail.com"
+        }
+    ],
+    "require": {
+        "nemundo/core": "*"
+    },
+    "autoload": {
+        "psr-4": {"Nemundo\\Html\\": "src/"}
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "app": "Invitation",
+    "name": "invitation",
+    "namespace": "Nemundo\\Content\\App\\Invitation",
+    "is_deleted": true,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "a1f0e374-e450-4a48-a276-0e52db90f084",
+            "label": "Invitation",
+            "class_name": "Invitation",
+            "table_name": "invitation_invitation",
+            "namespace": "Nemundo\\Content\\App\\Invitation\\Data\\Invitation",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Unique Id",
+                    "field_name": "unique_id",
+                    "variable_name": "uniqueId",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "36"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

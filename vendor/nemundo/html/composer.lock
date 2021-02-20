@@ -1,0 +1,51 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "60c26ebfabb1f9c71807ec28d84a1d65",
+    "packages": [
+        {
+            "name": "nemundo/core",
+            "version": "0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nemundo/core.git",
+                "reference": "81c8b75f7d7f1cd16a500bd3473f3d4359d0049d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nemundo/core/zipball/81c8b75f7d7f1cd16a500bd3473f3d4359d0049d",
+                "reference": "81c8b75f7d7f1cd16a500bd3473f3d4359d0049d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nemundo\\Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Urs Lang",
+                    "email": "urs.lang@gmail.com"
+                }
+            ],
+            "description": "Core Function",
+            "time": "2019-04-11T19:48:07+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

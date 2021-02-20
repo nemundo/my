@@ -1,0 +1,88 @@
+{
+    "app": "SystemLog",
+    "name": "systemlog",
+    "namespace": "Nemundo\\App\\SystemLog",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "2368d6a2-29a9-48cb-8b41-133829bdb51f",
+            "label": "Log",
+            "class_name": "Log",
+            "table_name": "systemlog_log",
+            "namespace": "Nemundo\\App\\SystemLog\\Data\\Log",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Application",
+                    "field_name": "application",
+                    "variable_name": "application",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "be58745e-78c3-4c3a-aadc-d2b26d233518"
+                },
+                {
+                    "type": "external",
+                    "label": "Log Type",
+                    "field_name": "log_type",
+                    "variable_name": "logType",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "0fa31964-c25b-4beb-af2e-5eac5804c2aa"
+                },
+                {
+                    "type": "text",
+                    "label": "Message",
+                    "field_name": "message",
+                    "variable_name": "message",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "application_date_time",
+                    "index_type": "index",
+                    "field_name": [
+                        "application"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "0fa31964-c25b-4beb-af2e-5eac5804c2aa",
+            "label": "LogType",
+            "class_name": "LogType",
+            "table_name": "systemlog_log_type",
+            "namespace": "Nemundo\\App\\SystemLog\\Data\\LogType",
+            "row_class_name": "",
+            "primary_index": "text_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Log Type",
+                    "field_name": "log_type",
+                    "variable_name": "logType",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "app": "UserProfile",
+    "name": "userprofile",
+    "namespace": "Nemundo\\Content\\App\\UserProfile",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "ebca90a7-4464-4af0-8a2b-c1119e9c9991",
+            "label": "User Profile",
+            "class_name": "UserProfile",
+            "table_name": "userprofile_user_profile",
+            "namespace": "Nemundo\\Content\\App\\UserProfile\\Data\\UserProfile",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "23f00db8-b303-40e4-ab45-32054a954434"
+                },
+                {
+                    "type": "text",
+                    "label": "Last Name",
+                    "field_name": "last_name",
+                    "variable_name": "lastName",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "First Name",
+                    "field_name": "first_name",
+                    "variable_name": "firstName",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "user",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "user"
+                    ]
+                }
+            ]
+        }
+    ]
+}

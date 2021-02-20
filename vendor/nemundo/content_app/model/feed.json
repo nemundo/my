@@ -1,0 +1,294 @@
+{
+    "app": "Feed",
+    "name": "feed",
+    "namespace": "Nemundo\\Content\\App\\Feed",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "6ea451f7-2f55-4057-a2e0-23492d193074",
+            "label": "Cms Feed",
+            "class_name": "CmsFeed",
+            "table_name": "feed_cms_feed",
+            "namespace": "Nemundo\\Content\\App\\Feed\\Data\\CmsFeed",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Feed",
+                    "field_name": "feed",
+                    "variable_name": "feed",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "718e5567-f690-45d2-b6d5-5aa8008401ba"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "aac2b966-839c-4c85-909e-4cf388ac5508",
+            "label": "Enclosure",
+            "class_name": "Enclosure",
+            "table_name": "feed_enclosure",
+            "namespace": "Nemundo\\Content\\App\\Feed\\Data\\Enclosure",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Feed Item",
+                    "field_name": "feed_item",
+                    "variable_name": "feedItem",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "fde64ff1-389b-4acb-9521-e939a6afb305"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "f8ccaea9-b39d-49a1-949e-a6e1778cf89b",
+            "label": "Enclosure Type",
+            "class_name": "EnclosureType",
+            "table_name": "feed_enclosure_type",
+            "namespace": "Nemundo\\Content\\App\\Feed\\Data\\EnclosureType",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Eenclosure Type",
+                    "field_name": "eenclosure_type",
+                    "variable_name": "eenclosureType",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "20"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "enclosure_type",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "eenclosure_type"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "718e5567-f690-45d2-b6d5-5aa8008401ba",
+            "label": "Feed",
+            "class_name": "Feed",
+            "table_name": "feed_feed",
+            "namespace": "Nemundo\\Content\\App\\Feed\\Data\\Feed",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Feed Url",
+                    "field_name": "feed_url",
+                    "variable_name": "feedUrl",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Title",
+                    "field_name": "title",
+                    "variable_name": "title",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": false,
+                    "is_deleted": true
+                },
+                {
+                    "type": "large_text",
+                    "label": "Text",
+                    "field_name": "text",
+                    "variable_name": "text",
+                    "allow_null": false,
+                    "is_deleted": true
+                },
+                {
+                    "type": "large_text",
+                    "label": "Description",
+                    "field_name": "description",
+                    "variable_name": "description",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "feed_url",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "feed_url"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "fde64ff1-389b-4acb-9521-e939a6afb305",
+            "label": "Feed Item",
+            "class_name": "FeedItem",
+            "table_name": "feed_item",
+            "namespace": "Nemundo\\Content\\App\\Feed\\Data\\FeedItem",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Feed",
+                    "field_name": "feed",
+                    "variable_name": "feed",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "718e5567-f690-45d2-b6d5-5aa8008401ba"
+                },
+                {
+                    "type": "text",
+                    "label": "Title",
+                    "field_name": "title",
+                    "variable_name": "title",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Description",
+                    "field_name": "description",
+                    "variable_name": "description",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Url",
+                    "field_name": "url",
+                    "variable_name": "url",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Image Url",
+                    "field_name": "image_url",
+                    "variable_name": "imageUrl",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Has Image",
+                    "field_name": "has_image",
+                    "variable_name": "hasImage",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Has Audio",
+                    "field_name": "has_audio",
+                    "variable_name": "hasAudio",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Audio Url",
+                    "field_name": "audio_url",
+                    "variable_name": "audioUrl",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "url",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "url"
+                    ]
+                },
+                {
+                    "index_name": "date_time",
+                    "index_type": "index",
+                    "field_name": [
+                        "date_time"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "c6d26cf0-13a7-497f-adf5-31e550e04c14",
+            "label": "WebCrawler",
+            "class_name": "WebCrawler",
+            "table_name": "feed_webcrawler",
+            "namespace": "Nemundo\\Content\\App\\Feed\\Data\\WebCrawler",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Php Class",
+                    "field_name": "php_class",
+                    "variable_name": "phpClass",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Setup Status",
+                    "field_name": "setup_status",
+                    "variable_name": "setupStatus",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "php_class",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "php_class"
+                    ]
+                }
+            ]
+        }
+    ]
+}

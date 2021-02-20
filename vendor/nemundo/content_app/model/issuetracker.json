@@ -1,0 +1,71 @@
+{
+    "app": "IssueTracker",
+    "name": "issuetracker",
+    "namespace": "Nemundo\\Content\\App\\IssueTracker",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "334070dd-3a1e-4280-9d92-e70d4042b7af",
+            "label": "Issue",
+            "class_name": "Issue",
+            "table_name": "issuetracker_issue",
+            "namespace": "Nemundo\\Content\\App\\IssueTracker\\Data\\Issue",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Issue",
+                    "field_name": "issue",
+                    "variable_name": "issue",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Description",
+                    "field_name": "description",
+                    "variable_name": "description",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Priority",
+                    "field_name": "priority",
+                    "variable_name": "priority",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "7fe8e534-629d-4ca1-93f3-5e406e6a1c09"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "7fe8e534-629d-4ca1-93f3-5e406e6a1c09",
+            "label": "Priority",
+            "class_name": "Priority",
+            "table_name": "issuetracker_priority",
+            "namespace": "Nemundo\\Content\\App\\IssueTracker\\Data\\Priority",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Priority",
+                    "field_name": "priority",
+                    "variable_name": "priority",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

@@ -1,0 +1,246 @@
+{
+    "app": "Translation",
+    "name": "translation",
+    "namespace": "Nemundo\\App\\Translation",
+    "is_deleted": true,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "f65e76f7-c95f-4867-b66c-d0e271f22e7a",
+            "label": "Language",
+            "class_name": "Language",
+            "table_name": "translation_language",
+            "namespace": "Nemundo\\App\\Translation\\Data\\Language",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": true,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Code",
+                    "field_name": "code",
+                    "variable_name": "code",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "10"
+                },
+                {
+                    "type": "text",
+                    "label": "Language",
+                    "field_name": "language",
+                    "variable_name": "language",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Default",
+                    "field_name": "default",
+                    "variable_name": "default",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "code",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "code"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "bf2ae594-7622-4231-a167-d19921ef7949",
+            "label": "Large Text Translation",
+            "class_name": "LargeTextTranslation",
+            "table_name": "translation_large_text_translation",
+            "namespace": "Nemundo\\App\\Translation\\Data\\LargeTextTranslation",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Language",
+                    "field_name": "language",
+                    "variable_name": "language",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "f65e76f7-c95f-4867-b66c-d0e271f22e7a"
+                },
+                {
+                    "type": "external",
+                    "label": "Source",
+                    "field_name": "source",
+                    "variable_name": "source",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "75fa974c-3395-43d7-927f-f0b5bb802b37"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Large Text",
+                    "field_name": "large_text",
+                    "variable_name": "largeText",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "language_source",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "language",
+                        "source"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "75fa974c-3395-43d7-927f-f0b5bb802b37",
+            "label": "Source",
+            "class_name": "Source",
+            "table_name": "translation_source",
+            "namespace": "Nemundo\\App\\Translation\\Data\\Source",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Source Type",
+                    "field_name": "source_type",
+                    "variable_name": "sourceType",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "270c45f1-e6c1-47fc-82cf-44f10f1b72d1"
+                },
+                {
+                    "type": "text",
+                    "label": "Source",
+                    "field_name": "source",
+                    "variable_name": "source",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "source_type_source",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "source_type",
+                        "source"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "270c45f1-e6c1-47fc-82cf-44f10f1b72d1",
+            "label": "Source Type",
+            "class_name": "SourceType",
+            "table_name": "translation_source_type",
+            "namespace": "Nemundo\\App\\Translation\\Data\\SourceType",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Source",
+                    "field_name": "source",
+                    "variable_name": "source",
+                    "allow_null": false,
+                    "is_deleted": true,
+                    "length": "50"
+                },
+                {
+                    "type": "text",
+                    "label": "Source Type",
+                    "field_name": "source_type",
+                    "variable_name": "sourceType",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "50"
+                },
+                {
+                    "type": "text",
+                    "label": "Php Class",
+                    "field_name": "php_class",
+                    "variable_name": "phpClass",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "a5c2fbb3-c8b3-4a91-b807-a322a414a740",
+            "label": "Text Translation",
+            "class_name": "TextTranslation",
+            "table_name": "translation_text_translation",
+            "namespace": "Nemundo\\App\\Translation\\Data\\TextTranslation",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Language",
+                    "field_name": "language",
+                    "variable_name": "language",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "f65e76f7-c95f-4867-b66c-d0e271f22e7a"
+                },
+                {
+                    "type": "text",
+                    "label": "Unique Id",
+                    "field_name": "unique_id",
+                    "variable_name": "uniqueId",
+                    "allow_null": false,
+                    "is_deleted": true,
+                    "length": "50"
+                },
+                {
+                    "type": "text",
+                    "label": "Text",
+                    "field_name": "text",
+                    "variable_name": "text",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "external",
+                    "label": "Source",
+                    "field_name": "source",
+                    "variable_name": "source",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "75fa974c-3395-43d7-927f-f0b5bb802b37"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "language_unique_id",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "language",
+                        "source"
+                    ]
+                }
+            ]
+        }
+    ]
+}

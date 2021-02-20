@@ -1,0 +1,78 @@
+{
+    "app": "Timeline",
+    "name": "timeline",
+    "namespace": "Nemundo\\Content\\App\\Timeline",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "f6a97fe2-cf1f-43e5-8a9e-6156fc726ed7",
+            "label": "Timeline",
+            "class_name": "Timeline",
+            "table_name": "timeline_timeline",
+            "namespace": "Nemundo\\Content\\App\\Timeline\\Data\\Timeline",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "date",
+                    "label": "Date",
+                    "field_name": "date",
+                    "variable_name": "date",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Subject",
+                    "field_name": "subject",
+                    "variable_name": "subject",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "content",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "content"
+                    ]
+                },
+                {
+                    "index_name": "date_time",
+                    "index_type": "index",
+                    "field_name": [
+                        "date_time"
+                    ]
+                },
+                {
+                    "index_name": "date",
+                    "index_type": "index",
+                    "field_name": [
+                        "date"
+                    ]
+                }
+            ]
+        }
+    ]
+}

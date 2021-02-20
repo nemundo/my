@@ -1,0 +1,56 @@
+{
+    "app": "Application",
+    "name": "application",
+    "namespace": "Nemundo\\App\\Application",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "be58745e-78c3-4c3a-aadc-d2b26d233518",
+            "label": "Application",
+            "class_name": "Application",
+            "table_name": "application_application",
+            "namespace": "Nemundo\\App\\Application\\Data\\Application",
+            "row_class_name": "Nemundo\\App\\Application\\Row\\ApplicationCustomRow",
+            "primary_index": "text_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Application",
+                    "field_name": "application",
+                    "variable_name": "application",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Setup Status",
+                    "field_name": "setup_status",
+                    "variable_name": "setupStatus",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Application Class",
+                    "field_name": "application_class",
+                    "variable_name": "applicationClass",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Install",
+                    "field_name": "install",
+                    "variable_name": "install",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

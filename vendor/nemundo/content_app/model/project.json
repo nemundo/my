@@ -1,0 +1,63 @@
+{
+    "app": "Project",
+    "name": "project",
+    "namespace": "Nemundo\\Content\\App\\Project",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "879d1906-63b2-49fd-84c1-8ec7c7bbb55c",
+            "label": "Project",
+            "class_name": "Project",
+            "table_name": "project_project",
+            "namespace": "Nemundo\\Content\\App\\Project\\Data\\Project",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Project",
+                    "field_name": "project",
+                    "variable_name": "project",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "d78fb5de-deb0-4011-9a77-4c088ec61266",
+            "label": "Project Phase",
+            "class_name": "ProjectPhase",
+            "table_name": "project_project_phase",
+            "namespace": "Nemundo\\Content\\App\\Project\\Data\\ProjectPhase",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Project",
+                    "field_name": "project",
+                    "variable_name": "project",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "879d1906-63b2-49fd-84c1-8ec7c7bbb55c"
+                },
+                {
+                    "type": "text",
+                    "label": "Project Phase",
+                    "field_name": "project_phase",
+                    "variable_name": "projectPhase",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

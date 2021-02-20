@@ -1,0 +1,31 @@
+{
+    "app": "FileTransfer",
+    "name": "filetransfer",
+    "namespace": "Nemundo\\Content\\App\\FileTransfer",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "a404c15f-2333-4310-90c7-b69504d29fa4",
+            "label": "File Transfer",
+            "class_name": "FileTransfer",
+            "table_name": "filetransfer_file_transfer",
+            "namespace": "Nemundo\\Content\\App\\FileTransfer\\Data\\FileTransfer",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "File Transfer",
+                    "field_name": "file_transfer",
+                    "variable_name": "fileTransfer",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

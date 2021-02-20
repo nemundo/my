@@ -1,0 +1,215 @@
+{
+    "app": "Explorer",
+    "name": "explorer",
+    "namespace": "Nemundo\\Content\\App\\Explorer",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "e36b041e-64a0-4efc-8db3-43b363bb8fae",
+            "label": "Container",
+            "class_name": "Container",
+            "table_name": "explorer_container",
+            "namespace": "Nemundo\\Content\\App\\Explorer\\Data\\Container",
+            "row_class_name": "",
+            "primary_index": "text_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Subject",
+                    "field_name": "subject",
+                    "variable_name": "subject",
+                    "allow_null": true,
+                    "is_deleted": true,
+                    "length": "255"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Description",
+                    "field_name": "description",
+                    "variable_name": "description",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "image",
+                    "label": "Icon",
+                    "field_name": "icon",
+                    "variable_name": "icon",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "format": [
+                        {
+                            "format_type": "auto_size",
+                            "size": "200"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "label": "Container",
+                    "field_name": "container",
+                    "variable_name": "container",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "8c93ee8b-4241-4db3-90b8-b52d8130a4f3",
+            "label": "Container Rename",
+            "class_name": "ContainerRename",
+            "table_name": "explorer_container_rename",
+            "namespace": "Nemundo\\Content\\App\\Explorer\\Data\\ContainerRename",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Container Old",
+                    "field_name": "container_old",
+                    "variable_name": "containerOld",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Container New",
+                    "field_name": "container_new",
+                    "variable_name": "containerNew",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "b4c10cd3-aacc-4224-8c9f-88f9ac752fc6",
+            "label": "Explorer Content Type",
+            "class_name": "ExplorerContentType",
+            "table_name": "explorer_explorer_content_type",
+            "namespace": "Nemundo\\Content\\App\\Explorer\\Data\\ExplorerContentType",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Content Type",
+                    "field_name": "content_type",
+                    "variable_name": "contentType",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "69c1a9f4-3412-4446-92a4-2e81a75bed3f"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "content_type",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "content_type"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "8152c062-1981-4933-b564-7b908ba95f95",
+            "label": "Private Share",
+            "class_name": "PrivateShare",
+            "table_name": "explorer_private_share",
+            "namespace": "Nemundo\\Content\\App\\Explorer\\Data\\PrivateShare",
+            "row_class_name": "",
+            "primary_index": "unique_id",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "external",
+                    "label": "Group",
+                    "field_name": "group",
+                    "variable_name": "group",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "c6e00009-24e0-4cef-82ee-34a89152415f"
+                },
+                {
+                    "type": "external",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "23f00db8-b303-40e4-ab45-32054a954434"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "52bd51a9-3e5b-471c-9931-b4e4d1222b65",
+            "label": "PublicShare",
+            "class_name": "PublicShare",
+            "table_name": "explorer_public_share",
+            "namespace": "Nemundo\\Content\\App\\Explorer\\Data\\PublicShare",
+            "row_class_name": "",
+            "primary_index": "unique_id",
+            "is_deleted": true,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Unique Url",
+                    "field_name": "unique_url",
+                    "variable_name": "uniqueUrl",
+                    "allow_null": true,
+                    "is_deleted": true,
+                    "length": "36"
+                },
+                {
+                    "type": "text",
+                    "label": "Unique Id",
+                    "field_name": "unique_id",
+                    "variable_name": "uniqueId",
+                    "allow_null": true,
+                    "is_deleted": true,
+                    "length": "36"
+                },
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "content",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "content"
+                    ]
+                }
+            ]
+        }
+    ]
+}

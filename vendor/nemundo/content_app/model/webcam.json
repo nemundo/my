@@ -1,0 +1,130 @@
+{
+    "app": "Webcam",
+    "name": "webcam",
+    "namespace": "Nemundo\\Content\\App\\Webcam",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "91a10d66-bb0d-4f34-a5bf-4e1f562154fb",
+            "label": "Webcam",
+            "class_name": "Webcam",
+            "table_name": "webcam_webcam",
+            "namespace": "Nemundo\\Content\\App\\Webcam\\Data\\Webcam",
+            "row_class_name": "Nemundo\\Content\\App\\Webcam\\Row\\WebcamCustomRow",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Webcam",
+                    "field_name": "webcam",
+                    "variable_name": "webcam",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Image Url",
+                    "field_name": "image_url",
+                    "variable_name": "imageUrl",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Source Url",
+                    "field_name": "source_url",
+                    "variable_name": "sourceUrl",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "geo_coordinate_altitude",
+                    "label": "Geo Coordinate",
+                    "field_name": "geo_coordinate",
+                    "variable_name": "geoCoordinate",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Image Crawler",
+                    "field_name": "image_crawler",
+                    "variable_name": "imageCrawler",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "b117efb6-3751-4b2a-b220-9d666ca04011",
+            "label": "Webcam Image",
+            "class_name": "WebcamImage",
+            "table_name": "webcam_webcam_image",
+            "namespace": "Nemundo\\Content\\App\\Webcam\\Data\\WebcamImage",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Webcam",
+                    "field_name": "webcam",
+                    "variable_name": "webcam",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "91a10d66-bb0d-4f34-a5bf-4e1f562154fb"
+                },
+                {
+                    "type": "image",
+                    "label": "Image",
+                    "field_name": "image",
+                    "variable_name": "image",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "format": []
+                },
+                {
+                    "type": "text",
+                    "label": "Hash",
+                    "field_name": "hash",
+                    "variable_name": "hash",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "hash",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "hash"
+                    ]
+                },
+                {
+                    "index_name": "webcam_date_time",
+                    "index_type": "index",
+                    "field_name": [
+                        "webcam",
+                        "date_time"
+                    ]
+                }
+            ]
+        }
+    ]
+}

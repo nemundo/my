@@ -1,0 +1,62 @@
+{
+    "app": "Website",
+    "name": "website",
+    "namespace": "Nemundo\\Content\\App\\Website",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "840adfe2-0319-4690-98ca-b54d5dd57af1",
+            "label": "Webpage",
+            "class_name": "Webpage",
+            "table_name": "website_webpage",
+            "namespace": "Nemundo\\Content\\App\\Website\\Data\\Webpage",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Title",
+                    "field_name": "title",
+                    "variable_name": "title",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Description",
+                    "field_name": "description",
+                    "variable_name": "description",
+                    "allow_null": true,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "316f0d8b-2f9e-429c-994b-764c71bfe044",
+            "label": "Website",
+            "class_name": "Website",
+            "table_name": "website_website",
+            "namespace": "Nemundo\\Content\\App\\Website\\Data\\Website",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Title",
+                    "field_name": "title",
+                    "variable_name": "title",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}
