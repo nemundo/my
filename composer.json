@@ -1,0 +1,11 @@
+{
+  "require": {
+    "nemundo/framework": "^0.77.0",
+    "nemundo/content_app": "^0.13.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "My\\": "src/"
+    }
+  }
+}
