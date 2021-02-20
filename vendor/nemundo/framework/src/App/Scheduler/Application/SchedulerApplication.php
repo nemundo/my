@@ -19,7 +19,7 @@ class SchedulerApplication extends AbstractApplication
         $this->modelCollectionClass = SchedulerModelCollection::class;
         $this->installClass = SchedulerInstall::class;
         $this->uninstallClass = SchedulerUninstall::class;
-        $this->siteClass = SchedulerSite::class;
+        $this->adminSiteClass = SchedulerSite::class;
 
     }
 

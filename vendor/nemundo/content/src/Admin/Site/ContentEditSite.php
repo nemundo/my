@@ -4,10 +4,11 @@
 namespace Nemundo\Content\Admin\Site;
 
 
+use Nemundo\Com\FormBuilder\UrlReferer\UrlRefererHiddenInput;
+use Nemundo\Com\FormBuilder\UrlReferer\UrlRefererSite;
+use Nemundo\Content\Parameter\ContentParameter;
 use Nemundo\Dev\App\Factory\DefaultTemplateFactory;
 use Nemundo\Package\FontAwesome\Site\AbstractEditIconSite;
-use Nemundo\Content\Data\Content\ContentReader;
-use Nemundo\Content\Parameter\ContentParameter;
 
 
 class ContentEditSite extends AbstractEditIconSite
@@ -29,20 +30,13 @@ class ContentEditSite extends AbstractEditIconSite
 
         $page = (new DefaultTemplateFactory())->getDefaultTemplate();
 
-        /*$dataId = (new DataParameter())->getValue();
-
-        $reader = new ContentReader();
-        $reader->model->loadContentType();
-        $contentRow = $reader->getRowById($dataId);
-        $contentType = $contentRow->getContentType();*/
-
-        $contentParameter=new ContentParameter();
-        $contentParameter->contentTypeCheck=false;
+        $contentParameter = new ContentParameter();
+        $contentParameter->contentTypeCheck = false;
         $contentType = $contentParameter->getContentType();
 
         $form = $contentType->getDefaultForm($page);
-        $form->redirectSite = ContentItemSite::$site;
-        $form->redirectSite->addParameter(new ContentParameter());
+        new UrlRefererHiddenInput($form);
+        $form->redirectSite = new UrlRefererSite();
 
         $page->render();
 

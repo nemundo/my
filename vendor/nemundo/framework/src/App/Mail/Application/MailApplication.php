@@ -20,7 +20,7 @@ class MailApplication extends AbstractApplication
         $this->modelCollectionClass = MailCollection::class;
         $this->installClass = MailInstall::class;
         $this->uninstallClass = MailUninstall::class;
-        $this->siteClass = MailSite::class;
+        $this->adminSiteClass = MailSite::class;
 
     }
 

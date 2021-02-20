@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '389f149bd58b87c1984ce4168ed22c3448e8c3ca',
+    'reference' => '81ea96bae594dedba292e91a1763e56e73537d54',
     'name' => '__root__',
   ),
   'versions' => 
@@ -41,25 +41,25 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '389f149bd58b87c1984ce4168ed22c3448e8c3ca',
+      'reference' => '81ea96bae594dedba292e91a1763e56e73537d54',
     ),
     'nemundo/content' => 
     array (
-      'pretty_version' => '0.11',
-      'version' => '0.11.0.0',
+      'pretty_version' => '0.12',
+      'version' => '0.12.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '7f253d210b51fd8936522a455c0f19eae93023c5',
+      'reference' => '3435ac90f822fff9927528fdd4d8db0741b64375',
     ),
     'nemundo/content_app' => 
     array (
-      'pretty_version' => '0.13',
-      'version' => '0.13.0.0',
+      'pretty_version' => '0.14',
+      'version' => '0.14.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'bd1cb9b4f7bbabf6b185d763b8a6a59f09967dba',
+      'reference' => '925a0a260841c8fef6b1e70f70387dd8d760d1df',
     ),
     'nemundo/core' => 
     array (
@@ -81,12 +81,12 @@ private static $installed = array (
     ),
     'nemundo/framework' => 
     array (
-      'pretty_version' => '0.77',
-      'version' => '0.77.0.0',
+      'pretty_version' => '0.78',
+      'version' => '0.78.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '3a17e73c314a220bbda6c1064b506977293f4b94',
+      'reference' => '464a0dacb72f8ae4a1306ae447275da553daa24b',
     ),
     'nemundo/html' => 
     array (

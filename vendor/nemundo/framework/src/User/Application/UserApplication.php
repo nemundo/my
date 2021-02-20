@@ -20,7 +20,7 @@ class UserApplication extends AbstractApplication
         $this->modelCollectionClass = UserModelCollection::class;
         $this->installClass = UserInstall::class;
         $this->uninstallClass = UserUninstall::class;
-        $this->siteClass = UserAdminSite::class;
+        $this->adminSiteClass = UserAdminSite::class;
 
     }
 

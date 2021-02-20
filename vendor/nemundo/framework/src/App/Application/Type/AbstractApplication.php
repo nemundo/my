@@ -62,6 +62,12 @@ abstract class AbstractApplication extends AbstractBaseClass
     /**
      * @var string
      */
+    protected $adminSiteClass;
+
+
+    /**
+     * @var string
+     */
     protected $siteClass;
 
 
@@ -198,19 +204,35 @@ abstract class AbstractApplication extends AbstractBaseClass
         }
         return $value;
 
-
     }
 
 
     public function getSite(AbstractSite $parentSite)
     {
 
-
         $site = new $this->siteClass($parentSite);
         return $site;
 
-        //return $this->site;
+    }
 
+
+    public function hasAdminSite()
+    {
+
+        $value = false;
+        if ($this->adminSiteClass !== null) {
+            $value = true;
+        }
+        return $value;
+
+    }
+
+
+    public function getAdminSite(AbstractSite $parentSite)
+    {
+
+        $site = new $this->adminSiteClass($parentSite);
+        return $site;
 
     }
 

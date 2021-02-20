@@ -15,6 +15,6 @@ class TreeApplication extends AbstractApplication
         $this->applicationId = 'fa2aff01-5c1d-4aa0-89b1-23de36ea6230';
         $this->modelCollectionClass = TreeModelCollection::class;
         $this->installClass = TreeInstall::class;
-        $this->siteClass=TreeSite::class;
+        $this->adminSiteClass = TreeSite::class;
     }
 }

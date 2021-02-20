@@ -108,28 +108,6 @@ abstract class AbstractSite extends AbstractSiteTree
     }
 
 
-    /*
-    public function isChildMenuActive()
-    {
-
-        $active = false;
-        foreach ($this->getSiteList() as $childSite) {
-
-            if ($childSite->isCurrentSite()) {
-                $active = true;
-            }
-
-            if ($childSite->isChildMenuActive()) {
-                $active = true;
-            }
-
-        }
-
-        return $active;
-
-    }*/
-
-
     public function addParameter(AbstractUrlParameter $parameter)
     {
 

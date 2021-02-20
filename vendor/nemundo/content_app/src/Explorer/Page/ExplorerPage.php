@@ -10,12 +10,12 @@ use Nemundo\Com\Html\Listing\UnorderedList;
 use Nemundo\Content\App\Calendar\Com\Container\CalendarContainer;
 use Nemundo\Content\App\Explorer\Collection\BaseContentTypeCollection;
 use Nemundo\Content\App\Explorer\Com\Dropdown\MenuDropdown;
-use Nemundo\Content\App\Explorer\Data\PublicShare\PublicShareReader;
+
 use Nemundo\Content\App\Explorer\Parameter\PublicShareParameter;
 use Nemundo\Content\App\Explorer\Site\ExplorerSite;
 use Nemundo\Content\App\Explorer\Site\NewSite;
 use Nemundo\Content\App\Explorer\Site\Share\PublicShareDeleteSite;
-use Nemundo\Content\App\Explorer\Site\Share\PublicShareSite;
+
 use Nemundo\Content\App\Explorer\Template\ExplorerTemplate;
 use Nemundo\Content\App\Favorite\Action\FavoriteSaveContentAction;
 use Nemundo\Content\App\Inbox\Action\SendToContentAction;
@@ -249,10 +249,12 @@ class ExplorerPage extends ExplorerTemplate
         $container->contentType = $contentType;
         $container->redirectSite = ExplorerSite::$site;
 
+
+        /*
         $container = new RelationIndexWidget($layout->col2);
         $container->contentType = $contentType;
         $container->redirectSite = ExplorerSite::$site;
-
+*/
 
         $action = new PublicShareAction();
         $action->actionContentId =$contentType->getContentId();

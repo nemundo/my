@@ -16,7 +16,7 @@ class ApplicationApplication extends AbstractApplication
         $this->applicationId = '84a6e7e2-9c40-4ea4-9390-2ccc9451f2a1';
         $this->modelCollectionClass = ApplicationModelCollection::class;
         $this->installClass = ApplicationInstall::class;
-        $this->siteClass = ApplicationSite::class;
+        $this->adminSiteClass = ApplicationSite::class;
     }
 
 }

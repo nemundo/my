@@ -34,7 +34,7 @@ class ContentEditPage extends ExplorerTemplate
             $breadcrumb = new TreeBreadcrumb($this);
             $breadcrumb->redirectSite = ExplorerSite::$site;  //ItemSite::$site;
           //  $breadcrumb->addParentContentType($content);
-        $breadcrumb->contentType= $content;
+        //$breadcrumb->contentType= $content;
 
         $breadcrumb->addContentType($content);
             $breadcrumb->addActiveItem('Edit');

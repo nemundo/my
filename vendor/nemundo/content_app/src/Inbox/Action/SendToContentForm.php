@@ -73,7 +73,7 @@ class SendToContentForm extends AbstractContentForm
         $urlRefererRequest = new PostRequest('url_referer');
 
 
-        (new Debug())->write($urlRefererRequest->getValue());
+        //(new Debug())->write($urlRefererRequest->getValue());
 
         (new UrlRedirect())->redirect($urlRefererRequest->getValue());
 

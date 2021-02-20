@@ -5,6 +5,7 @@ namespace Nemundo\App\Application\Site;
 
 
 use Nemundo\App\Application\Data\Application\ApplicationReader;
+use Nemundo\App\Application\Usergroup\AppUsergroup;
 use Nemundo\Web\Site\AbstractSite;
 
 
@@ -16,6 +17,8 @@ class AppSite extends AbstractSite
 
         $this->title = 'App';
         $this->url = 'app';
+        $this->restricted = true;
+        $this->addRestrictedUsergroup(new AppUsergroup());
 
         $reader = new ApplicationReader();
         $reader->filter->andEqual($reader->model->install, true);

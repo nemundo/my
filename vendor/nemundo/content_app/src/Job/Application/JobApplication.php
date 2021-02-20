@@ -16,7 +16,7 @@ class JobApplication extends AbstractApplication
         $this->applicationId = 'dfa666d3-1f39-4a70-8ce4-0495a6f7be19';
         $this->modelCollectionClass = JobModelCollection::class;
         $this->installClass = JobInstall::class;
-        $this->uninstallClass=JobUninstall::class;
-        $this->siteClass=JobSite::class;
+        $this->uninstallClass = JobUninstall::class;
+        $this->adminSiteClass = JobSite::class;
     }
 }

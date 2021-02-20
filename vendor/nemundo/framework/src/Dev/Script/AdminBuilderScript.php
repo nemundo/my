@@ -2,8 +2,8 @@
 
 namespace Nemundo\Dev\Script;
 
-use Nemundo\Admin\Install\AdminPackageInstall;
 use Nemundo\App\Script\Type\AbstractConsoleScript;
+use Nemundo\Dev\Install\AdminPackageInstall;
 use Nemundo\Project\Path\ProjectPath;
 
 class AdminBuilderScript extends AbstractConsoleScript
@@ -19,11 +19,15 @@ class AdminBuilderScript extends AbstractConsoleScript
     public function run()
     {
 
+        /*
         $adminPath = (new ProjectPath())
             ->addPath('admin')
             ->getPath();
 
-        (new AdminPackageInstall($adminPath))->install();
+        (new AdminPackageInstall($adminPath))->install();*/
+
+        (new AdminPackageInstall())->install();
+
 
     }
 

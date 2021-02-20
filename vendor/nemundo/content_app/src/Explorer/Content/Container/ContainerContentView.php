@@ -48,10 +48,19 @@ class ContainerContentView extends AbstractContentView
             $row->addText($contentRow->child->subject);
             $row->addText($contentRow->child->contentType->contentType);
 
-            $site = clone(ContentEditSite::$site);
+            /*$site = clone(ContentEditSite::$site);
             $site->addParameter(new ContentParameter($contentRow->childId));
             $site->addParameter(new RefererContentParameter($this->contentType->getContentId()));
             $row->addIconSite($site);
+*/
+
+
+            $site = clone(\Nemundo\Content\Admin\Site\ContentEditSite::$site);
+            $site->addParameter(new ContentParameter($contentRow->childId));
+            $row->addIconSite($site);
+
+
+
 
             /*$site = clone(ContentDeleteSite::$site);
             $site->addParameter(new ContentParameter($contentRow->childId));

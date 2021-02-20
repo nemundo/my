@@ -14,9 +14,6 @@ class NoteContentForm extends AbstractContentForm
      */
     public $contentType;
 
-
-
-
     /**
      * @var BootstrapTextBox
      */

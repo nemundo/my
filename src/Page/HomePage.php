@@ -3,19 +3,42 @@
 namespace My\Page;
 
 use My\Template\MyTemplate;
+use Nemundo\Admin\Com\Widget\AdminWidget;
+use Nemundo\Admin\UniqueId\Widget\UniqueIdAdminWidget;
 use Nemundo\App\UserAction\Widget\LoginWidget;
+use Nemundo\App\UserAction\Widget\UserChangeWidget;
 use Nemundo\Html\Heading\H2;
+use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
+use Nemundo\User\Session\UserSession;
 
 class HomePage extends MyTemplate
 {
     public function getContent()
     {
 
-        $h2 = new H2($this);
-        $h2->content = 'Hello World';
+
+        $this->navbar->searchMode=false;
+
+        $layout = new BootstrapTwoColumnLayout($this);
+        $layout->col1->columnWidth = 8;
+        $layout->col2->columnWidth = 4;
+
+        if ((new UserSession())->isUserLogged()) {
+
+            //(new HomeRightDashboardContentType())->fromUniqueName()->getDefaultView($layout->col2);
+
+        } else {
 
 
-       //$login= new LoginWidget($this);
+            new LoginWidget($layout->col2);
+
+        }
+
+
+
+
+
+
 
         return parent::getContent();
     }
