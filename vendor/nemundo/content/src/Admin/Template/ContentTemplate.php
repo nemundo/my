@@ -6,7 +6,7 @@ namespace Nemundo\Content\Admin\Template;
 
 use Nemundo\Admin\Com\Navigation\AdminNavigation;
 use Nemundo\Com\Template\AbstractTemplateDocument;
-use Nemundo\Content\Admin\Site\ContentSite;
+use Nemundo\Content\Admin\Site\ContentAdminSite;
 
 class ContentTemplate extends AbstractTemplateDocument
 {
@@ -17,7 +17,7 @@ class ContentTemplate extends AbstractTemplateDocument
         parent::loadContainer();
 
         $nav = new AdminNavigation($this);
-        $nav->site = ContentSite::$site;
+        $nav->site = ContentAdminSite::$site;
 
     }
 

@@ -5,7 +5,7 @@ namespace Nemundo\Content\Admin\Page;
 
 
 use Nemundo\Content\Admin\Site\ContentNewSite;
-use Nemundo\Content\Admin\Site\ContentSite;
+use Nemundo\Content\Admin\Site\ContentAdminSite;
 use Nemundo\Content\Admin\Template\ContentTemplate;
 use Nemundo\Content\Com\Container\ContentTypeFormContainer;
 use Nemundo\Content\Data\ContentType\ContentTypeReader;
@@ -38,7 +38,7 @@ class ContentNewPage extends ContentTemplate
             if ($contentType->hasForm()) {
                 $container = new ContentTypeFormContainer($this);
                 $container->contentType = $contentType;
-                $container->redirectSite = ContentSite::$site;
+                $container->redirectSite = ContentAdminSite::$site;
             } else {
                 $p = new Paragraph($this);
                 $p->content = 'No Form';

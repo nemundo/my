@@ -31,7 +31,7 @@ class ContentDeleteSite extends AbstractDeleteIconSite
     {
 
 
-        (new ContentParameter())->getContentType(false)->deleteType();
+        (new ContentParameter())->getContent(false)->deleteType();
 
         $site = clone(ExplorerSite::$site);  // clone(ItemSite::$site);
         $site->addParameter((new ContentParameter((new RefererContentParameter())->getValue())));

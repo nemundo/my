@@ -6,6 +6,7 @@ use Nemundo\App\Application\Application\ApplicationApplication;
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\App\Script\Type\AbstractScript;
 use Nemundo\Content\App\Base\Install\ContentAppApplicationInstall;
+use Nemundo\Content\App\Base\Install\MyInstall;
 use Nemundo\Content\Application\ContentApplication;
 use Nemundo\Content\Install\ContentInstall;
 use Nemundo\Dev\Script\AdminBuilderScript;
@@ -26,6 +27,7 @@ class MySetup extends AbstractScript
         (new ApplicationApplication())->installApp();
         (new ContentApplication())->installApp();
 
+        (new MyInstall())->install();
 
 
     }

@@ -32,8 +32,12 @@ class InstallSite extends AbstractSite
     public function loadContent()
     {
 
-        $app = (new ApplicationParameter())->getApplication();
-        $app->installApp();
+        $application = (new ApplicationParameter())->getApplication();
+        $application->installApp();
+
+        foreach ($application->getPackageList() as $package) {
+            $packageList[$package->packageName]=$package;
+        }
 
         (new UrlReferer())->redirect();
 

@@ -36,6 +36,16 @@ public $applicationClass;
 */
 public $install;
 
+/**
+* @var int
+*/
+public $projectId;
+
+/**
+* @var \Nemundo\App\Application\Data\Project\ProjectRow
+*/
+public $project;
+
 public function __construct(\Nemundo\Db\Row\AbstractDataRow $row, $model) {
 parent::__construct($row->getData());
 $this->row = $row;
@@ -44,5 +54,12 @@ $this->application = $this->getModelValue($model->application);
 $this->setupStatus = boolval($this->getModelValue($model->setupStatus));
 $this->applicationClass = $this->getModelValue($model->applicationClass);
 $this->install = boolval($this->getModelValue($model->install));
+$this->projectId = intval($this->getModelValue($model->projectId));
+if ($model->project !== null) {
+$this->loadNemundoAppApplicationDataProjectProjectprojectRow($model->project);
+}
+}
+private function loadNemundoAppApplicationDataProjectProjectprojectRow($model) {
+$this->project = new \Nemundo\App\Application\Data\Project\ProjectRow($this->row, $model);
 }
 }

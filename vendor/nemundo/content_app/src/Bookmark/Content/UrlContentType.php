@@ -8,6 +8,7 @@ use Nemundo\Content\App\Bookmark\Data\Bookmark\Bookmark;
 use Nemundo\Content\App\Bookmark\Data\Bookmark\BookmarkReader;
 use Nemundo\Content\App\Bookmark\Data\Bookmark\BookmarkRow;
 use Nemundo\Content\App\Bookmark\Data\Bookmark\BookmarkUpdate;
+use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
 use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
 use Nemundo\Crawler\HtmlParser\HtmlParser;
 use Nemundo\Crawler\HtmlParser\OpenGraphParser;
@@ -33,8 +34,9 @@ class UrlContentType extends AbstractTreeContentType
         $this->typeLabel = 'Url';
         $this->typeId = '0abbd11d-5321-4eef-a984-0e4061c5738d';
 
-        $this->formClassList[] = BookmarkContentForm::class;
-        $this->viewClassList[]  = BookmarkContentView::class;
+        $this->formClassList[] = UrlContentForm::class;
+        $this->formClassList[]=ContentSearchForm::class;
+        $this->viewClassList[]  = UrlContentView::class;
 
         $this->image = new FileProperty();
 

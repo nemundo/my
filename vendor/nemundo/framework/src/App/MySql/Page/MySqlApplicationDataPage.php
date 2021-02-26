@@ -23,6 +23,9 @@ use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapColumn;
 use Nemundo\Package\Bootstrap\Listing\BootstrapHyperlinkList;
 use Nemundo\Web\Url\Url;
 
+
+// nach Application ???
+
 class MySqlApplicationDataPage extends AbstractTemplateDocument
 {
 
@@ -36,6 +39,8 @@ class MySqlApplicationDataPage extends AbstractTemplateDocument
         $applicationListBox = new ApplicationListBox($formRow);
         $applicationListBox->submitOnChange = true;
         $applicationListBox->value = $applicationListBox->getValue();
+        $applicationListBox->column=true;
+        $applicationListBox->columnSize=2;
 
         if ($applicationListBox->hasValue()) {
 

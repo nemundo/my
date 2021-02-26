@@ -29,14 +29,9 @@ class DistanceScheduler extends AbstractScheduler
         $reader1 = new GeoIndexReader();
         foreach ($reader1->getData() as $geoIndexRowFrom) {
 
-            //(new Debug())->write($geoIndexRowFrom->coordinate->getText());
-
-
             $readerTo = new GeoIndexReader();
             $readerTo->filter->andNotEqual($readerTo->model->contentId, $geoIndexRowFrom->contentId);
             foreach ($readerTo->getData() as $geoIndexRowTo) {
-
-                //(new Debug())->write($geoIndexRow->coordinate->getText());
 
                 $distance = new GeoCoordinateDistance();
                 $distance->geoCoordinateFrom = $geoIndexRowFrom->coordinate;

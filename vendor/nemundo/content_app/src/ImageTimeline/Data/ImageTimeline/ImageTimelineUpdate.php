@@ -17,6 +17,16 @@ public $timeline;
 */
 public $imageUrl;
 
+/**
+* @var string
+*/
+public $source;
+
+/**
+* @var string
+*/
+public $sourceUrl;
+
 public function __construct() {
 parent::__construct();
 $this->model = new ImageTimelineModel();
@@ -24,6 +34,8 @@ $this->model = new ImageTimelineModel();
 public function update() {
 $this->typeValueList->setModelValue($this->model->timeline, $this->timeline);
 $this->typeValueList->setModelValue($this->model->imageUrl, $this->imageUrl);
+$this->typeValueList->setModelValue($this->model->source, $this->source);
+$this->typeValueList->setModelValue($this->model->sourceUrl, $this->sourceUrl);
 parent::update();
 }
 }

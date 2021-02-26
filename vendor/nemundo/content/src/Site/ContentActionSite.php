@@ -48,7 +48,7 @@ class ContentActionSite extends AbstractSite
 
             $layout = new BootstrapTwoColumnLayout($document);
 
-            $contentType = (new ContentParameter())->getContentType(false);
+            $contentType = (new ContentParameter())->getContent(false);
 
             $widget = new AdminWidget($layout->col1);
             $widget->widgetTitle = $contentType->getSubject();
@@ -56,7 +56,7 @@ class ContentActionSite extends AbstractSite
             $contentType->getDefaultView($widget);
 
             $widget = new AdminWidget($layout->col2);
-            $widget->widgetTitle = $action->actionLabel;  // 'Send to';
+            $widget->widgetTitle = $action->actionLabel;
 
             $form = $action->getDefaultForm($widget);
 

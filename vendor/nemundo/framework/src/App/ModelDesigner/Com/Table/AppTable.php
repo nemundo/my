@@ -4,6 +4,7 @@ namespace Nemundo\App\ModelDesigner\Com\Table;
 
 
 use Nemundo\Admin\Com\Table\AdminClickableTable;
+use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\App\ModelDesigner\Json\ProjectJson;
 use Nemundo\App\ModelDesigner\Parameter\AppParameter;
 use Nemundo\App\ModelDesigner\Parameter\ProjectParameter;
@@ -62,7 +63,7 @@ class AppTable extends AbstractHtmlContainer
 
         $table = new AdminClickableTable($this);
 
-        $header = new TableHeader($table);
+        $header = new AdminTableHeader($table);
         $header->addText('App');
         $header->addText('Name');
         $header->addText('Namespace');

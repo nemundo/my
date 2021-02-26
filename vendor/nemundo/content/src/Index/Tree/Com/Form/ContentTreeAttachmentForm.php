@@ -5,7 +5,7 @@ namespace Nemundo\Content\Index\Tree\Com\Form;
 use Nemundo\Admin\Com\Title\AdminSubtitle;
 use Nemundo\Com\Container\LibraryTrait;
 use Nemundo\Content\Com\ListBox\ContentTypeListBox;
-use Nemundo\Content\Index\Tree\Writer\TreeWriter;
+use Nemundo\Content\Index\Tree\Builder\TreeBuilder;
 use Nemundo\Content\Package\ContentJsPackage;
 use Nemundo\Package\Bootstrap\Form\BootstrapForm;
 use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
@@ -75,7 +75,7 @@ class ContentTreeAttachmentForm extends BootstrapForm
     protected function onSubmit()
     {
 
-        $writer = new TreeWriter();
+        $writer = new TreeBuilder();
         $writer->parentId = $this->content->getValue();
         $writer->childId = $this->contentType->getContentId();
         $writer->write();

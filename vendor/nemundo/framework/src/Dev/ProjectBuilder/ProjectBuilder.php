@@ -50,6 +50,7 @@ class ProjectBuilder extends AbstractBaseClass
         $this->copyAsset('config_admin.php');
         $this->copyAsset('.htaccess', 'web');
         $this->copyAsset('cmd.php', 'bin');
+        $this->copyAsset('init.php', 'bin');
         $this->copyAsset('config.php', 'bin');
 
         $pathList = [];
@@ -131,10 +132,10 @@ class ProjectBuilder extends AbstractBaseClass
         $code->createCode();
 
         // Package Setup
-        $code = new ProjectPackageSetupCode();
+        /*$code = new ProjectPackageSetupCode();
         $code->prefixNamespace = $this->project->namespace;
         $code->path = $srcPath . 'Setup';
-        $code->createCode();
+        $code->createCode();*/
 
         // Template
         $code = new ProjectTemplateCode();

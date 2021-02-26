@@ -4,10 +4,13 @@ namespace Nemundo\Package\Bootstrap\FormElement;
 
 use Nemundo\Core\Language\LanguageCode;
 use Nemundo\Html\Container\AbstractContainer;
+use Nemundo\Html\Container\AbstractHtmlContainer;
 use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
 
-class BootstrapFromToDatePicker extends AbstractContainer
+class BootstrapFromToDatePicker extends AbstractHtmlContainer
 {
+
+    use BootstrapFormStyle;
 
     /**
      * @var BootstrapDatePicker
@@ -34,13 +37,13 @@ class BootstrapFromToDatePicker extends AbstractContainer
 
         parent::loadContainer();
 
-        $formRow = new BootstrapRow($this);
+        //$formRow = new BootstrapRow($this);
 
-        $this->from = new BootstrapDatePicker($formRow);
+        $this->from = new BootstrapDatePicker($this);  // $formRow);
         $this->from->label[LanguageCode::EN] = 'From';
         $this->from->label[LanguageCode::DE] = 'Von';
 
-        $this->to = new BootstrapDatePicker($formRow);
+        $this->to = new BootstrapDatePicker($this);  //($formRow);
         $this->to->label[LanguageCode::EN] = 'To';
         $this->to->label[LanguageCode::DE] = 'Bis';
 
@@ -49,6 +52,8 @@ class BootstrapFromToDatePicker extends AbstractContainer
 
     public function getContent()
     {
+
+        $this->loadStyle();
 
         $this->from->searchMode = $this->searchMode;
         $this->from->validation = $this->validation;

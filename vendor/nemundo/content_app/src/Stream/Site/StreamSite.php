@@ -2,23 +2,8 @@
 
 namespace Nemundo\Content\App\Stream\Site;
 
-use Nemundo\Admin\Com\Card\AdminCard;
-use Nemundo\Admin\Com\Title\AdminSubtitle;
-use Nemundo\Db\Sql\Order\SortOrder;
-use Nemundo\Dev\App\Factory\DefaultTemplateFactory;
-use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
-use Nemundo\Package\Bootstrap\Pagination\BootstrapPagination;
-use Nemundo\Content\App\Stream\Data\Stream\StreamPaginationReader;
-use Nemundo\Content\App\Stream\Data\Stream\StreamReader;
-use Nemundo\Content\App\Stream\Event\StreamEvent;
-use Nemundo\Content\App\Video\Content\YouTube\YouTubeContentType;
-use Nemundo\Process\Cms\Com\Dropdown\CmsAddDropdown;
-use Nemundo\Process\Cms\Event\CmsEvent;
-use Nemundo\Process\Config\ProcessConfig;
-use Nemundo\Content\Parameter\ContentTypeParameter;
-use Nemundo\Process\Template\Content\Video\VideoContentType;
+use Nemundo\Content\App\Stream\Page\StreamPage;
 use Nemundo\Web\Site\AbstractSite;
-use Nemundo\Web\Site\Site;
 
 class StreamSite extends AbstractSite
 {
@@ -32,12 +17,19 @@ class StreamSite extends AbstractSite
     {
         $this->title = 'Stream';
         $this->url = 'stream';
-        StreamSite::$site=$this;
+        StreamSite::$site = $this;
+
+        //new StreamConfigSite($this);
+
     }
 
     public function loadContent()
     {
 
+        (new StreamPage())->render();
+
+
+        /*
         $page=(new DefaultTemplateFactory())->getDefaultTemplate();
 
 
@@ -104,7 +96,7 @@ class StreamSite extends AbstractSite
 
 
 
-        $page->render();
+        $page->render();*/
 
 
     }

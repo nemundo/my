@@ -5,10 +5,8 @@ namespace Nemundo\Content\Index\Geo\Com\Container;
 
 
 use Nemundo\Admin\Com\Table\AdminClickableTable;
-use Nemundo\Admin\Com\Title\AdminSubtitle;
 use Nemundo\Admin\Com\Widget\AdminWidget;
 use Nemundo\Com\TableBuilder\TableHeader;
-use Nemundo\Content\App\Explorer\Site\ItemSite;
 use Nemundo\Content\Com\Container\AbstractContentTypeContainer;
 use Nemundo\Content\Index\Geo\Data\Distance\DistanceReader;
 use Nemundo\Content\Index\Geo\Type\GeoIndexTrait;
@@ -26,8 +24,8 @@ class GeoIndexContainer extends AbstractContentTypeContainer
         /** $contentType GeoIndexTrait */
         if ($this->contentType->isObjectOfTrait(GeoIndexTrait::class)) {
 
-            $widget=new AdminWidget($this);
-            $widget->widgetTitle='Geo Index';
+            $widget = new AdminWidget($this);
+            $widget->widgetTitle = 'Geo Index';
 
             $link = new GoogleMapsHyperlink($widget);
             $link->geoCoordinate = $this->contentType->getCoordinate();
@@ -57,9 +55,11 @@ class GeoIndexContainer extends AbstractContentTypeContainer
                 $row->addText($distanceRow->distance . ' m');
                 $row->addText((new Number($distanceRow->distance / 1000))->roundNumber(0) . ' km');
 
+                if ($this->redirectSite !==null) {
                 $site = clone($this->redirectSite);
                 $site->addParameter(new ContentParameter($distanceRow->contentToId));
                 $row->addClickableSite($site);
+                }
 
             }
 

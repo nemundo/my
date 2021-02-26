@@ -1,6 +1,5 @@
 {
   "require": {
-    "nemundo/framework": "*",
     "nemundo/content_app": "*"
   },
   "autoload": {

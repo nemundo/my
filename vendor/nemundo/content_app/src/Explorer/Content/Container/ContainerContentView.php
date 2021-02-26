@@ -55,7 +55,7 @@ class ContainerContentView extends AbstractContentView
 */
 
 
-            $site = clone(\Nemundo\Content\Admin\Site\ContentEditSite::$site);
+            $site = clone(\Nemundo\Content\Site\ContentEditSite::$site);  // clone(\Nemundo\Content\Admin\Site\ContentEditSite::$site);
             $site->addParameter(new ContentParameter($contentRow->childId));
             $row->addIconSite($site);
 
@@ -67,7 +67,8 @@ class ContainerContentView extends AbstractContentView
             $site->addParameter(new RefererContentParameter($this->contentType->getContentId()));
             $row->addIconSite($site);*/
 
-            $site = clone(ContentRemoveSite::$site);
+            //$site = clone(ContentRemoveSite::$site);
+            $site = clone(\Nemundo\Content\Index\Tree\Site\ContentRemoveSite::$site);
             $site->addParameter(new ContentParameter($contentRow->childId));
             $site->addParameter(new RefererContentParameter($this->contentType->getContentId()));
             $row->addIconSite($site);
@@ -75,7 +76,9 @@ class ContainerContentView extends AbstractContentView
 
             // redirect site
 
-            $site =clone(ExplorerSite::$site);   // clone(ItemSite::$site);
+            //$site =clone(ExplorerSite::$site);   // clone(ItemSite::$site);
+
+            $site = clone($this->redirectSite);
             $site->addParameter(new ContentParameter($contentRow->childId));
             $row->addClickableSite($site);
 

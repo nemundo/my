@@ -5,6 +5,7 @@ namespace Nemundo\Package\Bootstrap\Dropdown;
 use Nemundo\Com\Html\Hyperlink\UrlHyperlink;
 use Nemundo\Html\Block\Div;
 use Nemundo\Html\Button\Button;
+use Nemundo\Package\Bootstrap\Icon\BootstrapIcon;
 
 class BootstrapDropdown extends Div
 {
@@ -17,7 +18,12 @@ class BootstrapDropdown extends Div
     /**
      * @var Button
      */
-    private $dropdownButton;
+    public $dropdownButton;
+
+    /**
+     * @var bool
+     */
+    public $showToggle=true;
 
     /**
      * @var Div
@@ -28,19 +34,6 @@ class BootstrapDropdown extends Div
     protected function loadContainer()
     {
 
-/*
-        <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
-    </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
-   */
-
         parent::loadContainer();
 
         $this->addCssClass('dropdown');
@@ -50,7 +43,29 @@ class BootstrapDropdown extends Div
         $this->dropdownButton->addAttribute('data-bs-toggle', 'dropdown');
         $this->dropdownButton->addAttribute('aria-haspopup', 'true');
         $this->dropdownButton->addAttribute('aria-expanded', 'false');
-        $this->dropdownButton->addCssClass('btn btn-primary dropdown-toggle');
+        $this->dropdownButton->addCssClass('btn');
+
+$this->dropdownButton->addCssClass('bi bi-plus');
+
+        //$icon = new BootstrapIcon($dropdown);
+        //$icon->icon = 'plus';
+
+
+
+
+        //$this->dropdownButton->addCssClass('btn dropdown-toggle');
+
+
+//        $this->dropdownButton->addCssClass('btn btn-primary dropdown-toggle');
+
+
+        /*
+        <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-ellipsis-h"></i>
+                                    </button>
+        */
+
+
 
         $this->dropdownDiv = new Div($this);
         $this->dropdownDiv->addAttribute('aria-labelledby', 'dropdownMenuButton');
@@ -81,7 +96,13 @@ class BootstrapDropdown extends Div
 
     public function getContent()
     {
+
         $this->dropdownButton->label = $this->label;
+
+        if ($this->showToggle) {
+        $this->dropdownButton->addCssClass('btn-primary dropdown-toggle');
+        }
+
         return parent::getContent();
     }
 

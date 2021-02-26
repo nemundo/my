@@ -26,11 +26,23 @@ public $timeline;
 */
 public $imageUrl;
 
+/**
+* @var string
+*/
+public $source;
+
+/**
+* @var string
+*/
+public $sourceUrl;
+
 public function __construct(\Nemundo\Db\Row\AbstractDataRow $row, $model) {
 parent::__construct($row->getData());
 $this->row = $row;
 $this->id = $this->getModelValue($model->id);
 $this->timeline = $this->getModelValue($model->timeline);
 $this->imageUrl = $this->getModelValue($model->imageUrl);
+$this->source = $this->getModelValue($model->source);
+$this->sourceUrl = $this->getModelValue($model->sourceUrl);
 }
 }

@@ -16,6 +16,16 @@ public $timeline;
 */
 public $imageUrl;
 
+/**
+* @var \Nemundo\Model\Type\Text\TextType
+*/
+public $source;
+
+/**
+* @var \Nemundo\Model\Type\Text\TextType
+*/
+public $sourceUrl;
+
 protected function loadExternalType() {
 parent::loadExternalType();
 $this->externalModelClassName = ImageTimelineModel::class;
@@ -41,6 +51,20 @@ $this->imageUrl->tableName = $this->parentFieldName . "_" . $this->externalTable
 $this->imageUrl->aliasFieldName = $this->imageUrl->tableName . "_" . $this->imageUrl->fieldName;
 $this->imageUrl->label = "Image Url";
 $this->addType($this->imageUrl);
+
+$this->source = new \Nemundo\Model\Type\Text\TextType();
+$this->source->fieldName = "source";
+$this->source->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->source->aliasFieldName = $this->source->tableName . "_" . $this->source->fieldName;
+$this->source->label = "Source";
+$this->addType($this->source);
+
+$this->sourceUrl = new \Nemundo\Model\Type\Text\TextType();
+$this->sourceUrl->fieldName = "source_url";
+$this->sourceUrl->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->sourceUrl->aliasFieldName = $this->sourceUrl->tableName . "_" . $this->sourceUrl->fieldName;
+$this->sourceUrl->label = "Source Url";
+$this->addType($this->sourceUrl);
 
 }
 }

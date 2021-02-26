@@ -3,12 +3,13 @@
 namespace Nemundo\Package\Bootstrap\Listing;
 
 
+use Nemundo\Html\Block\Div;
 use Nemundo\Html\Hyperlink\Hyperlink;
 use Nemundo\Html\Listing\Li;
 use Nemundo\Com\Html\Listing\UnorderedList;
 
 // BootstrapListing
-class BootstrapList extends UnorderedList
+class BootstrapList extends Div  // UnorderedList
 {
 
     public function getContent()

@@ -27,7 +27,7 @@ class ContentEditPage extends ExplorerTemplate
 
         $contentParameter=new ContentParameter();
         $contentParameter->contentTypeCheck=false;
-        $content = $contentParameter->getContentType();
+        $content = $contentParameter->getContent();
         $content->addEvent(new LogContentEvent());
 
         //if ($content->isObjectOfTrait(TreeIndexTrait::class)) {

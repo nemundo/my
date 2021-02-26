@@ -16,6 +16,7 @@ use Nemundo\User\Data\User\UserUpdate;
 use Nemundo\User\Data\Usergroup\UsergroupCount;
 use Nemundo\User\Data\Usergroup\UsergroupReader;
 use Nemundo\User\Data\UserUsergroup\UserUsergroup;
+use Nemundo\User\Data\UserUsergroup\UserUsergroupCount;
 use Nemundo\User\Data\UserUsergroup\UserUsergroupDelete;
 use Nemundo\User\Login\Parameter\SecureTokenUrlParameter;
 use Nemundo\User\Mail\AbstractUserLoginMailContainer;
@@ -53,16 +54,12 @@ class UserBuilder extends AbstractBase
     protected $userId;
 
 
-
-    public function __construct($userId=null)
+    public function __construct($userId = null)
     {
 
         $this->userId = $userId;
 
     }
-
-
-
 
 
     public function fromLogin($login)
@@ -129,7 +126,8 @@ class UserBuilder extends AbstractBase
     }
 
 
-    public function existsUser() {
+    public function existsUser()
+    {
 
 
         $count = new UserCount();
@@ -144,16 +142,12 @@ class UserBuilder extends AbstractBase
     }
 
 
-
-    public function getUserRow() {
+    public function getUserRow()
+    {
 
         return (new UserReader())->getRowById($this->userId);
 
     }
-
-
-
-
 
 
     public function createUser()
@@ -206,11 +200,17 @@ class UserBuilder extends AbstractBase
         $count->filter->andEqual($count->model->id, $usergroup->usergroupId);
         if ($count->getCount() == 1) {
 
-            $data = new UserUsergroup();
-            $data->ignoreIfExists = true;
-            $data->userId = $this->userId;
-            $data->usergroupId = $usergroup->usergroupId;
-            $data->save();
+
+            $count = new UserUsergroupCount();
+            $count->filter->andEqual($count->model->userId, $this->userId);
+            $count->filter->andEqual($count->model->usergroupId, $usergroup->usergroupId);
+            if ($count->getCount() == 0) {
+                $data = new UserUsergroup();
+                //$data->ignoreIfExists = true;
+                $data->userId = $this->userId;
+                $data->usergroupId = $usergroup->usergroupId;
+                $data->save();
+            }
 
         } else {
             (new LogMessage())->writeError('Usergroup does not exist. Usergroup Id: ' . $usergroup->usergroupId);

@@ -2,7 +2,6 @@
 
 namespace Nemundo\Content\App\Explorer\Site\Config;
 
-use Nemundo\Content\App\Explorer\Page\Config\ConfigPage;
 use Nemundo\Web\Site\AbstractSite;
 
 class ConfigSite extends AbstractSite
@@ -14,12 +13,12 @@ class ConfigSite extends AbstractSite
         $this->url = 'config';
 
         new ContentTypeConfigSite($this);
-        new AppConfigSite($this);
+        //new AppConfigSite($this);
 
     }
 
     public function loadContent()
     {
-        (new ConfigPage())->render();
+       // (new ConfigPage())->render();
     }
 }

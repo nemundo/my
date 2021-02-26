@@ -4,6 +4,7 @@ namespace Nemundo\App\ModelDesigner\Com\Table;
 
 
 use Nemundo\Admin\Com\Table\AdminClickableTable;
+use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\App\ModelDesigner\ModelDesignerConfig;
 use Nemundo\App\ModelDesigner\Parameter\ProjectParameter;
 use Nemundo\App\ModelDesigner\Site\ProjectSite;
@@ -16,7 +17,7 @@ class ProjectTable extends AdminClickableTable
     public function getContent()
     {
 
-        $header = new TableHeader($this);
+        $header = new AdminTableHeader($this);
         $header->addText('Project');
         $header->addText('Project Name');
         $header->addText('Model Path');

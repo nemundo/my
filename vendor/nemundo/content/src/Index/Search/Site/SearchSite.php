@@ -7,6 +7,7 @@ namespace Nemundo\Content\Index\Search\Site;
 use Nemundo\Content\Index\Search\Page\SearchPage;
 use Nemundo\Content\Index\Search\Site\Json\SearchContentTypeJsonSite;
 use Nemundo\Content\Index\Search\Site\Json\SearchJsonSite;
+use Nemundo\Content\Site\ContentViewSite;
 use Nemundo\Core\Language\LanguageCode;
 use Nemundo\Web\Site\AbstractSite;
 
@@ -26,9 +27,13 @@ class SearchSite extends AbstractSite
         $this->url = 'search';
         SearchSite::$site = $this;
 
-        new SearchItemSite($this);
+        //new SearchItemSite($this);
         new SearchJsonSite($this);
         new SearchContentTypeJsonSite($this);
+
+
+        //new ContentViewSite($this);
+
 
     }
 

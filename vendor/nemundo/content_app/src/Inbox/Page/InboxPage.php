@@ -58,7 +58,7 @@ class InboxPage extends AbstractTemplateDocument
 
         $contentParameter=new ContentParameter();
         if ($contentParameter->hasValue()) {
-            $contentType = $contentParameter->getContentType(false);
+            $contentType = $contentParameter->getContent(false);
             $contentType->getDefaultView($layout->col2);
         }
 

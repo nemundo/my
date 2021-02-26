@@ -19,6 +19,7 @@ class ChildContentReader extends AbstractParentChildContentReader
         $reader->model->loadView();
         $reader->filter->andEqual($reader->model->parentId, $this->contentType->getContentId());
         $reader->addOrder($reader->model->itemOrder);
+        $reader->limit = $this->limit;
         foreach ($reader->getData() as $treeRow) {
             //$this->addItem($treeRow->child);
             $this->addItem($treeRow);

@@ -6,6 +6,7 @@ namespace Nemundo\Package\Bootstrap\Card;
 use Nemundo\Html\Block\ContentDiv;
 use Nemundo\Html\Block\Div;
 use Nemundo\Html\Container\AbstractContainer;
+use Nemundo\Html\Heading\H5;
 
 
 class BootstrapCard extends Div
@@ -18,7 +19,7 @@ class BootstrapCard extends Div
     /**
      * @var ContentDiv
      */
-    private $cardHeader;
+    protected $cardHeader;
 
     /**
      * @var Div
@@ -37,8 +38,7 @@ class BootstrapCard extends Div
         */
 
 
-
-        $this->cardHeader=new ContentDiv();
+        $this->cardHeader= new Div(); // new ContentDiv();
         $this->cardHeader->addCssClass('card-header');
 
 
@@ -56,7 +56,17 @@ class BootstrapCard extends Div
         $this->addCssClass('card');
         //$this->addCssClass('card-block');
 
-        $this->cardHeader->content=$this->header;
+
+        if ($this->header !==null) {
+
+
+            $h5=new H5($this->cardHeader);
+            $h5->content = $this->header;
+
+            //$this->cardHeader->content=$this->header;
+
+
+        }
 
 
 //        $this->cardHeader->conte

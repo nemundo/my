@@ -23,6 +23,55 @@
                     "allow_null": false,
                     "is_deleted": false,
                     "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Has Message",
+                    "field_name": "has_message",
+                    "variable_name": "hasMessage",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "large_text",
+                    "label": "Message",
+                    "field_name": "message",
+                    "variable_name": "message",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Content View",
+                    "field_name": "content_view",
+                    "variable_name": "contentView",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "bd4c2dc1-bf0d-4fa9-a4bc-7201666364fd"
+                },
+                {
+                    "type": "created_user",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Active",
+                    "field_name": "active",
+                    "variable_name": "active",
+                    "allow_null": false,
+                    "is_deleted": false
                 }
             ],
             "index": [

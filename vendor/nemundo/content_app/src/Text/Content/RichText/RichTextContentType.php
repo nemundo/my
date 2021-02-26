@@ -5,6 +5,8 @@ namespace Nemundo\Content\App\Text\Content\RichText;
 
 use Nemundo\Content\App\Text\Content\Html\HtmlContentView;
 use Nemundo\Content\App\Text\Content\LargeText\AbstractLargeTextContentType;
+use Nemundo\Content\Form\ContentForm;
+use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
 use Nemundo\Core\Type\Text\Text;
 
 
@@ -20,6 +22,7 @@ class RichTextContentType extends AbstractLargeTextContentType
         $this->typeId = '76bbc22a-0b19-4e69-8a50-c988464a298e';
 
         $this->formClassList[] = RichTextContentForm::class;
+        $this->formClassList[] = ContentSearchForm::class;
         $this->viewClassList[]  = HtmlContentView::class;
 
     }
@@ -34,8 +37,6 @@ class RichTextContentType extends AbstractLargeTextContentType
 
     public function getSubject()
     {
-
-
 
         $text = (new Text($this->getDataRow()->largeText))->removeHtmlTags()->substring(0,100)->getValue().' ...';
         return $text;

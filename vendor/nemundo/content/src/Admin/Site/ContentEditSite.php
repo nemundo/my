@@ -32,7 +32,7 @@ class ContentEditSite extends AbstractEditIconSite
 
         $contentParameter = new ContentParameter();
         $contentParameter->contentTypeCheck = false;
-        $contentType = $contentParameter->getContentType();
+        $contentType = $contentParameter->getContent();
 
         $form = $contentType->getDefaultForm($page);
         new UrlRefererHiddenInput($form);

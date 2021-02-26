@@ -5,6 +5,7 @@ namespace Nemundo\Content\Com\Container;
 
 
 use Nemundo\Admin\Com\Title\AdminSubtitle;
+use Nemundo\Com\FormBuilder\UrlReferer\UrlRefererHiddenInput;
 use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
 use Nemundo\Html\Container\AbstractHtmlContainer;
 use Nemundo\Package\Bootstrap\Tabs\Panel\BootstrapTabsPanel;
@@ -39,6 +40,11 @@ class ContentTypeFormContainer extends AbstractHtmlContainer
 
         $count = 0;
         foreach ($this->contentType->getFormList() as $form) {
+
+
+            $hidden = new UrlRefererHiddenInput($form);
+
+
 
             $panel = new BootstrapTabsPanelContainer($tab);
             $panel->panelTitle = $form->formName;

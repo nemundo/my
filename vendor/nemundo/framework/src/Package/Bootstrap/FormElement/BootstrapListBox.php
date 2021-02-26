@@ -11,6 +11,7 @@ use Nemundo\Package\Bootstrap\Utility\BootstrapSpacing;
 class BootstrapListBox extends AbstractListBox
 {
 
+    use BootstrapFormStyle;
 
     public function addInputCssClass($cssClass)
     {
@@ -28,6 +29,7 @@ class BootstrapListBox extends AbstractListBox
     {
 
         $this->prepareHtml();
+        $this->loadStyle();
 
         if ($this->inputId !== null) {
             $this->select->id = $this->inputId;

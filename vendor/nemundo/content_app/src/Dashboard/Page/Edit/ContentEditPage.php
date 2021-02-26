@@ -27,7 +27,7 @@ class ContentEditPage extends AbstractTemplateDocument
 
         $contentParameter=new ContentParameter();
         $contentParameter->contentTypeCheck=false;
-        $content = $contentParameter->getContentType();
+        $content = $contentParameter->getContent();
         //$content->addEvent(new LogContentEvent());
 
         /*
@@ -41,7 +41,7 @@ class ContentEditPage extends AbstractTemplateDocument
 
         $layout=new BootstrapTwoColumnLayout($this);
 
-        $widget=new AdminWidget($layout->col1);
+        $widget= new AdminWidget($layout->col1);
         $widget->widgetTitle=$content->getSubject();
 
         $form = $content->getDefaultForm($widget);

@@ -47,7 +47,7 @@ class DashboardEditPage extends AbstractTemplateDocument
     public function getContent()
     {
 
-        $content = (new ContentParameter())->getContentType(false);
+        $content = (new ContentParameter())->getContent(false);
 
         $title = new Title($this);
         $title->content  =  $content->getSubject();

@@ -13,8 +13,10 @@ use Nemundo\Content\App\Dashboard\Site\Edit\DashboardEditSite;
 use Nemundo\Content\App\Dashboard\Site\Edit\DashboardNewSite;
 use Nemundo\Content\App\Dashboard\Usergroup\DashboardAdministratorUsergroup;
 use Nemundo\Content\Parameter\ContentParameter;
+use Nemundo\Content\Site\ContentViewSite;
 use Nemundo\Html\Block\Div;
 use Nemundo\Html\Paragraph\Paragraph;
+use Nemundo\Web\Site\Site;
 
 
 class DashboardWildcardPage extends AbstractTemplateDocument
@@ -41,14 +43,8 @@ class DashboardWildcardPage extends AbstractTemplateDocument
         $btn->site = clone(DashboardNewSite::$site);
         $btn->site->addParameter(new ContentParameter($dashboardContentType->getContentId()));
 
-
-
-
-
-
-
-
-        $dashboardContentType->getDefaultView($this);
+        $view = $dashboardContentType->getDefaultView($this);
+        $view->redirectSite= new Site();  // ContentViewSite::$site;
 
         return parent::getContent();
 

@@ -27,7 +27,7 @@ class ContentDeleteSite extends AbstractDeleteIconSite
 
         $contentParameter = new ContentParameter();
         $contentParameter->contentTypeCheck = false;
-        $contentType = $contentParameter->getContentType();
+        $contentType = $contentParameter->getContent();
         $contentType->deleteType();
 
         (new UrlReferer())->redirect();

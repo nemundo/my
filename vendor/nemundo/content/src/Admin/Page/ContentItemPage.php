@@ -16,7 +16,7 @@ use Nemundo\Content\Admin\Site\ContentDeleteSite;
 use Nemundo\Content\Admin\Site\ContentEditSite;
 use Nemundo\Content\Admin\Site\ContentItemSite;
 use Nemundo\Content\Admin\Site\ContentNewSite;
-use Nemundo\Content\Admin\Site\ContentSite;
+use Nemundo\Content\Admin\Site\ContentAdminSite;
 use Nemundo\Content\Admin\Template\ContentTemplate;
 use Nemundo\Content\App\Explorer\Site\ItemSite;
 use Nemundo\Content\App\Log\Com\Container\LogContainer;
@@ -43,7 +43,7 @@ class ContentItemPage extends ContentTemplate
     {
 
 
-        $contentType = (new ContentParameter())->getContentType(false);
+        $contentType = (new ContentParameter())->getContent(false);
 
         $contentReader = new ContentReader();
         //$contentReader->model->loadUser();

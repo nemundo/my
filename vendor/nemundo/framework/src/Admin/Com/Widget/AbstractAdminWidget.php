@@ -34,7 +34,7 @@ abstract class AbstractAdminWidget extends AbstractRestrictedUserHtmlContainer
     /**
      * @var H6
      */
-    private $cardTitle;
+    protected $cardTitle;
 
     /**
      * @var Div
@@ -61,6 +61,8 @@ abstract class AbstractAdminWidget extends AbstractRestrictedUserHtmlContainer
         $this->loadWidget();
 
         $this->cardTitle = new H5();
+
+
         $this->titleHyperlink = new SiteHyperlink();
         $this->cardBlock = new Div();
 

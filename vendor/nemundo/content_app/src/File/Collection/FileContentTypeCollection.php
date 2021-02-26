@@ -17,7 +17,7 @@ class FileContentTypeCollection extends AbstractContentTypeCollection
     protected function loadCollection()
     {
 
-        $this->label='File';
+        $this->collection='File';
 
         $this
             ->addContentType(new FileContentType())

@@ -28,7 +28,7 @@ composer update
 
 ### Standalone Admin Installation
 ```
-php -r "require __DIR__.'/vendor/autoload.php';(new \Nemundo\Admin\Install\AdminPackageInstall(getcwd() . DIRECTORY_SEPARATOR))->install();"
+php -r "require __DIR__.'/vendor/autoload.php';(new \Nemundo\Dev\Install\AdminPackageInstall(getcwd() . DIRECTORY_SEPARATOR))->install();"
 ```
 
 ### Config File erstellen
@@ -65,9 +65,9 @@ composer require phpseclib/phpseclib
 ```
 
 
-### Admin User erstellen
+### Create Admin User
 ```
-php bin/cmd.php admin-user-enable
+php bin/cmd.php admin-user
 ```
 
 ### Password Reset
@@ -85,7 +85,7 @@ sudo php bin/cmd.php usergroup-clean
 sudo php bin/cmd.php htaccess-build
 ```
 
-### Db Backup
+### Database Backup
 ```
 sudo php bin/cmd.php backup-dump
 sudo php bin/cmd.php backup-import

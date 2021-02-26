@@ -12,7 +12,7 @@ class ViewPage extends ExplorerTemplate
     public function getContent()
     {
 
-        $contentType = (new ContentParameter())->getContentType(false);
+        $contentType = (new ContentParameter())->getContent(false);
 
         $title = new AdminTitle($this);
         $title->content = $contentType->getSubject();

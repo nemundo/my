@@ -3,9 +3,10 @@
 namespace Nemundo\Content\Application;
 
 use Nemundo\App\Application\Type\AbstractApplication;
-use Nemundo\Content\Admin\Site\ContentSite;
+use Nemundo\Content\Admin\Site\ContentAdminSite;
 use Nemundo\Content\Data\ContentModelCollection;
 use Nemundo\Content\Install\ContentInstall;
+use Nemundo\Content\Site\ContentSite;
 
 class ContentApplication extends AbstractApplication
 {
@@ -15,6 +16,7 @@ class ContentApplication extends AbstractApplication
         $this->applicationId = '8d20d52d-8b53-473d-a273-112c9a8638d9';
         $this->modelCollectionClass = ContentModelCollection::class;
         $this->installClass = ContentInstall::class;
-        $this->adminSiteClass = ContentSite::class;
+        $this->siteClass = ContentSite::class;
+        //$this->adminSiteClass = ContentAdminSite::class;
     }
 }

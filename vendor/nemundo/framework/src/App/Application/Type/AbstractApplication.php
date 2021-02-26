@@ -4,9 +4,11 @@ namespace Nemundo\App\Application\Type;
 
 use Nemundo\App\Application\Data\Application\ApplicationUpdate;
 use Nemundo\App\Application\Setup\ApplicationSetup;
+use Nemundo\Com\Package\AbstractPackage;
 use Nemundo\Core\Base\AbstractBaseClass;
 use Nemundo\Core\Debug\Debug;
 use Nemundo\Model\Collection\AbstractModelCollection;
+use Nemundo\Project\AbstractProject;
 use Nemundo\Project\Install\AbstractInstall;
 use Nemundo\Project\Install\AbstractUninstall;
 use Nemundo\Web\Site\AbstractSite;
@@ -71,6 +73,14 @@ abstract class AbstractApplication extends AbstractBaseClass
     protected $siteClass;
 
 
+    //protected $projectClass;
+
+    /**
+     * @var AbstractProject
+     */
+    public $project;
+
+
     /**
      * @var string[]
      */
@@ -119,6 +129,17 @@ abstract class AbstractApplication extends AbstractBaseClass
     }
 
 
+    public function getInstall()
+    {
+
+        /** @var AbstractInstall $install */
+        $install = new $this->installClass();
+
+        return $install;
+
+    }
+
+
     public function installApp()
     {
 
@@ -130,7 +151,9 @@ abstract class AbstractApplication extends AbstractBaseClass
             if (!isset(AbstractApplication::$installDone[$this->applicationId])) {
 
                 /** @var AbstractInstall $install */
-                $install = new $this->installClass();
+                //$install = new $this->installClass();
+
+                $install = $this->getInstall();
                 $install->install();
 
                 $update = new ApplicationUpdate();
@@ -143,10 +166,11 @@ abstract class AbstractApplication extends AbstractBaseClass
 
         } else {
 
-            (new Debug())->write('No Install Class');
+            (new Debug())->write('No Install Class. Class: ' . $this->getClassName());
 
         }
 
+        return $this;
 
     }
 
@@ -235,6 +259,46 @@ abstract class AbstractApplication extends AbstractBaseClass
         return $site;
 
     }
+
+
+
+    //protected function addPackageClass()
+
+    /**
+     * @var AbstractPackage[]
+     */
+    private $packageList = [];
+
+    protected function addPackage(AbstractPackage $package)
+    {
+
+        $this->packageList[] = $package;
+        return $this;
+
+    }
+
+
+    public function getPackageList()
+    {
+
+        return $this->packageList;
+
+    }
+
+
+    /*
+    public function getProject() {
+
+        $project=null;
+
+        if (class_exists($this->projectClass)) {
+    $project = new $this->projectClass();
+
+        }
+        return $project; $value;
+
+
+    }*/
 
 
 }

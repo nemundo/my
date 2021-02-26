@@ -4,6 +4,7 @@ namespace Nemundo\App\ModelDesigner\Com\Table;
 
 
 use Nemundo\Admin\Com\Table\AdminTable;
+use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\App\ModelDesigner\Parameter\AppParameter;
 use Nemundo\App\ModelDesigner\Parameter\FieldNameParameter;
 use Nemundo\App\ModelDesigner\Parameter\IndexParameter;
@@ -29,7 +30,7 @@ class IndexTypeTable extends AdminTable
 
         $this->id = 'index_type';
 
-        $header = new TableHeader($this);
+        $header = new AdminTableHeader($this);
         $header->addText('Type');
         $header->addEmpty();
 

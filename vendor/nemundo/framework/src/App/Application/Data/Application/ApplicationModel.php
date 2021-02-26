@@ -26,6 +26,16 @@ public $applicationClass;
 */
 public $install;
 
+/**
+* @var \Nemundo\Model\Type\External\Id\ExternalIdType
+*/
+public $projectId;
+
+/**
+* @var \Nemundo\App\Application\Data\Project\ProjectExternalType
+*/
+public $project;
+
 protected function loadModel() {
 $this->tableName = "application_application";
 $this->aliasTableName = "application_application";
@@ -70,5 +80,22 @@ $this->install->aliasFieldName = "application_application_install";
 $this->install->label = "Install";
 $this->install->allowNullValue = false;
 
+$this->projectId = new \Nemundo\Model\Type\External\Id\ExternalIdType($this);
+$this->projectId->tableName = "application_application";
+$this->projectId->fieldName = "project";
+$this->projectId->aliasFieldName = "application_application_project";
+$this->projectId->label = "Project";
+$this->projectId->allowNullValue = true;
+
+}
+public function loadProject() {
+if ($this->project == null) {
+$this->project = new \Nemundo\App\Application\Data\Project\ProjectExternalType($this, "application_application_project");
+$this->project->tableName = "application_application";
+$this->project->fieldName = "project";
+$this->project->aliasFieldName = "application_application_project";
+$this->project->label = "Project";
+}
+return $this;
 }
 }

@@ -30,7 +30,7 @@ class ContentContainerSite extends AbstractSite
     public function loadContent()
     {
 
-        $contentType = (new ContentParameter())->getContentType(false);
+        $contentType = (new ContentParameter())->getContent(false);
         $view = $contentType->getDefaultView();
 
         $response = new HttpResponse();

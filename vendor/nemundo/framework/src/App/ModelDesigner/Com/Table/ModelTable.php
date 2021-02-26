@@ -4,6 +4,7 @@ namespace Nemundo\App\ModelDesigner\Com\Table;
 
 
 use Nemundo\Admin\Com\Table\AdminClickableTable;
+use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\App\ModelDesigner\Json\AppJson;
 use Nemundo\App\ModelDesigner\Parameter\AppParameter;
 use Nemundo\App\ModelDesigner\Parameter\ModelParameter;
@@ -31,7 +32,7 @@ class ModelTable extends AdminClickableTable
     public function getContent()
     {
 
-        $header = new TableHeader($this);
+        $header = new AdminTableHeader($this);
         $header->addText('Label');
         $header->addText('Class Name');
         $header->addText('Table Name');

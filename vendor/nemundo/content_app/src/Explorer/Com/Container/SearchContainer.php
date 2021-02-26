@@ -38,7 +38,7 @@ use Nemundo\Package\Bootstrap\Listing\BootstrapHyperlinkList;
 use Nemundo\Package\Bootstrap\Listing\BootstrapSiteList;
 use Nemundo\Package\Bootstrap\Pagination\BootstrapPagination;
 use Nemundo\Package\Bootstrap\Table\BootstrapClickableTableRow;
-use Nemundo\Roundshot\Content\Roundshot\RoundshotContentType;
+use Nemundo\Roundshot\Content\Roundshot\RoundshotWebcamContentType;
 use Nemundo\Web\Site\AbstractSite;
 use Nemundo\Web\Site\Site;
 

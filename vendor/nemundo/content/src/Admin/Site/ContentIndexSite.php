@@ -33,7 +33,7 @@ class ContentIndexSite extends AbstractSite
 
         $contentParameter = new ContentParameter();
         $contentParameter->contentTypeCheck = false;
-        $contentType = $contentParameter->getContentType();
+        $contentType = $contentParameter->getContent();
         $contentType->saveIndex();
 
         (new UrlReferer())->redirect();

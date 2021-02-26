@@ -21,7 +21,7 @@ class PublicShareEditPage extends ExplorerTemplate
     {
 
 
-        $contentType = (new ContentParameter())->getContentType(false);
+        $contentType = (new ContentParameter())->getContent(false);
 
         $layout = new BootstrapTwoColumnLayout($this);
         $layout->col1->columnWidth = 8;

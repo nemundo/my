@@ -38,7 +38,7 @@ class ContentTypeCollectionSubmenuDropdown extends BootstrapSiteDropdown  // Boo
     {
 
         $submenu = new Submenu($this);
-        $submenu->label = $contentTypeCollection->label;
+        $submenu->label = $contentTypeCollection->collection;
         foreach ($contentTypeCollection->getContentTypeList() as $contentType2) {
             $submenu->addSite($this->getMenuSite($contentType2));
         }

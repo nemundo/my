@@ -26,6 +26,16 @@ public $applicationClass;
 */
 public $install;
 
+/**
+* @var \Nemundo\Model\Type\Id\IdType
+*/
+public $projectId;
+
+/**
+* @var \Nemundo\App\Application\Data\Project\ProjectExternalType
+*/
+public $project;
+
 protected function loadExternalType() {
 parent::loadExternalType();
 $this->externalModelClassName = ApplicationModel::class;
@@ -66,5 +76,23 @@ $this->install->aliasFieldName = $this->install->tableName . "_" . $this->instal
 $this->install->label = "Install";
 $this->addType($this->install);
 
+$this->projectId = new \Nemundo\Model\Type\Id\IdType();
+$this->projectId->fieldName = "project";
+$this->projectId->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->projectId->aliasFieldName = $this->projectId->tableName ."_".$this->projectId->fieldName;
+$this->projectId->label = "Project";
+$this->addType($this->projectId);
+
+}
+public function loadProject() {
+if ($this->project == null) {
+$this->project = new \Nemundo\App\Application\Data\Project\ProjectExternalType(null, $this->parentFieldName . "_project");
+$this->project->fieldName = "project";
+$this->project->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->project->aliasFieldName = $this->project->tableName ."_".$this->project->fieldName;
+$this->project->label = "Project";
+$this->addType($this->project);
+}
+return $this;
 }
 }

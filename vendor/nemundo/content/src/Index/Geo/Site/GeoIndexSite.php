@@ -9,10 +9,18 @@ use Nemundo\Web\Site\AbstractSite;
 // GeoSite
 class GeoIndexSite extends AbstractSite
 {
+
+    /**
+     * @var GeoIndexSite
+     */
+    public static $site;
+
     protected function loadSite()
     {
         $this->title = 'Geo';
         $this->url = 'geo-index';
+
+        GeoIndexSite::$site=$this;
 
         new GeoIndexKmlSite($this);
 

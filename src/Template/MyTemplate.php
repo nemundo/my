@@ -64,7 +64,7 @@ class MyTemplate extends BootstrapDocument
     {
 
         if ($this->title == null) {
-            $this->title = 'Dev';  // AdminConfig::$pageTitle;
+            $this->title = 'MyNemundo';
         }
 
         new JqueryHeader($this);

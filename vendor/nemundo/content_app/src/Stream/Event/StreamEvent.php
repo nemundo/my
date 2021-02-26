@@ -14,10 +14,13 @@ class StreamEvent extends AbstractContentEvent
     public function onCreate(AbstractType $contentType)
     {
 
-        $data=new Stream();
-        $data->contentId=$contentType->getContentId();
-        $data->save();
 
+        $data=new Stream();
+        $data->contentId= $contentType->getContentId();  //actionContentId;
+        $data->hasMessage=false;
+        $data->active=true;
+        $data->contentViewId=$contentType->getDefaultViewId();
+        $data->save();
     }
 
 }

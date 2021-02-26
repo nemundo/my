@@ -8,6 +8,8 @@ $this->addModel(new \Nemundo\Content\Data\Content\ContentModel());
 $this->addModel(new \Nemundo\Content\Data\ContentAction\ContentActionModel());
 $this->addModel(new \Nemundo\Content\Data\ContentIndex\ContentIndexModel());
 $this->addModel(new \Nemundo\Content\Data\ContentType\ContentTypeModel());
+$this->addModel(new \Nemundo\Content\Data\ContentTypeCollection\ContentTypeCollectionModel());
+$this->addModel(new \Nemundo\Content\Data\ContentTypeCollectionContentType\ContentTypeCollectionContentTypeModel());
 $this->addModel(new \Nemundo\Content\Data\ContentView\ContentViewModel());
 }
 }

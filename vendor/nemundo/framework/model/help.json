@@ -1,0 +1,120 @@
+{
+    "app": "Help",
+    "name": "help",
+    "namespace": "Nemundo\\App\\Help",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "36bfd210-53f7-4b4f-bbf1-95e3aea6c2ad",
+            "label": "Code",
+            "class_name": "Code",
+            "table_name": "help_code",
+            "namespace": "Nemundo\\App\\Help\\Data\\Code",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Topic",
+                    "field_name": "topic",
+                    "variable_name": "topic",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "f4b5957c-0544-4c70-a9a8-9a2d3c4892a5"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Code",
+                    "field_name": "code",
+                    "variable_name": "code",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Title",
+                    "field_name": "title",
+                    "variable_name": "title",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "cd5e820b-30da-4654-b3fe-948df6855db6",
+            "label": "Project",
+            "class_name": "Project",
+            "table_name": "help_project",
+            "namespace": "Nemundo\\App\\Help\\Data\\Project",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Project",
+                    "field_name": "project",
+                    "variable_name": "project",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Php Class",
+                    "field_name": "php_class",
+                    "variable_name": "phpClass",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "php_class",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "php_class"
+                    ]
+                }
+            ]
+        },
+        {
+            "template": "default",
+            "model_id": "f4b5957c-0544-4c70-a9a8-9a2d3c4892a5",
+            "label": "Topic",
+            "class_name": "Topic",
+            "table_name": "help_topic",
+            "namespace": "Nemundo\\App\\Help\\Data\\Topic",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Project",
+                    "field_name": "project",
+                    "variable_name": "project",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "cd5e820b-30da-4654-b3fe-948df6855db6"
+                },
+                {
+                    "type": "text",
+                    "label": "Topic",
+                    "field_name": "topic",
+                    "variable_name": "topic",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

@@ -41,6 +41,7 @@ use Nemundo\Package\Bootstrap\FormElement\BootstrapFromToDatePicker;
 use Nemundo\Package\Bootstrap\Layout\BootstrapThreeColumnLayout;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
 use Nemundo\Package\Bootstrap\Listing\BootstrapHyperlinkList;
+use Nemundo\Package\Bootstrap\Listing\BootstrapSiteList;
 use Nemundo\Web\Site\Site;
 
 class TimeSeriesPage extends TimeSeriesTemplate
@@ -121,19 +122,19 @@ class TimeSeriesPage extends TimeSeriesTemplate
             $p->content='Last Update '.$timeSeriesRow->lastUpdate->getShortDateTimeLeadingZeroFormat();
 
 
-            $ul = new BootstrapHyperlinkList($layout->col1);
+            $list = new BootstrapSiteList($layout->col1);
             $timeSeriesPeriodTypeReader = new TimeSeriesPeriodTypeReader();
             $timeSeriesPeriodTypeReader->model->loadPeriodType();
             $timeSeriesPeriodTypeReader->filter->andEqual($timeSeriesPeriodTypeReader->model->timeSeriesId, $timeSeries->getValue());
             foreach ($timeSeriesPeriodTypeReader->getData() as $periodTypeRow) {
 
                 if ((new PeriodTypeParameter())->getValue() == $periodTypeRow->periodTypeId) {
-                    $ul->addActiveHyperlink($periodTypeRow->periodType->periodType);
+                    $list->addActiveText($periodTypeRow->periodType->periodType);
                 } else {
                     $site = new Site();
                     $site->title = $periodTypeRow->periodType->periodType;
                     $site->addParameter(new PeriodTypeParameter($periodTypeRow->periodTypeId));
-                    $ul->addSite($site);
+                    $list->addSite($site);
                 }
             }
 

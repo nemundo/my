@@ -31,7 +31,7 @@ class JsonExportSite extends AbstractSite
     public function loadContent()
     {
 
-        $contentType = (new ContentParameter())->getContentType(false);
+        $contentType = (new ContentParameter())->getContent(false);
 
         $response = new HttpResponse();
         $response->contentType = ContentType::JSON;

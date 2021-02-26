@@ -27,6 +27,11 @@ public $applicationClass;
 */
 public $install;
 
+/**
+* @var string
+*/
+public $projectId;
+
 public function __construct() {
 parent::__construct();
 $this->model = new ApplicationModel();
@@ -36,6 +41,7 @@ $this->typeValueList->setModelValue($this->model->application, $this->applicatio
 $this->typeValueList->setModelValue($this->model->setupStatus, $this->setupStatus);
 $this->typeValueList->setModelValue($this->model->applicationClass, $this->applicationClass);
 $this->typeValueList->setModelValue($this->model->install, $this->install);
+$this->typeValueList->setModelValue($this->model->projectId, $this->projectId);
 parent::update();
 }
 }

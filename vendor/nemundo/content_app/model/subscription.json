@@ -1,0 +1,40 @@
+{
+    "app": "Subscription",
+    "name": "subscription",
+    "namespace": "Nemundo\\Content\\App\\Subscription",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "aa14d0a2-e405-4d75-b844-b57595d361aa",
+            "label": "Subscription",
+            "class_name": "Subscription",
+            "table_name": "subscription_subscription",
+            "namespace": "Nemundo\\Content\\App\\Subscription\\Data\\Subscription",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "User",
+                    "field_name": "user",
+                    "variable_name": "user",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "23f00db8-b303-40e4-ab45-32054a954434"
+                },
+                {
+                    "type": "external",
+                    "label": "Content",
+                    "field_name": "content",
+                    "variable_name": "content",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                }
+            ],
+            "index": []
+        }
+    ]
+}

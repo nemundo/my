@@ -5,9 +5,7 @@ namespace Nemundo\User\Script;
 
 use Nemundo\App\Script\Type\AbstractConsoleScript;
 use Nemundo\Core\Console\ConsoleInput;
-use Nemundo\User\Builder\AdminUserBuilder;
 use Nemundo\User\Builder\UserBuilder;
-use Nemundo\User\Type\UserItemType;
 
 
 class AdminUserScript extends AbstractConsoleScript

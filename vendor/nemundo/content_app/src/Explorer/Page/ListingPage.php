@@ -4,19 +4,17 @@ namespace Nemundo\Content\App\Explorer\Page;
 
 use Nemundo\Admin\Com\Widget\AdminWidget;
 use Nemundo\Com\FormBuilder\SearchForm;
-use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardRow;
-use Nemundo\Content\App\Explorer\Collection\BaseContentTypeCollection;
+use Nemundo\Content\App\Explorer\Content\Container\ContainerContentType;
 use Nemundo\Content\App\Explorer\Site\ExplorerSite;
 use Nemundo\Content\App\Explorer\Site\ListingSite;
 use Nemundo\Content\App\Explorer\Template\ExplorerTemplate;
-use Nemundo\Content\Com\ListBox\ContentTypeCollectionListBox;
-use Nemundo\Content\Com\ListBox\ContentTypeListBox;
+use Nemundo\Content\Index\Tree\Com\ListBox\RestrictedContentTypeListBox;
+use Nemundo\Content\Index\Tree\Data\RestrictedContentType\RestrictedContentTypeReader;
 use Nemundo\Content\Parameter\ContentParameter;
 use Nemundo\Content\Parameter\ContentTypeParameter;
-use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
-use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapColumn;
-
+use Nemundo\Package\Bootstrap\FormElement\BootstrapListBox;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
+use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapColumn;
 
 // ContentListPage
 class ListingPage extends ExplorerTemplate
@@ -26,17 +24,28 @@ class ListingPage extends ExplorerTemplate
 
         $form = new SearchForm($this);
 
-        $formRow = new BootstrapColumn($form);  // new BootstrapRow() new DashboardRow() new BootstrapRow($form);
+        $formRow = new BootstrapColumn($form);
+        $formRow->columnWidth = 2;
 
 
-        //new BootstrapTwoColumnLayout()
-
-        $formRow->columnWidth= 2;
+        //$list = new ContentTypeCollectionListBox($formRow);
 
 
+        /*
+        $list = new BootstrapListBox($formRow);
+        $list->name = (new ContentTypeParameter())->getParameterName();
 
-        $list = new ContentTypeListBox($formRow);
+        $reader = new RestrictedContentTypeReader();
+        $reader->model->loadRestrictedContentType();
+        $reader->filter->andEqual($reader->model->contentTypeId, (new ContainerContentType())->typeId);
+        $reader->addOrder($reader->model->restrictedContentType->contentType);
+        foreach ($reader->getData() as $restrictedContentTypeRow) {
+            $list->addItem($restrictedContentTypeRow->contentTypeId, $restrictedContentTypeRow->restrictedContentType->contentType);
+        }*/
 
+
+        $list=new RestrictedContentTypeListBox($formRow);
+        $list->contentType=new ContainerContentType();
         //$list = new ContentTypeCollectionListBox($formRow);
         //$list->contentTypeCollection=new BaseContentTypeCollection();
         $list->searchMode = true;
@@ -60,8 +69,8 @@ class ListingPage extends ExplorerTemplate
 
             if ($contentType->hasForm()) {
 
-                $widget=new AdminWidget($layout->col2);
-                $widget->widgetTitle='New';
+                $widget = new AdminWidget($layout->col2);
+                $widget->widgetTitle = 'New';
 
                 $form = $contentType->getDefaultForm($widget);
                 $form->redirectSite = clone(ListingSite::$site);
@@ -73,7 +82,7 @@ class ListingPage extends ExplorerTemplate
             $contentParameter = new ContentParameter();
             if ($contentParameter->hasValue()) {
 
-                $content = $contentParameter->getContentType(false);
+                $content = $contentParameter->getContent(false);
                 if ($content->hasView()) {
                     $content->getDefaultView($layout->col2);
                 }

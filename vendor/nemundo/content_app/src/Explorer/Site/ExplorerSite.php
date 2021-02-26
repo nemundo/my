@@ -94,13 +94,10 @@ class ExplorerSite extends AbstractSite
             (new ExplorerPage())->render();
         } else {
 
-
             $contentId = (new HomeContentIdStore())->getValue();
 
             $site = clone(ExplorerSite::$site);
-//            $site->addParameter(new ContentParameter((new BaseContainerContentType())->getContentId()));
             $site->addParameter(new ContentParameter($contentId));
-
             $site->redirect();
 
         }

@@ -39,9 +39,10 @@ class QueryContentSearchForm extends SearchForm
         $this->query->label = HtmlCharacter::NON_BREAKING_SPACE;
         $this->query->sourceSite = SearchJsonSite::$site;
 
+        /*
         $listbox = new ContentTypeListBox($formRow);
         $listbox->submitOnChange = true;
-        $listbox->searchMode = true;
+        $listbox->searchMode = true;*/
 
         $button = new AdminSearchButton($formRow);
         $button->column = true;

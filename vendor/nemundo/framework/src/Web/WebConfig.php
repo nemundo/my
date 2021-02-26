@@ -23,7 +23,7 @@ class WebConfig extends AbstractBaseClass
     /**
      * @var string
      */
-    public static $webUrl;
+    public static $webUrl= '/';
     // baseUrl
 
     /**

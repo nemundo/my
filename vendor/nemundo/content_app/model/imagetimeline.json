@@ -6,6 +6,60 @@
     "model": [
         {
             "template": "default",
+            "model_id": "c1bbd9b0-6520-464c-b0a2-d224383f5578",
+            "label": "Image",
+            "class_name": "Image",
+            "table_name": "imagetimeline_image",
+            "namespace": "Nemundo\\Content\\App\\ImageTimeline\\Data\\Image",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "external",
+                    "label": "Timeline",
+                    "field_name": "timeline",
+                    "variable_name": "timeline",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "f6a97fe2-cf1f-43e5-8a9e-6156fc726ed7"
+                },
+                {
+                    "type": "image",
+                    "label": "Image",
+                    "field_name": "image",
+                    "variable_name": "image",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "format": [
+                        {
+                            "format_type": "auto_size",
+                            "size": "800"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "label": "Hash",
+                    "field_name": "hash",
+                    "variable_name": "hash",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "36"
+                },
+                {
+                    "type": "created_date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
             "model_id": "4e58e6de-0548-4081-9945-bcf8712d6d4d",
             "label": "Image Timeline",
             "class_name": "ImageTimeline",
@@ -20,7 +74,7 @@
                     "label": "Timeline",
                     "field_name": "timeline",
                     "variable_name": "timeline",
-                    "allow_null": true,
+                    "allow_null": false,
                     "is_deleted": false,
                     "length": "255"
                 },
@@ -29,12 +83,38 @@
                     "label": "Image Url",
                     "field_name": "image_url",
                     "variable_name": "imageUrl",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Source",
+                    "field_name": "source",
+                    "variable_name": "source",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Source Url",
+                    "field_name": "source_url",
+                    "variable_name": "sourceUrl",
                     "allow_null": true,
                     "is_deleted": false,
                     "length": "255"
                 }
             ],
-            "index": []
+            "index": [
+                {
+                    "index_name": "imge_url",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "image_url"
+                    ]
+                }
+            ]
         }
     ]
 }

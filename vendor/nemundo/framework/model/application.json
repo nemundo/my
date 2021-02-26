@@ -48,9 +48,58 @@
                     "variable_name": "install",
                     "allow_null": false,
                     "is_deleted": false
+                },
+                {
+                    "type": "external",
+                    "label": "Project",
+                    "field_name": "project",
+                    "variable_name": "project",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "external_model_id": "024d7582-f6bc-4773-805a-db89d1faf208"
                 }
             ],
             "index": []
+        },
+        {
+            "template": "default",
+            "model_id": "024d7582-f6bc-4773-805a-db89d1faf208",
+            "label": "Project",
+            "class_name": "Project",
+            "table_name": "application_project",
+            "namespace": "Nemundo\\App\\Application\\Data\\Project",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Project",
+                    "field_name": "project",
+                    "variable_name": "project",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Php Class",
+                    "field_name": "php_class",
+                    "variable_name": "phpClass",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": [
+                {
+                    "index_name": "php_class",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "php_class"
+                    ]
+                }
+            ]
         }
     ]
 }

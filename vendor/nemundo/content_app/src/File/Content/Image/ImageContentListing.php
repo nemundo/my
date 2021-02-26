@@ -8,17 +8,15 @@ use Nemundo\Admin\Com\Table\AdminTable;
 use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\Com\TableBuilder\TableRow;
 use Nemundo\Content\App\File\Data\Image\ImagePaginationReader;
-use Nemundo\Content\App\File\Data\Image\ImageReader;
+use Nemundo\Content\Com\Dropdown\ContentActionDropdown;
 use Nemundo\Content\View\AbstractContentListing;
 use Nemundo\Package\Bootstrap\Image\BootstrapResponsiveImage;
 
 class ImageContentListing extends AbstractContentListing
 {
 
-
     public function getContent()
     {
-
 
         $table = new AdminTable($this);
 
@@ -27,6 +25,7 @@ class ImageContentListing extends AbstractContentListing
         $header = new AdminTableHeader($table);
         $header->addText('Image');
         $header->addText($reader->model->fileSize->label);
+        $header->addEmpty();
 
         foreach ($reader->getData() as $imageRow) {
 
@@ -37,6 +36,13 @@ class ImageContentListing extends AbstractContentListing
             $img->src = $imageRow->image->getImageUrl($reader->model->imageAutoSize400);
 
             $row->addText($imageRow->fileSize);
+
+
+            $imageContentType = new ImageContentType($imageRow->id);
+
+            $dropdown = new ContentActionDropdown($row);
+            $dropdown->contentId = $imageContentType->getContentId();
+            $dropdown->addDefaultAction();
 
 
         }

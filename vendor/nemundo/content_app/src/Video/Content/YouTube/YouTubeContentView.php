@@ -8,7 +8,10 @@ use Nemundo\Admin\Com\Title\AdminSubtitle;
 use Nemundo\Com\Video\YouTube\YouTubePlayer;
 use Nemundo\Content\View\AbstractContentView;
 use Nemundo\Html\Block\Div;
+use Nemundo\Html\Container\HtmlContainer;
 use Nemundo\Html\Paragraph\Paragraph;
+use Nemundo\Package\Bootstrap\Helper\Ratio\BootstrapAspectRatio;
+use Nemundo\Package\Bootstrap\Helper\Ratio\BootstrapRatioDiv;
 
 
 class YouTubeContentView extends AbstractContentView
@@ -26,25 +29,12 @@ class YouTubeContentView extends AbstractContentView
 
         $youtubeRow = $this->contentType->getDataRow();
 
-        /*$subtitle = new AdminSubtitle($this);
-        $subtitle->content = $youtubeRow->title;*/
-
-        /*
-        <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-</div>
-        */
-
-
-        $div = new Div($this);
-        $div->addCssClass('embed-responsive');
+        $div = new BootstrapRatioDiv($this);
+        $div->aspectRatio=BootstrapAspectRatio::RATIO_16_9;
 
         $player = new YouTubePlayer($div);
         $player->videoId = $youtubeRow->youtubeId;
         $player->autoPlay = true;
-
-        /*$p = new Paragraph($this);
-        $p->content = $youtubeRow->description;*/
 
         return parent::getContent();
 

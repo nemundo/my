@@ -10,11 +10,11 @@ class PublicShareApplication extends AbstractApplication
 {
     protected function loadApplication()
     {
-        $this->application = 'PublicShare';
-        $this->applicationId = 'b6a2c59b-bc39-417c-ae53-7f8cc6b8fe82';
-        $this->modelCollectionClass=PublicShareModelCollection::class;
-        $this->installClass = PublicShareInstall::class;
 
+        $this->application = 'Public Share';
+        $this->applicationId = 'b6a2c59b-bc39-417c-ae53-7f8cc6b8fe82';
+        $this->modelCollectionClass = PublicShareModelCollection::class;
+        $this->installClass = PublicShareInstall::class;
 
     }
 }

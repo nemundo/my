@@ -35,6 +35,9 @@ class YouTubeContentType extends AbstractTreeContentType
         $this->formClassList[]=ContentSearchForm::class;
         $this->viewClassList[] = YouTubeContentView::class;
         $this->viewClassList[] = YouTubeTitleDescriptionContentView::class;
+
+        // Image mit Play View
+
         $this->listingClass=ContentListing::class;
 
     }

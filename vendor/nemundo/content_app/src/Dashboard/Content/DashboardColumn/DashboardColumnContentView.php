@@ -3,9 +3,11 @@
 namespace Nemundo\Content\App\Dashboard\Content\DashboardColumn;
 
 use Nemundo\Admin\Com\Widget\AdminWidget;
+use Nemundo\Content\Com\Widget\ContentWidget;
 use Nemundo\Content\Index\Tree\Reader\ChildContentReader;
 use Nemundo\Content\Index\Tree\Reader\ChildContentTypeReader;
 use Nemundo\Content\View\AbstractContentView;
+use Nemundo\Html\Paragraph\Paragraph;
 use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapColumn;
 
 class DashboardColumnContentView extends AbstractContentView
@@ -23,18 +25,30 @@ class DashboardColumnContentView extends AbstractContentView
         $column = new BootstrapColumn($this);
         $column->columnWidth = $columnRow->columnWidth;
 
-        $child = new ChildContentReader();  // new ChildContentTypeReader();
+        $child = new ChildContentReader();
         $child->contentType = $this->contentType;
         foreach ($child->getData() as $treeRow) {
 
-            $contentTypeChild = $treeRow->child->getContentType();
+            $content = $treeRow->child->getContentType();
 
-            $widget = new AdminWidget($column);
-            $widget->widgetTitle =  $contentTypeChild->getSubject();
+            //$widget = new AdminWidget($column);
+            //$widget->widgetTitle =  $content->getSubject();
 
-            if ($contentTypeChild->hasView()) {
-                //$contentTypeChild->getDefaultView($widget);
-                $contentTypeChild->getView($treeRow->viewId,$widget);
+            if ($content->hasView()) {
+
+                $widget = new ContentWidget($column);
+                $widget->contentType = $content;
+                $widget->showMenu=false;
+                $widget->viewId=$treeRow->viewId;
+                //$widget->loadAction=true;
+                $widget->redirectSite = $this->redirectSite;
+
+
+                //$p=new Paragraph($column);
+                //$p->content = 'view id:'. $treeRow->viewId;
+
+
+                //$content->getView($treeRow->viewId,$widget);
 
             }
 

@@ -22,6 +22,7 @@ use Nemundo\Content\App\Job\Application\JobApplication;
 use Nemundo\Content\App\Location\Application\LocationApplication;
 use Nemundo\Content\App\Note\Application\NoteApplication;
 use Nemundo\Content\App\PublicShare\Application\PublicShareApplication;
+use Nemundo\Content\App\Stream\Application\StreamApplication;
 use Nemundo\Content\App\Text\Application\TextApplication;
 use Nemundo\Content\App\Timeline\Application\TimelineApplication;
 use Nemundo\Content\App\TimeSeries\Application\TimeSeriesApplication;
@@ -29,6 +30,7 @@ use Nemundo\Content\App\Video\Application\VideoApplication;
 use Nemundo\Content\App\Webcam\Application\WebcamApplication;
 use Nemundo\Content\App\WebRadio\Application\WebRadioApplication;
 use Nemundo\Content\App\Widget\Application\WidgetApplication;
+use Nemundo\Content\ContentProject;
 use Nemundo\Project\Install\AbstractInstall;
 
 
@@ -38,7 +40,7 @@ class ContentAppApplicationInstall extends AbstractInstall
     public function install()
     {
 
-        (new ApplicationSetup())
+        (new ApplicationSetup(new ContentProject()))
             ->addApplication(new CameraApplication())
             ->addApplication(new ExplorerApplication())
             ->addApplication(new InboxApplication())
@@ -57,6 +59,7 @@ class ContentAppApplicationInstall extends AbstractInstall
             ->addApplication(new LocationApplication())
             ->addApplication(new ContentPrintApplication())
             ->addApplication(new PublicShareApplication())
+            ->addApplication(new StreamApplication())
             ->addApplication(new NoteApplication())
             ->addApplication(new VideoApplication())
             ->addApplication(new TimeSeriesApplication())

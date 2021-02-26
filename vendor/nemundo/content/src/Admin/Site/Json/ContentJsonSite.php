@@ -29,7 +29,7 @@ class ContentJsonSite extends AbstractJsonSite
     protected function loadJson()
     {
 
-        $contentType = (new ContentParameter())->getContentType(false);
+        $contentType = (new ContentParameter())->getContent(false);
         $this->jsonFilename = 'content_' . $contentType->getContentId() . '.json';
         $this->addJsonRow($contentType->getJsonData());
 

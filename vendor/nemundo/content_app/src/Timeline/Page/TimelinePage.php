@@ -4,22 +4,22 @@ namespace Nemundo\Content\App\Timeline\Page;
 
 use Nemundo\Admin\Com\Button\AdminSearchButton;
 use Nemundo\Admin\Com\Table\AdminClickableTable;
-use Nemundo\Admin\Com\Table\AdminTable;
 use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\Com\FormBuilder\SearchForm;
-use Nemundo\Com\TableBuilder\TableRow;
 use Nemundo\Com\Template\AbstractTemplateDocument;
 use Nemundo\Content\App\Timeline\Data\Timeline\TimelinePaginationReader;
 use Nemundo\Content\App\Timeline\Data\Timeline\TimelineReader;
 use Nemundo\Content\App\Timeline\Site\ItemSite;
-use Nemundo\Content\App\TimeSeries\Com\ListBox\LineListBox;
-use Nemundo\Content\App\TimeSeries\Com\ListBox\TimeSeriesListBox;
-use Nemundo\Content\App\TimeSeries\Parameter\PeriodTypeParameter;
+use Nemundo\Content\App\Timeline\Site\TimelineSite;
+use Nemundo\Content\Com\Widget\ContentWidget;
 use Nemundo\Content\Parameter\ContentParameter;
+use Nemundo\Content\Parameter\ContentTypeParameter;
+use Nemundo\Db\Sql\Field\CountField;
 use Nemundo\Db\Sql\Order\SortOrder;
-use Nemundo\Html\Form\Input\HiddenInput;
-use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
 use Nemundo\Package\Bootstrap\FormElement\BootstrapFromToDatePicker;
+use Nemundo\Package\Bootstrap\FormElement\BootstrapListBox;
+use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
+use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
 use Nemundo\Package\Bootstrap\Pagination\BootstrapPagination;
 use Nemundo\Package\Bootstrap\Table\BootstrapClickableTableRow;
 
@@ -35,30 +35,60 @@ class TimelinePage extends AbstractTemplateDocument
 
         $dateFromTo = new BootstrapFromToDatePicker($formRow);
         $dateFromTo->searchMode = true;
+        $dateFromTo->column=true;
+        $dateFromTo->columnSize= 2;
+
+
+        $source = new BootstrapListBox($formRow);
+        $source->name = (new ContentTypeParameter())->getParameterName();
+        $source->label = 'Source';
+        $source->submitOnChange = true;
+        $source->searchMode = true;
+        $source->column=true;
+        $source->columnSize= 2;
+
+        $reader = new TimelineReader();
+        $reader->model->loadContent();
+        $reader->model->content->loadContentType();
+        $reader->addGroup($reader->model->content->contentTypeId);
+
+        $count = new CountField($reader);
+
+        foreach ($reader->getData() as $timelineRow) {
+
+            $label = $timelineRow->content->contentType->contentType . ' (' . $timelineRow->getModelValue($count) . ')';
+            $source->addItem($timelineRow->content->contentTypeId, $label);
+
+        }
 
         new AdminSearchButton($formRow);
-
 
 
         // ajax loading
         // search from to
 
-        $table=new AdminClickableTable($this);
+        $layout = new BootstrapTwoColumnLayout($this);
 
 
-        $reader=new TimelinePaginationReader();
+        $table = new AdminClickableTable($layout->col1);
+
+        $reader = new TimelinePaginationReader();
         $reader->model->loadContent();
         $reader->model->content->loadContentType();
 
         if ($dateFromTo->hasValueFrom()) {
-            $reader->filter->andEqualOrGreater($reader->model->date,$dateFromTo->getDateFrom()->getIsoDateFormat());
+            $reader->filter->andEqualOrGreater($reader->model->date, $dateFromTo->getDateFrom()->getIsoDateFormat());
         }
 
         if ($dateFromTo->hasValueTo()) {
-            $reader->filter->andEqualOrSmaller($reader->model->date,$dateFromTo->getDateTo()->getIsoDateFormat());
+            $reader->filter->andEqualOrSmaller($reader->model->date, $dateFromTo->getDateTo()->getIsoDateFormat());
         }
 
-        $reader->addOrder($reader->model->dateTime,SortOrder::DESCENDING);
+        if ($source->hasValue()) {
+            $reader->filter->andEqual($reader->model->content->contentTypeId, $source->getValue());
+        }
+
+        $reader->addOrder($reader->model->dateTime, SortOrder::DESCENDING);
 
         $header = new AdminTableHeader($table);
         $header->addText($reader->model->dateTime->label);
@@ -77,16 +107,32 @@ class TimelinePage extends AbstractTemplateDocument
             //$row->addText($contentType->getSubject());
             //$contentType->getDefaultView($row);
 
-            $site=clone(ItemSite::$site);
+            $site = clone(TimelineSite::$site);
             $site->addParameter(new ContentParameter($timelineRow->contentId));
+            $site->addParameter(new ContentTypeParameter());
+
             $row->addClickableSite($site);
 
         }
 
 
-        $pagination=new BootstrapPagination($this);
-        $pagination->paginationReader=$reader;
+        $pagination = new BootstrapPagination($layout->col1);
+        $pagination->paginationReader = $reader;
 
+
+        $contentParameter = new ContentParameter();
+        if ($contentParameter->hasValue()) {
+
+            $content = (new ContentParameter())->getContent(false);
+
+            $widget=new ContentWidget($layout->col2);
+            $widget->contentType = $content;
+            $widget->loadAction=true;
+            $widget->redirectSite= TimelineSite::$site;
+
+            //$content->getDefaultView($this);
+
+        }
 
 
         return parent::getContent();

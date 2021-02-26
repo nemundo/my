@@ -13,14 +13,19 @@ use Nemundo\Web\WebConfig;
 class SqLiteProjectLoader extends AbstractProjectLoader
 {
 
+    /**
+     * @var bool
+     */
+    public $loadConfigFile=true;
+
     public function loadProject()
     {
 
-        //if ($this->loadConfigFile) {
+        if ($this->loadConfigFile) {
             $reader = new ConfigFileReader();
             $reader->filename = ProjectConfig::$projectPath . 'config.ini';
             WebConfig::$webUrl = $reader->getValue('web_url');
-        //}
+        }
 
         $this->loadPath();
         DbConfig::$defaultConnection = new ProjectSqLiteConnection();

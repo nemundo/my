@@ -10,16 +10,28 @@ use Nemundo\Content\App\Explorer\Data\ExplorerContentType\ExplorerContentTypeRea
 use Nemundo\Content\App\File\Content\Upload\UploadContentType;
 use Nemundo\Content\App\Note\Content\Note\NoteContentType;
 use Nemundo\Content\Collection\AbstractContentTypeCollection;
+use Nemundo\Content\Index\Tree\Base\RestrictedContentTypeTrait;
 use Nemundo\Core\Debug\Debug;
 
 class BaseContentTypeCollection extends AbstractContentTypeCollection
 {
 
+    use RestrictedContentTypeTrait;
+
     protected function loadCollection()
     {
 
-        $this->label = 'Base';
+        $this->collection = 'Base';
 
+
+        $this->contentTypeId= (new ContainerContentType())->typeId;
+
+        foreach ($this->getRestrictedContentTypeData() as $restrictedContentTypeRow) {
+
+        }
+
+
+        /*
         $reader = new ExplorerContentTypeReader();
         $reader->model->loadContentType();
         $reader->addOrder($reader->model->contentType->contentType);
@@ -31,7 +43,7 @@ class BaseContentTypeCollection extends AbstractContentTypeCollection
             $this->addContentType($explorerContentTypeRow->contentType->getContentType());
             }
 
-        }
+        }*/
 
     }
 

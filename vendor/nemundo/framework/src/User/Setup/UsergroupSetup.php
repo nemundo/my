@@ -6,6 +6,7 @@ namespace Nemundo\User\Setup;
 use Nemundo\App\Application\Type\AbstractApplication;
 use Nemundo\Core\Base\AbstractBase;
 use Nemundo\User\Data\Usergroup\Usergroup;
+use Nemundo\User\Data\Usergroup\UsergroupCount;
 use Nemundo\User\Data\Usergroup\UsergroupDelete;
 use Nemundo\User\Data\Usergroup\UsergroupUpdate;
 use Nemundo\User\Data\UserUsergroup\UserUsergroupDelete;
@@ -23,12 +24,25 @@ class UsergroupSetup extends AbstractBase
     public function addUsergroup(AbstractUsergroup $usergroup)
     {
 
-        $data = new Usergroup();
-        $data->updateOnDuplicate = true;
-        $data->id = $usergroup->usergroupId;
-        $data->usergroup = $usergroup->usergroup;
-        $data->setupStatus = true;
-        $data->save();
+
+        $count = new UsergroupCount();
+        $count->filter->andEqual($count->model->id, $usergroup->usergroupId);
+        if ($count->getCount() == 0) {
+
+            $data = new Usergroup();
+            //$data->updateOnDuplicate = true;
+            $data->id = $usergroup->usergroupId;
+            $data->usergroup = $usergroup->usergroup;
+            $data->setupStatus = true;
+            $data->save();
+        } else {
+
+            $update = new UsergroupUpdate();
+            $update->usergroup = $usergroup->usergroup;
+            $update->setupStatus = true;
+            $update->updateById($usergroup->usergroupId);
+
+        }
 
         return $this;
 

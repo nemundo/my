@@ -7,12 +7,20 @@ use Nemundo\Web\Site\AbstractSite;
 
 class TimelineSite extends AbstractSite
 {
+
+    /**
+     * @var TimelineSite
+     */
+    public static $site;
+
     protected function loadSite()
     {
         $this->title = 'Timeline';
         $this->url = 'timeline';
 
-        new ItemSite($this);
+        TimelineSite::$site=$this;
+
+        //new ItemSite($this);
 
     }
 

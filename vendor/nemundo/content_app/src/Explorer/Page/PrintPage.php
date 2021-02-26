@@ -13,7 +13,7 @@ class PrintPage extends BootstrapDocument
 
         $parameter = new ContentParameter();
         //$contentId = $parameter->getValue();
-        $contentType = (new ContentParameter())->getContentType(false);
+        $contentType = (new ContentParameter())->getContent(false);
 
         $title = new Title($this);
         $title->content = $contentType->getSubject();

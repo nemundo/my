@@ -7,6 +7,7 @@ use Nemundo\Content\App\Store\Data\NumberStore\NumberStore;
 use Nemundo\Content\App\Store\Data\NumberStore\NumberStoreCount;
 use Nemundo\Content\App\Store\Data\NumberStore\NumberStoreDelete;
 use Nemundo\Content\App\Store\Data\NumberStore\NumberStoreReader;
+use Nemundo\Content\App\Store\Data\NumberStore\NumberStoreUpdate;
 
 abstract class AbstractNumberStoreType extends AbstractStoreType
 {
@@ -19,11 +20,29 @@ abstract class AbstractNumberStoreType extends AbstractStoreType
     public function setValue($value)
     {
 
-        $data = new NumberStore();
-        $data->updateOnDuplicate = true;
-        $data->id = $this->storeId;
-        $data->number = $value;
-        $data->save();
+
+        $count=new NumberStoreCount();
+        $count->filter->andEqual($count->model->id, $this->storeId);
+        if ($count->getCount() == 0) {
+
+            $data = new NumberStore();
+            //$data->updateOnDuplicate = true;
+            $data->id = $this->storeId;
+            $data->number = $value;
+            $data->save();
+
+        } else {
+
+            $update = new NumberStoreUpdate();
+            //$data->updateOnDuplicate = true;
+            //$data->id = $this->storeId;
+            $update->number = $value;
+            $update->updateById($this->storeId);
+
+        }
+
+
+
 
         return $this;
 

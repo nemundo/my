@@ -30,7 +30,7 @@ class HomePage extends MyTemplate
         } else {
 
 
-            new LoginWidget($layout->col2);
+            $widget= new LoginWidget($layout->col2);
 
         }
 

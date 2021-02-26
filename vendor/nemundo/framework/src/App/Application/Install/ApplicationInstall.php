@@ -4,9 +4,11 @@ namespace Nemundo\App\Application\Install;
 
 use Nemundo\App\Application\Application\ApplicationApplication;
 use Nemundo\App\Application\Data\ApplicationModelCollection;
+use Nemundo\App\Application\Script\PackageSetupScript;
 use Nemundo\App\Application\Setup\ApplicationSetup;
 use Nemundo\App\Application\Usergroup\AdminUsergroup;
 use Nemundo\App\Application\Usergroup\AppUsergroup;
+use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
 use Nemundo\Project\Install\AbstractInstall;
 use Nemundo\User\Setup\UsergroupSetup;
@@ -23,6 +25,8 @@ class ApplicationInstall extends AbstractInstall
         $setup = new ApplicationSetup();
         $setup->addApplication(new ApplicationApplication());
 
+        (new ScriptSetup())
+            ->addScript(new PackageSetupScript());
 
         (new UsergroupSetup())
             ->addUsergroup(new AppUsergroup())

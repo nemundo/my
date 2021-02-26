@@ -15,6 +15,9 @@ abstract class AbstractParentChildContentReader extends AbstractDataSource
      */
     public $contentType;
 
+    public $limit;
+
+
     /**
      * @return TreeRow[]
      */

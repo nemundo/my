@@ -12,7 +12,7 @@ use Nemundo\Content\Index\Tree\Data\Tree\TreeCount;
 use Nemundo\Content\Index\Tree\Data\Tree\TreeDelete;
 use Nemundo\Content\Index\Tree\Data\Tree\TreeReader;
 use Nemundo\Content\Index\Tree\Data\Tree\TreeRow;
-use Nemundo\Content\Index\Tree\Writer\TreeWriter;
+use Nemundo\Content\Index\Tree\Builder\TreeBuilder;
 use Nemundo\Content\Row\ContentCustomRow;
 use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Core\Debug\Debug;
@@ -135,7 +135,7 @@ trait TreeIndexTrait
 
             }
 
-            $writer = new TreeWriter();
+            $writer = new TreeBuilder();
             $writer->parentId = $this->parentId;
             $writer->childId = $this->getContentId();
             //$writer->viewId= $this->getDefaultTreeView() getDefaultTreeViewId();
@@ -186,7 +186,7 @@ trait TreeIndexTrait
     public function addChild($childId)
     {
 
-        $writer = new TreeWriter();
+        $writer = new TreeBuilder();
         $writer->parentId = $this->getContentId();
         $writer->childId = $childId;
         $writer->write();

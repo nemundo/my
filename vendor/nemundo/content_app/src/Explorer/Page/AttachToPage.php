@@ -17,7 +17,7 @@ class AttachToPage extends ExplorerTemplate
 
         $contentParameter=new ContentParameter();
         $contentParameter->contentTypeCheck=false;
-        $contentType = $contentParameter->getContentType();
+        $contentType = $contentParameter->getContent();
 
 
         $layout=new BootstrapTwoColumnLayout($this);

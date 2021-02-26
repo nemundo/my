@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65ad47075e043a74dd7900506b16e6e6",
+    "content-hash": "7cacee2230fae12fabbe601c77b0ffa0",
     "packages": [
         {
             "name": "nemundo/content",
-            "version": "0.12",
+            "version": "0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/content.git",
-                "reference": "3435ac90f822fff9927528fdd4d8db0741b64375"
+                "reference": "f90027c579e2c4405d7242e9dcd7edaaa924cf2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/content/zipball/3435ac90f822fff9927528fdd4d8db0741b64375",
-                "reference": "3435ac90f822fff9927528fdd4d8db0741b64375",
+                "url": "https://api.github.com/repos/nemundo/content/zipball/f90027c579e2c4405d7242e9dcd7edaaa924cf2b",
+                "reference": "f90027c579e2c4405d7242e9dcd7edaaa924cf2b",
                 "shasum": ""
             },
             "require": {
@@ -42,22 +42,22 @@
             "description": "Content",
             "support": {
                 "issues": "https://github.com/nemundo/content/issues",
-                "source": "https://github.com/nemundo/content/tree/0.12"
+                "source": "https://github.com/nemundo/content/tree/0.14"
             },
-            "time": "2021-02-20T19:30:43+00:00"
+            "time": "2021-02-26T14:39:22+00:00"
         },
         {
             "name": "nemundo/content_app",
-            "version": "0.14",
+            "version": "0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/content_app.git",
-                "reference": "925a0a260841c8fef6b1e70f70387dd8d760d1df"
+                "reference": "c3da453244ac5274468da469519cc1051fbec578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/content_app/zipball/925a0a260841c8fef6b1e70f70387dd8d760d1df",
-                "reference": "925a0a260841c8fef6b1e70f70387dd8d760d1df",
+                "url": "https://api.github.com/repos/nemundo/content_app/zipball/c3da453244ac5274468da469519cc1051fbec578",
+                "reference": "c3da453244ac5274468da469519cc1051fbec578",
                 "shasum": ""
             },
             "require": {
@@ -82,22 +82,22 @@
             "description": "Content App",
             "support": {
                 "issues": "https://github.com/nemundo/content_app/issues",
-                "source": "https://github.com/nemundo/content_app/tree/0.14"
+                "source": "https://github.com/nemundo/content_app/tree/0.15"
             },
-            "time": "2021-02-20T19:31:12+00:00"
+            "time": "2021-02-26T14:39:55+00:00"
         },
         {
             "name": "nemundo/core",
-            "version": "0.45",
+            "version": "0.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/core.git",
-                "reference": "cc222718a80af22458176137bc25ab95de374610"
+                "reference": "846b2e1b46232d1000af7c62fc82771bf2adb31f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/core/zipball/cc222718a80af22458176137bc25ab95de374610",
-                "reference": "cc222718a80af22458176137bc25ab95de374610",
+                "url": "https://api.github.com/repos/nemundo/core/zipball/846b2e1b46232d1000af7c62fc82771bf2adb31f",
+                "reference": "846b2e1b46232d1000af7c62fc82771bf2adb31f",
                 "shasum": ""
             },
             "type": "library",
@@ -119,22 +119,22 @@
             "description": "Core Function",
             "support": {
                 "issues": "https://github.com/nemundo/core/issues",
-                "source": "https://github.com/nemundo/core/tree/0.45"
+                "source": "https://github.com/nemundo/core/tree/0.46"
             },
-            "time": "2021-01-26T09:49:24+00:00"
+            "time": "2021-02-20T21:36:47+00:00"
         },
         {
             "name": "nemundo/db",
-            "version": "0.46",
+            "version": "0.48",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/db.git",
-                "reference": "74725725ee932af2d8ddeca9afe3b0d88fcb97aa"
+                "reference": "8bd23c32d47836b69674a96154e18c59ac5383d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/db/zipball/74725725ee932af2d8ddeca9afe3b0d88fcb97aa",
-                "reference": "74725725ee932af2d8ddeca9afe3b0d88fcb97aa",
+                "url": "https://api.github.com/repos/nemundo/db/zipball/8bd23c32d47836b69674a96154e18c59ac5383d3",
+                "reference": "8bd23c32d47836b69674a96154e18c59ac5383d3",
                 "shasum": ""
             },
             "require": {
@@ -159,22 +159,22 @@
             "description": "Database Access",
             "support": {
                 "issues": "https://github.com/nemundo/db/issues",
-                "source": "https://github.com/nemundo/db/tree/0.46"
+                "source": "https://github.com/nemundo/db/tree/0.48"
             },
-            "time": "2021-01-26T09:49:55+00:00"
+            "time": "2021-02-24T20:36:56+00:00"
         },
         {
             "name": "nemundo/framework",
-            "version": "0.78",
+            "version": "0.80",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/framework.git",
-                "reference": "464a0dacb72f8ae4a1306ae447275da553daa24b"
+                "reference": "8ee97ec7b1628017cafe15dc9b694b6295b86c5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/framework/zipball/464a0dacb72f8ae4a1306ae447275da553daa24b",
-                "reference": "464a0dacb72f8ae4a1306ae447275da553daa24b",
+                "url": "https://api.github.com/repos/nemundo/framework/zipball/8ee97ec7b1628017cafe15dc9b694b6295b86c5d",
+                "reference": "8ee97ec7b1628017cafe15dc9b694b6295b86c5d",
                 "shasum": ""
             },
             "require": {
@@ -201,9 +201,9 @@
             "description": "Nemundo Framework",
             "support": {
                 "issues": "https://github.com/nemundo/framework/issues",
-                "source": "https://github.com/nemundo/framework/tree/0.78"
+                "source": "https://github.com/nemundo/framework/tree/0.80"
             },
-            "time": "2021-02-20T19:29:44+00:00"
+            "time": "2021-02-26T14:40:39+00:00"
         },
         {
             "name": "nemundo/html",

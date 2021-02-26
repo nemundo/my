@@ -33,10 +33,10 @@ class YouTubePlayer extends AbstractVideoPlayer
         $iframe->width = $this->width;
         $iframe->height = $this->height;
         $iframe->src = $url;  //->getUrl();
-        $iframe->width='100%';
-        $iframe->height='100%';
+        //$iframe->width='100%';
+        //$iframe->height='100%';
 
-        $iframe->addCssClass('embed-responsive-item');
+        //$iframe->addCssClass('embed-responsive-item');
 
 
         $iframe->addAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');

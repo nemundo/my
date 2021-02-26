@@ -107,7 +107,7 @@ class AbstractTreeContentAdmin extends AbstractContentAdmin
         $this->childContentEdit->actionName = 'child-content-edit';
         $this->childContentEdit->onAction = function () {
 
-            $content = (new ContentParameter())->getContentType(false);
+            $content = (new ContentParameter())->getContent(false);
 
             $form = $content->getDefaultForm($this);
             $form->redirectSite = clone($this->child);

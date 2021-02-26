@@ -26,12 +26,12 @@ class NewPage extends ExplorerTemplate
             $contentType = $contentTypeParameter->getContentType();
 
             $contentParamter = new ContentParameter();
-            $content = $contentParamter->getContentType(false);
+            $content = $contentParamter->getContent(false);
             /*if ($contentParamter->hasValue()) {
                 $content = $contentParamter->getContentType(false);
             }*/
 
-            $contentType->addEvent(new LogContentEvent());
+            //$contentType->addEvent(new LogContentEvent());
 
             $event=new TreeEvent();
             $event->parentId=  $contentParamter->getValue();

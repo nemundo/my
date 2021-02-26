@@ -27,7 +27,8 @@ class StreamContainerContentView extends AbstractContentView
         foreach ($this->contentType->getChild() as $contentRow) {
 
             $contentType = $contentRow->child->getContentType();
-            $contentType->getDefaultView($this);
+            $view = $contentType->getDefaultView($this);
+            $view->redirectSite = $this->redirectSite;
 
             (new Hr($this));
 

@@ -6,6 +6,47 @@
     "model": [
         {
             "template": "default",
+            "model_id": "fd20c79d-8ea5-48fe-8330-dc40d1c8a8b0",
+            "label": "Iframe Video",
+            "class_name": "IframeVideo",
+            "table_name": "video_iframe_video",
+            "namespace": "Nemundo\\Content\\App\\Video\\Data\\IframeVideo",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Source Url",
+                    "field_name": "source_url",
+                    "variable_name": "sourceUrl",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Title",
+                    "field_name": "title",
+                    "variable_name": "title",
+                    "allow_null": false,
+                    "is_deleted": true,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Subject",
+                    "field_name": "subject",
+                    "variable_name": "subject",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
+        },
+        {
+            "template": "default",
             "model_id": "e43a3e44-c63b-44ce-8e3b-10e54c5c674a",
             "label": "Vimeo",
             "class_name": "Vimeo",

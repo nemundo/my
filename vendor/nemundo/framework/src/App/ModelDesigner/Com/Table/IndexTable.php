@@ -4,6 +4,7 @@ namespace Nemundo\App\ModelDesigner\Com\Table;
 
 
 use Nemundo\Admin\Com\Table\AdminClickableTable;
+use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\App\ModelDesigner\Parameter\AppParameter;
 use Nemundo\App\ModelDesigner\Parameter\IndexParameter;
 use Nemundo\App\ModelDesigner\Parameter\ModelParameter;
@@ -26,7 +27,7 @@ class IndexTable extends AdminClickableTable
     public function getContent()
     {
 
-        $header = new TableHeader($this);
+        $header = new AdminTableHeader($this);
         $header->addText('Index Name');
         $header->addText('Index Type');
         $header->addText('Type List');

@@ -6,12 +6,9 @@ use Nemundo\Content\App\Note\Data\Note\Note;
 use Nemundo\Content\App\Note\Data\Note\NoteReader;
 use Nemundo\Content\App\Note\Data\Note\NoteRow;
 use Nemundo\Content\App\Note\Data\Note\NoteUpdate;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentAdmin;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
-use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Content\Type\AbstractSearchContentType;
 
-class NoteContentType extends AbstractSearchContentType   //ContentType  // AbstractTreeContentType
+class NoteContentType extends AbstractSearchContentType
 {
 
     public $title;
@@ -23,15 +20,8 @@ class NoteContentType extends AbstractSearchContentType   //ContentType  // Abst
 
         $this->typeLabel = 'Note';
         $this->typeId = 'cddfe2b6-982b-495f-b5fb-ca64e25c9a33';
-
-
         $this->formClassList[] = NoteContentForm::class;
-        $this->formClassList[] = NoteTitleContentForm::class;
-
         $this->viewClassList[] = NoteContentView::class;
-        $this->viewClassList[] = Note2ContentView::class;
-
-        //$this->allowChild=false;
 
     }
 
@@ -59,12 +49,10 @@ class NoteContentType extends AbstractSearchContentType   //ContentType  // Abst
     protected function onIndex()
     {
 
-        $noteRow=$this->getDataRow();
+        $noteRow = $this->getDataRow();
 
         $this->addSearchText($noteRow->title);
         $this->addSearchText($noteRow->text);
-
-      //  $this->saveGroupDocumentIndex();
 
     }
 

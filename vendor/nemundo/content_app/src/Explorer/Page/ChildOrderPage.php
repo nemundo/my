@@ -27,7 +27,7 @@ class ChildOrderPage extends ExplorerTemplate
 
         $contentParameter = new ContentParameter();
         $contentParameter->contentTypeCheck = false;
-        $contentType = $contentParameter->getContentType();
+        $contentType = $contentParameter->getContent();
 
         $breadcrumb = new TreeBreadcrumb($this);
         $breadcrumb->redirectSite = ExplorerSite::$site;

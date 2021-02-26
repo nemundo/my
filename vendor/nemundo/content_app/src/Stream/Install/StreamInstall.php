@@ -2,10 +2,13 @@
 
 namespace Nemundo\Content\App\Stream\Install;
 
-use Nemundo\App\Script\Setup\ScriptSetup;
+use Nemundo\Content\App\Stream\Action\StreamContentAction;
+use Nemundo\Content\App\Stream\Action\StreamDeleteContentAction;
+use Nemundo\Content\App\Stream\Collection\StreamContentTypeCollection;
+use Nemundo\Content\App\Stream\Data\StreamModelCollection;
+use Nemundo\Content\Setup\ContentActionSetup;
+use Nemundo\Content\Setup\ContentTypeCollectionSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Content\App\Stream\Data\StreamCollection;
-use Nemundo\Content\App\Stream\Script\StreamCleanScript;
 use Nemundo\Project\Install\AbstractInstall;
 
 class StreamInstall extends AbstractInstall
@@ -14,10 +17,14 @@ class StreamInstall extends AbstractInstall
     {
 
         (new ModelCollectionSetup())
-            ->addCollection(new StreamCollection());
+            ->addCollection(new StreamModelCollection());
 
-        (new ScriptSetup())
-            ->addScript(new StreamCleanScript());
+        (new ContentActionSetup())
+            ->addContentAction(new StreamDeleteContentAction())
+            ->addContentAction(new StreamContentAction());
+
+        (new ContentTypeCollectionSetup())
+            ->addContentTypeCollection(new StreamContentTypeCollection());
 
     }
 }
