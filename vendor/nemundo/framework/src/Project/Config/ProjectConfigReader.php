@@ -75,7 +75,11 @@ class ProjectConfigReader extends AbstractBaseClass
 
     public function getValue($variable) {
 
+
+        $value=null;
+        if (ProjectConfigReader::$configReader!== null) {
         $value = ProjectConfigReader::$configReader->getValue($variable);
+        }
         return $value;
 
     }

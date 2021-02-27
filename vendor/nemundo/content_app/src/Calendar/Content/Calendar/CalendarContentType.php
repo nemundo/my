@@ -22,9 +22,6 @@ class CalendarContentType extends AbstractSearchContentType
 
     use TimelineIndexTrait;
 
-
-    //use GroupIndexTrait;
-
     /**
      * @var Date
      */

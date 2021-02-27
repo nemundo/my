@@ -39,7 +39,6 @@ class SystemPage extends AbstractTemplateDocument
             new MySqlSystemTable($widget);
         }
 
-
         if (DbConfig::$defaultConnection->isObjectOfClass(SqLiteConnection::class)) {
             $widget = new AdminWidget($layout->col2);
             $widget->widgetTitle = 'SqLite';
