@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '549c67c338a540cedbd89b16f017515c280b0b7f',
+    'reference' => '0b77d45b9b108daf8f8da614e8c6965036722fb4',
     'name' => '__root__',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '549c67c338a540cedbd89b16f017515c280b0b7f',
+      'reference' => '0b77d45b9b108daf8f8da614e8c6965036722fb4',
     ),
     'nemundo/content' => 
     array (
