@@ -5,6 +5,7 @@ namespace My\Setup;
 use Nemundo\App\Application\Application\ApplicationApplication;
 use Nemundo\App\Application\Install\ApplicationInstall;
 use Nemundo\App\Application\Setup\ApplicationSetup;
+use Nemundo\App\Script\Install\ScriptInstall;
 use Nemundo\App\Script\Type\AbstractScript;
 use Nemundo\Content\App\Base\Install\ContentAppApplicationInstall;
 use Nemundo\Content\App\Bookmark\Application\BookmarkApplication;
@@ -45,6 +46,8 @@ class MySetup extends AbstractScript
 
 
         //(new ProjectInstall())->install();
+
+        (new ScriptInstall())->install();
 
 
 
