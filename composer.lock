@@ -165,16 +165,16 @@
         },
         {
             "name": "nemundo/framework",
-            "version": "0.82",
+            "version": "0.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/framework.git",
-                "reference": "47eec9aba66f6895cbf7dddac9566f29626163ed"
+                "reference": "415e9c678b80af642b19f3ffb828f53b3e0f66f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/framework/zipball/47eec9aba66f6895cbf7dddac9566f29626163ed",
-                "reference": "47eec9aba66f6895cbf7dddac9566f29626163ed",
+                "url": "https://api.github.com/repos/nemundo/framework/zipball/415e9c678b80af642b19f3ffb828f53b3e0f66f7",
+                "reference": "415e9c678b80af642b19f3ffb828f53b3e0f66f7",
                 "shasum": ""
             },
             "require": {
@@ -201,9 +201,9 @@
             "description": "Nemundo Framework",
             "support": {
                 "issues": "https://github.com/nemundo/framework/issues",
-                "source": "https://github.com/nemundo/framework/tree/0.82"
+                "source": "https://github.com/nemundo/framework/tree/0.83"
             },
-            "time": "2021-03-04T09:36:26+00:00"
+            "time": "2021-03-04T14:11:27+00:00"
         },
         {
             "name": "nemundo/html",

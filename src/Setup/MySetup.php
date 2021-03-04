@@ -3,8 +3,11 @@
 namespace My\Setup;
 
 use Nemundo\App\Application\Application\ApplicationApplication;
+use Nemundo\App\Application\Data\ApplicationModelCollection;
 use Nemundo\App\Application\Install\ApplicationInstall;
 use Nemundo\App\Application\Setup\ApplicationSetup;
+use Nemundo\App\Script\Application\ScriptApplication;
+use Nemundo\App\Script\Data\ScriptModelCollection;
 use Nemundo\App\Script\Install\ScriptInstall;
 use Nemundo\App\Script\Type\AbstractScript;
 use Nemundo\Content\App\Base\Install\ContentAppApplicationInstall;
@@ -32,11 +35,16 @@ use Nemundo\Content\App\Video\Content\YouTube\YouTubeContentType;
 use Nemundo\Content\App\Webcam\Application\WebcamApplication;
 use Nemundo\Content\Application\ContentApplication;
 use Nemundo\Content\Index\Tree\Setup\RestrictedContentTypeSetup;
+use Nemundo\Core\Debug\Debug;
 use Nemundo\Core\Path\Path;
 use Nemundo\Core\Type\File\File;
 use Nemundo\Db\DbConfig;
+use Nemundo\Model\Setup\ModelCollectionSetup;
 use Nemundo\Project\Install\ProjectInstall;
 use Nemundo\User\Application\UserApplication;
+use Nemundo\User\Builder\UserBuilder;
+use Nemundo\User\Data\UserModelCollection;
+use Nemundo\User\Install\UserInstall;
 
 class MySetup extends AbstractScript
 {
@@ -44,18 +52,24 @@ class MySetup extends AbstractScript
     {
 
 
+        (new ModelCollectionSetup())
+        ->addCollection(new UserModelCollection())
+            ->addCollection(new ScriptModelCollection())
+            ->addCollection(new ApplicationModelCollection());
 
-        //(new ProjectInstall())->install();
 
+
+        //(new ApplicationInstall())->install();
         (new ScriptInstall())->install();
+        //(new UserInstall())->install();
 
-
-
-        (new ApplicationInstall())->install();
-        (new ApplicationSetup())->addApplication(new ApplicationApplication());
+        //(new ApplicationInstall())->install();
+        //(new ApplicationSetup())->addApplication(new ApplicationApplication());
         (new ApplicationApplication())->installApp();
-
         (new UserApplication())->installApp();
+        //(new ScriptApplication())->installApp();
+
+        //(new UserApplication())->installApp();
 
 
         (new ContentAppApplicationInstall())->install();
@@ -95,6 +109,23 @@ class MySetup extends AbstractScript
             ->addApplication(new ImageGalleryApplication())
             ->addApplication(new PublicShareApplication())
             ->addApplication(new ContentPrintApplication());
+
+
+
+        $user = new UserBuilder();
+        $user->login = 'admin';
+        $user->email = 'noreply@noreply.com';
+        $user->createUser();
+
+        $user->changePassword('admin');
+        $user->addAllUsergroup();
+
+        (new Debug())->write('User was created.');
+        (new Debug())->write('Login:        admin');
+        (new Debug())->write('Password:     admin');
+
+
+
 
 
     }

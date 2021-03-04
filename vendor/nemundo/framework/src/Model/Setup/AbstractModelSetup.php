@@ -23,7 +23,6 @@ use Nemundo\Model\Definition\Index\ModelIndex;
 use Nemundo\Model\Definition\Index\ModelSearchIndex;
 use Nemundo\Model\Definition\Index\ModelUniqueIndex;
 use Nemundo\Model\Definition\Model\AbstractModel;
-use Nemundo\Model\Log\SetupLog;
 use Nemundo\Model\Path\DataPath;
 use Nemundo\Model\Path\RedirectDataPath;
 use Nemundo\Model\Path\SetupLogPath;
@@ -218,7 +217,17 @@ abstract class AbstractModelSetup extends AbstractDbBase
             }
 
             if ($index->getClassName() == ModelSearchIndex::class) {
-                $dbIndex = new MySqlFullTextIndex($table);
+                //$dbIndex = new MySqlFullTextIndex($table);
+
+                if ($this->connection->isObjectOfClass(MySqlConnection::class)) {
+                    $dbIndex = new MySqlFullTextIndex($table);
+                }
+
+                if ($this->connection->isObjectOfClass(SqLiteConnection::class)) {
+                    $dbIndex = new SqLiteIndex($table);
+                }
+
+
             }
 
             if ($dbIndex !== null) {

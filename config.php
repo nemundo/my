@@ -7,8 +7,9 @@ $loader = new \Nemundo\Project\Loader\SqLiteProjectLoader();
 $loader->loadConfigFile = false;
 $loader->loadProject();
 
-\Nemundo\Admin\AdminConfig::$defaultTemplateClassName = \My\Template\MyTemplate::class;
-\Nemundo\Admin\AdminConfig::$webController = new \My\Controller\MyController();
+
+//\Nemundo\Admin\AdminConfig::$defaultTemplateClassName = \My\Template\MyTemplate::class;
+//\Nemundo\Admin\AdminConfig::$webController = new \My\Controller\MyController();
 
 
 

@@ -20,7 +20,7 @@ class ReinstallSite extends AbstractSite
     protected function loadSite()
     {
 
-        $this->title = 'ReInstall';
+        $this->title = 'Reinstall';
         $this->url = 'reinstall';
 
         ReinstallSite::$site = $this;
