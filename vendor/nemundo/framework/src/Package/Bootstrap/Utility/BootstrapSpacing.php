@@ -15,4 +15,9 @@ class BootstrapSpacing
     const MARIGN_TOP_5 = 'mt-5';
 
 
+    const MARIGN_RIGHT_5 = 'mr-5';
+
+
+    const MARIGN_3 = 'm-3';
+
 }

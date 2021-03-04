@@ -8,8 +8,8 @@ use Nemundo\Content\App\Inbox\Application\InboxApplication;
 use Nemundo\Content\App\Inbox\Data\InboxModelCollection;
 use Nemundo\Content\Setup\ContentActionSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 class InboxUninstall extends AbstractUninstall
 {

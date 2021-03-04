@@ -19,7 +19,7 @@ use Nemundo\App\Scheduler\Status\RunningSchedulerStatus;
 use Nemundo\App\Script\Install\ScriptInstall;
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 
 class SchedulerInstall extends AbstractInstall

@@ -32,6 +32,7 @@ class ChildTreeTable extends AbstractContentTypeContainer
         $header->addText('Typ');
         $header->addText('View');
         $header->addEmpty();
+        $header->addEmpty();
 
         $reader = new ChildContentReader();
         $reader->contentType = $this->contentType;

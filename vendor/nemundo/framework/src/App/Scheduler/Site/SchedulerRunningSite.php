@@ -4,6 +4,7 @@ namespace Nemundo\App\Scheduler\Site;
 
 
 use Nemundo\Admin\Com\Table\AdminTable;
+use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\Admin\Com\Title\AdminTitle;
 use Nemundo\App\Scheduler\Com\Navigation\SchedulerNavigation;
 use Nemundo\App\Scheduler\Data\Scheduler\SchedulerReader;
@@ -44,12 +45,12 @@ class SchedulerRunningSite extends AbstractSite
 
         //new SchedulerNavigation($page);
 
-        $title = new AdminTitle($page);
-        $title->content = 'Running';
+        //$title = new AdminTitle($page);
+        //$title->content = 'Running';
 
         $table = new AdminTable($page);
 
-        $header = new TableHeader($table);
+        $header = new AdminTableHeader($table);
         $header->addText('Application');
         $header->addText('Class Name');
         $header->addText('Running Date/Time');

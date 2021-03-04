@@ -8,7 +8,9 @@ use Nemundo\App\Application\Data\Application\ApplicationCount;
 use Nemundo\App\Application\Data\Application\ApplicationDelete;
 use Nemundo\App\Application\Data\Application\ApplicationUpdate;
 use Nemundo\App\Application\Data\Project\Project;
+use Nemundo\App\Application\Data\Project\ProjectCount;
 use Nemundo\App\Application\Data\Project\ProjectId;
+use Nemundo\App\Application\Data\Project\ProjectUpdate;
 use Nemundo\App\Application\Type\AbstractApplication;
 use Nemundo\Core\Base\AbstractBase;
 use Nemundo\Project\AbstractProject;
@@ -20,36 +22,29 @@ class ApplicationSetup extends AbstractBase
     protected $projectId;
 
 
-    public function __construct(AbstractProject $project = null)
-    {
-
-        if ($project !== null) {
-
-            $data = new Project();
-            $data->updateOnDuplicate = true;
-            $data->project = $project->project;
-            $data->phpClass = $project->getClassName();
-            $data->save();
-
-            $id = new ProjectId();
-            $id->filter->andEqual($id->model->phpClass, $project->getClassName());
-            $this->projectId = $id->getId();
-
-        }
-
-    }
-
 
     public function addApplication(AbstractApplication $application)
     {
 
         if ($application->project !== null) {
 
+            $count = new ProjectCount();
+            $count->filter->andEqual($count->model->phpClass,  $application->project->getClassName());
+            if ($count->getCount() == 0) {
             $data = new Project();
-            $data->updateOnDuplicate = true;
+            //$data->updateOnDuplicate = true;
             $data->project = $application->project->project;
             $data->phpClass = $application->project->getClassName();
             $data->save();
+            } else {
+
+                $update = new ProjectUpdate();
+                //$data->updateOnDuplicate = true;
+                $update->project = $application->project->project;
+                $update->filter->andEqual($update->model->phpClass, $application->project->getClassName());
+                $update->update();
+
+            }
 
             $id = new ProjectId();
             $id->filter->andEqual($id->model->phpClass, $application->project->getClassName());

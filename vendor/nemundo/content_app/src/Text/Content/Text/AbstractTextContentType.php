@@ -9,6 +9,7 @@ use Nemundo\Content\App\Text\Data\Text\TextReader;
 use Nemundo\Content\App\Text\Data\Text\TextRow;
 use Nemundo\Content\App\Text\Data\Text\TextUpdate;
 use Nemundo\Content\Index\Search\Type\SearchIndexTrait;
+use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
 use Nemundo\Content\Type\AbstractContentType;
 
 
@@ -23,6 +24,7 @@ abstract class AbstractTextContentType extends AbstractContentType
     {
 
         $this->formClassList[] = TextContentForm::class;
+
         $this->formPartClass = TextContentFormPart::class;
         $this->viewClassList[] = TextContentView::class;
         $this->listingClass = TextParentContentList::class;

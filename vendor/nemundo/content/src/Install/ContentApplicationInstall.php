@@ -7,7 +7,9 @@ namespace Nemundo\Content\Install;
 use Nemundo\App\Application\Setup\ApplicationSetup;
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Content\App\Calendar\Application\CalendarApplication;
+use Nemundo\Content\App\ContentPrint\Application\ContentPrintApplication;
 use Nemundo\Content\App\Map\Application\MapApplication;
+use Nemundo\Content\App\PublicShare\Application\PublicShareApplication;
 use Nemundo\Content\Application\ContentApplication;
 use Nemundo\Content\Data\ContentModelCollection;
 use Nemundo\Content\Index\Geo\Application\GeoApplication;
@@ -25,7 +27,7 @@ use Nemundo\Content\Script\ContentCleanScript;
 use Nemundo\Content\Script\ContentUpdateScript;
 use Nemundo\Content\Script\ReIndexScript;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class ContentApplicationInstall extends AbstractInstall
 {
@@ -39,6 +41,8 @@ class ContentApplicationInstall extends AbstractInstall
             ->addApplication(new SearchApplication())
             ->addApplication(new CalendarApplication())
             ->addApplication(new LogApplication())
+            ->addApplication(new PublicShareApplication())
+            ->addApplication(new ContentPrintApplication())
             ->addApplication(new MapApplication())
             ->addApplication(new RelationApplication())
             ->addApplication(new ContentApplication());

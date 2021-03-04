@@ -23,7 +23,7 @@ use Nemundo\Content\Script\ContentUpdateScript;
 use Nemundo\Content\Script\ReIndexScript;
 use Nemundo\Content\Setup\ContentActionSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class ContentInstall extends AbstractInstall
 {

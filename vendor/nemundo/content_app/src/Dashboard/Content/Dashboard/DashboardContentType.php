@@ -4,17 +4,19 @@ namespace Nemundo\Content\App\Dashboard\Content\Dashboard;
 
 use Nemundo\Content\App\Dashboard\Content\DashboardColumn\DashboardColumnContentType;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\Dashboard;
+use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardDelete;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardReader;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardRow;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardUpdate;
 use Nemundo\Content\Index\Tree\Event\TreeEvent;
 use Nemundo\Content\Type\AbstractContentType;
+use Nemundo\Content\Type\AbstractSearchContentType;
 use Nemundo\Content\View\Listing\ContentListing;
 use Nemundo\Core\Random\UniqueId;
 use Nemundo\Core\Structure\ForLoop;
 use Nemundo\Core\Url\UrlConverter;
 
-class DashboardContentType extends AbstractContentType
+class DashboardContentType extends AbstractSearchContentType
 {
 
 
@@ -25,6 +27,10 @@ class DashboardContentType extends AbstractContentType
      */
     public $columnCount = 1;
 
+    /**
+     * @var bool
+     */
+    public $active=true;
 
     //public $uniqueName;
 
@@ -63,6 +69,7 @@ class DashboardContentType extends AbstractContentType
         $data->id = $this->dataId;
         $data->dashboard = $this->dashboard;
         $data->url = (new UrlConverter())->convertToUrl($this->dashboard);
+        $data->active=$this->active;
         $data->save();
 
         $this->saveContent();
@@ -93,7 +100,22 @@ class DashboardContentType extends AbstractContentType
         $update = new DashboardUpdate();
         $update->dashboard = $this->dashboard;
         $update->url = (new UrlConverter())->convertToUrl($this->dashboard);
+        $update->active=$this->active;
         $update->updateById($this->dataId);
+
+    }
+
+
+    protected function onDelete()
+    {
+        (new DashboardDelete())->deleteById($this->dataId);
+    }
+
+
+    protected function onIndex()
+    {
+
+        $this->addSearchWord($this->getSubject());
 
     }
 
@@ -114,7 +136,17 @@ class DashboardContentType extends AbstractContentType
 
     public function getSubject()
     {
-        return $this->getDataRow()->dashboard;
+
+        $dashboardRow =$this->getDataRow();
+        $subject = $dashboardRow->dashboard;
+
+        if (!$dashboardRow->active) {
+            $subject.=' (not active)';
+        }
+
+        return $subject;
+
+
     }
 
 

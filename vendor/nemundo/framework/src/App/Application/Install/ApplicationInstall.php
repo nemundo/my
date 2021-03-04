@@ -10,7 +10,7 @@ use Nemundo\App\Application\Usergroup\AdminUsergroup;
 use Nemundo\App\Application\Usergroup\AppUsergroup;
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\User\Setup\UsergroupSetup;
 
 class ApplicationInstall extends AbstractInstall

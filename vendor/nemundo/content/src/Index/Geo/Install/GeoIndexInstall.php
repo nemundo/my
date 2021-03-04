@@ -14,7 +14,7 @@ use Nemundo\Content\Index\Geo\Scheduler\DistanceScheduler;
 use Nemundo\Content\Index\Geo\Script\GeoIndexCleanScript;
 use Nemundo\Content\Setup\ContentActionSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class GeoIndexInstall extends AbstractInstall
 {

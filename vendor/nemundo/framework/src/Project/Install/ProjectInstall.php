@@ -3,11 +3,13 @@
 namespace Nemundo\Project\Install;
 
 
-use Nemundo\Admin\Log\Script\LogFileDeleteScript;
 use Nemundo\App\Application\Application\ApplicationApplication;
+use Nemundo\App\Application\Install\ApplicationInstall;
 use Nemundo\App\Application\Setup\ApplicationSetup;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\App\Backup\Application\BackupApplication;
 use Nemundo\App\DbAdmin\Install\DbAdminInstall;
+use Nemundo\App\FileLog\Application\FileLogApplication;
 use Nemundo\App\Help\Application\HelpApplication;
 use Nemundo\App\Mail\Application\MailApplication;
 use Nemundo\App\Scheduler\Application\SchedulerApplication;
@@ -30,37 +32,20 @@ class ProjectInstall extends AbstractInstall
     public function install()
     {
 
-        /*(new ProjectConfigBuilderScript())->run();
-        (new MySqlDatabase())->createDatabase();*/
-
-        // Ausführen vor Setup Status Reset !!!
-        /* (new ApplicationInstall())->install();
-         (new ScriptInstall())->install();
-         (new UserInstall())->install();
-         (new SchedulerInstall())->install();*/
-
-        //$this->resetSetupStatus();
-
+        (new ApplicationInstall())->install();
+        (new ApplicationSetup())->addApplication(new ApplicationApplication());
         (new ApplicationApplication())->installApp();
-
-        //(new ApplicationInstall())->install();
-        //(new ScriptInstall())->install();
-        //(new SchedulerInstall())->install();
-        //(new UserInstall())->install();
 
         (new UserApplication())->installApp();
         (new SchedulerApplication())->installApp();
         (new MailApplication())->installApp();
-        (new SystemApplication())->installApp();
-
 
         (new ApplicationSetup())
+            ->addApplication(new SystemApplication())
+            ->addApplication(new FileLogApplication())
             ->addApplication(new BackupApplication())
             ->addApplication(new HelpApplication());
 
-
-        //(new MailInstall())->install();
-        //(new BackupInstall())->install();
 
         (new DbAdminInstall())->run();
 
@@ -72,8 +57,7 @@ class ProjectInstall extends AbstractInstall
         (new ScriptSetup())
             //->addScript(new ImageResizeScript())
             ->addScript(new DeleteTmpScript())
-            ->addScript(new AdminBuilderScript())
-            ->addScript(new LogFileDeleteScript());
+            ->addScript(new AdminBuilderScript());
 
     }
 

@@ -16,7 +16,7 @@ use Nemundo\Content\Index\Search\Content\Log\SearchLogContentType;
 use Nemundo\Content\Index\Search\Script\SearchCleanScript;
 use Nemundo\Content\Index\Search\Script\SearchIndexReindexingScript;
 use Nemundo\Content\Index\Search\Script\WordCleanScript;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class SearchIndexInstall extends AbstractInstall
 {

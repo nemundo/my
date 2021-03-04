@@ -13,7 +13,7 @@ use Nemundo\Content\Index\Group\Setup\GroupSetup;
 use Nemundo\Content\Index\Group\User\UserContentType;
 use Nemundo\Content\Index\Group\User\UsergroupContentType;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 
 class GroupInstall extends AbstractInstall

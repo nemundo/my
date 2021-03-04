@@ -5,6 +5,7 @@ namespace Nemundo\Crawler\HtmlParser;
 
 
 use Nemundo\Core\Base\AbstractBase;
+use Nemundo\Core\Debug\Debug;
 use Nemundo\Core\RegularExpression\RegularExpressionReader;
 use Nemundo\Crawler\WebCrawler\WebCrawler;
 
@@ -54,11 +55,14 @@ class OpenGraphParser extends AbstractBase
 
         $crawler = new WebCrawler();
         $crawler->url = $url;
-        $crawler->regularExpression = '<meta(.*?)/>';
+        $crawler->regularExpression = '<meta (.*?)>';
+        //$crawler->regularExpression = '<meta(.*?)/>';
 
         foreach ($crawler->getData() as $crawlerRow) {
 
             $meta = $crawlerRow->getValue(0);
+
+            //(new Debug())->write($meta);
 
             $re = new RegularExpressionReader();
             $re->text = $meta;

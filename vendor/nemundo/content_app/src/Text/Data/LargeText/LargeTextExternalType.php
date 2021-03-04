@@ -11,6 +11,11 @@ public $id;
 */
 public $largeText;
 
+/**
+* @var \Nemundo\Model\Type\Text\TextType
+*/
+public $subject;
+
 protected function loadExternalType() {
 parent::loadExternalType();
 $this->externalModelClassName = LargeTextModel::class;
@@ -29,6 +34,13 @@ $this->largeText->tableName = $this->parentFieldName . "_" . $this->externalTabl
 $this->largeText->aliasFieldName = $this->largeText->tableName . "_" . $this->largeText->fieldName;
 $this->largeText->label = "Large Text";
 $this->addType($this->largeText);
+
+$this->subject = new \Nemundo\Model\Type\Text\TextType();
+$this->subject->fieldName = "subject";
+$this->subject->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->subject->aliasFieldName = $this->subject->tableName . "_" . $this->subject->fieldName;
+$this->subject->label = "Subject";
+$this->addType($this->subject);
 
 }
 }

@@ -15,7 +15,7 @@ class ContentPrintSite extends AbstractSite
 
     protected function loadSite()
     {
-        $this->title = 'ContentPrint';
+        $this->title = 'Print';
         $this->url = 'content-print';
         $this->menuActive = false;
         ContentPrintSite::$site = $this;

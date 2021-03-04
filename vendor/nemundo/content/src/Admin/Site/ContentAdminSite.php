@@ -34,7 +34,8 @@ class ContentAdminSite extends AbstractSite
         ContentAdminSite::$site = $this;
 
         new ContentNewSite($this);
-        new ContentRemoveSite($this);
+        //new ContentRemoveSite($this);
+
         new ContentTypeSite($this);
 
         new ContentJsonSite($this);

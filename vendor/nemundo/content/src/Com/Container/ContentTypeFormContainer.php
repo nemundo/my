@@ -33,8 +33,8 @@ class ContentTypeFormContainer extends AbstractHtmlContainer
     public function getContent()
     {
 
-        $subtitle = new AdminSubtitle($this);
-        $subtitle->content = $this->contentType->typeLabel;
+        //$subtitle = new AdminSubtitle($this);
+        //$subtitle->content = $this->contentType->typeLabel;
 
         $tab = new BootstrapTabsPanel($this);
 

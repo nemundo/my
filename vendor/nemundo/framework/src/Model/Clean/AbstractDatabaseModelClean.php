@@ -9,7 +9,7 @@ use Nemundo\Db\Provider\MySql\Field\MySqlTableFieldReader;
 use Nemundo\Db\Provider\MySql\Table\MySqlTableReader;
 use Nemundo\Model\Log\SetupLog;
 use Nemundo\Model\Type\Complex\AbstractComplexType;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 
 // DatabaseInstallClean

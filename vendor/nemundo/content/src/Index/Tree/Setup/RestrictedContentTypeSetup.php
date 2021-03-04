@@ -38,25 +38,19 @@ class RestrictedContentTypeSetup extends AbstractBase
 
         if ($this->contentType->isInstalled() && $restrictedContentType->isInstalled()) {
 
-
             $count=new RestrictedContentTypeCount();
             $count->filter->andEqual($count->model->contentTypeId, $this->contentType->typeId);
             $count->filter->andEqual($count->model->restrictedContentTypeId, $restrictedContentType->typeId);
             if ($count->getCount() == 0) {
 
                 $data = new RestrictedContentType();
-                //$data->ignoreIfExists = true;
                 $data->contentTypeId = $this->contentType->typeId;
                 $data->restrictedContentTypeId = $restrictedContentType->typeId;
                 $data->save();
 
             }
 
-        } /*else {
-
-            (new Debug())->write('Restricted ContentType Setup. Content Type is not installed.');
-
-        }*/
+        }
 
         return $this;
 

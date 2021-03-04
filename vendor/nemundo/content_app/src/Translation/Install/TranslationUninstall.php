@@ -11,8 +11,8 @@ use Nemundo\Content\App\Translation\Data\Translation\TranslationReader;
 use Nemundo\Content\App\Translation\Data\TranslationModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 class TranslationUninstall extends AbstractUninstall
 {

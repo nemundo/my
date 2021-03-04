@@ -5,10 +5,13 @@ namespace Nemundo\Content\App\Text\Content\Html;
 
 
 use Nemundo\Content\App\Text\Content\LargeText\AbstractLargeTextContentType;
+use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
 
 
 class HtmlContentType extends AbstractLargeTextContentType
 {
+
+    public $subject;
 
     public $html;
 
@@ -18,6 +21,7 @@ class HtmlContentType extends AbstractLargeTextContentType
         $this->typeId = 'e1daa5be-9302-4126-b85b-a79623a3c86c';
 
         $this->formClassList[] = HtmlContentForm::class;
+        $this->formClassList[] =ContentSearchForm::class;
         $this->viewClassList[] = HtmlContentView::class;
 
     }
@@ -31,9 +35,10 @@ class HtmlContentType extends AbstractLargeTextContentType
 
 
 
+    /*
     public function getSubject()
     {
         return 'Html';
-    }
+    }*/
 
 }

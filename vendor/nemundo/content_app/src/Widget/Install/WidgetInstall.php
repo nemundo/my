@@ -9,7 +9,7 @@ use Nemundo\Content\App\Widget\Application\WidgetApplication;
 use Nemundo\Content\App\Widget\Content\Clock\ClockContentType;
 use Nemundo\Content\App\Widget\Content\UniqueId\UniqueIdContentType;
 use Nemundo\Content\Setup\ContentTypeSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class WidgetInstall extends AbstractInstall
 {

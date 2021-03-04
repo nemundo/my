@@ -12,8 +12,8 @@ use Nemundo\Content\Index\Geo\Data\GeoModelCollection;
 use Nemundo\Content\Index\Geo\Scheduler\DistanceScheduler;
 use Nemundo\Content\Index\Geo\Script\GeoIndexCleanScript;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 class GeoIndexUninstall extends AbstractUninstall
 {

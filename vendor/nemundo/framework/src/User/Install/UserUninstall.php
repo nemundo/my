@@ -4,7 +4,7 @@ namespace Nemundo\User\Install;
 
 
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 use Nemundo\User\Data\UserModelCollection;
 
 class UserUninstall extends AbstractUninstall

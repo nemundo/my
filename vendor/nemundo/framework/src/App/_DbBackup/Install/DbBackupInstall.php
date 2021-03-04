@@ -9,7 +9,7 @@ use Nemundo\App\DbBackup\Script\DbBackupScript;
 use Nemundo\App\DbBackup\Script\DbBackupRestoreScript;
 use Nemundo\App\Scheduler\Setup\SchedulerSetup;
 use Nemundo\App\Script\Setup\ScriptSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class DbBackupInstall extends AbstractInstall
 {

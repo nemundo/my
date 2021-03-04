@@ -46,9 +46,14 @@ class UrlContentType extends AbstractTreeContentType
     protected function onCreate()
     {
 
+        $title = $this->title;
+        if ($title ==='') {
+            $title=$this->url;
+        }
+
         $data = new Bookmark();
         $data->url = $this->url;
-        $data->title = $this->title;
+        $data->title = $title;
         $data->description = $this->description;
         $data->image->fromFileProperty($this->image);
         $this->dataId = $data->save();

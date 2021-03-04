@@ -8,7 +8,7 @@ use Nemundo\Content\App\Location\Content\Location\LocationContentType;
 use Nemundo\Content\App\Location\Data\LocationCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class LocationInstall extends AbstractInstall
 {

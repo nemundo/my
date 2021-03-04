@@ -39,6 +39,7 @@ class DashboardColumnContentView extends AbstractContentView
                 $widget = new ContentWidget($column);
                 $widget->contentType = $content;
                 $widget->showMenu=false;
+                $widget->editable=false;
                 $widget->viewId=$treeRow->viewId;
                 //$widget->loadAction=true;
                 $widget->redirectSite = $this->redirectSite;

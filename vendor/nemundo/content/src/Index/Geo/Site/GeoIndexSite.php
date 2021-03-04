@@ -3,6 +3,7 @@
 namespace Nemundo\Content\Index\Geo\Site;
 
 use Nemundo\Content\Index\Geo\Page\GeoIndexPage;
+use Nemundo\Content\Index\Geo\Site\Kml\GeoContentKmlSite;
 use Nemundo\Content\Index\Geo\Site\Kml\GeoIndexKmlSite;
 use Nemundo\Web\Site\AbstractSite;
 
@@ -23,6 +24,9 @@ class GeoIndexSite extends AbstractSite
         GeoIndexSite::$site=$this;
 
         new GeoIndexKmlSite($this);
+
+        //new GeoContentKmlSite($this);
+
 
     }
 

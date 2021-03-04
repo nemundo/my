@@ -8,7 +8,7 @@ use Nemundo\Content\App\PublicShare\Application\PublicShareApplication;
 use Nemundo\Content\App\PublicShare\Data\PublicShareModelCollection;
 use Nemundo\Content\Setup\ContentActionSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class PublicShareInstall extends AbstractInstall
 {

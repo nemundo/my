@@ -8,7 +8,7 @@ use Nemundo\Content\App\ImageGallery\Content\ImageGallery\ImageGalleryContentTyp
 use Nemundo\Content\App\ImageGallery\Data\ImageGalleryModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class ImageGalleryInstall extends AbstractInstall
 {

@@ -6,8 +6,8 @@ namespace Nemundo\Content\Install;
 
 use Nemundo\Model\Setup\ModelCollectionSetup;
 use Nemundo\Content\Data\ContentCollection;
-use Nemundo\Project\Install\AbstractInstall;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 class ContentUninstall extends AbstractUninstall
 {

@@ -9,7 +9,7 @@ use Nemundo\Content\App\ImageTimeline\Data\ImageTimelineModelCollection;
 use Nemundo\Content\App\ImageTimeline\Scheduler\ImageTimelineScheduler;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 class ImageTimelineUninstall extends AbstractUninstall
 {

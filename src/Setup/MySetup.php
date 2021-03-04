@@ -3,15 +3,15 @@
 namespace My\Setup;
 
 use Nemundo\App\Application\Application\ApplicationApplication;
+use Nemundo\App\Application\Install\ApplicationInstall;
 use Nemundo\App\Application\Setup\ApplicationSetup;
-use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\App\Script\Type\AbstractScript;
 use Nemundo\Content\App\Base\Install\ContentAppApplicationInstall;
-use Nemundo\Content\App\Base\Install\MyInstall;
 use Nemundo\Content\App\Bookmark\Application\BookmarkApplication;
 use Nemundo\Content\App\Bookmark\Content\UrlContentType;
 use Nemundo\Content\App\Calendar\Application\CalendarApplication;
 use Nemundo\Content\App\Calendar\Content\Calendar\CalendarContentType;
+use Nemundo\Content\App\ContentPrint\Application\ContentPrintApplication;
 use Nemundo\Content\App\Explorer\Application\ExplorerApplication;
 use Nemundo\Content\App\Explorer\Content\Container\ContainerContentType;
 use Nemundo\Content\App\Favorite\Application\FavoriteApplication;
@@ -29,35 +29,37 @@ use Nemundo\Content\App\Video\Application\VideoApplication;
 use Nemundo\Content\App\Video\Content\IframeVideo\IframeVideoContentType;
 use Nemundo\Content\App\Video\Content\YouTube\YouTubeContentType;
 use Nemundo\Content\App\Webcam\Application\WebcamApplication;
-use Nemundo\Content\App\Webcam\Content\Webcam\WebcamContentType;
 use Nemundo\Content\Application\ContentApplication;
 use Nemundo\Content\Index\Tree\Setup\RestrictedContentTypeSetup;
-use Nemundo\Content\Install\ContentInstall;
-use Nemundo\Dev\Script\AdminBuilderScript;
+use Nemundo\Core\Path\Path;
+use Nemundo\Core\Type\File\File;
+use Nemundo\Db\DbConfig;
 use Nemundo\Project\Install\ProjectInstall;
+use Nemundo\User\Application\UserApplication;
 
 class MySetup extends AbstractScript
 {
     public function run()
     {
-        (new ProjectInstall())->install();
 
-        /*
-        (new ScriptSetup())
-            ->addScript(new AdminBuilderScript());
-            ->addScript(new MyPackageSetup());*/
+
+
+        //(new ProjectInstall())->install();
+
+
+
+        (new ApplicationInstall())->install();
+        (new ApplicationSetup())->addApplication(new ApplicationApplication());
+        (new ApplicationApplication())->installApp();
+
+        (new UserApplication())->installApp();
+
 
         (new ContentAppApplicationInstall())->install();
 
         (new ApplicationApplication())->installApp();
         (new ContentApplication())->installApp();
-
-        //(new MyInstall())->install();
-
-
         (new ExplorerApplication())->installApp();
-        //(new WebcamApplication())->installApp();
-
         (new BookmarkApplication())->installApp();
         (new FileApplication())->installApp();
         (new CalendarApplication())->installApp();
@@ -66,8 +68,8 @@ class MySetup extends AbstractScript
         (new TextApplication())->installApp();
 
 
-        //(new PublicShareApplication())->installApp();
         (new FavoriteApplication())->installApp();
+        (new PublicShareApplication())->installApp();
 
 
         (new RestrictedContentTypeSetup(new ContainerContentType()))
@@ -84,14 +86,12 @@ class MySetup extends AbstractScript
             ->addRestrictedContentType(new IframeVideoContentType());
 
 
-
         (new ApplicationSetup())
             ->addApplication(new WebcamApplication())
             ->addApplication(new NoteApplication())
             ->addApplication(new ImageGalleryApplication())
-            ->addApplication(new PublicShareApplication());
-
-
+            ->addApplication(new PublicShareApplication())
+            ->addApplication(new ContentPrintApplication());
 
 
     }

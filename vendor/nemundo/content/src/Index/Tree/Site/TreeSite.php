@@ -18,9 +18,13 @@ class TreeSite extends AbstractSite
     {
         $this->title = 'Tree';
         $this->url = 'tree';
-        new TreeNewSite($this);
+        $this->menuActive=false;
 
-        TreeSite::$site = $this;
+
+        new TreeConfigSite($this);
+
+        //new TreeNewSite($this);
+        //TreeSite::$site = $this;
 
     }
 

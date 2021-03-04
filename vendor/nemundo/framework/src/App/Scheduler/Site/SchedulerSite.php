@@ -27,7 +27,7 @@ class SchedulerSite extends AbstractSite
         $this->url = 'scheduler';
 
         new SchedulerEditSite($this);
-        new SchedulerLogSite($this);
+        new LogSite($this);
         new SchedulerActiveSite($this);
         new SchedulerInactiveSite($this);
         new SchedulerSchedulerLogSite($this);

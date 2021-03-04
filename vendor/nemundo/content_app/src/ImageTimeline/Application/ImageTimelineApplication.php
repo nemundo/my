@@ -7,6 +7,7 @@ use Nemundo\Content\App\ImageTimeline\Data\ImageTimelineModelCollection;
 use Nemundo\Content\App\ImageTimeline\Install\ImageTimelineInstall;
 use Nemundo\Content\App\ImageTimeline\Install\ImageTimelineUninstall;
 use Nemundo\Content\App\ImageTimeline\Site\ImageTimelineSite;
+use Nemundo\Package\Fancybox\FancyboxPackage;
 
 class ImageTimelineApplication extends AbstractApplication
 {
@@ -18,5 +19,8 @@ class ImageTimelineApplication extends AbstractApplication
         $this->installClass = ImageTimelineInstall::class;
         $this->uninstallClass = ImageTimelineUninstall::class;
         $this->siteClass = ImageTimelineSite::class;
+
+        $this->addPackage(new FancyboxPackage());
+
     }
 }

@@ -8,7 +8,7 @@ use Nemundo\Content\App\FileTransfer\Content\FileTransfer\FileTransferContentTyp
 use Nemundo\Content\App\FileTransfer\Data\FileTransferModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class FileTransferInstall extends AbstractInstall
 {

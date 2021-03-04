@@ -16,6 +16,11 @@ public $dashboard;
 */
 public $url;
 
+/**
+* @var \Nemundo\Model\Type\Number\YesNoType
+*/
+public $active;
+
 protected function loadExternalType() {
 parent::loadExternalType();
 $this->externalModelClassName = DashboardModel::class;
@@ -41,6 +46,13 @@ $this->url->tableName = $this->parentFieldName . "_" . $this->externalTableName;
 $this->url->aliasFieldName = $this->url->tableName . "_" . $this->url->fieldName;
 $this->url->label = "Url";
 $this->addType($this->url);
+
+$this->active = new \Nemundo\Model\Type\Number\YesNoType();
+$this->active->fieldName = "active";
+$this->active->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->active->aliasFieldName = $this->active->tableName . "_" . $this->active->fieldName;
+$this->active->label = "Active";
+$this->addType($this->active);
 
 }
 }

@@ -10,7 +10,7 @@ use Nemundo\App\Mail\Script\MailQueueDeleteScript;
 use Nemundo\App\Scheduler\Setup\SchedulerSetup;
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class MailInstall extends AbstractInstall
 {

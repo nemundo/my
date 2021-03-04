@@ -25,4 +25,14 @@ class ContentTypeListBox extends BootstrapListBox
 
     }
 
+
+    public function getContentType() {
+
+
+        $contentType = (new ContentTypeParameter())->getContentType();
+        return $contentType;
+
+    }
+
+
 }

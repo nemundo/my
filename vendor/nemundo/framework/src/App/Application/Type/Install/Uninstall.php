@@ -3,8 +3,8 @@
 namespace Nemundo\App\Application\Type\Install;
 
 
-use Nemundo\Project\Install\AbstractInstall;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 class Uninstall extends AbstractUninstall
 {

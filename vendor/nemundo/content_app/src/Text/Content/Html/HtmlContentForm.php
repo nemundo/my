@@ -6,9 +6,15 @@ namespace Nemundo\Content\App\Text\Content\Html;
 
 use Nemundo\Package\Bootstrap\FormElement\BootstrapLargeTextBox;
 use Nemundo\Content\Form\AbstractContentForm;
+use Nemundo\Package\Bootstrap\FormElement\BootstrapTextBox;
 
 class HtmlContentForm extends AbstractContentForm
 {
+
+    /**
+     * @var BootstrapTextBox
+     */
+    private $subject;
 
     /**
      * @var BootstrapLargeTextBox
@@ -23,6 +29,9 @@ class HtmlContentForm extends AbstractContentForm
     public function getContent()
     {
 
+        $this->subject=new BootstrapTextBox($this);
+        $this->subject->label = 'Subject';
+
         $this->html = new BootstrapLargeTextBox($this);
         $this->html->label = 'Html';
 
@@ -34,6 +43,7 @@ class HtmlContentForm extends AbstractContentForm
     {
 
         $largeTextRow = $this->contentType->getDataRow();
+        $this->subject->value=$largeTextRow->subject;
         $this->html->value = $largeTextRow->largeText;
 
     }
@@ -41,6 +51,7 @@ class HtmlContentForm extends AbstractContentForm
     protected function onSubmit()
     {
 
+        $this->contentType->subject = $this->subject->getValue();
         $this->contentType->html = $this->html->getValue();
         $this->contentType->saveType();
 

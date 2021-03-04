@@ -1,6 +1,6 @@
 <?php
 namespace Nemundo\Content\App\Workflow\Install;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\Model\Setup\ModelCollectionSetup;
 use Nemundo\Content\App\Workflow\Data\WorkflowModelCollection;
 use Nemundo\Content\App\Workflow\Application\WorkflowApplication;

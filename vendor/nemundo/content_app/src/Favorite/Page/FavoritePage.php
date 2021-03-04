@@ -18,8 +18,8 @@ class FavoritePage extends AbstractTemplateDocument
     public function getContent()
     {
 
-        $title = new AdminTitle($this);
-        $title->content = FavoriteSite::$site->title;
+        //$title = new AdminTitle($this);
+        //$title->content = FavoriteSite::$site->title;
 
         $layout = new BootstrapTwoColumnLayout($this);
         $layout->col1->columnWidth = 4;

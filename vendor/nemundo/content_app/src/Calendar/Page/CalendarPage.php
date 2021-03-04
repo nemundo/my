@@ -26,6 +26,7 @@ use Nemundo\Content\App\Explorer\Site\ItemSite;
 use Nemundo\Content\App\Explorer\Site\NewSite;
 
 use Nemundo\Content\Com\Dropdown\ContentTypeCollectionSubmenuDropdown;
+use Nemundo\Content\Com\Widget\ContentWidget;
 use Nemundo\Content\Index\Group\User\GroupMembership;
 use Nemundo\Content\Index\Tree\Com\Container\ContentChildContainer;
 use Nemundo\Content\Index\Tree\Com\Table\ParentTreeTable;
@@ -99,20 +100,27 @@ class CalendarPage extends CalendarTemplate
         if ($parameter->hasValue()) {
 
 
+
             $contentType = new CalendarContentType($parameter->getValue());
-            $contentType->getDefaultView($layout->col2);
+            //$contentType->getDefaultView($layout->col2);
+
+            $widget = new ContentWidget($layout->col2);
+            $widget->contentType =$contentType;
+            $widget->loadAction=true;
 
 
+
+            /*
             $dropdown = new ContentTypeCollectionSubmenuDropdown($layout->col2);
             $dropdown->redirectSite = clone(NewSite::$site);
             $dropdown->redirectSite->addParameter(new ContentParameter());
             foreach ((new BaseContentTypeCollection())->getContentTypeList() as $child) {
                 $dropdown->addContentType($child);
-            }
+            }*/
 
 
-            $container = new ContentChildContainer($layout->col2);
-            $container->contentType=$contentType;
+            /*$container = new ContentChildContainer($layout->col2);
+            $container->contentType=$contentType;*/
 
         }
 

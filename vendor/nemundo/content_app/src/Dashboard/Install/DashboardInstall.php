@@ -16,7 +16,7 @@ use Nemundo\Content\App\Dashboard\Usergroup\DashboardAdministratorUsergroup;
 use Nemundo\Content\Index\Tree\Setup\RestrictedContentTypeSetup;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\User\Setup\UsergroupSetup;
 
 

@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '2281280704c65c60047d6e922024ec13b268a91b',
+    'reference' => '549c67c338a540cedbd89b16f017515c280b0b7f',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,25 +18,25 @@
       'aliases' => 
       array (
       ),
-      'reference' => '2281280704c65c60047d6e922024ec13b268a91b',
+      'reference' => '549c67c338a540cedbd89b16f017515c280b0b7f',
     ),
     'nemundo/content' => 
-    array (
-      'pretty_version' => '0.14',
-      'version' => '0.14.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'f90027c579e2c4405d7242e9dcd7edaaa924cf2b',
-    ),
-    'nemundo/content_app' => 
     array (
       'pretty_version' => '0.16',
       'version' => '0.16.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '219e135a0269a125821f6b43fd57cb278811853e',
+      'reference' => '4c195ce25d9b1f2a89738f333a3969605838fa3f',
+    ),
+    'nemundo/content_app' => 
+    array (
+      'pretty_version' => '0.17',
+      'version' => '0.17.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'be8ceeb656ad23ab35c4ea60a000463e035c227b',
     ),
     'nemundo/core' => 
     array (
@@ -58,12 +58,12 @@
     ),
     'nemundo/framework' => 
     array (
-      'pretty_version' => '0.81',
-      'version' => '0.81.0.0',
+      'pretty_version' => '0.82',
+      'version' => '0.82.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '128d745a05407f345ab9597591b706ea8b6eaa16',
+      'reference' => '47eec9aba66f6895cbf7dddac9566f29626163ed',
     ),
     'nemundo/html' => 
     array (

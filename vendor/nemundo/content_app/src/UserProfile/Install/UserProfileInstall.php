@@ -9,7 +9,7 @@ use Nemundo\Content\App\UserProfile\Data\UserProfileModelCollection;
 use Nemundo\Content\App\UserProfile\Usergroup\DefaultUsergroup;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\User\Setup\UsergroupSetup;
 
 class UserProfileInstall extends AbstractInstall

@@ -104,7 +104,11 @@ class CalendarContentType extends AbstractSearchContentType
 
     public function getSubject()
     {
-        return $this->getDataRow()->event;
+
+        $calendarRow = $this->getDataRow();
+        $subject = $calendarRow->date->getShortDateLeadingZeroFormat() . ' ' . $calendarRow->event;
+        return $subject;
+        //return $this->getDataRow()->event;
     }
 
 

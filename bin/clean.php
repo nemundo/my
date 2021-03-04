@@ -4,14 +4,11 @@ use Nemundo\User\Builder\UserBuilder;
 
 require __DIR__.'/../config.php';
 
-(new \Nemundo\Db\Provider\MySql\Database\MySqlDatabase())->emptyDatabase();
-(new \Nemundo\Db\Provider\MySql\Database\MySqlDatabase())->createDatabase();
+(new \Nemundo\Core\Type\File\File(\Nemundo\Db\DbConfig::$defaultConnection->filename))->deleteFile();
 
-(new \Dev\Install\DevInstall())->install();
 
-(new \Nemundo\Core\Debug\Debug())->write('Start Install');
+(new \My\Setup\MySetup())->run();
 
-(new \Dev\Install\DevInstall())->install();
 
 $user = new UserBuilder();
 $user->login = 'admin';

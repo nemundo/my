@@ -12,7 +12,7 @@ use Nemundo\Content\App\Calendar\Data\CalendarModelCollection;
 use Nemundo\Content\App\Timeline\Application\TimelineApplication;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 
 class CalendarInstall extends AbstractInstall

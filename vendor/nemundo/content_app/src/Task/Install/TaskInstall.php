@@ -6,7 +6,7 @@ use Nemundo\App\Application\Setup\ApplicationSetup;
 use Nemundo\Content\App\Task\Application\TaskApplication;
 use Nemundo\Content\App\Task\Data\TaskModelCollection;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class TaskInstall extends AbstractInstall
 {

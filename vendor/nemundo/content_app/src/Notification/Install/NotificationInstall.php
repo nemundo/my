@@ -1,6 +1,6 @@
 <?php
 namespace Nemundo\Content\App\Notification\Install;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\Model\Setup\ModelCollectionSetup;
 use Nemundo\Content\App\Notification\Data\NotificationModelCollection;
 use Nemundo\Content\App\Notification\Application\NotificationApplication;

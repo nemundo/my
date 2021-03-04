@@ -1,6 +1,6 @@
 <?php
 namespace Nemundo\Content\App\Poi\Install;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\Model\Setup\ModelCollectionSetup;
 use Nemundo\Content\App\Poi\Data\PoiCollection;
 use Nemundo\Content\App\Poi\Application\PoiApplication;

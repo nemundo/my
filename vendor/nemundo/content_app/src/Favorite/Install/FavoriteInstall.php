@@ -10,7 +10,7 @@ use Nemundo\Content\App\Favorite\Data\FavoriteModelCollection;
 use Nemundo\Content\Setup\ContentActionSetup;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class FavoriteInstall extends AbstractInstall
 {

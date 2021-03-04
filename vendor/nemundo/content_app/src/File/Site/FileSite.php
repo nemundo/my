@@ -29,8 +29,7 @@ class FileSite extends AbstractSite
         new FileSaveSite($this);
 
         new DocumentDocumentRedirectSite($this);
-
-        //new FileFileRedirectSite($this);
+        new FileFileRedirectSite($this);
 
     }
 

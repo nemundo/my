@@ -29,7 +29,7 @@ class SchedulerSchedulerLogSite extends AbstractIconSite
 {
 
     /**
-     * @var SchedulerLogSite
+     * @var LogSite
      */
     public static $site;
 

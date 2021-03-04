@@ -1,6 +1,6 @@
 <?php
 namespace Nemundo\Content\App\Subscription\Install;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\Model\Setup\ModelCollectionSetup;
 use Nemundo\Content\App\Subscription\Data\SubscriptionModelCollection;
 use Nemundo\Content\App\Subscription\Application\SubscriptionApplication;

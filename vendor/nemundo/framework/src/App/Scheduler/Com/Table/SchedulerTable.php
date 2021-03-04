@@ -9,7 +9,7 @@ use Nemundo\App\Scheduler\Check\RepeatingTime;
 use Nemundo\App\Scheduler\Data\Scheduler\SchedulerReader;
 use Nemundo\App\Scheduler\Parameter\SchedulerParameter;
 use Nemundo\App\Scheduler\Site\SchedulerEditSite;
-use Nemundo\App\Scheduler\Site\SchedulerLogSite;
+use Nemundo\App\Scheduler\Site\LogSite;
 use Nemundo\App\Scheduler\Site\SchedulerResetSite;
 use Nemundo\App\Scheduler\Site\SchedulerRunSite;
 use Nemundo\App\Scheduler\Site\SchedulerSchedulerLogSite;

@@ -11,7 +11,7 @@ class ContentAppProject extends AbstractProject
     protected function loadProject()
     {
 
-        $this->project = 'ContentApp';
+        $this->project = 'Content App';
         $this->projectName = 'content_app';
         $this->path = __DIR__;
         $this->namespace = __NAMESPACE__;

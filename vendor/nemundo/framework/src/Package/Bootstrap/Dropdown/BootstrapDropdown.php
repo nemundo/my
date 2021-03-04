@@ -5,6 +5,7 @@ namespace Nemundo\Package\Bootstrap\Dropdown;
 use Nemundo\Com\Html\Hyperlink\UrlHyperlink;
 use Nemundo\Html\Block\Div;
 use Nemundo\Html\Button\Button;
+use Nemundo\Html\Formatting\Italic;
 use Nemundo\Package\Bootstrap\Icon\BootstrapIcon;
 
 class BootstrapDropdown extends Div
@@ -31,6 +32,14 @@ class BootstrapDropdown extends Div
     protected $dropdownDiv;
 
 
+    public $icon = 'btn';
+
+    /**
+     * @var Italic
+     */
+    private $italic;
+
+
     protected function loadContainer()
     {
 
@@ -45,11 +54,13 @@ class BootstrapDropdown extends Div
         $this->dropdownButton->addAttribute('aria-expanded', 'false');
         $this->dropdownButton->addCssClass('btn');
 
-$this->dropdownButton->addCssClass('bi bi-plus');
+//$this->dropdownButton->addCssClass('bi bi-plus');
 
         //$icon = new BootstrapIcon($dropdown);
         //$icon->icon = 'plus';
 
+        $this->italic = new Italic($this->dropdownButton);
+        //$i->addCssClass('fa fa-plus');
 
 
 
@@ -77,6 +88,9 @@ $this->dropdownButton->addCssClass('bi bi-plus');
     public function addItem($label, $url)
     {
 
+        $this->dropdownButton->addCssClass($this->icon);
+
+
         $hyperlink = new UrlHyperlink($this->dropdownDiv);
         $hyperlink->addCssClass('dropdown-item');
         $hyperlink->content = $label;
@@ -99,8 +113,12 @@ $this->dropdownButton->addCssClass('bi bi-plus');
 
         $this->dropdownButton->label = $this->label;
 
+
+        $this->italic->addCssClass($this->icon);
+
+
         if ($this->showToggle) {
-        $this->dropdownButton->addCssClass('btn-primary dropdown-toggle');
+            $this->dropdownButton->addCssClass('btn-primary dropdown-toggle');
         }
 
         return parent::getContent();

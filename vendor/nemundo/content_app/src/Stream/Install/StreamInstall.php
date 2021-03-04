@@ -9,7 +9,7 @@ use Nemundo\Content\App\Stream\Data\StreamModelCollection;
 use Nemundo\Content\Setup\ContentActionSetup;
 use Nemundo\Content\Setup\ContentTypeCollectionSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class StreamInstall extends AbstractInstall
 {

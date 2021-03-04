@@ -8,7 +8,7 @@ use Nemundo\Content\Index\Tree\Application\TreeApplication;
 use Nemundo\Content\Index\Tree\Data\TreeModelCollection;
 use Nemundo\Content\Setup\ContentActionSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class TreeInstall extends AbstractInstall
 {

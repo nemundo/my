@@ -8,7 +8,7 @@ use Nemundo\Content\App\Team\Content\Team\TeamContentType;
 use Nemundo\Content\App\Team\Data\TeamModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class TeamInstall extends AbstractInstall
 {

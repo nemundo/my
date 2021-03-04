@@ -10,7 +10,7 @@ use Nemundo\Content\App\Project\Data\ProjectModelCollection;
 use Nemundo\Content\Index\Group\Setup\GroupSetup;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class ProjectInstall extends AbstractInstall
 {

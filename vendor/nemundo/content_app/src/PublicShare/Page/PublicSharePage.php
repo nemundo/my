@@ -8,6 +8,7 @@ use Nemundo\Com\Template\AbstractTemplateDocument;
 use Nemundo\Content\App\PublicShare\Data\PublicShare\PublicShareCount;
 use Nemundo\Content\App\PublicShare\Data\PublicShare\PublicShareReader;
 use Nemundo\Content\App\PublicShare\Parameter\PublicShareParameter;
+use Nemundo\Content\Com\Widget\ContentWidget;
 use Nemundo\Core\Http\Response\StatusCode;
 use Nemundo\Html\Header\Title;
 use Nemundo\Html\Paragraph\Paragraph;
@@ -39,9 +40,14 @@ class PublicSharePage extends AbstractTemplateDocument
 
             $layout = new BootstrapTwoColumnLayout($this);
 
+            $widget=new ContentWidget($layout->col1);
+            $widget->contentType= $contentType;
+            $widget->editable=false;
+
+            /*
             $widget = new AdminWidget($layout->col1);
             $widget->widgetTitle = $contentType->getSubject();
-            $contentType->getDefaultView($widget);
+            $contentType->getDefaultView($widget);*/
 
             /*$container = new CalendarContainer($layout->col2);
             $container->contentType = $contentType;*/

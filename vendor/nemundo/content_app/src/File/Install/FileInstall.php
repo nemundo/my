@@ -20,7 +20,7 @@ use Nemundo\Content\App\File\Script\ImageImportScript;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
 use Nemundo\Package\Dropzone\DropzonePackage;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class FileInstall extends AbstractInstall
 {

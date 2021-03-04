@@ -10,6 +10,7 @@ use Nemundo\Db\Sql\Order\SortOrder;
 use Nemundo\Html\Formatting\Small;
 use Nemundo\Package\Bootstrap\Image\BootstrapResponsiveImage;
 use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
+use Nemundo\Package\Fancybox\FancyboxHyperlink;
 
 class ImageTimelineLatestContentView extends AbstractImageTimelineContentView
 {
@@ -29,15 +30,13 @@ class ImageTimelineLatestContentView extends AbstractImageTimelineContentView
         $reader->limit = 1;
         foreach ($reader->getData() as $imageRow) {
 
-            $img = new BootstrapResponsiveImage($this);
+            $fancybox = new FancyboxHyperlink($this);
+            $fancybox->imageUrl = $imageRow->image->getImageUrl($imageRow->model->imageAutoSize1600);  //->getUrl();
+
+            $img = new BootstrapResponsiveImage($fancybox);
             $img->src=$imageRow->image->getImageUrl($imageRow->model->imageAutoSize800);
 
         }
-
-
-
-
-
 
         return parent::getContent();
     }

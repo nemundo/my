@@ -66,7 +66,9 @@ abstract class AbstractContentTypeSetup extends AbstractSetup
 
             $count = new ContentViewCount();
             $count->filter->andEqual($update->model->contentTypeId, $contentType->typeId);
+            $count->filter->andEqual($update->model->viewName, $view->viewName);
             $count->filter->andEqual($update->model->viewClass, $view->getClassName());
+
             if ($count->getCount() == 0) {
                 $data = new ContentView();
                 $data->contentTypeId = $contentType->typeId;

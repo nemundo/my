@@ -23,6 +23,8 @@ class TypeDropdown extends BootstrapSiteDropdown
     public function getContent()
     {
 
+
+
         foreach ((new TypeCollection())->getTypeCollection() as $type) {
 
             $site = clone(TypeNewSite::$site);

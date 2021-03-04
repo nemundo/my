@@ -17,7 +17,7 @@ use Nemundo\Content\App\Feed\Script\FeedCleanScript;
 use Nemundo\Content\App\Job\Setup\JobSetup;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 class FeedUninstall extends AbstractUninstall
 {

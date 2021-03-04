@@ -4,39 +4,24 @@
 namespace Nemundo\Content\App\Dashboard\Page\Edit;
 
 
-use Nemundo\Admin\Com\Button\AdminCopyButton;
 use Nemundo\Admin\Com\Button\AdminIconSiteButton;
-use Nemundo\Admin\Com\Widget\AdminWidget;
 use Nemundo\Com\FormBuilder\SearchForm;
-use Nemundo\Com\Html\Listing\UnorderedList;
 use Nemundo\Com\Template\AbstractTemplateDocument;
-use Nemundo\Content\App\Calendar\Com\Container\CalendarContainer;
 use Nemundo\Content\App\Dashboard\Site\Edit\ContentEditSite;
 use Nemundo\Content\App\Dashboard\Site\Edit\ContentNewSite;
 use Nemundo\Content\App\Dashboard\Site\Edit\DashboardEditSite;
-use Nemundo\Content\App\Explorer\Com\Dropdown\MenuDropdown;
-use Nemundo\Content\App\Explorer\Data\PublicShare\PublicShareReader;
-use Nemundo\Content\App\Explorer\Parameter\PublicShareParameter;
-use Nemundo\Content\App\Explorer\Site\ExplorerSite;
-use Nemundo\Content\App\Explorer\Site\NewSite;
-use Nemundo\Content\App\Explorer\Site\Share\PublicShareDeleteSite;
-use Nemundo\Content\App\Explorer\Site\Share\PublicShareSite;
+use Nemundo\Content\App\Explorer\Site\ChildOrderSite;
 use Nemundo\Content\Com\Input\ContentHiddenInput;
 use Nemundo\Content\Com\ListBox\ContentViewListBox;
-use Nemundo\Content\Index\Geo\Com\Container\GeoIndexContainer;
-use Nemundo\Content\Index\Group\Com\Container\GroupContainer;
-use Nemundo\Content\Index\Log\Com\Container\LogContainer;
-use Nemundo\Content\Index\Relation\Com\Widget\RelationIndexWidget;
+use Nemundo\Content\Com\Widget\ContentWidget;
 use Nemundo\Content\Index\Tree\Com\Container\TreeIndexContainer;
 use Nemundo\Content\Index\Tree\Com\Dropdown\RestrictedContentTypeDropdown;
-use Nemundo\Content\Index\Tree\Data\Tree\TreeReader;
+use Nemundo\Content\Index\Tree\Com\Table\ChildTreeTable;
+use Nemundo\Content\Index\Tree\Parameter\TreeParameter;
 use Nemundo\Content\Parameter\ContentParameter;
-use Nemundo\Db\Sql\Field\CountField;
 use Nemundo\Html\Header\Title;
 use Nemundo\Html\Paragraph\Paragraph;
 use Nemundo\Package\Bootstrap\Card\BootstrapCard;
-use Nemundo\Package\Bootstrap\Card\BootstrapCardTitle;
-use Nemundo\Package\Bootstrap\FormElement\BootstrapTextBox;
 use Nemundo\Package\Bootstrap\Layout\BootstrapThreeColumnLayout;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
 
@@ -50,7 +35,7 @@ class DashboardEditPage extends AbstractTemplateDocument
         $content = (new ContentParameter())->getContent(false);
 
         $title = new Title($this);
-        $title->content  =  $content->getSubject();
+        $title->content = $content->getSubject();
 
         $layout = new BootstrapTwoColumnLayout($this);
         $layout->col1->columnWidth = 8;
@@ -58,34 +43,41 @@ class DashboardEditPage extends AbstractTemplateDocument
 
         if ($content->hasView()) {
 
-           // $card = new AdminWidget($layout->col1);
+            // $card = new AdminWidget($layout->col1);
             //$widget->widgetTitle = $content->getSubject();
 
 
-            $card = new BootstrapCard($layout->col1);
-$card->header = $content->getSubject();
+            $card = new ContentWidget($layout->col1);
+            $card->contentType = $content;
+
+            $site = clone(ChildOrderSite::$site);
+            $site->addParameter(new ContentParameter($content->getContentId()));
+            $card->actionDropdown->addSite($site);
+
+            //$card = new BootstrapCard($layout->col1);
+            //$card->header = $content->getSubject();
 
 
-/*            $cardTitle = new BootstrapCardTitle($card);
-            $cardTitle->content= $content->getSubject();
-  */
+            /*            $cardTitle = new BootstrapCardTitle($card);
+                        $cardTitle->content= $content->getSubject();
+              */
             //<h5 class="card-title">Card title</h5>
 
 
-
+            /*
             $div = new BootstrapThreeColumnLayout($card);
             $div->col1->columnWidth = 1;
             $div->col2->columnWidth = 1;
             $div->col3->columnWidth = 2;
 
-            $dropdown=new RestrictedContentTypeDropdown($div->col1);
+            $dropdown = new RestrictedContentTypeDropdown($div->col1);
             $dropdown->redirectSite = clone(ContentNewSite::$site);  // clone(NewSite::$site);
             $dropdown->redirectSite->addParameter(new ContentParameter());
             $dropdown->contentTypeId = $content->typeId;
 
 
-            $btn=new AdminIconSiteButton($div->col1);
-            $btn->site= clone(ContentEditSite::$site);
+            $btn = new AdminIconSiteButton($div->col1);
+            $btn->site = clone(ContentEditSite::$site);
             $btn->site->addParameter(new ContentParameter());
 
 
@@ -115,15 +107,23 @@ $card->header = $content->getSubject();
 
                 $content->getDefaultView($card);
 
-            }
+            }*/
 
 
         }
 
 
+        /*
         $container = new TreeIndexContainer($layout->col2);
         $container->contentType = $content;
-        $container->redirectSite = DashboardEditSite::$site;
+        $container->redirectSite = DashboardEditSite::$site;*/
+
+
+        $table = new ChildTreeTable($layout->col2);
+        $table->contentType = $content;
+        $table->redirectSite = DashboardEditSite::$site;
+
+
 
         return parent::getContent();
 

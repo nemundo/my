@@ -21,10 +21,16 @@ public $id;
 */
 public $largeText;
 
+/**
+* @var string
+*/
+public $subject;
+
 public function __construct(\Nemundo\Db\Row\AbstractDataRow $row, $model) {
 parent::__construct($row->getData());
 $this->row = $row;
 $this->id = $this->getModelValue($model->id);
 $this->largeText = $this->getModelValue($model->largeText);
+$this->subject = $this->getModelValue($model->subject);
 }
 }

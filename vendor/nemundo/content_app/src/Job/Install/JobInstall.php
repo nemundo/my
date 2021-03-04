@@ -10,7 +10,7 @@ use Nemundo\Content\App\Job\Data\JobModelCollection;
 use Nemundo\Content\App\Job\Scheduler\JobScheduler;
 use Nemundo\Content\App\Job\Script\JobCleanScript;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class JobInstall extends AbstractInstall
 {

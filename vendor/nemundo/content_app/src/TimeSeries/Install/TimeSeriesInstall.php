@@ -20,7 +20,7 @@ use Nemundo\Content\App\TimeSeries\Type\PeriodType\WeekSeasonPeriodType;
 use Nemundo\Content\App\TimeSeries\Type\PeriodType\YearPeriodType;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class TimeSeriesInstall extends AbstractInstall
 {

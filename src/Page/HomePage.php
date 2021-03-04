@@ -7,6 +7,7 @@ use Nemundo\Admin\Com\Widget\AdminWidget;
 use Nemundo\Admin\UniqueId\Widget\UniqueIdAdminWidget;
 use Nemundo\App\UserAction\Widget\LoginWidget;
 use Nemundo\App\UserAction\Widget\UserChangeWidget;
+use Nemundo\Content\App\Explorer\Site\ExplorerSite;
 use Nemundo\Html\Heading\H2;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
 use Nemundo\User\Session\UserSession;
@@ -31,6 +32,7 @@ class HomePage extends MyTemplate
 
 
             $widget= new LoginWidget($layout->col2);
+            $widget->redirectSite = ExplorerSite::$site;
 
         }
 

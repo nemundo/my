@@ -26,11 +26,17 @@ public $dashboard;
 */
 public $url;
 
+/**
+* @var bool
+*/
+public $active;
+
 public function __construct(\Nemundo\Db\Row\AbstractDataRow $row, $model) {
 parent::__construct($row->getData());
 $this->row = $row;
 $this->id = $this->getModelValue($model->id);
 $this->dashboard = $this->getModelValue($model->dashboard);
 $this->url = $this->getModelValue($model->url);
+$this->active = boolval($this->getModelValue($model->active));
 }
 }

@@ -23,7 +23,7 @@ use Nemundo\Content\App\Webcam\Application\WebcamApplication;
 use Nemundo\Content\App\Webcam\Content\Webcam\WebcamContentType;
 use Nemundo\Content\Application\ContentApplication;
 use Nemundo\Content\Index\Tree\Setup\RestrictedContentTypeSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class MyInstall extends AbstractInstall
 {

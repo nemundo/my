@@ -5,6 +5,7 @@ namespace Nemundo\Content\App\Favorite\Action;
 
 use Nemundo\Content\Action\AbstractContentAction;
 use Nemundo\Content\App\Favorite\Data\Favorite\Favorite;
+use Nemundo\Content\App\Favorite\Data\Favorite\FavoriteCount;
 use Nemundo\User\Session\UserSession;
 
 class FavoriteSaveContentAction extends AbstractContentAction
@@ -24,12 +25,17 @@ class FavoriteSaveContentAction extends AbstractContentAction
     public function onAction()
     {
 
+        $count = new FavoriteCount();
+        $count->filter->andEqual($count->model->contentId, $this->actionContentId);
+        $count->filter->andEqual($count->model->userId, (new UserSession())->userId);
+        if ($count->getCount() == 0) {
         $data = new Favorite();
-        $data->ignoreIfExists = true;
+        //$data->ignoreIfExists = true;
         $data->contentId = $this->actionContentId;
         $data->userId = (new UserSession())->userId;
         $data->subject = '[No Subject]';
         $data->save();
+        }
 
     }
 

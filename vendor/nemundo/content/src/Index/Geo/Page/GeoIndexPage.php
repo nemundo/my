@@ -49,6 +49,8 @@ class GeoIndexPage extends AbstractTemplateDocument  // ContentTemplate
         $listbox->name = (new ContentTypeParameter())->getParameterName();
         $listbox->submitOnChange = true;
         $listbox->searchMode = true;
+        $listbox->column=true;
+        $listbox->columnSize=2;
 
         $reader = new GeoIndexReader();
         $reader->model->loadContent();

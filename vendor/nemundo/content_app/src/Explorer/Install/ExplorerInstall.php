@@ -3,16 +3,19 @@
 namespace Nemundo\Content\App\Explorer\Install;
 
 use Nemundo\App\Application\Setup\ApplicationSetup;
+use Nemundo\Content\App\ContentPrint\Application\ContentPrintApplication;
 use Nemundo\Content\App\Explorer\Application\ExplorerApplication;
 use Nemundo\Content\App\Explorer\Content\Container\ContainerContentType;
 use Nemundo\Content\App\Explorer\Content\Container\ContainerRenameLogContentType;
 use Nemundo\Content\App\Explorer\Content\PrivateShare\PrivateShareContentType;
 use Nemundo\Content\App\Explorer\Data\ExplorerModelCollection;
 use Nemundo\Content\App\Explorer\Store\HomeContentIdStore;
+use Nemundo\Content\App\PublicShare\Application\PublicShareApplication;
 use Nemundo\Content\App\Store\Application\StoreApplication;
+use Nemundo\Content\Index\Tree\Setup\RestrictedContentTypeSetup;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class ExplorerInstall extends AbstractInstall
 {
@@ -22,6 +25,8 @@ class ExplorerInstall extends AbstractInstall
 
 
         (new StoreApplication())->installApp();
+        (new ContentPrintApplication())->installApp();
+        (new PublicShareApplication())->installApp();
 
         (new ApplicationSetup())
             ->addApplication(new ExplorerApplication());
@@ -34,9 +39,10 @@ class ExplorerInstall extends AbstractInstall
             ->addContentType(new ContainerRenameLogContentType())
             ->addContentType(new PrivateShareContentType());
 
-        //    ->addContentType(new BaseContainerContentType());
+        (new RestrictedContentTypeSetup(new ContainerContentType()))
+            ->addRestrictedContentType(new ContainerContentType());
 
-//        (new BaseContainerContentType())->saveType();
+
 
         $store = new HomeContentIdStore();
 

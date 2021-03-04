@@ -8,7 +8,7 @@ use Nemundo\App\Help\Data\HelpModelCollection;
 use Nemundo\App\Help\Script\HelpImportScript;
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class HelpInstall extends AbstractInstall
 {

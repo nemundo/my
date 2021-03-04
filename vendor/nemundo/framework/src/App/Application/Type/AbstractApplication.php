@@ -9,8 +9,8 @@ use Nemundo\Core\Base\AbstractBaseClass;
 use Nemundo\Core\Debug\Debug;
 use Nemundo\Model\Collection\AbstractModelCollection;
 use Nemundo\Project\AbstractProject;
-use Nemundo\Project\Install\AbstractInstall;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 use Nemundo\Web\Site\AbstractSite;
 
 abstract class AbstractApplication extends AbstractBaseClass

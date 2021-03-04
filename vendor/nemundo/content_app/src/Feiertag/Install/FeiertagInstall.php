@@ -10,7 +10,7 @@ use Nemundo\Content\App\Feiertag\Data\FeiertagModelCollection;
 use Nemundo\Content\App\Feiertag\Scheduler\FeiertagImportScheduler;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class FeiertagInstall extends AbstractInstall
 {

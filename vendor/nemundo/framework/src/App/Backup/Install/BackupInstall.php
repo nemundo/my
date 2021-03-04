@@ -11,7 +11,7 @@ use Nemundo\App\Backup\Script\BackupCleanScript;
 use Nemundo\App\Backup\Script\DumpRestoreScript;
 use Nemundo\App\Scheduler\Setup\SchedulerSetup;
 use Nemundo\App\Script\Setup\ScriptSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class BackupInstall extends AbstractInstall
 {

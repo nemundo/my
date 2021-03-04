@@ -12,6 +12,7 @@ use Nemundo\Content\App\PublicShare\Data\PublicShare\PublicShareReader;
 use Nemundo\Content\App\PublicShare\Parameter\PublicShareParameter;
 use Nemundo\Content\App\PublicShare\Site\PublicShareSite;
 use Nemundo\Content\Parameter\ContentParameter;
+use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Content\View\AbstractContentView;
 use Nemundo\Package\Bootstrap\FormElement\BootstrapTextBox;
 
@@ -20,7 +21,7 @@ class PublicShareView extends AbstractActionContentView
 
 
     /**
-     * @var PublicShareAction
+     * @var AbstractContentType
      */
     public $contentType;
 
@@ -28,7 +29,7 @@ class PublicShareView extends AbstractActionContentView
     {
 
         $reader = new PublicShareReader();
-        $reader->filter->andEqual($reader->model->contentId, $this->contentType->actionContentId);
+        $reader->filter->andEqual($reader->model->contentId, $this->contentType->getContentId());  // actionContentId);
         foreach ($reader->getData() as $shareRow) {
 
             $widget = new AdminWidget($this);

@@ -23,7 +23,7 @@ class TreeAdminPage extends AbstractTemplateDocument  // ContentTemplate
     {
 
 
-        $admin=new RestrictedContentTypeAdmin($this);
+        new RestrictedContentTypeAdmin($this);
 
 
 

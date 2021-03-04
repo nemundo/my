@@ -3,7 +3,7 @@
 namespace Nemundo\Model\Clean;
 
 
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class DatabaseModelClean extends AbstractDatabaseModelClean
 {

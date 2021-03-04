@@ -11,6 +11,7 @@ use Nemundo\Content\App\Explorer\Site\ContentEditSite;
 use Nemundo\Content\App\Explorer\Site\ContentRemoveSite;
 use Nemundo\Content\App\Explorer\Site\ExplorerSite;
 use Nemundo\Content\App\Explorer\Site\ItemSite;
+use Nemundo\Content\Index\Tree\Parameter\TreeParameter;
 use Nemundo\Content\Parameter\ContentParameter;
 use Nemundo\Content\View\AbstractContentView;
 use Nemundo\Core\Type\Text\Html;
@@ -41,7 +42,9 @@ class ContainerContentView extends AbstractContentView
         $header->addEmpty();
 
         $reader = $this->contentType->getChildTreeReader();
-        $reader->addOrder($reader->model->child->subject);
+        //$reader->addOrder($reader->model->child->subject);
+        $reader->addOrder($reader->model->itemOrder);
+
         foreach ($reader->getData() as $contentRow) {
 
             $row = new BootstrapClickableTableRow($table);
@@ -69,7 +72,9 @@ class ContainerContentView extends AbstractContentView
 
             //$site = clone(ContentRemoveSite::$site);
             $site = clone(\Nemundo\Content\Index\Tree\Site\ContentRemoveSite::$site);
-            $site->addParameter(new ContentParameter($contentRow->childId));
+            //$site->addParameter(new ContentParameter($contentRow->childId));
+            $site->addParameter(new TreeParameter($contentRow->id));
+
             $site->addParameter(new RefererContentParameter($this->contentType->getContentId()));
             $row->addIconSite($site);
 

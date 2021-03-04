@@ -47,26 +47,38 @@ class ContentPage extends ContentTemplate
         $application = new ApplicationListBox($formRow);
         $application->submitOnChange = true;
         $application->searchMode = true;
+        $application->column=true;
+        $application->columnSize = 1;
 
         $listbox = new ContentTypeListBox($formRow);
         $listbox->submitOnChange = true;
         $listbox->searchMode = true;
+        $listbox->column=true;
+        $listbox->columnSize = 1;
 
         $contentIdTextBox = new BootstrapTextBox($formRow);
         $contentIdTextBox->label = 'Content Id';
         $contentIdTextBox->searchMode = true;
+        $contentIdTextBox->column=true;
+        $contentIdTextBox->columnSize = 1;
 
         $dataIdTextBox = new BootstrapTextBox($formRow);
         $dataIdTextBox->label = 'Data Id';
         $dataIdTextBox->searchMode = true;
+        $dataIdTextBox->column=true;
+        $dataIdTextBox->columnSize = 1;
 
+        /*
         $user = new UserListBox($formRow);
         $user->submitOnChange = true;
         $user->searchMode = true;
+*/
 
         $subject = new BootstrapTextBox($formRow);
         $subject->label = 'Subject';
         $subject->searchMode = true;
+        $subject->column=true;
+        $subject->columnSize = 1;
 
 
         new AdminSearchButton($formRow);
@@ -127,9 +139,9 @@ class ContentPage extends ContentTemplate
             $filter->andEqual($model->dataId, $dataIdTextBox->getValue());
         }
 
-        if ($user->hasValue()) {
+        //if ($user->hasValue()) {
         //    $filter->andEqual($model->userId, $user->getValue());
-        }
+        //}
 
         if ($subject->hasValue()) {
             $filter->andEqual($model->subject, $subject->getValue());

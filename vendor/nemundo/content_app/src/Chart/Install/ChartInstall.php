@@ -8,7 +8,7 @@ use Nemundo\Content\App\Chart\Content\Chart\ChartContentType;
 use Nemundo\Content\App\Chart\Data\ChartModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class ChartInstall extends AbstractInstall
 {

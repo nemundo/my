@@ -24,7 +24,7 @@ class RestrictedContentTypeDropdown extends BootstrapSiteDropdown
     /**
      * @var AbstractContentType[]
      */
-    public $contentTypeList = [];
+    //public $contentTypeList = [];
 
 
     /*

@@ -18,7 +18,7 @@ use Nemundo\Content\App\Job\Setup\JobSetup;
 use Nemundo\Content\App\Timeline\Application\TimelineApplication;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class FeedInstall extends AbstractInstall
 {

@@ -17,6 +17,6 @@ class ContentApplication extends AbstractApplication
         $this->modelCollectionClass = ContentModelCollection::class;
         $this->installClass = ContentInstall::class;
         $this->siteClass = ContentSite::class;
-        //$this->adminSiteClass = ContentAdminSite::class;
+        $this->adminSiteClass = ContentAdminSite::class;
     }
 }

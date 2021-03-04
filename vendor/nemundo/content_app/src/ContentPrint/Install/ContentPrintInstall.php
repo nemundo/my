@@ -8,7 +8,7 @@ use Nemundo\Content\App\ContentPrint\Application\ContentPrintApplication;
 use Nemundo\Content\App\ContentPrint\Data\PrintModelCollection;
 use Nemundo\Content\Setup\ContentActionSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class ContentPrintInstall extends AbstractInstall
 {

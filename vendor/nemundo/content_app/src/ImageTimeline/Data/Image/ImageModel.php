@@ -27,6 +27,11 @@ public $image;
 public $imageAutoSize800;
 
 /**
+* @var \Nemundo\Model\Type\ImageFormat\AutoSizeModelImageFormat
+*/
+public $imageAutoSize1600;
+
+/**
 * @var \Nemundo\Model\Type\Text\TextType
 */
 public $hash;
@@ -65,6 +70,8 @@ $this->image->label = "Image";
 $this->image->allowNullValue = false;
 $this->imageAutoSize800 = new \Nemundo\Model\Type\ImageFormat\AutoSizeModelImageFormat($this->image);
 $this->imageAutoSize800->size = 800;
+$this->imageAutoSize1600 = new \Nemundo\Model\Type\ImageFormat\AutoSizeModelImageFormat($this->image);
+$this->imageAutoSize1600->size = 1600;
 
 $this->hash = new \Nemundo\Model\Type\Text\TextType($this);
 $this->hash->tableName = "imagetimeline_image";

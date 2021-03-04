@@ -20,6 +20,7 @@ class DashboardSite extends AbstractSite
         $this->url = 'dashboard';
 
         $reader = new DashboardReader();
+        $reader->filter->andEqual($reader->model->active,true);
         $reader->addOrder($reader->model->dashboard);
         foreach ($reader->getData() as $dashboardRow) {
 

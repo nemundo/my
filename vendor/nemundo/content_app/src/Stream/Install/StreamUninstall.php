@@ -4,7 +4,7 @@ namespace Nemundo\Content\App\Stream\Install;
 
 use Nemundo\Content\App\Stream\Data\StreamModelCollection;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 
 class StreamUninstall extends AbstractUninstall

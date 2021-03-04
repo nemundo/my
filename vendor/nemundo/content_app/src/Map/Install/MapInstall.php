@@ -10,7 +10,7 @@ use Nemundo\Content\App\Map\Content\SwissMap\SwissMapContentType;
 use Nemundo\Content\App\Map\Data\MapModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class MapInstall extends AbstractInstall
 {

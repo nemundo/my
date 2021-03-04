@@ -21,6 +21,11 @@ public $dashboard;
 */
 public $url;
 
+/**
+* @var bool
+*/
+public $active;
+
 public function __construct() {
 parent::__construct();
 $this->model = new DashboardModel();
@@ -30,6 +35,7 @@ $id = $this->id;
 $this->typeValueList->setModelValue($this->model->id, $id);
 $this->typeValueList->setModelValue($this->model->dashboard, $this->dashboard);
 $this->typeValueList->setModelValue($this->model->url, $this->url);
+$this->typeValueList->setModelValue($this->model->active, $this->active);
 $id = parent::save();
 return $id;
 }

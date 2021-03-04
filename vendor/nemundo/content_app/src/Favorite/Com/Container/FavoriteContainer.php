@@ -35,8 +35,8 @@ class FavoriteContainer extends AbstractHtmlContainer
         $header = new TableHeader($table);
 
         $th = new Th($header);
-        $th->content[LanguageCode::EN] = 'Subject';
-        $th->content[LanguageCode::DE] = 'Betreff';
+        $th->content[LanguageCode::EN] = 'Favorite';  // 'Subject';
+        $th->content[LanguageCode::DE] = 'Favorit';  //Betreff';
 
         $header->addEmpty();
 

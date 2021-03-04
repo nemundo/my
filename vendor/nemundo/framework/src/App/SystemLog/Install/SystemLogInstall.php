@@ -11,7 +11,7 @@ use Nemundo\App\SystemLog\Type\ErrorLogType;
 use Nemundo\App\SystemLog\Type\InformationLogType;
 use Nemundo\App\SystemLog\Type\WarningLogType;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class SystemLogInstall extends AbstractInstall
 {

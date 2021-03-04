@@ -1,0 +1,6 @@
+{
+    "app": "FileLog",
+    "name": "filelog",
+    "namespace": "Nemundo\\App\\FileLog",
+    "is_deleted": false
+}

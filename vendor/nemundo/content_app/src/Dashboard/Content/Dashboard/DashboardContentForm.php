@@ -5,6 +5,7 @@ namespace Nemundo\Content\App\Dashboard\Content\Dashboard;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardModel;
 use Nemundo\Content\Form\AbstractContentForm;
 use Nemundo\Core\Structure\ForLoop;
+use Nemundo\Package\Bootstrap\FormElement\BootstrapCheckBox;
 use Nemundo\Package\Bootstrap\FormElement\BootstrapListBox;
 use Nemundo\Package\Bootstrap\FormElement\BootstrapTextBox;
 
@@ -24,6 +25,11 @@ class DashboardContentForm extends AbstractContentForm
      * @var BootstrapListBox
      */
     private $columnCount;
+
+    /**
+     * @var BootstrapCheckBox
+     */
+    private $active;
 
     public function getContent()
     {
@@ -47,6 +53,10 @@ class DashboardContentForm extends AbstractContentForm
             $this->columnCount->addItem($number, $number);
         }
 
+        $this->active=new BootstrapCheckBox($this);
+        $this->active->label = $model->active->label;
+
+
         return parent::getContent();
 
     }
@@ -57,6 +67,7 @@ class DashboardContentForm extends AbstractContentForm
 
         $dashboardRow=$this->contentType->getDataRow();
         $this->dashboard->value=$dashboardRow->dashboard;
+        $this->active->value=$dashboardRow->active;
 
         //$this->columnCount->visible=false;
 
@@ -68,6 +79,7 @@ class DashboardContentForm extends AbstractContentForm
 
         $this->contentType->dashboard = $this->dashboard->getValue();
         $this->contentType->columnCount = $this->columnCount->getValue();
+        $this->contentType->active=$this->active->getValue();
         $this->contentType->saveType();
 
     }

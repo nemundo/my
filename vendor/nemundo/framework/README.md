@@ -33,8 +33,15 @@ php -r "require __DIR__.'/vendor/autoload.php';(new \Nemundo\Dev\Install\AdminPa
 
 ### Config File erstellen
 ```
+bin/init.php
+```
+
+
+### Setup
+```
 bin/setup.php
 ```
+
 
 ### Dependency
 

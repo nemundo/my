@@ -8,7 +8,7 @@ use Nemundo\Content\App\Video\Content\YouTube\YouTubeContentType;
 use Nemundo\Content\App\Video\Data\VideoModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 
 class VideoUninstall extends AbstractUninstall

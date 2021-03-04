@@ -8,7 +8,7 @@ use Nemundo\Content\App\Note\Content\Note\NoteContentType;
 use Nemundo\Content\App\Note\Data\NoteModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class NoteInstall extends AbstractInstall
 {

@@ -23,11 +23,6 @@ class ContentNewPage extends AbstractTemplateDocument
     public function getContent()
     {
 
-        /*
-        $contentParameter = new ContentParameter();
-        $contentParameter->contentTypeCheck = false;
-        $contentType = $contentParameter->getContent();*/
-
 
         $contentType = (new ContentTypeParameter())->getContentType();
 
@@ -35,38 +30,23 @@ class ContentNewPage extends AbstractTemplateDocument
         $event->parentId = (new ContentParameter())->getValue();
         $contentType->addEvent($event);
 
-        $breadcrumb=new TreeBreadcrumb($this);
-        $breadcrumb->redirectSite=ContentViewSite::$site;
-        $breadcrumb->addParentContentType((new ContentParameter())->getContent());
-        $breadcrumb->addContentType((new ContentParameter())->getContent());
-        $breadcrumb->addActiveItem('New');  // $contentType);
+        /*
 
+$breadcrumb=new TreeBreadcrumb($this);
+$breadcrumb->redirectSite=ContentViewSite::$site;
+$breadcrumb->addParentContentType((new ContentParameter())->getContent());
+$breadcrumb->addContentType((new ContentParameter())->getContent());
+$breadcrumb->addActiveItem('New');
+*/
 
 
         $widget = new AdminWidget($this);
         $widget->widgetTitle = $contentType->typeLabel;
 
 
-        /*
-        $form = $contentType->getDefaultForm($widget);
-        $hidden = new UrlRefererHiddenInput($form);
-        $form->redirectSite = new UrlRefererSite();*/
-
-
         $container = new ContentTypeFormContainer($widget);
         $container->contentType = $contentType;
-        $container->redirectSite =  new UrlRefererSite();  //clone(ExplorerSite::$site);
-        //$container->redirectSite->addParameter($contentParamter);
-
-
-
-
-
-        /*
-        $hyperlink = new UrlHyperlink($this);
-        $hyperlink->content = 'Zurück '. (new UrlRefererRequest())->getValue();
-        $hyperlink->url = (new UrlRefererRequest())->getValue();
-*/
+        $container->redirectSite =  new UrlRefererSite();
 
         return parent::getContent();
 

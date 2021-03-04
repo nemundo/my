@@ -15,25 +15,19 @@ use Nemundo\Core\Type\Text\Text;
 abstract class AbstractLargeTextContentType extends AbstractTreeContentType
 {
 
+    protected $subject;
+
     protected $largeText;
 
 
     protected $searchIndex = false;
-
-    /*
-    public function __construct($dataId = null)
-    {
-        $this->formClassList[] = LargeTextContentForm::class;
-        $this->viewClassList[] = LargeTextContentView::class;
-        //$this->allowChild = false;
-        parent::__construct($dataId);
-    }*/
 
 
     protected function onCreate()
     {
 
         $data = new LargeText();
+        $data->subject=$this->subject;
         $data->largeText = $this->largeText;
         $this->dataId = $data->save();
 
@@ -44,6 +38,7 @@ abstract class AbstractLargeTextContentType extends AbstractTreeContentType
     {
 
         $update = new LargeTextUpdate();
+        $update->subject=$this->subject;
         $update->largeText = $this->largeText;
         $update->updateById($this->dataId);
 
@@ -54,6 +49,7 @@ abstract class AbstractLargeTextContentType extends AbstractTreeContentType
     {
 
         $row = $this->getDataRow();
+        $this->addSearchText($row->subject);
         $this->addSearchText($row->largeText);
 
     }
@@ -97,8 +93,11 @@ abstract class AbstractLargeTextContentType extends AbstractTreeContentType
     public function getSubject()
     {
 
-        $text = (new Text($this->getDataRow()->largeText))->substring(0, 100)->getValue() . ' ...';
-        return $text;
+
+        //$text = (new Text($this->getDataRow()->largeText))->substring(0, 100)->getValue() . ' ...';
+
+        $subject= $this->getDataRow()->subject;
+        return $subject;
 
     }
 

@@ -9,7 +9,7 @@ use Nemundo\Content\App\Website\Content\Website\WebsiteContentType;
 use Nemundo\Content\App\Website\Data\WebsiteModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class WebsiteInstall extends AbstractInstall
 {

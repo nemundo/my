@@ -11,7 +11,7 @@ use Nemundo\Content\App\Contact\Data\ContactModelCollection;
 use Nemundo\Content\App\Contact\Script\ContactCleanScript;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class ContactInstall extends AbstractInstall
 {

@@ -1,6 +1,6 @@
 <?php
 namespace Nemundo\Content\App\SystemLog\Install;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\Model\Setup\ModelCollectionSetup;
 use Nemundo\Content\App\SystemLog\Data\SystemLogModelCollection;
 use Nemundo\Content\App\SystemLog\Application\SystemLogApplication;

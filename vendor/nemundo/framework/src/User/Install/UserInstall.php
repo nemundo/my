@@ -6,7 +6,7 @@ namespace Nemundo\User\Install;
 use Nemundo\App\Application\Setup\ApplicationSetup;
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\User\Application\UserApplication;
 use Nemundo\User\Data\UserModelCollection;
 use Nemundo\User\Script\AdminUserScript;

@@ -22,6 +22,15 @@
                     "variable_name": "largeText",
                     "allow_null": true,
                     "is_deleted": false
+                },
+                {
+                    "type": "text",
+                    "label": "Subject",
+                    "field_name": "subject",
+                    "variable_name": "subject",
+                    "allow_null": true,
+                    "is_deleted": false,
+                    "length": "255"
                 }
             ],
             "index": []

@@ -8,7 +8,7 @@ use Nemundo\Content\App\Message\Content\Message\MessageContentType;
 use Nemundo\Content\App\Message\Data\MessageModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class MessageInstall extends AbstractInstall
 {

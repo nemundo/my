@@ -5,6 +5,7 @@ namespace Nemundo\Content\App\PublicShare\Action;
 
 use Nemundo\Content\Action\AbstractContentAction;
 use Nemundo\Content\App\PublicShare\Data\PublicShare\PublicShare;
+use Nemundo\Content\App\PublicShare\Data\PublicShare\PublicShareCount;
 
 
 class PublicShareAction extends AbstractContentAction
@@ -25,10 +26,16 @@ class PublicShareAction extends AbstractContentAction
     public function onAction()
     {
 
+
+        $count = new PublicShareCount();
+        $count->filter->andEqual($count->model->contentId, $this->actionContentId);
+        if ($count->getCount() == 0) {
+
         $data = new PublicShare();
-        $data->ignoreIfExists = true;
+        //$data->ignoreIfExists = true;
         $data->contentId = $this->actionContentId;
         $data->save();
+        }
 
     }
 

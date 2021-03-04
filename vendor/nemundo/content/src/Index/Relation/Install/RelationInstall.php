@@ -6,7 +6,7 @@ use Nemundo\App\Application\Setup\ApplicationSetup;
 use Nemundo\Content\Index\Relation\Application\RelationApplication;
 use Nemundo\Content\Index\Relation\Data\RelationModelCollection;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class RelationInstall extends AbstractInstall
 {

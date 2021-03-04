@@ -8,7 +8,7 @@ use Nemundo\Content\App\WebRadio\Content\WebRadio\WebRadioContentType;
 use Nemundo\Content\App\WebRadio\Data\WebRadioModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class WebRadioInstall extends AbstractInstall
 {

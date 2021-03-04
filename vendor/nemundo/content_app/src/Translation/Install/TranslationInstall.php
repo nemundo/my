@@ -10,7 +10,7 @@ use Nemundo\Content\App\Translation\Content\TranslationText\TranslationTextConte
 use Nemundo\Content\App\Translation\Data\TranslationModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class TranslationInstall extends AbstractInstall
 {

@@ -35,6 +35,10 @@
                         {
                             "format_type": "auto_size",
                             "size": "800"
+                        },
+                        {
+                            "format_type": "auto_size",
+                            "size": "1600"
                         }
                     ]
                 },
@@ -115,6 +119,38 @@
                     ]
                 }
             ]
+        },
+        {
+            "template": "default",
+            "model_id": "ed559f81-d340-45fc-973f-f792f53a0711",
+            "label": "Source",
+            "class_name": "Source",
+            "table_name": "imagetimeline_source",
+            "namespace": "Nemundo\\Content\\App\\ImageTimeline\\Data\\Source",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Source",
+                    "field_name": "source",
+                    "variable_name": "source",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "Url",
+                    "field_name": "url",
+                    "variable_name": "url",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                }
+            ],
+            "index": []
         }
     ]
 }

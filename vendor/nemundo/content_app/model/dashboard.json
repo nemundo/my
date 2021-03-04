@@ -54,7 +54,7 @@
                     "label": "Dashboard",
                     "field_name": "dashboard",
                     "variable_name": "dashboard",
-                    "allow_null": true,
+                    "allow_null": false,
                     "is_deleted": false,
                     "length": "255"
                 },
@@ -63,9 +63,17 @@
                     "label": "Url",
                     "field_name": "url",
                     "variable_name": "url",
-                    "allow_null": true,
+                    "allow_null": false,
                     "is_deleted": false,
                     "length": "255"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Active",
+                    "field_name": "active",
+                    "variable_name": "active",
+                    "allow_null": false,
+                    "is_deleted": false
                 }
             ],
             "index": [

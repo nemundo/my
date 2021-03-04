@@ -33,8 +33,8 @@ class ImageContentType extends AbstractFileContentType
         $this->formClassList[] = UrlFileContentForm::class;
         $this->formClassList[] = ImageContentSearchForm::class;
 
-        $this->viewClassList[] = ImageContentView::class;
         $this->viewClassList[] = ImageFancyboxContentView::class;
+        $this->viewClassList[] = ImageContentView::class;
         $this->viewClassList[] = ImageDetailContentView::class;
 
         $this->listingClass = ImageContentListing::class;

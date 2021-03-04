@@ -41,7 +41,7 @@ use Nemundo\Content\App\Webcam\Install\WebcamInstall;
 use Nemundo\Content\App\WebRadio\Install\WebRadioInstall;
 use Nemundo\Content\App\Website\Install\WebsiteInstall;
 use Nemundo\Content\App\Widget\Install\WidgetInstall;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 
 class ContentAppInstall extends AbstractInstall

@@ -8,7 +8,7 @@ use Nemundo\Content\App\Camera\Content\Camera\CameraContentType;
 use Nemundo\Content\App\Camera\Data\CameraModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class CameraInstall extends AbstractInstall
 {

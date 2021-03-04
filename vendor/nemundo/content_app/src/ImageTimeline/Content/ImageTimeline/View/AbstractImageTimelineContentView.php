@@ -21,27 +21,25 @@ abstract class AbstractImageTimelineContentView extends AbstractContentView
     public function getContent()
     {
 
-        $p=new Paragraph($this);
-        $p->content = 'View: '.$this->viewName;
+        //$p=new Paragraph($this);
+        //$p->content = 'View: '.$this->viewName;
 
 
         $timelineRow = $this->contentType->getDataRow();
-
 
         if ($timelineRow->sourceUrl !== '') {
 
             $row = new BootstrapRow($this);
 
-            $small = new Small($row);
-            $small->content = 'Quelle: ' . $timelineRow->sourceUrl;
-
-            $hyperlink = new UrlHyperlink($small);
+            $hyperlink = new UrlHyperlink();
+            $hyperlink->openNewWindow=true;
             $hyperlink->content = $timelineRow->source;
             $hyperlink->url = $timelineRow->sourceUrl;
 
+            $small = new Small($row);
+            $small->content = 'Quelle: ' . $hyperlink->getContent()->bodyContent;  // $timelineRow->sourceUrl;
 
         }
-
 
         return parent::getContent();
     }

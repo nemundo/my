@@ -1,6 +1,5 @@
 git config credential.helper store
 git pull
-composer update
 php bin/setup.php
 
 sudo chown -R www-data:www-data web/data

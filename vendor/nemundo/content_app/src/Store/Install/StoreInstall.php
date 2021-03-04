@@ -6,7 +6,7 @@ use Nemundo\App\Application\Setup\ApplicationSetup;
 use Nemundo\Content\App\Store\Application\StoreApplication;
 use Nemundo\Content\App\Store\Data\StoreModelCollection;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class StoreInstall extends AbstractInstall
 {

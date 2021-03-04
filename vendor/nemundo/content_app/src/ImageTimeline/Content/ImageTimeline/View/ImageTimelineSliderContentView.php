@@ -34,6 +34,7 @@ class ImageTimelineSliderContentView extends AbstractImageTimelineContentView
 
 
 
+        /*
         if ($timelineRow->sourceUrl !== '') {
 
             $row = new BootstrapRow($this);
@@ -46,7 +47,7 @@ class ImageTimelineSliderContentView extends AbstractImageTimelineContentView
             $hyperlink->url = $timelineRow->sourceUrl;
 
 
-        }
+        }*/
 
 
         return parent::getContent();

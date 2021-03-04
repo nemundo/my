@@ -8,7 +8,7 @@ use Nemundo\Content\App\Log\Content\LogMessage\LogMessageContentType;
 use Nemundo\Content\App\Log\Data\LogModelCollection;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class LogInstall extends AbstractInstall
 {

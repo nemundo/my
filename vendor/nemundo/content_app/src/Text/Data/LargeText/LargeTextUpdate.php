@@ -12,12 +12,18 @@ public $model;
 */
 public $largeText;
 
+/**
+* @var string
+*/
+public $subject;
+
 public function __construct() {
 parent::__construct();
 $this->model = new LargeTextModel();
 }
 public function update() {
 $this->typeValueList->setModelValue($this->model->largeText, $this->largeText);
+$this->typeValueList->setModelValue($this->model->subject, $this->subject);
 parent::update();
 }
 }

@@ -14,8 +14,8 @@ use Nemundo\Content\App\Task\Application\TaskApplication;
 use Nemundo\Content\App\Task\Install\TaskInstall;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
-use Nemundo\Project\Install\AbstractUninstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractUninstall;
 
 class IssueTrackerUninstall extends AbstractUninstall
 {

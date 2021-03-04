@@ -10,7 +10,7 @@ use Nemundo\Content\Index\Log\Type\DeleteLogContentType;
 use Nemundo\Content\Index\Log\Type\ModifiedLogContentType;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class LogInstall extends AbstractInstall
 {

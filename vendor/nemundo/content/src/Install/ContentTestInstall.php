@@ -6,7 +6,7 @@ namespace Nemundo\Content\Install;
 
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Content\Script\ContentCleanScript;
-use Nemundo\Project\Install\AbstractInstall;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class ContentTestInstall extends AbstractInstall
 {
