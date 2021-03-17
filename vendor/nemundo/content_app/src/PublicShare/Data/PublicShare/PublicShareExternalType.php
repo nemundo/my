@@ -16,6 +16,16 @@ public $contentId;
 */
 public $content;
 
+/**
+* @var \Nemundo\Model\Type\Id\IdType
+*/
+public $viewId;
+
+/**
+* @var \Nemundo\Content\Data\ContentView\ContentViewExternalType
+*/
+public $view;
+
 protected function loadExternalType() {
 parent::loadExternalType();
 $this->externalModelClassName = PublicShareModel::class;
@@ -35,6 +45,13 @@ $this->contentId->aliasFieldName = $this->contentId->tableName ."_".$this->conte
 $this->contentId->label = "Content";
 $this->addType($this->contentId);
 
+$this->viewId = new \Nemundo\Model\Type\Id\IdType();
+$this->viewId->fieldName = "view";
+$this->viewId->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->viewId->aliasFieldName = $this->viewId->tableName ."_".$this->viewId->fieldName;
+$this->viewId->label = "View";
+$this->addType($this->viewId);
+
 }
 public function loadContent() {
 if ($this->content == null) {
@@ -44,6 +61,17 @@ $this->content->tableName = $this->parentFieldName . "_" . $this->externalTableN
 $this->content->aliasFieldName = $this->content->tableName ."_".$this->content->fieldName;
 $this->content->label = "Content";
 $this->addType($this->content);
+}
+return $this;
+}
+public function loadView() {
+if ($this->view == null) {
+$this->view = new \Nemundo\Content\Data\ContentView\ContentViewExternalType(null, $this->parentFieldName . "_view");
+$this->view->fieldName = "view";
+$this->view->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->view->aliasFieldName = $this->view->tableName ."_".$this->view->fieldName;
+$this->view->label = "View";
+$this->addType($this->view);
 }
 return $this;
 }

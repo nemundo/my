@@ -7,7 +7,7 @@ namespace Nemundo\Content\Index\Geo\Install;
 use Nemundo\App\Application\Setup\ApplicationSetup;
 use Nemundo\App\Scheduler\Setup\SchedulerSetup;
 use Nemundo\App\Script\Setup\ScriptSetup;
-use Nemundo\Content\Index\Geo\Application\GeoApplication;
+use Nemundo\Content\Index\Geo\Application\GeoIndexApplication;
 use Nemundo\Content\Index\Geo\Data\GeoModelCollection;
 use Nemundo\Content\Index\Geo\Scheduler\DistanceScheduler;
 use Nemundo\Content\Index\Geo\Script\GeoIndexCleanScript;
@@ -25,7 +25,7 @@ class GeoIndexUninstall extends AbstractUninstall
         (new ModelCollectionSetup())
             ->removeCollection(new GeoModelCollection());
 
-        (new ScriptSetup(new GeoApplication()))
+        (new ScriptSetup(new GeoIndexApplication()))
             ->removeScript(new GeoIndexCleanScript());
 
         (new SchedulerSetup())

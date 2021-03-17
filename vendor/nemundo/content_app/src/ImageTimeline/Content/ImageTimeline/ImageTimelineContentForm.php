@@ -68,7 +68,7 @@ class ImageTimelineContentForm extends AbstractContentForm
         $this->timeline->value=$row->timeline;
         $this->imageUrl->value=$row->imageUrl;
 
-        $this->source->value='222';
+        //$this->source->value='222';
 
     }
 
@@ -78,6 +78,7 @@ class ImageTimelineContentForm extends AbstractContentForm
 
         $this->contentType->timeline = $this->timeline->getValue();
         $this->contentType->imageUrl = $this->imageUrl->getValue();
+        $this->contentType->crawling=true;
         $this->contentType->saveType();
 
     }

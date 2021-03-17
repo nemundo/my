@@ -11,7 +11,10 @@ class UserProfileContentView extends AbstractContentView
      * @var UserProfileContentType
      */
     public $contentType;
-
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
     public function getContent()
     {
 

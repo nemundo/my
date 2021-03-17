@@ -3,6 +3,7 @@
 namespace Nemundo\Admin\Template;
 
 use Nemundo\Admin\AdminConfig;
+use Nemundo\Admin\Com\Navbar\AdminSiteNavbar;
 use Nemundo\Html\Container\AbstractContainer;
 use Nemundo\Package\Bootstrap\Document\BootstrapDocument;
 use Nemundo\Package\Bootstrap\Layout\Container\BootstrapContainer;
@@ -12,6 +13,9 @@ use Nemundo\Package\FontAwesome\FontAwesomePackage;
 use Nemundo\Package\Jquery\Container\JqueryHeader;
 use Nemundo\Package\Jquery\Package\JqueryPackage;
 use Nemundo\Package\NemundoJs\NemundoJsPackage;
+use Nemundo\Package\OpenGraph\OpenGraph;
+use Nemundo\Package\TwitterCard\TwitterCard;
+use Nemundo\Web\ResponseConfig;
 use Nemundo\Web\Site\BaseUrlSite;
 use Nemundo\Web\WebConfig;
 
@@ -38,14 +42,21 @@ class AdminTemplate extends BootstrapDocument
 
         $this->addJavaScript('WebConfig.webUrl = "' . WebConfig::$webUrl . '";');
 
-        $this->navbar = new BootstrapSiteNavbar();
+        $this->navbar = new AdminSiteNavbar();  // new BootstrapSiteNavbar();
         $this->navbar->site = AdminConfig::$webController;
-        $this->navbar->userMode = false;
+        $this->navbar->userMode = true;
+        $this->navbar->showPasswordChange= AdminConfig::$showPasswordChange;  // false;
+
         if (AdminConfig::$logoUrl !== null) {
             $logo = new BootstrapNavbarLogo($this->navbar);
             $logo->logoSite = new BaseUrlSite();
             $logo->logoUrl = AdminConfig::$logoUrl;
+        } else {
+            $this->navbar->brand = ResponseConfig::$title;
         }
+
+
+
 
         parent::addContainer($this->navbar);
 
@@ -55,7 +66,7 @@ class AdminTemplate extends BootstrapDocument
 
         parent::loadContainer();
 
-        $this->title = AdminConfig::$pageTitle;
+        //$this->title = AdminConfig::$pageTitle;
 
     }
 
@@ -70,10 +81,13 @@ class AdminTemplate extends BootstrapDocument
     {
 
         if ($this->title == null) {
-            $this->title = AdminConfig::$pageTitle;
+            $this->title = ResponseConfig::$title;  // AdminConfig::$pageTitle;
         }
 
         new JqueryHeader($this);
+
+        new OpenGraph($this);
+        new TwitterCard($this);
 
         return parent::getContent();
 

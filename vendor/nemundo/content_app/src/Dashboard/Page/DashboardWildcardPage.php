@@ -9,8 +9,8 @@ use Nemundo\Com\Container\AbstractRestrictedUserHtmlContainer;
 use Nemundo\Com\Template\AbstractTemplateDocument;
 use Nemundo\Content\App\Dashboard\Content\Dashboard\DashboardContentType;
 use Nemundo\Content\App\Dashboard\Site\Edit\ContentNewSite;
-use Nemundo\Content\App\Dashboard\Site\Edit\DashboardEditSite;
-use Nemundo\Content\App\Dashboard\Site\Edit\DashboardNewSite;
+use Nemundo\Content\App\Dashboard\Site\Admin\DashboardEditSite;
+
 use Nemundo\Content\App\Dashboard\Usergroup\DashboardAdministratorUsergroup;
 use Nemundo\Content\Parameter\ContentParameter;
 use Nemundo\Content\Site\ContentViewSite;
@@ -39,9 +39,11 @@ class DashboardWildcardPage extends AbstractTemplateDocument
         $btn->site = clone(DashboardEditSite::$site);
         $btn->site->addParameter(new ContentParameter($dashboardContentType->getContentId()));
 
+        /*
         $btn = new AdminIconSiteButton($div);
         $btn->site = clone(DashboardNewSite::$site);
         $btn->site->addParameter(new ContentParameter($dashboardContentType->getContentId()));
+*/
 
         $view = $dashboardContentType->getDefaultView($this);
         $view->redirectSite= new Site();  // ContentViewSite::$site;

@@ -15,6 +15,15 @@ class VimeoContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='69f1e3c6-a0dc-45b3-b944-1cd863aa582d';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

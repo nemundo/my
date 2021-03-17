@@ -16,4 +16,11 @@ class AdminTableHeader extends TableHeader
 
     }
 
+
+    public function addSorting() {
+
+
+}
+
+
 }

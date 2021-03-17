@@ -12,6 +12,7 @@ use Nemundo\Core\Language\LanguageCode;
 use Nemundo\Web\Site\AbstractSite;
 
 
+// ContentSearchSite
 class SearchSite extends AbstractSite
 {
 

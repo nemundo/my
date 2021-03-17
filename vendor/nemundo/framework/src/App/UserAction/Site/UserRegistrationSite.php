@@ -4,6 +4,7 @@ namespace Nemundo\App\UserAction\Site;
 
 
 use Nemundo\App\UserAction\Form\UserRegistrationForm;
+use Nemundo\App\UserAction\Page\UserRegistrationPage;
 use Nemundo\Dev\App\Factory\DefaultTemplateFactory;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
 use Nemundo\Web\Site\AbstractSite;
@@ -32,6 +33,9 @@ class UserRegistrationSite extends AbstractSite
     public function loadContent()
     {
 
+        (new UserRegistrationPage())->render();
+
+        /*
         $page = (new DefaultTemplateFactory())->getDefaultTemplate();
 
         $layout=new BootstrapTwoColumnLayout($page);
@@ -39,7 +43,7 @@ class UserRegistrationSite extends AbstractSite
         $form = new UserRegistrationForm($layout->col1);
         $form->redirectSite = new BaseUrlSite();
 
-        $page->render();
+        $page->render();*/
 
     }
 

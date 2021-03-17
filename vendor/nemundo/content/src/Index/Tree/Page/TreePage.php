@@ -17,6 +17,7 @@ use Nemundo\Package\Bootstrap\Icon\BootstrapIcon;
 
 class TreePage extends AbstractTemplateDocument
 {
+
     public function getContent()
     {
 

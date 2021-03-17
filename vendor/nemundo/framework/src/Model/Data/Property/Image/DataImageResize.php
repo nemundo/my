@@ -68,7 +68,6 @@ class DataImageResize extends AbstractBase
 
             if ($file->notExists()) {
 
-
                 $format = null;
 
                 if ($resizeFormat->isObjectOfClass(AutoSizeModelImageFormat::class)) {

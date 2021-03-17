@@ -24,6 +24,17 @@ class YouTubeContentView extends AbstractContentView
 
     public $viewName='Video';
 
+
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='f4c68029-6d55-4bec-8352-6d11da635fae';
+        $this->defaultView=true;
+
+    }
+
+
     public function getContent()
     {
 

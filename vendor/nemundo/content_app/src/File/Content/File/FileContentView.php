@@ -18,6 +18,15 @@ class FileContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='7bdcfaa0-efa4-4ac6-b5f1-60f87c43228c';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

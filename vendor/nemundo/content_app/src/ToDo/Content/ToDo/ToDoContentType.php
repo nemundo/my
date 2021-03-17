@@ -6,10 +6,11 @@ use Nemundo\Content\App\Task\Index\TaskIndexTrait;
 use Nemundo\Content\App\ToDo\Data\ToDo\ToDo;
 use Nemundo\Content\App\ToDo\Data\ToDo\ToDoReader;
 use Nemundo\Content\App\ToDo\Data\ToDo\ToDoRow;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+
+use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Core\Type\DateTime\Date;
 
-class ToDoContentType extends AbstractTreeContentType
+class ToDoContentType extends AbstractContentType
 {
 
     use TaskIndexTrait;

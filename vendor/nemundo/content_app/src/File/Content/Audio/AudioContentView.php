@@ -12,6 +12,15 @@ class AudioContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='bc5aee7f-04e8-4a91-8bc3-167436ea5309';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

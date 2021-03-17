@@ -3,10 +3,7 @@
 namespace Nemundo\Content\Index\Geo\Script;
 
 use Nemundo\App\Script\Type\AbstractConsoleScript;
-use Nemundo\Content\Index\Geo\Application\GeoApplication;
-use Nemundo\Content\Index\Geo\Data\GeoCollection;
-use Nemundo\Content\Index\Geo\Install\GeoIndexInstall;
-use Nemundo\Model\Setup\ModelCollectionSetup;
+use Nemundo\Content\Index\Geo\Application\GeoIndexApplication;
 
 class GeoIndexCleanScript extends AbstractConsoleScript
 {
@@ -18,7 +15,7 @@ class GeoIndexCleanScript extends AbstractConsoleScript
     public function run()
     {
 
-        (new GeoApplication())->reinstallApp();
+        (new GeoIndexApplication())->reinstallApp();
 
     }
 }

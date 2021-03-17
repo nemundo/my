@@ -4,6 +4,7 @@
 namespace Nemundo\App\UserAdmin\Page;
 
 
+use Nemundo\Admin\Com\Button\AdminSearchButton;
 use Nemundo\Admin\Com\Button\AdminSiteButton;
 use Nemundo\Admin\Com\Table\AdminTable;
 use Nemundo\App\UserAdmin\Site\UserDeleteSite;
@@ -11,6 +12,7 @@ use Nemundo\App\UserAdmin\Site\UserEditSite;
 use Nemundo\App\UserAdmin\Site\UserNewSite;
 use Nemundo\App\UserAdmin\Site\PasswordChangeSite;
 use Nemundo\App\UserAdmin\Template\UserAdminTemplate;
+use Nemundo\Com\FormBuilder\SearchForm;
 use Nemundo\Com\Html\Hyperlink\EmailHyperlink;
 use Nemundo\Com\TableBuilder\TableHeader;
 use Nemundo\Com\TableBuilder\TableRow;
@@ -30,16 +32,18 @@ class UserAdminPage extends UserAdminTemplate
     public function getContent()
     {
 
-        /*$btn = new AdminSiteButton($this);
-        $btn->site = UserNewSite::$site;*/
-
-        $searchForm = new BootstrapSearchForm($this);
+        $searchForm = new SearchForm($this);
 
         $formRow = new BootstrapRow($searchForm);
 
         $text = new BootstrapTextBox($formRow);
         $text->name = 'q';
         $text->value = $text->getValue();
+        $text->column=true;
+        $text->columnSize=3;
+
+        new AdminSearchButton($formRow);
+
 
         $table = new AdminTable($this);
 
@@ -55,7 +59,6 @@ class UserAdminPage extends UserAdminTemplate
 
         $userReader = new UserPaginationReader();
         $userReader->addOrder($userReader->model->login);
-        //$userReader->paginationLimit = 30;
 
         $q = $text->getValue();
         if ($q !== '') {

@@ -1,0 +1,30 @@
+{
+    "app": "Layout",
+    "name": "layout",
+    "namespace": "Nemundo\\Content\\App\\Layout",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "5676ecd6-6b64-41f6-b886-ffd6926c003e",
+            "label": "Layout Column",
+            "class_name": "LayoutColumn",
+            "table_name": "layout_layout_column",
+            "namespace": "Nemundo\\Content\\App\\Layout\\Data\\LayoutColumn",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "number",
+                    "label": "Column Width",
+                    "field_name": "column_width",
+                    "variable_name": "columnWidth",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

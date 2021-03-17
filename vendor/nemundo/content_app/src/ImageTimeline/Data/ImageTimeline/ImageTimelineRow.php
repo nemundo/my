@@ -36,6 +36,11 @@ public $source;
 */
 public $sourceUrl;
 
+/**
+* @var bool
+*/
+public $crawling;
+
 public function __construct(\Nemundo\Db\Row\AbstractDataRow $row, $model) {
 parent::__construct($row->getData());
 $this->row = $row;
@@ -44,5 +49,6 @@ $this->timeline = $this->getModelValue($model->timeline);
 $this->imageUrl = $this->getModelValue($model->imageUrl);
 $this->source = $this->getModelValue($model->source);
 $this->sourceUrl = $this->getModelValue($model->sourceUrl);
+$this->crawling = boolval($this->getModelValue($model->crawling));
 }
 }

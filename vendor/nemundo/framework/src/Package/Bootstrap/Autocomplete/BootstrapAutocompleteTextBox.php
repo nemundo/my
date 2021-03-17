@@ -5,7 +5,12 @@ namespace Nemundo\Package\Bootstrap\Autocomplete;
 
 use Nemundo\Com\Container\LibraryTrait;
 use Nemundo\Com\FormBuilder\Item\AbstractFormBuilderItem;
+use Nemundo\Core\Http\Request\Get\GetRequest;
+use Nemundo\Core\Http\Request\Post\PostRequest;
+use Nemundo\Core\Http\Request\RequestMethod;
+use Nemundo\Core\Log\LogMessage;
 use Nemundo\Html\Form\Formatting\Label;
+use Nemundo\Html\Form\FormMethod;
 use Nemundo\Html\Formatting\Bold;
 use Nemundo\Package\Bootstrap\FormElement\BootstrapFormStyle;
 use Nemundo\Package\JqueryUi\Autocomplete\AutocompleteMultipleValueTextInput;
@@ -63,6 +68,20 @@ class BootstrapAutocompleteTextBox extends AbstractFormBuilderItem  //  Bootstra
         $this->loadStyle();
 
 
+        $this->input->name = $this->name;
+        $this->input->id = $this->name;
+
+        //if ($this->searchMode) {
+        //    $this->input->value = $this->getValue();
+        //}
+
+        if ($this->searchMode) {
+            $this->value = $this->getValue();
+        }
+        $this->input->value = $this->value;
+
+
+
         //$labelLabel = new Label($this);
 
 
@@ -75,6 +94,7 @@ class BootstrapAutocompleteTextBox extends AbstractFormBuilderItem  //  Bootstra
         $this->labelLabel->addCssClass('form-label');
         $this->labelLabel->content = $this->getLabelText();
 
+        /*
         if ($this->showErrorMessage) {
 
             $bold = new Bold();
@@ -85,7 +105,7 @@ class BootstrapAutocompleteTextBox extends AbstractFormBuilderItem  //  Bootstra
             //$this->addCssClass('has-danger');
             //$this->textInput->addCssClass('form-control-danger');
 
-        }
+        }*/
 
         //$this->addContainer($this->labelLabel);
         //$this->addContainer($this->textInput);
@@ -98,9 +118,35 @@ class BootstrapAutocompleteTextBox extends AbstractFormBuilderItem  //  Bootstra
 
     public function getValue()
     {
+
+        $value = '';
+
+        switch ((new RequestMethod())->getRequestMethod()) {
+            case FormMethod::GET:
+                $parameter = new GetRequest($this->name);
+                $value = $parameter->getValue();
+                break;
+
+            case FormMethod::POST:
+                $parameter = new PostRequest($this->name);
+                $value = $parameter->getValue();
+                break;
+
+            default:
+                (new LogMessage())->writeError('No FormMethod');
+                break;
+
+        }
+
+        return $value;
+
+
+
         // TODO: Implement getValue() method.
 
         //return $this->input->getva
+
+
 
     }
 

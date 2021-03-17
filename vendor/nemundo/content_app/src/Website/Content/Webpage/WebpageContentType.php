@@ -5,9 +5,10 @@ namespace Nemundo\Content\App\Website\Content\Webpage;
 use Nemundo\Content\App\Website\Data\Webpage\Webpage;
 use Nemundo\Content\App\Website\Data\Webpage\WebpageReader;
 use Nemundo\Content\App\Website\Data\Webpage\WebpageRow;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class WebpageContentType extends AbstractTreeContentType
+
+class WebpageContentType extends AbstractContentType
 {
 
     public $title;

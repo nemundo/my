@@ -1,7 +1,9 @@
 <?php
 namespace Nemundo\Content\App\Website\Content\Website;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
-class WebsiteContentType extends AbstractTreeContentType {
+
+use Nemundo\Content\Type\AbstractContentType;
+
+class WebsiteContentType extends AbstractContentType {
 protected function loadContentType() {
 $this->typeLabel = 'Website';
 $this->typeId = '0918a8a1-9c64-426b-a529-8cd440cdf1c8';

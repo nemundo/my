@@ -17,6 +17,7 @@ use Nemundo\Dev\ProjectBuilder\Code\ProjectProjectCode;
 use Nemundo\Dev\ProjectBuilder\Code\ProjectSetupCode;
 use Nemundo\Dev\ProjectBuilder\Code\ProjectSiteCode;
 use Nemundo\Dev\ProjectBuilder\Code\ProjectTemplateCode;
+use Nemundo\Dev\ProjectBuilder\Code\ProjectWebCode;
 use Nemundo\FrameworkProject;
 
 use Nemundo\Project\AbstractProject;
@@ -80,7 +81,8 @@ class ProjectBuilder extends AbstractBaseClass
         $index = new PhpFile();
         $index->filename = $webPath . 'index.php';
         $index->add('require "../config.php";');
-        $index->add('(new \\' . $this->project->namespace . '\\Controller\\' . $this->project->namespace . 'Controller())->render();');
+        //$index->add('(new \\' . $this->project->namespace . '\\Controller\\' . $this->project->namespace . 'Controller())->render();');
+        $index->add('(new \\' . $this->project->namespace . '\\Web\\' . $this->project->namespace . 'Web())->loadWeb();');
         $index->saveFile();
 
         $binPath = (new Path())
@@ -99,33 +101,33 @@ class ProjectBuilder extends AbstractBaseClass
             ->addPath('src')
             ->getPath();
 
-        // Project
         $code = new ProjectProjectCode();
         $code->prefixNamespace = $this->project->namespace;
         $code->path = $srcPath;
         $code->createCode();
 
-        // Controller
         $code = new ProjectControllerCode();
         $code->prefixNamespace = $this->project->namespace;
         $code->path = $srcPath . 'Controller';
         $code->createCode();
 
-        // Page
+        $code = new ProjectWebCode();
+        $code->prefixNamespace = $this->project->namespace;
+        $code->path = $srcPath . 'Web';
+        $code->createCode();
+
         $code = new ProjectPageCode();
         $code->prefixNamespace = $this->project->namespace;
         $code->path = $srcPath . 'Page';
         $code->pageClassName = 'Home';
         $code->createCode();
 
-        // Site
         $code = new ProjectSiteCode();
         $code->prefixNamespace = $this->project->namespace;
         $code->path = $srcPath . 'Site';
         $code->siteClassName = 'Home';
         $code->createCode();
 
-        // Setup
         $code = new ProjectSetupCode();
         $code->prefixNamespace = $this->project->namespace;
         $code->path = $srcPath . 'Setup';
@@ -137,13 +139,12 @@ class ProjectBuilder extends AbstractBaseClass
         $code->path = $srcPath . 'Setup';
         $code->createCode();*/
 
-        // Template
+
         $code = new ProjectTemplateCode();
         $code->prefixNamespace = $this->project->namespace;
         $code->path = $srcPath . 'Template';
         $code->createCode();
 
-        // GitIgnore
         $filename =  $projectPath . '.gitignore';
         $gitIgnore = new TextFileWriter($filename);
         $gitIgnore->addLine('config.ini');

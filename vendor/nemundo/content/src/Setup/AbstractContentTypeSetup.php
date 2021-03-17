@@ -16,6 +16,9 @@ use Nemundo\Content\Data\ContentView\ContentView;
 use Nemundo\Content\Data\ContentView\ContentViewCount;
 use Nemundo\Content\Data\ContentView\ContentViewDelete;
 use Nemundo\Content\Data\ContentView\ContentViewUpdate;
+use Nemundo\Content\Data\ViewContentType\ViewContentType;
+use Nemundo\Content\Data\ViewContentType\ViewContentTypeCount;
+use Nemundo\Content\Data\ViewContentType\ViewContentTypeDelete;
 use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Content\Type\AbstractType;
 use Nemundo\Core\Language\Translation;
@@ -57,6 +60,19 @@ abstract class AbstractContentTypeSetup extends AbstractSetup
         }
 
 
+        if ($contentType->hasView()) {
+
+            $count = new ViewContentTypeCount();
+            $count->filter->andEqual($count->model->contentTypeId, $contentType->typeId);
+            if ($count->getCount() == 0) {
+                $data = new ViewContentType();
+                $data->contentTypeId = $contentType->typeId;
+                $data->save();
+            }
+
+        }
+
+
         $update = new ContentViewUpdate();
         $update->filter->andEqual($update->model->contentTypeId, $contentType->typeId);
         $update->setupStatus = false;
@@ -65,24 +81,29 @@ abstract class AbstractContentTypeSetup extends AbstractSetup
         foreach ($contentType->getViewList() as $view) {
 
             $count = new ContentViewCount();
-            $count->filter->andEqual($update->model->contentTypeId, $contentType->typeId);
+            $count->filter->andEqual($update->model->id, $view->viewId);
+            /*$count->filter->andEqual($update->model->contentTypeId, $contentType->typeId);
             $count->filter->andEqual($update->model->viewName, $view->viewName);
-            $count->filter->andEqual($update->model->viewClass, $view->getClassName());
+            $count->filter->andEqual($update->model->viewClass, $view->getClassName());*/
 
             if ($count->getCount() == 0) {
                 $data = new ContentView();
+                $data->id = $view->viewId;
                 $data->contentTypeId = $contentType->typeId;
                 $data->viewName = $view->viewName;
                 $data->viewClass = $view->getClassName();
+                $data->defaultView=$view->defaultView;
                 $data->setupStatus = true;
                 $data->save();
             } else {
                 $update = new ContentViewUpdate();
-                $update->filter->andEqual($update->model->contentTypeId, $contentType->typeId);
-                $update->filter->andEqual($update->model->viewClass, $view->getClassName());
+                //$update->filter->andEqual($update->model->contentTypeId, $contentType->typeId);
+                //$update->filter->andEqual($update->model->viewClass, $view->getClassName());
                 $update->viewName = $view->viewName;
+                $update->viewClass = $view->getClassName();
+                $update->defaultView=$view->defaultView;
                 $update->setupStatus = true;
-                $update->update();
+                $update->updateById($view->viewId);
             }
 
         }
@@ -171,6 +192,8 @@ abstract class AbstractContentTypeSetup extends AbstractSetup
     {
 
         (new ContentTypeDelete())->deleteById($type->typeId);
+
+
         return $this;
 
     }
@@ -180,7 +203,21 @@ abstract class AbstractContentTypeSetup extends AbstractSetup
     {
 
         $this->removeContent($contentType);
+
         (new ContentTypeDelete())->deleteById($contentType->typeId);
+
+        $delete = new ContentViewDelete();
+        $delete->filter->andEqual($delete->model->contentTypeId, $contentType->typeId);
+        $delete->delete();
+
+
+
+        $delete = new ViewContentTypeDelete();
+        $delete->filter->andEqual($delete->model->contentTypeId, $contentType->typeId);
+        $delete->delete();
+
+
+
 
         return $this;
 

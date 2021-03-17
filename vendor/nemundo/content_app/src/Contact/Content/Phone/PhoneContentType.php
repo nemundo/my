@@ -5,11 +5,10 @@ namespace Nemundo\Content\App\Contact\Content\Phone;
 use Nemundo\Content\App\Contact\Data\Phone\Phone;
 use Nemundo\Content\App\Contact\Data\Phone\PhoneReader;
 use Nemundo\Content\App\Contact\Data\Phone\PhoneRow;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class PhoneContentType extends AbstractTreeContentType
+class PhoneContentType extends AbstractContentType
 {
-
 
     public $label;
 

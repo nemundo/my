@@ -36,6 +36,16 @@ public $projectId;
 */
 public $project;
 
+/**
+* @var \Nemundo\Model\Type\Number\YesNoType
+*/
+public $appMenu;
+
+/**
+* @var \Nemundo\Model\Type\Number\YesNoType
+*/
+public $adminMenu;
+
 protected function loadModel() {
 $this->tableName = "application_application";
 $this->aliasTableName = "application_application";
@@ -86,6 +96,20 @@ $this->projectId->fieldName = "project";
 $this->projectId->aliasFieldName = "application_application_project";
 $this->projectId->label = "Project";
 $this->projectId->allowNullValue = true;
+
+$this->appMenu = new \Nemundo\Model\Type\Number\YesNoType($this);
+$this->appMenu->tableName = "application_application";
+$this->appMenu->fieldName = "app_menu";
+$this->appMenu->aliasFieldName = "application_application_app_menu";
+$this->appMenu->label = "App Menu";
+$this->appMenu->allowNullValue = false;
+
+$this->adminMenu = new \Nemundo\Model\Type\Number\YesNoType($this);
+$this->adminMenu->tableName = "application_application";
+$this->adminMenu->fieldName = "admin_menu";
+$this->adminMenu->aliasFieldName = "application_application_admin_menu";
+$this->adminMenu->label = "Admin Menu";
+$this->adminMenu->allowNullValue = false;
 
 }
 public function loadProject() {

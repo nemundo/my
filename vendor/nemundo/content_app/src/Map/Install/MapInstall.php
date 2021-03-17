@@ -25,8 +25,9 @@ class MapInstall extends AbstractInstall
 
         (new ContentTypeSetup(new MapApplication()))
             ->addContentType(new RouteContentType())
-            ->addContentType(new GoogleMapsContentType())
-            ->addContentType(new SwissMapContentType());
+            ->addContentType(new GoogleMapsContentType());
+
+        //    ->addContentType(new SwissMapContentType());
 
 
     }

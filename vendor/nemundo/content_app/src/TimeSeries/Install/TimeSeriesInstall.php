@@ -3,6 +3,7 @@
 namespace Nemundo\Content\App\TimeSeries\Install;
 
 use Nemundo\App\Application\Setup\ApplicationSetup;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Content\App\TimeSeries\Application\TimeSeriesApplication;
 use Nemundo\Content\App\TimeSeries\Content\TimeSeries\TimeSeriesContentType;
@@ -20,7 +21,6 @@ use Nemundo\Content\App\TimeSeries\Type\PeriodType\WeekSeasonPeriodType;
 use Nemundo\Content\App\TimeSeries\Type\PeriodType\YearPeriodType;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\App\Application\Type\Install\AbstractInstall;
 
 class TimeSeriesInstall extends AbstractInstall
 {

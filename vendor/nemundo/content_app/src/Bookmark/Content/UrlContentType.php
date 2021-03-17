@@ -9,12 +9,12 @@ use Nemundo\Content\App\Bookmark\Data\Bookmark\BookmarkReader;
 use Nemundo\Content\App\Bookmark\Data\Bookmark\BookmarkRow;
 use Nemundo\Content\App\Bookmark\Data\Bookmark\BookmarkUpdate;
 use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractSearchContentType;
 use Nemundo\Crawler\HtmlParser\HtmlParser;
 use Nemundo\Crawler\HtmlParser\OpenGraphParser;
 use Nemundo\Model\Data\Property\File\FileProperty;
 
-class UrlContentType extends AbstractTreeContentType
+class UrlContentType extends AbstractSearchContentType
 {
 
     public $url;

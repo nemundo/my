@@ -1,14 +1,11 @@
 <?php
 
-
 namespace Nemundo\Content\Index\Search\Reader;
 
 
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
 use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Core\Base\DataSource\AbstractDataSource;
 use Nemundo\Core\Base\DataSource\PaginationTrait;
-use Nemundo\Core\Debug\Debug;
 use Nemundo\Core\Log\LogMessage;
 use Nemundo\Core\Text\SnippetText;
 use Nemundo\Core\Text\TextBold;
@@ -27,7 +24,6 @@ class SearchItemReader extends AbstractDataSource
      * @var bool
      */
     public $returnEmptyResult = false;
-
 
     /**
      * @var AbstractContentType[]
@@ -106,18 +102,10 @@ LEFT JOIN content_content ON content_search_index.content=content_content.id ';
             $limitStart = ($this->currentPage) * $this->paginationLimit;
             $reader->sqlStatement->sql .= ' LIMIT ' . $limitStart . ',' . $this->paginationLimit;
 
-            //(new Debug())->write($reader->sqlStatement->sql);
-
-
             $bold = new TextBold();
             $bold->addSearchQuery($this->query);
 
-
-            //(new Debug())->write($reader->sqlStatement);
-
             foreach ($reader->getData() as $sqlRow) {
-
-                //(new Debug())->write('result');
 
                 $searchItem = new SearchItem();
 
@@ -126,23 +114,23 @@ LEFT JOIN content_content ON content_search_index.content=content_content.id ';
 
                 if (class_exists($className)) {
 
-                /** @var AbstractTreeContentType $contentType */
-                $contentType = new $className($dataId);
+                    /** @var AbstractContentType $contentType */
+                    $contentType = new $className($dataId);
 
-                $searchItem->subject = $bold->getBoldText($contentType->getSubject());
+                    $searchItem->subject = $bold->getBoldText($contentType->getSubject());
 
-                $snippet = new SnippetText();
-                $textSnippet = $snippet->getSnippet($this->query, $contentType->getText());
-                $searchItem->text = $bold->getBoldText($textSnippet);
-                $searchItem->site = $contentType->getViewSite();
-                $searchItem->typeLabel = $sqlRow->getValue('content_type_label');
-                $searchItem->dataId = $dataId;
-                $searchItem->contentId = $sqlRow->getValue('content');
+                    $snippet = new SnippetText();
+                    $textSnippet = $snippet->getSnippet($this->query, $contentType->getText());
+                    $searchItem->text = $bold->getBoldText($textSnippet);
+                    $searchItem->site = $contentType->getViewSite();
+                    $searchItem->typeLabel = $sqlRow->getValue('content_type_label');
+                    $searchItem->dataId = $dataId;
+                    $searchItem->contentId = $sqlRow->getValue('content');
 
-                $this->addItem($searchItem);
+                    $this->addItem($searchItem);
 
                 } else {
-                    (new LogMessage())->writeError('Content Type not found. Class: '.$className);
+                    (new LogMessage())->writeError('Content Type not found. Class: ' . $className);
                 }
 
             }
@@ -202,12 +190,7 @@ LEFT JOIN content_content ON content_search_index.content=content_content.id ';
             $sqlStatement->sql .= ')';
 
             $this->getContentTypeWhere($sqlStatement, true);
-
-            //$parameterName = 'para_count_field';
-            //$sqlStatement->sql .= ' GROUP BY content_search_index.content) data WHERE count_field=:'.$parameterName;
-            $sqlStatement->sql .= ' GROUP BY content_search_index.content) data WHERE count_field='.$keywordList->getWordCount();
-
-            //$sqlStatement->addParameter($parameterName, $keywordList->getWordCount(), 'count_field');
+            $sqlStatement->sql .= ' GROUP BY content_search_index.content) data WHERE count_field=' . $keywordList->getWordCount();
 
         } else {
 

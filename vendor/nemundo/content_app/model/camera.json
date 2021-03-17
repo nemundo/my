@@ -22,7 +22,20 @@
                     "variable_name": "image",
                     "allow_null": true,
                     "is_deleted": false,
-                    "format": []
+                    "format": [
+                        {
+                            "format_type": "auto_size",
+                            "size": "300"
+                        },
+                        {
+                            "format_type": "fix_width",
+                            "size": "100"
+                        },
+                        {
+                            "format_type": "auto_size",
+                            "size": "1200"
+                        }
+                    ]
                 },
                 {
                     "type": "text",
@@ -38,6 +51,46 @@
                     "label": "Date Time",
                     "field_name": "date_time",
                     "variable_name": "dateTime",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Width",
+                    "field_name": "width",
+                    "variable_name": "width",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Height",
+                    "field_name": "height",
+                    "variable_name": "height",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Filesize",
+                    "field_name": "filesize",
+                    "variable_name": "filesize",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "date",
+                    "label": "Date",
+                    "field_name": "date",
+                    "variable_name": "date",
+                    "allow_null": true,
+                    "is_deleted": false
+                },
+                {
+                    "type": "number",
+                    "label": "Year",
+                    "field_name": "year",
+                    "variable_name": "year",
                     "allow_null": true,
                     "is_deleted": false
                 }

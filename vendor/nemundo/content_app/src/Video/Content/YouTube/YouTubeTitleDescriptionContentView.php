@@ -20,6 +20,15 @@ class YouTubeTitleDescriptionContentView extends AbstractContentView
 
     public $viewName='Video, Title & Description';
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='e9992649-041f-47d2-97f6-43bd8fcfd514';
+        $this->defaultView=false;
+
+    }
+
     public function getContent()
     {
 

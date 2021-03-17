@@ -37,8 +37,10 @@ class ProtectedEmailHyperlink extends AbstractHyperlink
         $script->addCodeLine('address2 = "' . $emailList[1] . '";');
         $script->addCodeLine('return address1 + "@" + address2;');
         $script->addCodeLine('}');
-        $script->addCodeLine('document.write(getMail());');
+        //$script->addCodeLine('document.write(getMail());');
         //$this->addHtml($script->getHtml());
+
+        $this->content = '<script>document.write(getMail());</script>';
 
         $this->href = '#';
         $this->addAttribute('onclick', 'javascript:window.location=\'mailto:\' + getMail()');

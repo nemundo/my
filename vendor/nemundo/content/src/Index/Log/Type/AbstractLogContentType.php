@@ -25,7 +25,7 @@ abstract class AbstractLogContentType extends AbstractContentType
 
         $update = new LogUpdate();
         $update->contentLogId = $this->getContentId();
-        $update->updateById($this->dataId);
+        $update->updateById($this->getDataId());
 
     }
 

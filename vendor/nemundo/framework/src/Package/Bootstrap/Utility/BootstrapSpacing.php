@@ -20,4 +20,6 @@ class BootstrapSpacing
 
     const MARIGN_3 = 'm-3';
 
+    const PADDING_3 = 'p-3';
+
 }

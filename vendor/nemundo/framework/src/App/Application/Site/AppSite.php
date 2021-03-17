@@ -5,6 +5,7 @@ namespace Nemundo\App\Application\Site;
 
 
 use Nemundo\App\Application\Data\Application\ApplicationReader;
+use Nemundo\App\Application\Page\AppPage;
 use Nemundo\App\Application\Usergroup\AppUsergroup;
 use Nemundo\Web\Site\AbstractSite;
 
@@ -22,6 +23,8 @@ class AppSite extends AbstractSite
 
         $reader = new ApplicationReader();
         $reader->filter->andEqual($reader->model->install, true);
+        $reader->filter->andEqual($reader->model->appMenu, true);
+
         $reader->addOrder($reader->model->application);
         foreach ($reader->getData() as $applicationRow) {
 
@@ -37,7 +40,7 @@ class AppSite extends AbstractSite
 
     public function loadContent()
     {
-
+        (new AppPage())->render();
     }
 
 }

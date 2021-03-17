@@ -19,6 +19,17 @@ class UrlContentView extends AbstractContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='6edc0c2c-cf91-4fcd-b839-a972a6b886e5';
+        $this->defaultView=true;
+
+    }
+
+
     public function getContent()
     {
 

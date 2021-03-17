@@ -4,8 +4,6 @@ namespace Nemundo\Model\Type\File;
 
 
 use Nemundo\Html\Form\Input\AcceptFileType;
-use Nemundo\Model\Form\Item\File\RedirectFilenameModelFormItem;
-use Nemundo\Model\Item\File\RedirectFilenameModelItem;
 use Nemundo\Model\ModelConfig;
 use Nemundo\Model\Type\Complex\AbstractComplexType;
 use Nemundo\Model\Type\Number\NumberType;

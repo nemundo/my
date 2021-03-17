@@ -9,6 +9,7 @@ use Nemundo\Content\Index\Geo\Data\GeoIndex\GeoIndexReader;
 use Nemundo\Core\Debug\Debug;
 use Nemundo\Geo\Coordinate\GeoCoordinateDistance;
 
+// GeoDistanceScheduler
 class DistanceScheduler extends AbstractScheduler
 {
     protected function loadScheduler()

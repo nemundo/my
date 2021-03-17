@@ -13,7 +13,6 @@ use Nemundo\App\Application\Data\Project\ProjectId;
 use Nemundo\App\Application\Data\Project\ProjectUpdate;
 use Nemundo\App\Application\Type\AbstractApplication;
 use Nemundo\Core\Base\AbstractBase;
-use Nemundo\Project\AbstractProject;
 
 class ApplicationSetup extends AbstractBase
 {
@@ -22,28 +21,23 @@ class ApplicationSetup extends AbstractBase
     protected $projectId;
 
 
-
     public function addApplication(AbstractApplication $application)
     {
 
         if ($application->project !== null) {
 
             $count = new ProjectCount();
-            $count->filter->andEqual($count->model->phpClass,  $application->project->getClassName());
+            $count->filter->andEqual($count->model->phpClass, $application->project->getClassName());
             if ($count->getCount() == 0) {
-            $data = new Project();
-            //$data->updateOnDuplicate = true;
-            $data->project = $application->project->project;
-            $data->phpClass = $application->project->getClassName();
-            $data->save();
+                $data = new Project();
+                $data->project = $application->project->project;
+                $data->phpClass = $application->project->getClassName();
+                $data->save();
             } else {
-
                 $update = new ProjectUpdate();
-                //$data->updateOnDuplicate = true;
                 $update->project = $application->project->project;
                 $update->filter->andEqual($update->model->phpClass, $application->project->getClassName());
                 $update->update();
-
             }
 
             $id = new ProjectId();
@@ -63,6 +57,8 @@ class ApplicationSetup extends AbstractBase
             $data->applicationClass = $application->getClassName();
             $data->setupStatus = true;
             $data->install = false;
+            $data->appMenu = false;
+            $data->adminMenu = false;
             $data->save();
         } else {
             $update = new ApplicationUpdate();

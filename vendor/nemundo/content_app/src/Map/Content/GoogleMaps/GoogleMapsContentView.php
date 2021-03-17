@@ -12,10 +12,16 @@ class GoogleMapsContentView extends AbstractContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
+
     public function getContent()
     {
 
-        $map = new GoogleMaps($this);
+        //$map = new GoogleMaps($this);
         //$map->addKmlLayer();
 
 

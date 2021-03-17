@@ -4,39 +4,19 @@
 namespace Nemundo\Content\App\Calendar\Page;
 
 
-use Nemundo\Admin\Com\Button\AdminIconSiteButton;
 use Nemundo\Admin\Com\Table\AdminClickableTable;
-use Nemundo\Admin\Com\Title\AdminSubtitle;
-use Nemundo\Com\FormBuilder\SearchForm;
 use Nemundo\Com\TableBuilder\TableHeader;
-use Nemundo\Com\TableBuilder\TableRow;
-use Nemundo\Com\Template\AbstractTemplateDocument;
+use Nemundo\Content\Action\DeleteContentAction;
+use Nemundo\Content\Action\EditContentAction;
+use Nemundo\Content\Action\ViewContentAction;
 use Nemundo\Content\App\Calendar\Content\Calendar\CalendarContentType;
 use Nemundo\Content\App\Calendar\Data\Calendar\CalendarPaginationReader;
-
-use Nemundo\Content\App\Calendar\Data\CalendarSourceType\CalendarSourceTypeReader;
 use Nemundo\Content\App\Calendar\Parameter\CalendarParameter;
 use Nemundo\Content\App\Calendar\Site\CalendarSite;
-use Nemundo\Content\App\Calendar\Site\VCalendarIconSite;
 use Nemundo\Content\App\Calendar\Template\CalendarTemplate;
-use Nemundo\Content\App\Calendar\Type\CalendarIndexTrait;
-use Nemundo\Content\App\Explorer\Collection\BaseContentTypeCollection;
-use Nemundo\Content\App\Explorer\Site\ItemSite;
-
-use Nemundo\Content\App\Explorer\Site\NewSite;
-
-use Nemundo\Content\Com\Dropdown\ContentTypeCollectionSubmenuDropdown;
+use Nemundo\Content\App\PublicShare\Action\PublicShareAction;
 use Nemundo\Content\Com\Widget\ContentWidget;
-use Nemundo\Content\Index\Group\User\GroupMembership;
-use Nemundo\Content\Index\Tree\Com\Container\ContentChildContainer;
-use Nemundo\Content\Index\Tree\Com\Table\ParentTreeTable;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
-use Nemundo\Content\Parameter\ContentParameter;
-use Nemundo\Core\Type\DateTime\Date;
-use Nemundo\Db\Filter\Filter;
-use Nemundo\Html\Block\Div;
-use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
-use Nemundo\Package\Bootstrap\FormElement\BootstrapListBox;
+use Nemundo\Content\Index\Tree\Action\ChildOrder\ChildOrderContentAction;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
 use Nemundo\Package\Bootstrap\Pagination\BootstrapPagination;
 use Nemundo\Package\Bootstrap\Table\BootstrapClickableTableRow;
@@ -64,7 +44,9 @@ class CalendarPage extends CalendarTemplate
             $sourceType->addItem($sourceTypeRow->contentTypeId, $sourceTypeRow->contentType->contentType);
         }*/
 
-        $layout=new BootstrapTwoColumnLayout($this);
+        $layout = new BootstrapTwoColumnLayout($this);
+        $layout->col1->columnWidth = 4;
+        $layout->col2->columnWidth = 8;
 
 
         $calendarReader = new CalendarPaginationReader();
@@ -85,7 +67,7 @@ class CalendarPage extends CalendarTemplate
             $row->addText($calendarRow->time->getTimeLeadingZero());
             $row->addText($calendarRow->event);
 
-            $site=clone(CalendarSite::$site);
+            $site = clone(CalendarSite::$site);
             $site->addParameter(new CalendarParameter($calendarRow->id));
             $row->addClickableSite($site);
 
@@ -95,32 +77,22 @@ class CalendarPage extends CalendarTemplate
         $pagination->paginationReader = $calendarReader;
 
 
-
-        $parameter=new CalendarParameter();
+        $parameter = new CalendarParameter();
         if ($parameter->hasValue()) {
 
 
-
             $contentType = new CalendarContentType($parameter->getValue());
-            //$contentType->getDefaultView($layout->col2);
 
             $widget = new ContentWidget($layout->col2);
-            $widget->contentType =$contentType;
-            $widget->loadAction=true;
+            $widget->contentType = $contentType;
+            $widget->actionDropdown->addContentAction(new EditContentAction());
+            $widget->actionDropdown->addContentAction(new ChildOrderContentAction());
+            $widget->actionDropdown->addContentAction(new ViewContentAction());
+            $widget->actionDropdown->addContentAction(new PublicShareAction());
+            $widget->actionDropdown->addSeperator();
+            $widget->actionDropdown->addContentAction(new DeleteContentAction());
 
 
-
-            /*
-            $dropdown = new ContentTypeCollectionSubmenuDropdown($layout->col2);
-            $dropdown->redirectSite = clone(NewSite::$site);
-            $dropdown->redirectSite->addParameter(new ContentParameter());
-            foreach ((new BaseContentTypeCollection())->getContentTypeList() as $child) {
-                $dropdown->addContentType($child);
-            }*/
-
-
-            /*$container = new ContentChildContainer($layout->col2);
-            $container->contentType=$contentType;*/
 
         }
 

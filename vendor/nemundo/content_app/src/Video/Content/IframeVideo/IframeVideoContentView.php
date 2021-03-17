@@ -13,6 +13,15 @@ class IframeVideoContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='eaf6cb51-a16a-463a-af42-2556661c1e87';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

@@ -9,6 +9,7 @@ use Nemundo\Content\App\UserProfile\Site\MyUserProfileSite;
 
 
 // UserMode
+// WithoutUser
 class UserModeAdminTemplate extends AdminTemplate
 {
 

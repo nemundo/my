@@ -3,11 +3,9 @@
 namespace Nemundo\Model\Type\File;
 
 
-use Nemundo\Html\Form\Input\AcceptFileType;
-use Nemundo\Model\Form\Item\File\FileModelFormItem;
-use Nemundo\Model\Item\File\FileModelItem;
-use Nemundo\Model\ModelConfig;
 use Nemundo\Core\Http\Domain\DomainInformation;
+use Nemundo\Html\Form\Input\AcceptFileType;
+use Nemundo\Model\ModelConfig;
 
 
 class FileType extends AbstractFileType
@@ -17,18 +15,6 @@ class FileType extends AbstractFileType
      * @var AcceptFileType
      */
     public $acceptFileType;
-
-
-    /*protected function loadExternalType()
-    {
-        parent::loadExternalType();
-
-        $this->formTypeClassName = FileModelFormItem::class;
-        $this->viewItemClassName = FileModelItem::class;
-        $this->tableItemClassName = FileModelItem::class;
-
-    }*/
-
 
     public function getDataPath()
     {

@@ -14,6 +14,11 @@ class FileTransferContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
+
     public function getContent()
     {
 

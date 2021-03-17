@@ -31,6 +31,11 @@ public $contentId;
 */
 public $content;
 
+/**
+* @var int
+*/
+public $duration;
+
 public function __construct(\Nemundo\Db\Row\AbstractDataRow $row, $model) {
 parent::__construct($row->getData());
 $this->row = $row;
@@ -40,6 +45,7 @@ $this->contentId = intval($this->getModelValue($model->contentId));
 if ($model->content !== null) {
 $this->loadNemundoContentDataContentContentcontentRow($model->content);
 }
+$this->duration = intval($this->getModelValue($model->duration));
 }
 private function loadNemundoContentDataContentContentcontentRow($model) {
 $this->content = new \Nemundo\Content\Row\ContentCustomRow($this->row, $model);

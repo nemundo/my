@@ -35,11 +35,9 @@ class AutocompleteTextInput extends TextInput
         $this->addJqueryScript('}');
 */
 
-        //$this->addJqueryScript('$("#' . $this->name . '" )');
+        $this->addJqueryScript('$("#' . $this->name . '" )');
 
-
-
-        $this->addJqueryScript('$(".' . $className . '" )');
+        //$this->addJqueryScript('$(".' . $className . '" )');
         $this->addJqueryScript('.on( "keydown", function( event ) {');
         $this->addJqueryScript('if ( event.keyCode === $.ui.keyCode.TAB &&');
         $this->addJqueryScript('$( this ).autocomplete( "instance" ).menu.active ) {');

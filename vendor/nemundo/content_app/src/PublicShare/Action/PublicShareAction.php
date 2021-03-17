@@ -6,6 +6,7 @@ namespace Nemundo\Content\App\PublicShare\Action;
 use Nemundo\Content\Action\AbstractContentAction;
 use Nemundo\Content\App\PublicShare\Data\PublicShare\PublicShare;
 use Nemundo\Content\App\PublicShare\Data\PublicShare\PublicShareCount;
+use Nemundo\Content\Builder\ContentBuilder;
 
 
 class PublicShareAction extends AbstractContentAction
@@ -34,6 +35,7 @@ class PublicShareAction extends AbstractContentAction
         $data = new PublicShare();
         //$data->ignoreIfExists = true;
         $data->contentId = $this->actionContentId;
+        $data->viewId= (new ContentBuilder())->getContent($this->actionContentId)->getDefaultViewId();
         $data->save();
         }
 

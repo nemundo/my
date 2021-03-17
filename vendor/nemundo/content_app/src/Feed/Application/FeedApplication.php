@@ -8,6 +8,7 @@ use Nemundo\App\Application\Type\AbstractApplication;
 use Nemundo\Content\App\Feed\Data\FeedModelCollection;
 use Nemundo\Content\App\Feed\Install\FeedInstall;
 use Nemundo\Content\App\Feed\Install\FeedUninstall;
+use Nemundo\Content\App\Feed\Site\Admin\FeedAdminSite;
 use Nemundo\Content\App\Feed\Site\FeedSite;
 
 class FeedApplication extends AbstractApplication
@@ -22,6 +23,7 @@ class FeedApplication extends AbstractApplication
         $this->installClass = FeedInstall::class;
         $this->uninstallClass = FeedUninstall::class;
         $this->siteClass=FeedSite::class;
+        $this->adminSiteClass=FeedAdminSite::class;
 
     }
 

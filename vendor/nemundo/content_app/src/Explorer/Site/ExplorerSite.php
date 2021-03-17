@@ -4,14 +4,14 @@ namespace Nemundo\Content\App\Explorer\Site;
 
 use Nemundo\Content\App\Explorer\Content\Base\BaseContainerContentType;
 use Nemundo\Content\App\Explorer\Page\ExplorerPage;
-use Nemundo\Content\App\Explorer\Site\Config\ConfigSite;
+
 use Nemundo\Content\App\Explorer\Site\Json\JsonExportSite;
 use Nemundo\Content\App\Explorer\Site\Json\JsonImportSite;
 use Nemundo\Content\App\Explorer\Site\Share\PrivateShareSite;
 use Nemundo\Content\App\Explorer\Site\Share\PublicShareEditSite;
 use Nemundo\Content\App\Explorer\Store\HomeContentIdStore;
 use Nemundo\Content\App\Favorite\Site\FavoriteSite;
-use Nemundo\Content\Index\Tree\Site\ContentSortableSite;
+
 use Nemundo\Content\Parameter\ContentParameter;
 use Nemundo\Web\Site\AbstractSite;
 
@@ -49,7 +49,7 @@ class ExplorerSite extends AbstractSite
 
         new ContentRemoveSite($this);
         new ContentDeleteSite($this);
-        new ContentSortableSite($this);
+        //new ContentSortableSite($this);
 
 
         new AttachToSite($this);

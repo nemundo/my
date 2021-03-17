@@ -23,8 +23,8 @@ class MySqlTableFieldTable extends AdminTable
         $header->addText('Data Type');
         $header->addText('Lengtgh');
         $header->addText('Allow Null');
-
-
+        $header->addText('Collation');
+        $header->addText('Character');
 
         $reader=new MySqlTableFieldReader();
         $reader->tableName=$this->tableName;
@@ -35,14 +35,13 @@ class MySqlTableFieldTable extends AdminTable
             $row->addText($field->fieldType);
             $row->addText($field->fieldTypeLength);
             $row->addYesNo( $field->allowNull);
+            $row->addText( $field->collation);
+            $row->addText( $field->character);
 
         }
-
-
 
         return parent::getContent();
 
     }
-
 
 }

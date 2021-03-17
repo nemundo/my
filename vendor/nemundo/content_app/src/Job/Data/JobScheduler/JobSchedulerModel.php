@@ -21,6 +21,11 @@ public $contentId;
 */
 public $content;
 
+/**
+* @var \Nemundo\Model\Type\Number\NumberType
+*/
+public $duration;
+
 protected function loadModel() {
 $this->tableName = "job_job_scheduler";
 $this->aliasTableName = "job_job_scheduler";
@@ -48,6 +53,13 @@ $this->contentId->fieldName = "content";
 $this->contentId->aliasFieldName = "job_job_scheduler_content";
 $this->contentId->label = "Content";
 $this->contentId->allowNullValue = true;
+
+$this->duration = new \Nemundo\Model\Type\Number\NumberType($this);
+$this->duration->tableName = "job_job_scheduler";
+$this->duration->fieldName = "duration";
+$this->duration->aliasFieldName = "job_job_scheduler_duration";
+$this->duration->label = "Duration";
+$this->duration->allowNullValue = true;
 
 $index = new \Nemundo\Model\Definition\Index\ModelIndex($this);
 $index->indexName = "done";

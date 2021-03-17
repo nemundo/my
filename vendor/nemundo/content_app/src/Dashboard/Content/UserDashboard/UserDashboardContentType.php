@@ -7,20 +7,23 @@ use Nemundo\Content\App\Dashboard\Data\UserDashboard\UserDashboardDelete;
 use Nemundo\Content\App\Dashboard\Data\UserDashboard\UserDashboardReader;
 use Nemundo\Content\App\Dashboard\Data\UserDashboard\UserDashboardRow;
 use Nemundo\Content\App\Dashboard\Data\UserDashboard\UserDashboardUpdate;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\App\Dashboard\Parameter\UserDashboardParameter;
 use Nemundo\Content\Type\AbstractContentType;
 
-class UserDashboardContentType extends AbstractContentType   // AbstractTreeContentType
+class UserDashboardContentType extends AbstractContentType
 {
 
     public $dashboard;
 
     protected function loadContentType()
     {
+
         $this->typeLabel = 'User Dashboard';
         $this->typeId = '6107eebc-323d-48e1-ab63-cb92e6749e48';
         $this->formClassList[] = UserDashboardContentForm::class;
         $this->viewClassList[]  = UserDashboardContentView::class;
+        $this->parameterClass=UserDashboardParameter::class;
+
     }
 
     protected function onCreate()

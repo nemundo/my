@@ -18,6 +18,16 @@ class DocumentContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='ca3cdc72-0909-4d56-81a0-6ffafe4236b7';
+        $this->defaultView=true;
+
+    }
+
+
     public function getContent()
     {
 

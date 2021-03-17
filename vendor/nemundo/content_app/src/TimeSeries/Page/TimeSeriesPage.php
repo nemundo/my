@@ -66,17 +66,24 @@ class TimeSeriesPage extends TimeSeriesTemplate
         $timeSeries = new TimeSeriesListBox($formRow);
         $timeSeries->submitOnChange = true;
         $timeSeries->searchMode = true;
+        $timeSeries->column=true;
+        $timeSeries->columnSize=2;
 
         $line = new LineListBox($formRow);
         $line->timeSeriesId = $timeSeries->getValue();
         $line->submitOnChange = true;
         $line->searchMode = true;
         $line->emptyValueAsDefault = false;
+        $line->column=true;
+        $line->columnSize=2;
 
 
         //if ((new PeriodTypeParameter())->getValue() == (new DayPeriodType())->id) {
             $dateFromTo = new BootstrapFromToDatePicker($formRow);
             $dateFromTo->searchMode = true;
+        $dateFromTo->column=true;
+        $dateFromTo->columnSize=2;
+
         //}
 
         if ((new PeriodTypeParameter())->getValue() == (new YearPeriodType())->id) {

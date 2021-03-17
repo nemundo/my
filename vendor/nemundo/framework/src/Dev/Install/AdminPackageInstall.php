@@ -13,11 +13,9 @@ use Nemundo\Package\FontAwesome\FontAwesomePackage;
 use Nemundo\Package\Jquery\Package\JqueryPackage;
 use Nemundo\Package\JqueryUi\JqueryUiPackage;
 use Nemundo\Package\NemundoJs\NemundoJsPackage;
-use Nemundo\Package\Popper\PopperPackage;
 use Nemundo\Project\Path\ProjectPath;
-use Nemundo\Web\WebConfig;
 
-// nach Dev???
+
 class AdminPackageInstall extends AbstractBase
 {
 
@@ -27,12 +25,6 @@ class AdminPackageInstall extends AbstractBase
     private $projectPath;
 
 
-    /*
-    public function __construct($projectPath)
-    {
-        $this->projectPath = $projectPath;
-    }*/
-
     public function install()
     {
 
@@ -40,13 +32,10 @@ class AdminPackageInstall extends AbstractBase
             ->addPath('admin')
             ->getPath();
 
-
-
-        //WebConfig::$webPath = $this->projectPath;  // . 'admin';
-
         $this->copyAssetFile('.htaccess', '.htaccess');
         $this->copyAssetFile('config.php', 'config.php');
         $this->copyAssetFile('index.php', 'index.php');
+        $this->copyAssetFile('start.bat', 'start.bat');
 
         $setup = new PackageSetup();
         $setup->destinationPath = $this->projectPath;
@@ -73,7 +62,6 @@ class AdminPackageInstall extends AbstractBase
 
         $fileCopy->destinationFilename = (new Path())
             ->addPath($this->projectPath)
-            //->addPath('admin')
             ->addPath($filenameTo)
             ->getFilename();
 

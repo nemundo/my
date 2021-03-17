@@ -15,6 +15,18 @@ class UserDashboardContentView extends AbstractContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+
+        $this->viewName='user dashboard';
+        $this->viewId='be411c2d-47cf-4939-babd-13f729004cba';
+        $this->defaultView=true;
+
+        // TODO: Implement loadView() method.
+    }
+
+
     public function getContent()
     {
 

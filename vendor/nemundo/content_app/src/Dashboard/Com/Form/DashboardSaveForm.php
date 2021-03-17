@@ -6,7 +6,7 @@ namespace Nemundo\Content\App\Dashboard\Com\Form;
 
 use Nemundo\Content\App\Dashboard\Data\Dashboard\Dashboard;
 use Nemundo\Content\App\Dashboard\Event\DashboardEvent;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Index\Tree\Type\AbstractContentType;
 use Nemundo\Package\Bootstrap\Form\BootstrapForm;
 use Nemundo\Content\App\Dashboard\Com\ListBox\DashboardListBox;
 use Nemundo\Content\App\Dashboard\Data\UserDashboard\UserDashboard;
@@ -24,7 +24,7 @@ class DashboardSaveForm extends BootstrapForm
 
 
     /**
-     * @var AbstractTreeContentType
+     * @var AbstractContentType
      */
     public $contentType;
 

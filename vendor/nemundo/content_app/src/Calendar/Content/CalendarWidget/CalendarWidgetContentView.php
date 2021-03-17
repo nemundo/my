@@ -18,6 +18,16 @@ class CalendarWidgetContentView extends AbstractContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='ac34aed5-6428-4cd8-9dab-8c258c5b4625';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

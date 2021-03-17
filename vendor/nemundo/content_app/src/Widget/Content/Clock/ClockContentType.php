@@ -3,9 +3,9 @@
 namespace Nemundo\Content\App\Widget\Content\Clock;
 
 use Nemundo\Content\Form\ContentForm;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class ClockContentType extends AbstractTreeContentType
+class ClockContentType extends AbstractContentType
 {
 
     protected function loadContentType()

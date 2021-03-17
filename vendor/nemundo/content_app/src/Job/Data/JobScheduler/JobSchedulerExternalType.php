@@ -21,6 +21,11 @@ public $contentId;
 */
 public $content;
 
+/**
+* @var \Nemundo\Model\Type\Number\NumberType
+*/
+public $duration;
+
 protected function loadExternalType() {
 parent::loadExternalType();
 $this->externalModelClassName = JobSchedulerModel::class;
@@ -46,6 +51,13 @@ $this->contentId->tableName = $this->parentFieldName . "_" . $this->externalTabl
 $this->contentId->aliasFieldName = $this->contentId->tableName ."_".$this->contentId->fieldName;
 $this->contentId->label = "Content";
 $this->addType($this->contentId);
+
+$this->duration = new \Nemundo\Model\Type\Number\NumberType();
+$this->duration->fieldName = "duration";
+$this->duration->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->duration->aliasFieldName = $this->duration->tableName . "_" . $this->duration->fieldName;
+$this->duration->label = "Duration";
+$this->addType($this->duration);
 
 }
 public function loadContent() {

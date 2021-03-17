@@ -22,6 +22,8 @@ class CalendarSite extends AbstractSite
         CalendarSite::$site = $this;
 
         new CalendarNewSite($this);
+        new ConfigSite($this);
+
         new VCalendarIconSite($this);
 
     }

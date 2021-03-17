@@ -8,9 +8,11 @@ use Nemundo\Admin\Com\Table\AdminTable;
 use Nemundo\App\Application\Com\ListBox\ProjectListBox;
 use Nemundo\App\Application\Data\Application\ApplicationReader;
 use Nemundo\App\Application\Parameter\ApplicationParameter;
+use Nemundo\App\Application\Site\ApplicationEditSite;
 use Nemundo\App\Application\Site\InstallSite;
 use Nemundo\App\Application\Site\ReinstallSite;
 use Nemundo\App\Application\Site\UninstallSite;
+use Nemundo\App\Application\Template\ApplicationTemplate;
 use Nemundo\Com\FormBuilder\SearchForm;
 use Nemundo\Com\Html\Listing\UnorderedList;
 use Nemundo\Com\TableBuilder\TableHeader;
@@ -19,7 +21,7 @@ use Nemundo\Com\Template\AbstractTemplateDocument;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
 use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
 
-class ApplicationPage extends AbstractTemplateDocument
+class ApplicationPage extends ApplicationTemplate
 {
 
     public function getContent()
@@ -51,22 +53,27 @@ class ApplicationPage extends AbstractTemplateDocument
         $applicationReader->addOrder($applicationReader->model->application);
 
         $header = new TableHeader($table);
-        $header->addText($applicationReader->model->project->label);
+
         $header->addText($applicationReader->model->application->label);
         $header->addText($applicationReader->model->install->label);
+        $header->addText($applicationReader->model->appMenu->label);
+        $header->addText($applicationReader->model->adminMenu->label);
         $header->addEmpty();
         $header->addEmpty();
         $header->addEmpty();
+        $header->addText($applicationReader->model->project->label);
         $header->addText('Package');
         $header->addText('Dependency');
-
+        $header->addEmpty();
 
         foreach ($applicationReader->getData() as $applicationRow) {
 
             $row = new TableRow($table);
-            $row->addText($applicationRow->project->project);
+
             $row->addText($applicationRow->application);
             $row->addYesNo($applicationRow->install);
+            $row->addYesNo($applicationRow->appMenu);
+            $row->addYesNo($applicationRow->adminMenu);
 
             $app = $applicationRow->getApplication();
 
@@ -97,7 +104,7 @@ class ApplicationPage extends AbstractTemplateDocument
                     $row->addEmpty();
                 }
 
-
+                $row->addText($applicationRow->project->project);
 
                 $ul = new UnorderedList($row);
                 foreach ($app->getPackageList() as $package) {
@@ -113,6 +120,13 @@ class ApplicationPage extends AbstractTemplateDocument
             } else {
                 $row->addText('No Class');
             }
+
+
+            $site=clone(ApplicationEditSite::$site);
+            $site->addParameter(new ApplicationParameter($applicationRow->id));
+            $row->addIconSite($site);
+
+
 
         }
 

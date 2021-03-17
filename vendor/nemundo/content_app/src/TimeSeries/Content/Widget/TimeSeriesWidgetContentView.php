@@ -12,6 +12,15 @@ class TimeSeriesWidgetContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='ff03d7f7-d9d5-4dfd-ae3b-3f7bfdf0c779';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

@@ -7,9 +7,10 @@ use Nemundo\Content\App\Contact\Data\Contact\ContactReader;
 use Nemundo\Content\App\Contact\Data\Contact\ContactRow;
 use Nemundo\Content\App\Contact\Data\Contact\ContactUpdate;
 use Nemundo\Content\App\Contact\Type\ContactIndexTrait;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class ContactContentType extends AbstractTreeContentType
+
+class ContactContentType extends AbstractContentType
 {
 
     use ContactIndexTrait;

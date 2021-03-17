@@ -9,14 +9,14 @@ use Nemundo\Admin\Com\Table\AdminTable;
 use Nemundo\Com\FormBuilder\SearchForm;
 use Nemundo\Com\TableBuilder\TableHeader;
 use Nemundo\Com\TableBuilder\TableRow;
-use Nemundo\Content\Admin\Template\ContentTemplate;
 use Nemundo\Content\Com\ListBox\ContentTypeListBox;
-use Nemundo\Content\Index\Search\Com\QueryContentSearchForm;
+
 use Nemundo\Content\Index\Search\Data\WordContentType\WordContentTypePaginationReader;
 use Nemundo\Content\Index\Search\Parameter\SearchQueryParameter;
 use Nemundo\Content\Index\Search\Reader\SearchItemReader;
 use Nemundo\Content\Index\Search\Site\SearchSite;
 use Nemundo\Content\Parameter\ContentTypeParameter;
+use Nemundo\Content\Template\ContentAdminTemplate;
 use Nemundo\Core\Language\LanguageCode;
 use Nemundo\Core\Language\Translation;
 use Nemundo\Dev\App\Factory\DefaultTemplateFactory;
@@ -28,7 +28,7 @@ use Nemundo\Package\Bootstrap\Pagination\BootstrapPagination;
 use Nemundo\Package\Bootstrap\Table\BootstrapClickableTableRow;
 use Nemundo\Web\Site\Site;
 
-class SearchWordPage extends ContentTemplate
+class SearchWordPage extends ContentAdminTemplate
 {
 
     public function getContent()

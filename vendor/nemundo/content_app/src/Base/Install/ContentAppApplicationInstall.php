@@ -13,6 +13,7 @@ use Nemundo\Content\App\Dashboard\Application\DashboardApplication;
 use Nemundo\Content\App\Explorer\Application\ExplorerApplication;
 use Nemundo\Content\App\Favorite\Application\FavoriteApplication;
 use Nemundo\Content\App\Feed\Application\FeedApplication;
+use Nemundo\Content\App\Feedback\Application\FeedbackApplication;
 use Nemundo\Content\App\File\Application\FileApplication;
 use Nemundo\Content\App\ImageGallery\Application\ImageGalleryApplication;
 use Nemundo\Content\App\ImageTimeline\Application\ImageTimelineApplication;
@@ -50,6 +51,7 @@ class ContentAppApplicationInstall extends AbstractInstall
             ->addApplication(new ContactApplication())
             ->addApplication(new DashboardApplication())
             ->addApplication(new FavoriteApplication())
+            ->addApplication(new FeedbackApplication())
             ->addApplication(new BookmarkApplication())
             ->addApplication(new WebcamApplication())
             ->addApplication(new FileApplication())

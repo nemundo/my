@@ -6,7 +6,6 @@ use Nemundo\Content\Index\Geo\Data\GeoIndex\GeoIndexReader;
 use Nemundo\Content\Parameter\ContentParameter;
 use Nemundo\Geo\Kml\Document\KmlDocument;
 use Nemundo\Geo\Kml\Object\KmlMarker;
-use Nemundo\Html\Container\Container;
 use Nemundo\Package\FontAwesome\Site\AbstractKmlIconSite;
 
 class GeoIndexKmlSite extends AbstractKmlIconSite
@@ -50,21 +49,29 @@ class GeoIndexKmlSite extends AbstractKmlIconSite
 
             //$description = new Container();
 
-            $view = $geoIndexRow->content->getContentType()->getDefaultView();
 
-            /*
-            $p = new Paragraph($description);
-            $p->content = (new Html($hikeRow->description))->getValue();
+            $contentType = $geoIndexRow->content->getContentType();
 
-            $img = new BootstrapResponsiveImage($description);
-            $img->src = $hikeRow->image->getImageUrlWithDomain($hikeRow->model->imageAutoSize800);
+            if ($contentType->hasView()) {
 
-            $hyperlink = new UrlHyperlink($description);
-            $hyperlink->content = 'More';
-            $hyperlink->url = (new HikeContentType($hikeRow->id))->getViewSite()->getUrlWithDomain();
-*/
+                //$view = $geoIndexRow->content->getContentType()->getDefaultView();
+                $view = $contentType->getDefaultView();
 
-            $placemark->description = $view->getContent()->bodyContent;  // $hyperlink->getBodyContent();
+                /*
+                $p = new Paragraph($description);
+                $p->content = (new Html($hikeRow->description))->getValue();
+
+                $img = new BootstrapResponsiveImage($description);
+                $img->src = $hikeRow->image->getImageUrlWithDomain($hikeRow->model->imageAutoSize800);
+
+                $hyperlink = new UrlHyperlink($description);
+                $hyperlink->content = 'More';
+                $hyperlink->url = (new HikeContentType($hikeRow->id))->getViewSite()->getUrlWithDomain();
+    */
+
+                $placemark->description = $view->getContent()->bodyContent;  // $hyperlink->getBodyContent();
+
+            }
 
         }
 

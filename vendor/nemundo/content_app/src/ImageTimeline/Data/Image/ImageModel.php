@@ -37,7 +37,7 @@ public $imageAutoSize1600;
 public $hash;
 
 /**
-* @var \Nemundo\Model\Type\DateTime\CreatedDateTimeType
+* @var \Nemundo\Model\Type\DateTime\DateTimeType
 */
 public $dateTime;
 
@@ -81,7 +81,7 @@ $this->hash->label = "Hash";
 $this->hash->allowNullValue = false;
 $this->hash->length = 36;
 
-$this->dateTime = new \Nemundo\Model\Type\DateTime\CreatedDateTimeType($this);
+$this->dateTime = new \Nemundo\Model\Type\DateTime\DateTimeType($this);
 $this->dateTime->tableName = "imagetimeline_image";
 $this->dateTime->fieldName = "date_time";
 $this->dateTime->aliasFieldName = "imagetimeline_image_date_time";

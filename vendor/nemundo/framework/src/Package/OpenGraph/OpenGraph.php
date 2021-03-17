@@ -5,33 +5,42 @@ namespace Nemundo\Package\OpenGraph;
 use Nemundo\Html\Header\AbstractHeaderHtmlContainer;
 
 
-class OpenGraph extends AbstractHeaderHtmlContainer
+class OpenGraph extends AbstractOpenGraph  // AbstractHeaderHtmlContainer
 {
 
     /**
      * @var string
      */
-    public $title;
+  //  public $title;
 
     /**
      * @var string
      */
-    public $siteName;
+    //public $siteName;
 
     /**
      * @var string
      */
-    public $description;
+    //public $description;
 
     /**
      * @var string
      */
-    public $imageUrl;
+    //public $imageUrl;
 
 
     public function getContent()
     {
 
+
+        $this->prefix='og';
+
+         $this->addMeta('title', $this->title);
+        $this->addMeta('description', $this->description);
+        $this->addMeta('image', $this->imageUrl);
+
+
+        /*
         if ($this->title !== null) {
             $meta = new OpenGraphMeta($this);
             $meta->property = 'og:title';
@@ -55,7 +64,7 @@ class OpenGraph extends AbstractHeaderHtmlContainer
             $meta->property = 'image';
             $meta->content = $this->imageUrl;
         }
-
+*/
         return parent::getContent();
 
     }

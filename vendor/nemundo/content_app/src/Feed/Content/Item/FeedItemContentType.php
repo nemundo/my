@@ -7,6 +7,7 @@ namespace Nemundo\Content\App\Feed\Content\Item;
 use Nemundo\Content\App\Timeline\Index\TimelineIndexTrait;
 use Nemundo\Content\Index\Calendar\DateTimeIndexTrait;
 use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
+use Nemundo\Content\Type\AbstractSearchContentType;
 use Nemundo\Core\Type\DateTime\DateTime;
 use Nemundo\Content\App\Feed\Data\FeedItem\FeedItem;
 use Nemundo\Content\App\Feed\Data\FeedItem\FeedItemCount;
@@ -17,12 +18,11 @@ use Nemundo\Content\App\Feed\Data\FeedItem\FeedItemRow;
 use Nemundo\Content\App\Feed\Parameter\FeedItemParameter;
 use Nemundo\Content\App\Feed\Site\FeedItemRedirectSite;
 use Nemundo\Content\App\Stream\Index\StreamIndexTrait;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
 
-class FeedItemContentType extends AbstractTreeContentType
+
+class FeedItemContentType extends AbstractSearchContentType
 {
 
-    //use DateTimeIndexTrait;
     use TimelineIndexTrait;
 
     public $feedId;
@@ -118,8 +118,11 @@ class FeedItemContentType extends AbstractTreeContentType
 
     protected function onDelete()
     {
-        (new FeedItemDelete())->deleteById($this->dataId);
+
         $this->deleteSearchIndex();
+        $this->deleteTimeline();
+
+        (new FeedItemDelete())->deleteById($this->dataId);
 
     }
 

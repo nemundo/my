@@ -27,6 +27,11 @@ public $viewClass;
 */
 public $setupStatus;
 
+/**
+* @var bool
+*/
+public $defaultView;
+
 public function __construct() {
 parent::__construct();
 $this->model = new ContentViewModel();
@@ -36,6 +41,7 @@ $this->typeValueList->setModelValue($this->model->contentTypeId, $this->contentT
 $this->typeValueList->setModelValue($this->model->viewName, $this->viewName);
 $this->typeValueList->setModelValue($this->model->viewClass, $this->viewClass);
 $this->typeValueList->setModelValue($this->model->setupStatus, $this->setupStatus);
+$this->typeValueList->setModelValue($this->model->defaultView, $this->defaultView);
 parent::update();
 }
 }

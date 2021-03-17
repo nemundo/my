@@ -57,6 +57,14 @@
                     "field_name": "date_time",
                     "variable_name": "dateTime",
                     "allow_null": false,
+                    "is_deleted": true
+                },
+                {
+                    "type": "date_time",
+                    "label": "Date Time",
+                    "field_name": "date_time",
+                    "variable_name": "dateTime",
+                    "allow_null": false,
                     "is_deleted": false
                 }
             ],
@@ -108,6 +116,14 @@
                     "allow_null": true,
                     "is_deleted": false,
                     "length": "255"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Crawling",
+                    "field_name": "crawling",
+                    "variable_name": "crawling",
+                    "allow_null": false,
+                    "is_deleted": false
                 }
             ],
             "index": [

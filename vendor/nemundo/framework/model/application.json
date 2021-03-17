@@ -57,6 +57,22 @@
                     "allow_null": true,
                     "is_deleted": false,
                     "external_model_id": "024d7582-f6bc-4773-805a-db89d1faf208"
+                },
+                {
+                    "type": "yes_no",
+                    "label": "App Menu",
+                    "field_name": "app_menu",
+                    "variable_name": "appMenu",
+                    "allow_null": false,
+                    "is_deleted": false
+                },
+                {
+                    "type": "yes_no",
+                    "label": "Admin Menu",
+                    "field_name": "admin_menu",
+                    "variable_name": "adminMenu",
+                    "allow_null": false,
+                    "is_deleted": false
                 }
             ],
             "index": []

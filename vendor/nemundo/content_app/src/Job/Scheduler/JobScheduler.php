@@ -7,6 +7,7 @@ use Nemundo\Content\App\Job\Content\AbstractJobContentType;
 use Nemundo\Content\App\Job\Data\JobScheduler\JobSchedulerReader;
 use Nemundo\Content\App\Job\Data\JobScheduler\JobSchedulerUpdate;
 use Nemundo\Content\App\Log\Content\LogMessage\LogMessageContentType;
+use Nemundo\Core\Time\Stopwatch;
 
 class JobScheduler extends AbstractScheduler
 {
@@ -31,12 +32,15 @@ class JobScheduler extends AbstractScheduler
         $reader->filter->andEqual($reader->model->done, false);
         foreach ($reader->getData() as $schedulerRow) {
 
+            $time=new Stopwatch();
+
             /** @var AbstractJobContentType $job */
             $job = $schedulerRow->content->getContentType();
             $job->run();
 
             $update = new JobSchedulerUpdate();
             $update->done = true;
+            $update->duration= $time->stop();
             $update->updateById($schedulerRow->id);
 
             /*$log = new LogMessageContentType();

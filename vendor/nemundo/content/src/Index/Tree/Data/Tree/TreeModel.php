@@ -32,7 +32,7 @@ public $parent;
 public $itemOrder;
 
 /**
-* @var \Nemundo\Model\Type\External\Id\ExternalIdType
+* @var \Nemundo\Model\Type\External\Id\ExternalUniqueIdType
 */
 public $viewId;
 
@@ -76,7 +76,7 @@ $this->itemOrder->aliasFieldName = "content_tree_item_order";
 $this->itemOrder->label = "Item Order";
 $this->itemOrder->allowNullValue = false;
 
-$this->viewId = new \Nemundo\Model\Type\External\Id\ExternalIdType($this);
+$this->viewId = new \Nemundo\Model\Type\External\Id\ExternalUniqueIdType($this);
 $this->viewId->tableName = "content_tree";
 $this->viewId->fieldName = "view";
 $this->viewId->aliasFieldName = "content_tree_view";

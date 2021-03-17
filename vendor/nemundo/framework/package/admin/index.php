@@ -2,7 +2,6 @@
 
 require 'config.php';
 
-
 $webUrl = '/';
 
 /*
@@ -14,4 +13,4 @@ $webUrl->replaceRight('/web/', '/admin/');
 \Nemundo\Admin\Controller\AdminController::addAdminSite(new \Nemundo\App\ModelDesigner\Site\ModelDesignerSite());
 \Nemundo\Admin\Controller\AdminController::addAdminSite(new \Nemundo\App\ClassDesigner\Site\ClassDesignerSite());
 
-(new \Nemundo\Admin\Web\AdminWeb())->startWeb();
+(new \Nemundo\Admin\Web\AdminWeb())->loadWeb();

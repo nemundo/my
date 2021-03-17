@@ -19,6 +19,12 @@ class RouteContentView extends AbstractContentView
 
     public $viewName = 'Map';
 
+
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
+
     public function getContent()
     {
 
@@ -37,9 +43,12 @@ class RouteContentView extends AbstractContentView
         $center->latitude =46.87716059207539;
         $center->longitude=8.043141586531924;
 
+        /*
         $map = new GeoAdminMap($this);
         $map->addLayer(GeoAdminMapLayer::PIXELKARTE);
         $map->addKmlLayer($kmlSite->getUrlWithDomain());
+        */
+
         //$map->mapCenter =$center;
         //$map->zoomLevel = 5;
 

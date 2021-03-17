@@ -9,8 +9,10 @@ use Nemundo\Com\TableBuilder\TableHeader;
 use Nemundo\Com\TableBuilder\TableRow;
 use Nemundo\Com\Template\AbstractTemplateDocument;
 use Nemundo\Content\App\Job\Com\Form\JobForm;
+use Nemundo\Content\App\Job\Data\JobScheduler\JobSchedulerPaginationReader;
 use Nemundo\Content\App\Job\Data\JobScheduler\JobSchedulerReader;
 use Nemundo\Content\App\Job\Site\JobClearSite;
+use Nemundo\Core\Time\Second;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
 
 class JobPage extends AbstractTemplateDocument
@@ -28,19 +30,30 @@ class JobPage extends AbstractTemplateDocument
 
         $table = new AdminTable($widget);
 
-        $reader = new JobSchedulerReader();
+        $reader = new JobSchedulerPaginationReader();
         $reader->model->loadContent();
         $reader->model->content->loadContentType();
-        $reader->filter->andEqual($reader->model->done, false);
+        //$reader->filter->andEqual($reader->model->done, false);
+
+        $reader->addOrder($reader->model->done);  //, false);
+
 
         $header = new TableHeader($table);
         $header->addText('Job');
+        $header->addText('Duration');
         $header->addEmpty();
 
         foreach ($reader->getData() as $schedulerRow) {
 
             $row = new TableRow($table);
             $row->addText($schedulerRow->content->subject);
+
+            if ($schedulerRow->done) {
+                $row->addText( (new Second($schedulerRow->duration))->getText());
+            } else {
+                $row->addEmpty();
+            }
+
             $row->addYesNo($schedulerRow->done);
 
         }

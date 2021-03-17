@@ -22,6 +22,7 @@ class UninstallSite extends AbstractSite
 
         $this->title = 'UnInstall';
         $this->url = 'uninstall';
+        $this->menuActive=false;
 
         UninstallSite::$site = $this;
 

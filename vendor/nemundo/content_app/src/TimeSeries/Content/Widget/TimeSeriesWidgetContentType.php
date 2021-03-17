@@ -6,10 +6,11 @@ use Nemundo\Content\App\TimeSeries\Data\TimeSeriesChart\TimeSeriesChart;
 use Nemundo\Content\App\TimeSeries\Data\TimeSeriesChart\TimeSeriesChartReader;
 use Nemundo\Content\App\TimeSeries\Data\TimeSeriesChart\TimeSeriesChartRow;
 use Nemundo\Content\App\TimeSeries\Data\TimeSeriesWidget\TimeSeriesWidget;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+
+use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Core\Type\DateTime\Date;
 
-class TimeSeriesWidgetContentType extends AbstractTreeContentType
+class TimeSeriesWidgetContentType extends AbstractContentType
 {
 
     public $timeSeriesId;

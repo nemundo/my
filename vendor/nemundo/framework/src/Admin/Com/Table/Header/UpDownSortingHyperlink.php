@@ -23,6 +23,7 @@ class UpDownSortingHyperlink extends Th
      * @var AbstractModelType
      */
     public $fieldType;
+    // sortingFieldType
 
     /**
      * @var string|string[]
@@ -34,21 +35,34 @@ class UpDownSortingHyperlink extends Th
      */
     public $sortOrder = SortOrder::ASCENDING;
 
+    /**
+     * @var SiteHyperlink
+     */
+    protected $hyperlink;
+
+
+    protected function loadContainer()
+    {
+        parent::loadContainer();
+        $this->hyperlink = new SiteHyperlink($this);
+    }
+
+
     public function getContent()
     {
 
         $this->nowrap = true;
         $this->title = 'Sortierung ' . (new Translation())->getText($this->label);
 
-        $hyperlink = new SiteHyperlink($this);
+
 
         if ($this->label == null) {
             $this->label = $this->fieldType->label;
         }
 
-        $hyperlink->content = $this->label;
+        $this->hyperlink->content = $this->label;
 
-        $hyperlink->site = new Site();
+        $this->hyperlink->site = new Site();
 
         $sortingParameter = new SortingParameter();
 
@@ -58,7 +72,7 @@ class UpDownSortingHyperlink extends Th
         }
         $sortingParameter->setValue($this->fieldType->fieldName);
 
-        $hyperlink->site->addParameter($sortingParameter);
+        $this->hyperlink->site->addParameter($sortingParameter);
 
 
         $sortOrderParameter = new SortOrderParameter();
@@ -73,10 +87,11 @@ class UpDownSortingHyperlink extends Th
             $sortOrderParameter->setValue($this->sortOrder);
         }
 
-        $hyperlink->site->addParameter($sortOrderParameter);
-        $hyperlink->site->addParameter(new PageParameter('0'));
+        $this->hyperlink->site->addParameter($sortOrderParameter);
+        $this->hyperlink->site->addParameter(new PageParameter('0'));
 
         return parent::getContent();
+
     }
 
 

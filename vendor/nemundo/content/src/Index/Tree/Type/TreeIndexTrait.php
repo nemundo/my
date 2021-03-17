@@ -532,9 +532,9 @@ trait TreeIndexTrait
 
         $contentReader = new ContentReader();
         $contentReader->model->loadContentType();
-        $dataId = $contentReader->getRowById($this->getParentId())->dataId;
+        //$dataId = $contentReader->getRowById($this->getParentId())->getDataIddataId;
 
-        return $dataId;
+        //return $dataId;
 
     }
 

@@ -96,11 +96,16 @@ class ContentTypeClassBuilder extends AbstractClassBuilder
         $phpClass->addVariable($contentTypeVariable);
 
         $function = new PhpFunction($phpClass);
+        $function->visibility=PhpVisibility::ProtectedVariable;
+        $function->functionName = 'loadView()';
+        $function->add('$this->viewName=\'default\';');
+        $function->add('$this->viewId = \'' . (new UniqueId())->getUniqueId() . '\';');
+
+        $function = new PhpFunction($phpClass);
         $function->functionName = 'getContent()';
         $function->add('return parent::getContent();');
 
         $phpClass->saveFile();
-
 
     }
 

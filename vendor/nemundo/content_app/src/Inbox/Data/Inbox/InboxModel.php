@@ -91,14 +91,14 @@ $this->fromId->tableName = "inbox_inbox";
 $this->fromId->fieldName = "from";
 $this->fromId->aliasFieldName = "inbox_inbox_from";
 $this->fromId->label = "From";
-$this->fromId->allowNullValue = false;
+$this->fromId->allowNullValue = true;
 
 $this->message = new \Nemundo\Model\Type\Text\LargeTextType($this);
 $this->message->tableName = "inbox_inbox";
 $this->message->fieldName = "message";
 $this->message->aliasFieldName = "inbox_inbox_message";
 $this->message->label = "Message";
-$this->message->allowNullValue = false;
+$this->message->allowNullValue = true;
 
 $this->dateTime = new \Nemundo\Model\Type\DateTime\CreatedDateTimeType($this);
 $this->dateTime->tableName = "inbox_inbox";

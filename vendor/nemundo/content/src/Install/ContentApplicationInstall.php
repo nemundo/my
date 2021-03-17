@@ -12,7 +12,7 @@ use Nemundo\Content\App\Map\Application\MapApplication;
 use Nemundo\Content\App\PublicShare\Application\PublicShareApplication;
 use Nemundo\Content\Application\ContentApplication;
 use Nemundo\Content\Data\ContentModelCollection;
-use Nemundo\Content\Index\Geo\Application\GeoApplication;
+use Nemundo\Content\Index\Geo\Application\GeoIndexApplication;
 use Nemundo\Content\Index\Geo\Install\GeoIndexInstall;
 use Nemundo\Content\Index\Group\Install\GroupInstall;
 use Nemundo\Content\Index\Log\Application\LogApplication;
@@ -37,7 +37,7 @@ class ContentApplicationInstall extends AbstractInstall
 
         (new ApplicationSetup())
             ->addApplication(new TreeApplication())
-            ->addApplication(new GeoApplication())
+            ->addApplication(new GeoIndexApplication())
             ->addApplication(new SearchApplication())
             ->addApplication(new CalendarApplication())
             ->addApplication(new LogApplication())

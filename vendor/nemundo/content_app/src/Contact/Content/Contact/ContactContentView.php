@@ -18,6 +18,14 @@ class ContactContentView extends AbstractContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+        $this->viewName='';
+        $this->viewId='';
+        $this->defaultView=true;
+    }
+
     public function getContent()
     {
 

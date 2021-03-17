@@ -10,7 +10,6 @@ use Nemundo\Content\Type\JsonContentTrait;
 use Nemundo\Core\Log\LogMessage;
 use Nemundo\Content\Data\Content\ContentRow;
 use Nemundo\Content\Type\AbstractContentType;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
 
 
 class ContentCustomRow extends ContentRow
@@ -21,20 +20,24 @@ class ContentCustomRow extends ContentRow
     public function getContentType()
     {
 
-        $className = $this->contentType->phpClass;
+        //$className = $this->contentType->phpClass;
 
+
+        $contentType=$this->contentType->getContentType($this->dataId);
+
+        /*
         $contentType = null;
         if (class_exists($className)) {
 
             /** @var AbstractContentType|AbstractTreeContentType|GroupIndexTrait|GeoIndexTrait|JsonContentTrait $contentType */
-            $contentType = new $className($this->dataId);
+      /*      $contentType = new $className($this->dataId);
 
         } else {
 
             (new LogMessage())->writeError('ContentCustomRow. Content Type is not registred. Class: ' . $className.' Content Id: '.$this->id);
             $contentType = new TreeContentType($this->dataId);
 
-        }
+        }*/
 
         return $contentType;
 

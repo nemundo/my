@@ -2,8 +2,11 @@
 
 ### Installation
 ```
+composer init ()
 composer require nemundo/framework
 ```
+--> kein .ignore File erzeugen
+
 
 ### Project Intallation
 ```
@@ -25,50 +28,22 @@ composer update
 ```
 
 
-
-### Standalone Admin Installation
+### Initial Setup
 ```
-php -r "require __DIR__.'/vendor/autoload.php';(new \Nemundo\Dev\Install\AdminPackageInstall(getcwd() . DIRECTORY_SEPARATOR))->install();"
-```
-
-### Config File erstellen
-```
-bin/init.php
+php bin/init.php
 ```
 
 
 ### Setup
 ```
-bin/setup.php
+php bin/setup.php
 ```
 
 
-### Dependency
 
-Mail
+### Admin Interface Setup
 ```
-composer require swiftmailer/swiftmailer
-```
-
-Rss Reader
-```
-composer require laminas/laminas-http
-composer require laminas/laminas-feed
-```
-
-Excel
-```
-composer require phpoffice/phpspreadsheet
-```
-
-Mobile Detection
-```
-composer require mobiledetect/mobiledetectlib
-```
-
-SSH
-```
-composer require phpseclib/phpseclib
+php bin/cmd.php admin-setup
 ```
 
 
@@ -99,22 +74,26 @@ sudo php bin/cmd.php backup-import
 sudo php bin/cmd.php backup-clean
 ```
 
+
+### Model Image Resize
+```
+sudo php bin/cmd.php model-image-resize
+```
+
 ### Db Index Delete
 ```
 sudo php bin/cmd.php db-index-delete
 ```
 
 
+### Project Clean (Delete Databas/Files)
+```
+sudo php bin/cmd.php project-clean
+```
 
-### MySql Dump (outdated)
-```
-sudo php bin/cmd.php mysql-dump
-```
 
-### Db Backup (outdated)
-```
-sudo php bin/cmd.php db-backup
-```
+
+
 
 
 
@@ -135,10 +114,10 @@ cronjob -e
 ```
 
 
-### Admin Setup
-```
-php bin/cmd.php admin-setup
-```
+
+
+
+
 
 
 
@@ -155,6 +134,35 @@ php -r "require __DIR__.'/vendor/autoload.php';(new \Nemundo\Project\Config\Proj
 (new \Nemundo\Project\Config\ProjectConfigArgumentBuilder())->createConfig('/srv/web/project/', 'localhost', 3306, 'root', 'password', 'db1');
 ```
 
+
+
+### Dependency
+
+Mail
+```
+composer require swiftmailer/swiftmailer
+```
+
+Rss Reader
+```
+composer require laminas/laminas-http
+composer require laminas/laminas-feed
+```
+
+Excel
+```
+composer require phpoffice/phpspreadsheet
+```
+
+Mobile Detection
+```
+composer require mobiledetect/mobiledetectlib
+```
+
+SSH
+```
+composer require phpseclib/phpseclib
+```
 
 
 

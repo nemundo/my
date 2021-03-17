@@ -18,18 +18,18 @@ use Nemundo\Package\Bootstrap\Table\BootstrapClickableTableRow;
 
 class FeedPage extends FeedTemplate
 {
+
     public function getContent()
     {
-
 
         $feedParameter = new FeedParameter();
 
         $layout = new BootstrapTwoColumnLayout($this);
-        $layout->col1->columnWidth = 8;
-        $layout->col2->columnWidth = 4;
+        $layout->col1->columnWidth = 2;
+        $layout->col2->columnWidth = 10;
 
 
-        $listing = new BootstrapSiteList($layout->col2);
+        $listing = new BootstrapSiteList($layout->col1);
 
         $reader = new FeedReader();
         foreach ($reader->getData() as $feedRow) {
@@ -47,7 +47,7 @@ class FeedPage extends FeedTemplate
         }
 
 
-        $table = new AdminClickableTable($layout->col1);
+        $table = new AdminClickableTable($layout->col2);
 
         $itemReader = new FeedItemPaginationReader();
         $itemReader->model->loadFeed();

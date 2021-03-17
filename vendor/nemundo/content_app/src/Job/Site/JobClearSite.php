@@ -2,7 +2,6 @@
 
 namespace Nemundo\Content\App\Job\Site;
 
-use Nemundo\Content\App\Job\Data\Job\JobDelete;
 use Nemundo\Content\App\Job\Data\JobScheduler\JobSchedulerDelete;
 use Nemundo\Core\Http\Url\UrlReferer;
 use Nemundo\Web\Site\AbstractSite;
@@ -19,8 +18,9 @@ class JobClearSite extends AbstractSite
     {
         $this->title = 'Job Clear';
         $this->url = 'job-clear';
+        $this->menuActive = false;
 
-        JobClearSite::$site=$this;
+        JobClearSite::$site = $this;
 
     }
 
@@ -28,7 +28,7 @@ class JobClearSite extends AbstractSite
     {
 
         $delete = new JobSchedulerDelete();
-        $delete->filter->andEqual($delete->model->done,false);
+        $delete->filter->andEqual($delete->model->done, false);
         $delete->delete();
 
         (new UrlReferer())->redirect();

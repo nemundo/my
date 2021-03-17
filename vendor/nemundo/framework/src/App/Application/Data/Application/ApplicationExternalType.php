@@ -36,6 +36,16 @@ public $projectId;
 */
 public $project;
 
+/**
+* @var \Nemundo\Model\Type\Number\YesNoType
+*/
+public $appMenu;
+
+/**
+* @var \Nemundo\Model\Type\Number\YesNoType
+*/
+public $adminMenu;
+
 protected function loadExternalType() {
 parent::loadExternalType();
 $this->externalModelClassName = ApplicationModel::class;
@@ -82,6 +92,20 @@ $this->projectId->tableName = $this->parentFieldName . "_" . $this->externalTabl
 $this->projectId->aliasFieldName = $this->projectId->tableName ."_".$this->projectId->fieldName;
 $this->projectId->label = "Project";
 $this->addType($this->projectId);
+
+$this->appMenu = new \Nemundo\Model\Type\Number\YesNoType();
+$this->appMenu->fieldName = "app_menu";
+$this->appMenu->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->appMenu->aliasFieldName = $this->appMenu->tableName . "_" . $this->appMenu->fieldName;
+$this->appMenu->label = "App Menu";
+$this->addType($this->appMenu);
+
+$this->adminMenu = new \Nemundo\Model\Type\Number\YesNoType();
+$this->adminMenu->fieldName = "admin_menu";
+$this->adminMenu->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->adminMenu->aliasFieldName = $this->adminMenu->tableName . "_" . $this->adminMenu->fieldName;
+$this->adminMenu->label = "Admin Menu";
+$this->addType($this->adminMenu);
 
 }
 public function loadProject() {

@@ -14,10 +14,10 @@ use Nemundo\Content\App\Feed\Data\Feed\FeedRow;
 use Nemundo\Content\App\Feed\Data\Feed\FeedUpdate;
 use Nemundo\Content\App\Feed\Data\FeedItem\FeedItemReader;
 use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractSearchContentType;
 use Nemundo\Db\Sql\Order\SortOrder;
 
-class FeedContentType extends AbstractTreeContentType
+class FeedContentType extends AbstractSearchContentType
 {
 
     public $feedUrl;

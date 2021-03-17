@@ -5,14 +5,17 @@ namespace Nemundo\Content\App\Project\Content\ProjectPhase;
 use Nemundo\Content\App\Project\Data\ProjectPhase\ProjectPhase;
 use Nemundo\Content\App\Project\Data\ProjectPhase\ProjectPhaseReader;
 use Nemundo\Content\App\Project\Data\ProjectPhase\ProjectPhaseRow;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class ProjectPhaseContentType extends AbstractTreeContentType
+
+class ProjectPhaseContentType extends AbstractContentType
 {
 
     public $projectId;
 
     public $projectPhase;
+
+
 
     protected function loadContentType()
     {

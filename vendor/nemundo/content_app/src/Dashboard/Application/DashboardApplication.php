@@ -7,6 +7,7 @@ use Nemundo\Content\App\ContentAppProject;
 use Nemundo\Content\App\Dashboard\Data\DashboardModelCollection;
 use Nemundo\Content\App\Dashboard\Install\DashboardInstall;
 use Nemundo\Content\App\Dashboard\Install\DashboardUninstall;
+use Nemundo\Content\App\Dashboard\Site\Admin\DashboardAdminSite;
 
 class DashboardApplication extends AbstractApplication
 {
@@ -18,5 +19,6 @@ class DashboardApplication extends AbstractApplication
         $this->modelCollectionClass = DashboardModelCollection::class;
         $this->installClass = DashboardInstall::class;
         $this->uninstallClass = DashboardUninstall::class;
+        $this->adminSiteClass=DashboardAdminSite::class;
     }
 }

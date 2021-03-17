@@ -2,17 +2,19 @@
 
 namespace Nemundo\Content\App\ImageGallery\Content\ImageGallery;
 
+use Nemundo\Content\App\ImageGallery\Content\ImageGallery\View\ImageGalleryContentView;
+use Nemundo\Content\App\ImageGallery\Content\ImageGallery\View\ImageGalleryStreamContentView;
 use Nemundo\Content\App\ImageGallery\Data\Image\Image;
 use Nemundo\Content\App\ImageGallery\Data\ImageGallery\ImageGallery;
 use Nemundo\Content\App\ImageGallery\Data\ImageGallery\ImageGalleryReader;
 use Nemundo\Content\App\ImageGallery\Data\ImageGallery\ImageGalleryRow;
 use Nemundo\Content\App\ImageGallery\Data\ImageGallery\ImageGalleryUpdate;
 use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Content\View\Listing\ContentListing;
 use Nemundo\Model\Data\Property\File\FileProperty;
 
-class ImageGalleryContentType extends AbstractTreeContentType
+class ImageGalleryContentType extends AbstractContentType
 {
 
     public $imageGallery;
@@ -24,7 +26,8 @@ class ImageGalleryContentType extends AbstractTreeContentType
 
         $this->formClassList[] = ImageGalleryContentForm::class;
         $this->formClassList[] = ContentSearchForm::class;
-        $this->viewClassList[]  = ImageGalleryContentView::class;
+        $this->viewClassList[] = ImageGalleryContentView::class;
+        $this->viewClassList[]=ImageGalleryStreamContentView::class;
         $this->listingClass = ContentListing::class;
     }
 

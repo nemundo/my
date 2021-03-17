@@ -3,9 +3,9 @@
 namespace Nemundo\Content\App\Widget\Content\UniqueId;
 
 use Nemundo\Content\Form\ContentForm;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class UniqueIdContentType extends AbstractTreeContentType
+class UniqueIdContentType extends AbstractContentType
 {
 
     protected function loadContentType()

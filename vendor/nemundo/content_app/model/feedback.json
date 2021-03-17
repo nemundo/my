@@ -1,0 +1,48 @@
+{
+    "app": "Feedback",
+    "name": "feedback",
+    "namespace": "Nemundo\\Content\\App\\Feedback",
+    "is_deleted": false,
+    "model": [
+        {
+            "template": "default",
+            "model_id": "d9743523-c8e5-4d52-9bae-f148bdb0d492",
+            "label": "Feedback",
+            "class_name": "Feedback",
+            "table_name": "feedback_feedback",
+            "namespace": "Nemundo\\Content\\App\\Feedback\\Data\\Feedback",
+            "row_class_name": "",
+            "primary_index": "auto_increment",
+            "is_deleted": false,
+            "type": [
+                {
+                    "type": "text",
+                    "label": "Contact",
+                    "field_name": "contact",
+                    "variable_name": "contact",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "text",
+                    "label": "eMail",
+                    "field_name": "email",
+                    "variable_name": "email",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "length": "255"
+                },
+                {
+                    "type": "large_text",
+                    "label": "Message",
+                    "field_name": "message",
+                    "variable_name": "message",
+                    "allow_null": false,
+                    "is_deleted": false
+                }
+            ],
+            "index": []
+        }
+    ]
+}

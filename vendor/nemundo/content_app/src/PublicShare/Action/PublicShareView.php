@@ -25,6 +25,16 @@ class PublicShareView extends AbstractActionContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+
+        $this->viewId='68a1fafb-6747-4550-9d6d-8c043fcbe59d';
+
+        // TODO: Implement loadView() method.
+    }
+
+
     public function getContent()
     {
 

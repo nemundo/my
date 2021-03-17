@@ -21,7 +21,7 @@ class TreeSite extends AbstractSite
         $this->menuActive=false;
 
 
-        new TreeConfigSite($this);
+        new ConfigSite($this);
 
         //new TreeNewSite($this);
         //TreeSite::$site = $this;

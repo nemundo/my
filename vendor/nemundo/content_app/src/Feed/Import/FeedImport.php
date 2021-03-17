@@ -14,10 +14,8 @@ use Nemundo\Rss\Reader\RssReader;
 class FeedImport extends AbstractBase
 {
 
-
     public function importFeed($feedUrl)
     {
-
 
         $rssReader = new RssReader();
         $rssReader->feedUrl = $feedUrl;
@@ -46,10 +44,7 @@ class FeedImport extends AbstractBase
                 $itemType->url = $itemType->audioUrl;
             }
 
-            // addEvent
             $itemType->addEvent(new TimelineEvent());
-
-
             $itemType->saveType();
 
         }
@@ -57,18 +52,13 @@ class FeedImport extends AbstractBase
     }
 
 
-    // importFeed($feedUrl)
     public function importFeedList()
     {
 
-
         $reader = new FeedReader();
         foreach ($reader->getData() as $feedRow) {
-
             $this->importFeed($feedRow->feedUrl);
-
         }
-
 
     }
 

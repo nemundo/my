@@ -2,18 +2,21 @@
 
 namespace Nemundo\Content\App\ImageTimeline\Content\ImageTimeline\View;
 
-use Nemundo\Com\Html\Hyperlink\UrlHyperlink;
-use Nemundo\Content\App\ImageTimeline\Content\ImageTimeline\ImageTimelineContentType;
 use Nemundo\Content\App\ImageTimeline\Data\Image\ImageReader;
-use Nemundo\Content\View\AbstractContentView;
-use Nemundo\Html\Formatting\Small;
 use Nemundo\Package\Bootstrap\Carousel\BootstrapImageCarousel;
-use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
 
 class ImageTimelineSliderContentView extends AbstractImageTimelineContentView
 {
 
-    public $viewName='Image Slider';
+    protected function loadView()
+    {
+
+        $this->viewName = 'Image Slider';
+        $this->viewId = 'd7f78b7e-7c08-4efb-8720-c3cb98368486';
+        $this->defaultView = false;
+
+    }
+
 
     public function getContent()
     {
@@ -21,17 +24,16 @@ class ImageTimelineSliderContentView extends AbstractImageTimelineContentView
 
         $timelineRow = $this->contentType->getDataRow();
 
-        $carousel=new BootstrapImageCarousel($this);
-        $carousel->slideEffect=false;
+        $carousel = new BootstrapImageCarousel($this);
+        $carousel->slideEffect = false;
 
-        $reader=new ImageReader();
-        $reader->filter->andEqual($reader->model->timelineId,$this->contentType->getDataId());
+        $reader = new ImageReader();
+        $reader->filter->andEqual($reader->model->timelineId, $this->contentType->getDataId());
         $reader->addOrder($reader->model->id);
         $reader->limit = 10;
         foreach ($reader->getData() as $imageRow) {
             $carousel->addImage($imageRow->image->getImageUrl($imageRow->model->imageAutoSize800));
         }
-
 
 
         /*

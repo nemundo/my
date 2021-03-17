@@ -7,7 +7,14 @@ class CancelContentView extends AbstractContentView {
 */
 public $contentType;
 
-public function getContent() {
+
+protected function loadView()
+{
+    // TODO: Implement loadView() method.
+}
+
+
+    public function getContent() {
 return parent::getContent();
 }
 }

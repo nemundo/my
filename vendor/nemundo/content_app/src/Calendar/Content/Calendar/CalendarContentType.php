@@ -5,6 +5,7 @@ namespace Nemundo\Content\App\Calendar\Content\Calendar;
 use Nemundo\Content\App\Calendar\Content\Calendar\Form\CalendarDateContentForm;
 use Nemundo\Content\App\Calendar\Content\Calendar\Form\CalendarDateTimeContentForm;
 use Nemundo\Content\App\Calendar\Data\Calendar\Calendar;
+use Nemundo\Content\App\Calendar\Data\Calendar\CalendarDelete;
 use Nemundo\Content\App\Calendar\Data\Calendar\CalendarReader;
 use Nemundo\Content\App\Calendar\Data\Calendar\CalendarRow;
 use Nemundo\Content\App\Calendar\Data\Calendar\CalendarUpdate;
@@ -73,6 +74,15 @@ class CalendarContentType extends AbstractSearchContentType
         $update->date = $this->date;
         $update->event = $this->event;
         $update->updateById($this->dataId);
+
+    }
+
+
+    protected function onDelete()
+    {
+
+        $this->deleteTimeline();
+        (new CalendarDelete())->deleteById($this->dataId);
 
     }
 

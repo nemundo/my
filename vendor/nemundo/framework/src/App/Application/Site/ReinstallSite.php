@@ -22,6 +22,7 @@ class ReinstallSite extends AbstractSite
 
         $this->title = 'Reinstall';
         $this->url = 'reinstall';
+        $this->menuActive=false;
 
         ReinstallSite::$site = $this;
 
@@ -32,7 +33,7 @@ class ReinstallSite extends AbstractSite
     {
 
         $app = (new ApplicationParameter())->getApplication();
-        $app->reinstallApp();
+        $app->reinstallApp()->setAppMenuActive();
 
         (new UrlReferer())->redirect();
 

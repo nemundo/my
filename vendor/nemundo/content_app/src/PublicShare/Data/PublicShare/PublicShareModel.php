@@ -16,6 +16,16 @@ public $contentId;
 */
 public $content;
 
+/**
+* @var \Nemundo\Model\Type\External\Id\ExternalUniqueIdType
+*/
+public $viewId;
+
+/**
+* @var \Nemundo\Content\Data\ContentView\ContentViewExternalType
+*/
+public $view;
+
 protected function loadModel() {
 $this->tableName = "publicshare_public_share";
 $this->aliasTableName = "publicshare_public_share";
@@ -37,6 +47,13 @@ $this->contentId->aliasFieldName = "publicshare_public_share_content";
 $this->contentId->label = "Content";
 $this->contentId->allowNullValue = false;
 
+$this->viewId = new \Nemundo\Model\Type\External\Id\ExternalUniqueIdType($this);
+$this->viewId->tableName = "publicshare_public_share";
+$this->viewId->fieldName = "view";
+$this->viewId->aliasFieldName = "publicshare_public_share_view";
+$this->viewId->label = "View";
+$this->viewId->allowNullValue = false;
+
 $index = new \Nemundo\Model\Definition\Index\ModelUniqueIndex($this);
 $index->indexName = "content";
 $index->addType($this->contentId);
@@ -49,6 +66,16 @@ $this->content->tableName = "publicshare_public_share";
 $this->content->fieldName = "content";
 $this->content->aliasFieldName = "publicshare_public_share_content";
 $this->content->label = "Content";
+}
+return $this;
+}
+public function loadView() {
+if ($this->view == null) {
+$this->view = new \Nemundo\Content\Data\ContentView\ContentViewExternalType($this, "publicshare_public_share_view");
+$this->view->tableName = "publicshare_public_share";
+$this->view->fieldName = "view";
+$this->view->aliasFieldName = "publicshare_public_share_view";
+$this->view->label = "View";
 }
 return $this;
 }

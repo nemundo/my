@@ -2,7 +2,7 @@
     "app": "Chart",
     "name": "chart",
     "namespace": "Nemundo\\Content\\App\\Chart",
-    "is_deleted": false,
+    "is_deleted": true,
     "model": [
         {
             "template": "default",

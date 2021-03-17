@@ -12,12 +12,18 @@ public $model;
 */
 public $contentId;
 
+/**
+* @var string
+*/
+public $viewId;
+
 public function __construct() {
 parent::__construct();
 $this->model = new PublicShareModel();
 }
 public function update() {
 $this->typeValueList->setModelValue($this->model->contentId, $this->contentId);
+$this->typeValueList->setModelValue($this->model->viewId, $this->viewId);
 parent::update();
 }
 }

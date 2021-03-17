@@ -6,9 +6,10 @@ use Nemundo\Content\App\FileTransfer\Data\FileTransfer\FileTransfer;
 use Nemundo\Content\App\FileTransfer\Data\FileTransfer\FileTransferReader;
 use Nemundo\Content\App\FileTransfer\Data\FileTransfer\FileTransferRow;
 use Nemundo\Content\App\FileTransfer\Data\FileTransfer\FileTransferUpdate;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class FileTransferContentType extends AbstractTreeContentType
+
+class FileTransferContentType extends AbstractContentType
 {
 
     public $fileTransfer;

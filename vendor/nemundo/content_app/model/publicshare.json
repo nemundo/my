@@ -23,6 +23,15 @@
                     "allow_null": false,
                     "is_deleted": false,
                     "external_model_id": "2b8a3194-c10f-4a5c-a439-84581d448f35"
+                },
+                {
+                    "type": "external",
+                    "label": "View",
+                    "field_name": "view",
+                    "variable_name": "view",
+                    "allow_null": false,
+                    "is_deleted": false,
+                    "external_model_id": "bd4c2dc1-bf0d-4fa9-a4bc-7201666364fd"
                 }
             ],
             "index": [

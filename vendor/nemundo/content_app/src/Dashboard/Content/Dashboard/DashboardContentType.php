@@ -4,12 +4,12 @@ namespace Nemundo\Content\App\Dashboard\Content\Dashboard;
 
 use Nemundo\Content\App\Dashboard\Content\DashboardColumn\DashboardColumnContentType;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\Dashboard;
+use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardCount;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardDelete;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardReader;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardRow;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardUpdate;
 use Nemundo\Content\Index\Tree\Event\TreeEvent;
-use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Content\Type\AbstractSearchContentType;
 use Nemundo\Content\View\Listing\ContentListing;
 use Nemundo\Core\Random\UniqueId;
@@ -30,32 +30,18 @@ class DashboardContentType extends AbstractSearchContentType
     /**
      * @var bool
      */
-    public $active=true;
+    public $active = true;
 
-    //public $uniqueName;
 
     protected function loadContentType()
     {
         $this->typeLabel = 'Dashboard';
         $this->typeId = 'c5944481-f5d5-46c7-a4c7-5b7d966eb794';
         $this->formClassList[] = DashboardContentForm::class;
-        $this->viewClassList[]  = DashboardContentView::class;
+        $this->viewClassList[] = DashboardContentView::class;
         $this->listingClass = ContentListing::class;
 
     }
-
-
-    /*
-    public function fromUniqueName()
-    {
-
-        $id = new DashboardId();
-        $id->filter->andEqual($id->model->uniqueName, $this->uniqueName);
-        $this->dataId = $id->getId();
-
-        return $this;
-
-    }*/
 
 
     protected function onCreate()
@@ -65,16 +51,40 @@ class DashboardContentType extends AbstractSearchContentType
             $this->dataId = (new UniqueId())->getUniqueId();
         }
 
+
+        $url = (new UrlConverter())->convertToUrl($this->dashboard);
+
+
+        /*
+
+        $n = 0;
+
+        do {
+
+            $url = (new UrlConverter())->convertToUrl($this->dashboard);
+
+            if ($n > 0) {
+                $url .= $n;
+            }
+
+            $count = new DashboardCount();
+            $count->filter->andEqual($count->model->url, $url);
+
+            $n++;
+
+        } while ($count->getCount() == 0);*/
+
+
         $data = new Dashboard();
         $data->id = $this->dataId;
         $data->dashboard = $this->dashboard;
-        $data->url = (new UrlConverter())->convertToUrl($this->dashboard);
-        $data->active=$this->active;
+        $data->url = $url;
+        $data->active = $this->active;
         $data->save();
 
         $this->saveContent();
 
-        $columnWidth = 12/$this->columnCount;
+        $columnWidth = 12 / $this->columnCount;
 
         $loop = new ForLoop();
         $loop->minNumber = 1;
@@ -85,7 +95,7 @@ class DashboardContentType extends AbstractSearchContentType
             $event->parentId = $this->getContentId();
 
             $type = new DashboardColumnContentType();
-            $type->columnWidth=$columnWidth;
+            $type->columnWidth = $columnWidth;
             $type->addEvent($event);
             $type->saveType();
 
@@ -100,7 +110,7 @@ class DashboardContentType extends AbstractSearchContentType
         $update = new DashboardUpdate();
         $update->dashboard = $this->dashboard;
         $update->url = (new UrlConverter())->convertToUrl($this->dashboard);
-        $update->active=$this->active;
+        $update->active = $this->active;
         $update->updateById($this->dataId);
 
     }
@@ -137,40 +147,16 @@ class DashboardContentType extends AbstractSearchContentType
     public function getSubject()
     {
 
-        $dashboardRow =$this->getDataRow();
+        $dashboardRow = $this->getDataRow();
         $subject = $dashboardRow->dashboard;
 
         if (!$dashboardRow->active) {
-            $subject.=' (not active)';
+            $subject .= ' (not active)';
         }
 
         return $subject;
 
 
     }
-
-
-    /*
-    public function existItem()
-    {
-
-        $value = false;
-
-        $count = new DashboardCount();
-        $count->filter->andEqual($count->model->uniqueName, $this->uniqueName);
-        if ($count->getCount() == 1) {
-
-            $value = true;
-
-            $id = new DashboardId();
-            $id->filter->andEqual($id->model->uniqueName, $this->uniqueName);
-            $this->dataId = $id->getId();
-
-        }
-
-        return $value;
-
-    }*/
-
 
 }

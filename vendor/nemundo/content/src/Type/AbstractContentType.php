@@ -56,6 +56,8 @@ abstract class AbstractContentType extends AbstractType
 
         $this->runEvent();
 
+        return $this;
+
     }
 
 

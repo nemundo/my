@@ -65,6 +65,8 @@ class MySqlDatabase extends AbstractDbBase
         $connTmp->connectionParameter->password = $this->connection->connectionParameter->password;
         $connTmp->connectionParameter->port = $this->connection->connectionParameter->port;
 
+        //create database my_db character set UTF8MB4;
+
         $sqlParamter = new SqlStatement();
         $sqlParamter->sql = 'CREATE DATABASE IF NOT EXISTS `' . $this->databaseName . '`;';
 
@@ -77,10 +79,18 @@ class MySqlDatabase extends AbstractDbBase
 
     public function dropDatabase()
     {
+
+        if ($this->databaseName == null) {
+            $this->databaseName = $this->connection->connectionParameter->database;
+        }
+
         $sqlParamter = new SqlStatement();
         $sqlParamter->sql = 'DROP DATABASE IF EXISTS `' . $this->databaseName . '`;';
 
         $this->connection->execute($sqlParamter);
+
+        return $this;
+
     }
 
 
@@ -92,6 +102,8 @@ class MySqlDatabase extends AbstractDbBase
         foreach ($reader->getData() as $table) {
             $table->dropTable();
         }
+
+        return $this;
 
     }
 

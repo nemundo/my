@@ -8,11 +8,11 @@ use Nemundo\Content\App\Text\Data\LargeText\LargeText;
 use Nemundo\Content\App\Text\Data\LargeText\LargeTextReader;
 use Nemundo\Content\App\Text\Data\LargeText\LargeTextRow;
 use Nemundo\Content\App\Text\Data\LargeText\LargeTextUpdate;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
-use Nemundo\Core\Type\Text\Text;
+use Nemundo\Content\Type\AbstractContentType;
+use Nemundo\Content\Type\AbstractSearchContentType;
 
 
-abstract class AbstractLargeTextContentType extends AbstractTreeContentType
+abstract class AbstractLargeTextContentType extends AbstractSearchContentType
 {
 
     protected $subject;
@@ -27,7 +27,7 @@ abstract class AbstractLargeTextContentType extends AbstractTreeContentType
     {
 
         $data = new LargeText();
-        $data->subject=$this->subject;
+        $data->subject = $this->subject;
         $data->largeText = $this->largeText;
         $this->dataId = $data->save();
 
@@ -38,7 +38,7 @@ abstract class AbstractLargeTextContentType extends AbstractTreeContentType
     {
 
         $update = new LargeTextUpdate();
-        $update->subject=$this->subject;
+        $update->subject = $this->subject;
         $update->largeText = $this->largeText;
         $update->updateById($this->dataId);
 
@@ -84,7 +84,7 @@ abstract class AbstractLargeTextContentType extends AbstractTreeContentType
     public function importJson($data)
     {
 
-        $this->largeText=$data['text'];
+        $this->largeText = $data['text'];
         $this->saveType();
 
     }
@@ -96,7 +96,7 @@ abstract class AbstractLargeTextContentType extends AbstractTreeContentType
 
         //$text = (new Text($this->getDataRow()->largeText))->substring(0, 100)->getValue() . ' ...';
 
-        $subject= $this->getDataRow()->subject;
+        $subject = $this->getDataRow()->subject;
         return $subject;
 
     }

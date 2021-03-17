@@ -12,6 +12,12 @@ class ElevationProfileView extends AbstractContentView
 
     public $viewName = 'Elevation Profile';
 
+
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
+
     public function getContent()
     {
 

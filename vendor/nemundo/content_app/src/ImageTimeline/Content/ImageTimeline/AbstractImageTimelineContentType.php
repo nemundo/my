@@ -25,6 +25,14 @@ abstract class AbstractImageTimelineContentType extends AbstractContentType
 
     public $sourceUrl;
 
+    /**
+     * @var bool
+     */
+    public $crawling = false;
+
+
+    public $crawlingIntervall = 10;
+
     // Intervall
 
     protected function loadContentType()
@@ -36,9 +44,10 @@ abstract class AbstractImageTimelineContentType extends AbstractContentType
         $this->formClassList[] = ContentSearchForm::class;
 
         $this->viewClassList[] = ImageTimelineSliderContentView::class;
-
         $this->viewClassList[] = ImageTimelineLatestContentView::class;
         $this->viewClassList[] = ImageTimelineRemoteContentView::class;
+
+        $this->listingClass = ImageTimelineContentListing::class;
 
     }
 
@@ -48,8 +57,9 @@ abstract class AbstractImageTimelineContentType extends AbstractContentType
         $data = new ImageTimeline();
         $data->timeline = $this->timeline;
         $data->imageUrl = $this->imageUrl;
-        $data->source=$this->source;
-        $data->sourceUrl=$this->sourceUrl;
+        $data->source = $this->source;
+        $data->sourceUrl = $this->sourceUrl;
+        $data->crawling = $this->crawling;
         $this->dataId = $data->save();
 
     }
@@ -60,8 +70,9 @@ abstract class AbstractImageTimelineContentType extends AbstractContentType
         $update = new ImageTimelineUpdate();
         $update->timeline = $this->timeline;
         $update->imageUrl = $this->imageUrl;
-        $update->source=$this->source;
-        $update->sourceUrl=$this->sourceUrl;
+        $update->source = $this->source;
+        $update->sourceUrl = $this->sourceUrl;
+        $update->crawling = $this->crawling;
         $update->updateById($this->dataId);
 
     }
@@ -97,8 +108,6 @@ abstract class AbstractImageTimelineContentType extends AbstractContentType
     }
 
 
-
-
     public function existItem()
     {
 
@@ -109,16 +118,16 @@ abstract class AbstractImageTimelineContentType extends AbstractContentType
 
         if (!$value) {
 
-        $count = new ImageTimelineCount();
-        $count->filter->andEqual($count->model->imageUrl, $this->imageUrl);
-        if ($count->getCount() == 1) {
-            $value = true;
+            $count = new ImageTimelineCount();
+            $count->filter->andEqual($count->model->imageUrl, $this->imageUrl);
+            if ($count->getCount() == 1) {
+                $value = true;
 
-            $id = new ImageTimelineId();
-            $id->filter->andEqual($count->model->imageUrl, $this->imageUrl);
-            $this->dataId = $id->getId();
+                $id = new ImageTimelineId();
+                $id->filter->andEqual($count->model->imageUrl, $this->imageUrl);
+                $this->dataId = $id->getId();
 
-        }
+            }
 
         }
 

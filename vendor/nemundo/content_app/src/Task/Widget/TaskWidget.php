@@ -25,7 +25,7 @@ class TaskWidget extends AdminWidget
         $this->widgetTitle[LanguageCode::DE] = 'Aufgaben';
 
 
-        (new ToDoContentType())->getDefaultForm($this);
+        //(new ToDoContentType())->getDefaultForm($this);
 
 
         //$this->widgetSite=AufgabeSite::$site;

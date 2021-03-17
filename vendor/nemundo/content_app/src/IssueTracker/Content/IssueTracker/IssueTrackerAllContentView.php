@@ -19,7 +19,10 @@ class IssueTrackerAllContentView extends AbstractContentView
 
     public $viewName= 'All';
 
-
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
     public function getContent()
     {
 

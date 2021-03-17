@@ -5,10 +5,11 @@ namespace Nemundo\Content\App\Location\Content\Location;
 use Nemundo\Content\App\Location\Data\Location\Location;
 use Nemundo\Content\App\Location\Data\Location\LocationReader;
 use Nemundo\Content\App\Location\Data\Location\LocationRow;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+
+use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Core\Type\Geo\GeoCoordinate;
 
-class LocationContentType extends AbstractTreeContentType
+class LocationContentType extends AbstractContentType
 {
 
     public $location;

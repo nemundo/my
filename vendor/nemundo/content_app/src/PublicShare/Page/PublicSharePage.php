@@ -42,6 +42,7 @@ class PublicSharePage extends AbstractTemplateDocument
 
             $widget=new ContentWidget($layout->col1);
             $widget->contentType= $contentType;
+            $widget->viewId = $shareRow->viewId;
             $widget->editable=false;
 
             /*

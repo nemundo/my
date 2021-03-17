@@ -14,7 +14,15 @@ class ImageFancyboxContentView extends AbstractContentView
      */
     public $contentType;
 
-    public $viewName = 'Fancybox';
+
+    protected function loadView()
+    {
+
+        $this->viewName='Fancybox';
+        $this->viewId='00a466d7-8bfd-41e1-8375-ae88e339ebdb';
+        $this->defaultView=true;
+
+    }
 
     public function getContent()
     {

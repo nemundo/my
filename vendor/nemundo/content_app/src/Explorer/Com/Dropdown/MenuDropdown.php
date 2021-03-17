@@ -18,7 +18,7 @@ use Nemundo\Content\App\Explorer\Site\PrintSite;
 use Nemundo\Content\App\Explorer\Site\Share\PrivateShareSite;
 use Nemundo\Content\App\Explorer\Site\Share\PublicShareEditSite;
 use Nemundo\Content\App\Favorite\Site\FavoriteSaveSite;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Index\Tree\Type\AbstractContentType;
 use Nemundo\Content\Index\Tree\Type\TreeIndexTrait;
 use Nemundo\Content\Parameter\ContentParameter;
 use Nemundo\Package\Bootstrap\Dropdown\BootstrapSiteDropdown;
@@ -27,7 +27,7 @@ class MenuDropdown extends BootstrapSiteDropdown
 {
 
     /**
-     * @var AbstractTreeContentType
+     * @var AbstractContentType
      */
     public $contentType;
 

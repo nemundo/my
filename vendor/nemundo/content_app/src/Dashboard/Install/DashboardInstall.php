@@ -9,10 +9,12 @@ use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Content\App\Dashboard\Application\DashboardApplication;
 use Nemundo\Content\App\Dashboard\Content\Dashboard\DashboardContentType;
 use Nemundo\Content\App\Dashboard\Content\DashboardColumn\DashboardColumnContentType;
+use Nemundo\Content\App\Dashboard\Content\DashboardContentTypeCollection;
 use Nemundo\Content\App\Dashboard\Content\UserDashboard\UserDashboardContentType;
 use Nemundo\Content\App\Dashboard\Data\DashboardModelCollection;
 use Nemundo\Content\App\Dashboard\Script\DashboardCleanScript;
 use Nemundo\Content\App\Dashboard\Usergroup\DashboardAdministratorUsergroup;
+use Nemundo\Content\Application\ContentApplication;
 use Nemundo\Content\Index\Tree\Setup\RestrictedContentTypeSetup;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
@@ -25,6 +27,8 @@ class DashboardInstall extends AbstractInstall
 
     public function install()
     {
+
+        (new ContentApplication())->setAppMenuActive();
 
         (new ApplicationSetup())
             ->addApplication(new DashboardApplication());
@@ -39,9 +43,11 @@ class DashboardInstall extends AbstractInstall
             ->addUsergroup(new DashboardAdministratorUsergroup());
 
         (new ContentTypeSetup(new DashboardApplication()))
-            ->addContentType(new DashboardContentType())
-            ->addContentType(new DashboardColumnContentType())
-            ->addContentType(new UserDashboardContentType());
+            ->addContentTypeCollection(new DashboardContentTypeCollection());
+
+        //    ->addContentType(new DashboardContentType())
+        //    ->addContentType(new DashboardColumnContentType());
+        //    ->addContentType(new UserDashboardContentType());
 
         (new RestrictedContentTypeSetup(new DashboardContentType()))
             ->addRestrictedContentType(new DashboardColumnContentType());

@@ -9,9 +9,9 @@ use Nemundo\Content\Index\Search\Data\SearchLog\SearchLog;
 use Nemundo\Content\Index\Search\Data\SearchLog\SearchLogReader;
 use Nemundo\Content\Index\Search\Parameter\SearchQueryParameter;
 use Nemundo\Content\Index\Search\Site\SearchSite;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class SearchLogContentType extends AbstractTreeContentType
+class SearchLogContentType extends AbstractContentType
 {
 
     public $searchQuery;

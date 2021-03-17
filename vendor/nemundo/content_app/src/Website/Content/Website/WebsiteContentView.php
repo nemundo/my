@@ -6,7 +6,10 @@ class WebsiteContentView extends AbstractContentView {
 * @var WebsiteContentType
 */
 public $contentType;
-
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
 public function getContent() {
 return parent::getContent();
 }

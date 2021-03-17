@@ -31,12 +31,17 @@ public $viewClass;
 */
 public $setupStatus;
 
+/**
+* @var \Nemundo\Model\Type\Number\YesNoType
+*/
+public $defaultView;
+
 protected function loadModel() {
 $this->tableName = "content_view";
 $this->aliasTableName = "content_view";
 $this->label = "Content View";
 
-$this->primaryIndex = new \Nemundo\Db\Index\AutoIncrementIdPrimaryIndex();
+$this->primaryIndex = new \Nemundo\Db\Index\TextIdPrimaryIndex();
 
 $this->id = new \Nemundo\Model\Type\Id\IdType($this);
 $this->id->tableName = "content_view";
@@ -75,10 +80,12 @@ $this->setupStatus->aliasFieldName = "content_view_setup_status";
 $this->setupStatus->label = "Setup Status";
 $this->setupStatus->allowNullValue = true;
 
-$index = new \Nemundo\Model\Definition\Index\ModelUniqueIndex($this);
-$index->indexName = "view_class";
-$index->addType($this->contentTypeId);
-$index->addType($this->viewClass);
+$this->defaultView = new \Nemundo\Model\Type\Number\YesNoType($this);
+$this->defaultView->tableName = "content_view";
+$this->defaultView->fieldName = "default_view";
+$this->defaultView->aliasFieldName = "content_view_default_view";
+$this->defaultView->label = "Default View";
+$this->defaultView->allowNullValue = false;
 
 }
 public function loadContentType() {

@@ -12,8 +12,10 @@ use Nemundo\Html\Formatting\Strike;
 use Nemundo\Html\Table\Td;
 use Nemundo\Html\Table\Tr;
 use Nemundo\Package\FontAwesome\AbstractFontAwesomeIcon;
+use Nemundo\Package\FontAwesome\Icon\CheckIcon;
 use Nemundo\Package\FontAwesome\Site\AbstractIconSite;
 use Nemundo\Package\FontAwesome\Site\IconSiteTrait;
+use Nemundo\Web\Action\Site\DeleteActionSite;
 use Nemundo\Web\Site\AbstractSite;
 
 
@@ -119,8 +121,12 @@ class TableRow extends Tr
 
 
     //public function addIconSite(AbstractIconSite $site)
-      public function addIconSite($site)
+   // public function addIconSite($site)
+     public function addIconSite(AbstractSite $site)
     {
+
+        // wegen dem
+      //  new DeleteActionSite()
 
         $hyperlink = new SiteHyperlink($this);
         $hyperlink->addContainer($site->icon);
@@ -134,8 +140,11 @@ class TableRow extends Tr
     public function addYesNo($value)
     {
 
-        $item = new YesNoItem($this);
-        $item->value = $value;
+        if ($value) {
+            new CheckIcon($this);
+        } else {
+            $this->addEmpty();
+        }
 
         return $this;
     }

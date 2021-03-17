@@ -16,6 +16,12 @@ use Nemundo\User\Session\UserSession;
 class TaskWidgetContentView extends AbstractContentView
 {
 
+
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
+
     public function getContent()
     {
 

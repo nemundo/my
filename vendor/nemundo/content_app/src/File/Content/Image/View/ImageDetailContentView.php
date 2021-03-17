@@ -16,7 +16,15 @@ class ImageDetailContentView extends AbstractContentView
      */
     public $contentType;
 
-    public $viewName='Detail View';
+
+    protected function loadView()
+    {
+
+        $this->viewName='Detail View';
+        $this->viewId='de52c8a6-729b-43a9-9182-1c6f1d4a9d6f';
+        $this->defaultView=false;
+
+    }
 
     public function getContent()
     {

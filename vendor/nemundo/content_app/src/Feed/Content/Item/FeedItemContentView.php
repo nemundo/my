@@ -21,6 +21,17 @@ class FeedItemContentView extends AbstractContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='62d31020-a14b-496d-bb87-fd3007e0cbd5';
+        $this->defaultView=true;
+
+    }
+
+
     public function getContent()
     {
 

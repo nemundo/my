@@ -27,7 +27,7 @@ public $image;
 public $hash;
 
 /**
-* @var \Nemundo\Model\Type\DateTime\CreatedDateTimeType
+* @var \Nemundo\Model\Type\DateTime\DateTimeType
 */
 public $dateTime;
 
@@ -64,7 +64,7 @@ $this->hash->aliasFieldName = $this->hash->tableName . "_" . $this->hash->fieldN
 $this->hash->label = "Hash";
 $this->addType($this->hash);
 
-$this->dateTime = new \Nemundo\Model\Type\DateTime\CreatedDateTimeType();
+$this->dateTime = new \Nemundo\Model\Type\DateTime\DateTimeType();
 $this->dateTime->fieldName = "date_time";
 $this->dateTime->tableName = $this->parentFieldName . "_" . $this->externalTableName;
 $this->dateTime->aliasFieldName = $this->dateTime->tableName . "_" . $this->dateTime->fieldName;

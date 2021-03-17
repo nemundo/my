@@ -15,6 +15,15 @@ class NoteContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='417afbe8-fb9f-45ac-9710-a1e3a9e29934';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

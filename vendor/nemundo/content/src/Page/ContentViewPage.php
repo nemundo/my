@@ -21,37 +21,14 @@ class ContentViewPage extends AbstractTemplateDocument
     public function getContent()
     {
 
-
         $layout = new BootstrapTwoColumnLayout($this);
 
-
         $contentType = (new ContentParameter())->getContent(false);
-
-        //$contentReader = new ContentReader();
-        //$contentReader->model->loadUser();
-        //$contentRow = $contentReader->getRowById($contentType->getContentId());
-
-        //$title = new AdminTitle($this);
-        //$title->content = $contentType->getSubject();
-
-//        $view = new ContentViewListBox($layout->col1);
-//        $view->contentType = $contentType;
-
 
         $breadcrumb = new TreeBreadcrumb($layout->col1);
         $breadcrumb->redirectSite = ContentViewSite::$site;
         $breadcrumb->addParentContentType($contentType);
         $breadcrumb->addContentType($contentType);
-
-        /*  $dropdown=new RestrictedContentTypeDropdown($layout->col1);
-          $dropdown->redirectSite = clone(ContentNewSite::$site);
-          $dropdown->redirectSite->addParameter(new ContentParameter());
-          $dropdown->contentTypeId = $contentType->typeId;*/
-
-
-        //$form = new ContentViewSearchForm($layout->col1);
-        //$form->contentType = $contentType;
-
 
         $widget = new ContentWidget($layout->col1);
         $widget->contentType = $contentType;
@@ -95,22 +72,6 @@ class ContentViewPage extends AbstractTemplateDocument
             }
 
         }
-
-
-        /*
-
-        $reader = new ChildContentReader();
-        $reader->contentType = $contentType;
-        foreach ($reader->getData() as $treeRow) {
-
-            $widget = new ContentWidget($layout->col1);
-            $widget->contentType = $treeRow->child->getContentType();
-            $widget->redirectSite= ContentViewSite::$site;
-
-            //$treeRow->child->getContentType()->getDefaultView($layout->col1);
-
-        }*/
-
 
         return parent::getContent();
 

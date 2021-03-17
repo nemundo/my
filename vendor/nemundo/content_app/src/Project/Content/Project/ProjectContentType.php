@@ -2,15 +2,14 @@
 
 namespace Nemundo\Content\App\Project\Content\Project;
 
-use Nemundo\Content\App\Document\Index\DocumentGroupIndexTrait;
 use Nemundo\Content\App\Project\Content\ProjectPhase\ProjectPhaseContentType;
 use Nemundo\Content\App\Project\Data\Project\Project;
 use Nemundo\Content\App\Project\Data\Project\ProjectReader;
 use Nemundo\Content\App\Project\Data\Project\ProjectRow;
-use Nemundo\Content\Index\Group\Type\GroupIndexTrait;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class ProjectContentType extends AbstractTreeContentType
+
+class ProjectContentType extends AbstractContentType
 {
 
     //use GroupIndexTrait;

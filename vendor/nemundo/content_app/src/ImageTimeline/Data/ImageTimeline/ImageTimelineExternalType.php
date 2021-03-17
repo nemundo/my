@@ -26,6 +26,11 @@ public $source;
 */
 public $sourceUrl;
 
+/**
+* @var \Nemundo\Model\Type\Number\YesNoType
+*/
+public $crawling;
+
 protected function loadExternalType() {
 parent::loadExternalType();
 $this->externalModelClassName = ImageTimelineModel::class;
@@ -65,6 +70,13 @@ $this->sourceUrl->tableName = $this->parentFieldName . "_" . $this->externalTabl
 $this->sourceUrl->aliasFieldName = $this->sourceUrl->tableName . "_" . $this->sourceUrl->fieldName;
 $this->sourceUrl->label = "Source Url";
 $this->addType($this->sourceUrl);
+
+$this->crawling = new \Nemundo\Model\Type\Number\YesNoType();
+$this->crawling->fieldName = "crawling";
+$this->crawling->tableName = $this->parentFieldName . "_" . $this->externalTableName;
+$this->crawling->aliasFieldName = $this->crawling->tableName . "_" . $this->crawling->fieldName;
+$this->crawling->label = "Crawling";
+$this->addType($this->crawling);
 
 }
 }

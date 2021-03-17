@@ -8,11 +8,12 @@ use Nemundo\Content\App\Map\Data\Route\RouteRow;
 use Nemundo\Content\App\Map\Data\RouteCoordinate\RouteCoordinate;
 use Nemundo\Content\Form\ContentForm;
 use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+
+use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Geo\Gpx\Reader\GpxReader;
 use Nemundo\Model\Data\Property\File\FileProperty;
 
-class RouteContentType extends AbstractTreeContentType
+class RouteContentType extends AbstractContentType
 {
 
     public $route;

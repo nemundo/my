@@ -8,11 +8,12 @@ use Nemundo\Content\App\Explorer\Data\Container\ContainerReader;
 use Nemundo\Content\App\Explorer\Data\Container\ContainerRow;
 use Nemundo\Content\App\Explorer\Data\Container\ContainerUpdate;
 use Nemundo\Content\Index\Search\Type\SearchIndexTrait;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+
 use Nemundo\Content\Type\AbstractContentType;
+use Nemundo\Content\Type\AbstractSearchContentType;
 use Nemundo\Core\Random\UniqueId;
 
-abstract class AbstractContainerContentType extends AbstractTreeContentType  // AbstractTreeContentType  // AbstractConten TreeContentType
+abstract class AbstractContainerContentType extends AbstractSearchContentType  // AbstractContentType  // AbstractContentType  // AbstractConten TreeContentType
 {
 
     //use SearchIndexTrait;

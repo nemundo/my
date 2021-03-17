@@ -8,7 +8,7 @@ use Nemundo\Admin\Com\Table\AdminClickableTable;
 use Nemundo\Admin\Com\Title\AdminSubtitle;
 use Nemundo\Com\TableBuilder\TableHeader;
 use Nemundo\Content\App\Explorer\Site\ItemSite;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Index\Tree\Type\AbstractContentType;
 use Nemundo\Content\Parameter\ContentParameter;
 use Nemundo\Html\Container\AbstractHtmlContainer;
 use Nemundo\Package\Bootstrap\Table\BootstrapClickableTableRow;
@@ -18,7 +18,7 @@ class ParentTable extends AbstractHtmlContainer
 {
 
     /**
-     * @var AbstractTreeContentType
+     * @var AbstractContentType
      */
     public $contentType;
 

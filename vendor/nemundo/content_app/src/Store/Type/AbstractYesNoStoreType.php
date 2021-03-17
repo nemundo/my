@@ -44,6 +44,10 @@ abstract class AbstractYesNoStoreType extends AbstractStoreType
 
     }
 
+    public function hasValue()
+    {
+        // TODO: Implement hasValue() method.
+    }
 
     public function removeStore()
     {

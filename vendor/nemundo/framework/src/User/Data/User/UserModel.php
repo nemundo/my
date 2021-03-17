@@ -78,7 +78,7 @@ $this->email->tableName = "user_user";
 $this->email->fieldName = "email";
 $this->email->aliasFieldName = "user_user_email";
 $this->email->label = "eMail";
-$this->email->allowNullValue = false;
+$this->email->allowNullValue = true;
 $this->email->length = 255;
 
 $this->displayName = new \Nemundo\Model\Type\Text\TextType($this);
@@ -96,6 +96,10 @@ $this->secureToken->aliasFieldName = "user_user_secure_token";
 $this->secureToken->label = "Secure Token";
 $this->secureToken->allowNullValue = false;
 $this->secureToken->length = 255;
+
+$index = new \Nemundo\Model\Definition\Index\ModelUniqueIndex($this);
+$index->indexName = "login";
+$index->addType($this->login);
 
 }
 }

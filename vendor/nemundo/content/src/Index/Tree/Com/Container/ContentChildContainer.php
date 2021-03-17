@@ -4,26 +4,20 @@
 namespace Nemundo\Content\Index\Tree\Com\Container;
 
 
-use Nemundo\Admin\Com\Button\AdminIconSiteButton;
-use Nemundo\Content\Action\DeleteContentAction;
 use Nemundo\Content\Com\Widget\ContentWidget;
-use Nemundo\Content\Index\Tree\Action\RemoveContent\RemoveContentAction;
-use Nemundo\Content\Index\Tree\Parameter\TreeParameter;
 use Nemundo\Content\Index\Tree\Reader\ChildContentReader;
-use Nemundo\Content\Index\Tree\Reader\ChildContentTypeReader;
-use Nemundo\Content\Index\Tree\Site\ContentRemoveSite;
-use Nemundo\Html\Block\Div;
+use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Html\Block\Hr;
 use Nemundo\Html\Container\AbstractHtmlContainer;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
 
 
 // ContentChildContainer
+// ChildContentContainer
 class ContentChildContainer extends AbstractHtmlContainer
 {
 
     /**
-     * @var AbstractTreeContentType
+     * @var AbstractContentType
      */
     public $contentType;
 
@@ -32,100 +26,49 @@ class ContentChildContainer extends AbstractHtmlContainer
 
         (new Hr($this));
 
-
-        $reader = new ChildContentReader();  // new ChildContentTypeReader();
+        $reader = new ChildContentReader();
         $reader->contentType = $this->contentType;
 
         foreach ($reader->getData() as $treeRow) {
 
-
-
-            // $child->id
-
-            //foreach ($this->contentType->getChild() as $child) {
-
-            //$childContentType = $child->getContentType();
             $child = $treeRow->child->getContentType();
+
             if ($child->hasView()) {
 
-                $div = new Div($this);
-                $child->getDefaultView($div);
+                if ($child->hasViewSite()) {
 
-                $btn = new AdminIconSiteButton($div);
-                $btn->site = clone(ContentRemoveSite::$site);
-                $btn->site->addParameter(new TreeParameter($treeRow->id));
+                    $widget = new ContentWidget($this);
+                    $widget->contentType = $child;
+                    $widget->viewId = $treeRow->viewId;
+                    $widget->viewEditable=false;
 
-                (new Hr($this));
+                } else {
 
+                    $child->getView($treeRow->viewId, $this);
 
-                /*
-                $widget = new ContentWidget($this);
-                $widget->contentType= $child;
-                $widget->addContentAction(new DeleteContentAction());
-*/
+                }
 
                 /*
-                $action=new RemoveContentAction();
-                $action->treeId = $treeRow->id;
-                $widget->addContentAction($action);
-*/
+                                $btn = new AdminIconSiteButton($div);
+                                $btn->site = clone(ContentRemoveSite::$site);
+                                $btn->site->addParameter(new TreeParameter($treeRow->id));
 
+                                $btn = new AdminIconSiteButton($div);
+                                $btn->site = clone(ContentEditSite::$site);
+                                $btn->site->addParameter(new ContentParameter($treeRow->childId));*/
+
+
+                //$widget=new ContentWidget($this);
+                //$widget->contentType = $child;
+
+
+                //(new Hr($this));
 
 
             }
 
         }
 
-
-
-        /*
-        $reader = new ChildContentTypeReader();
-        $reader->contentType = $this->contentType;
-
-        foreach ($reader->getData() as $child) {
-
-            //foreach ($this->contentType->getChild() as $child) {
-
-            //$childContentType = $child->getContentType();
-            if ($child->hasView()) {
-
-                //$div = new Div($this);
-                //$child->getDefaultView($div);
-
-                $widget = new ContentWidget($this);
-                $widget->contentType= $child;
-                $widget->addContentAction(new DeleteContentAction());
-
-                $action=new RemoveContentAction();
-                $action->treeId = $child->
-
-                $widget->addContentAction()
-
-
-
-            }
-
-        }*/
-
-
-
-        /*
-        foreach ($this->contentType->getChild() as $contentRow) {
-
-
-            $contentType = $contentRow->getContentType();
-
-            if ($contentType->hasView()) {
-
-                $div = new Div($this);
-                if ($contentType->hasView()) {
-                    $view = $contentType->getDefaultView($div);
-                    //$view->dataId = $contentRow->dataId;
-                }
-
-            }
-
-        }*/
 
         return parent::getContent();
 

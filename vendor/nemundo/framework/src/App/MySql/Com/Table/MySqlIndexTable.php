@@ -4,16 +4,11 @@
 namespace Nemundo\App\MySql\Com\Table;
 
 
-use Nemundo\Admin\Com\Table\AdminClickableTable;
 use Nemundo\Admin\Com\Table\AdminTable;
-use Nemundo\App\MySql\Parameter\TableParameter;
+use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\Com\TableBuilder\TableHeader;
 use Nemundo\Com\TableBuilder\TableRow;
-use Nemundo\Db\Provider\MySql\Index\MySqlIndexReader;
-use Nemundo\Db\Provider\MySql\Table\MySqlTableReader;
-use Nemundo\Package\Bootstrap\Table\BootstrapClickableTable;
-use Nemundo\Package\Bootstrap\Table\BootstrapClickableTableRow;
-use Nemundo\Web\Site\Site;
+use Nemundo\Db\Provider\MySql\Index\Reader\MySqlIndexReader;
 
 class MySqlIndexTable extends AdminTable
 {
@@ -23,20 +18,22 @@ class MySqlIndexTable extends AdminTable
     public function getContent()
     {
 
-        $header = new TableHeader($this);
+        $header = new AdminTableHeader($this);
         $header->addText('Type');
+        $header->addText('Index Name');
         $header->addText('Field');
 
         $reader = new MySqlIndexReader();
-        $reader->tableName=$this->tableName;
+        $reader->tableName = $this->tableName;
         foreach ($reader->getData() as $index) {
 
             $row = new TableRow($this);
+            $row->addText($index-> indexType);
             $row->addText($index->indexName);
             $row->addText($index->columnName);
 
-   /*             $row->addText($index->getValue('index_type'));
-                $row->addText($index->getValue('column_name'));*/
+            /*             $row->addText($index->getValue('index_type'));
+                         $row->addText($index->getValue('column_name'));*/
 
 
         }

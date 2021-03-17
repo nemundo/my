@@ -6,9 +6,12 @@ namespace Nemundo\Admin\Com\Navbar;
 namespace Nemundo\Admin\Com\Navbar;
 
 
+use Nemundo\App\UserAction\Site\LogoutSite;
+use Nemundo\App\UserAction\Site\PasswordChangeSite;
 use Nemundo\Content\Index\Search\Site\Json\SearchJsonSite;
 use Nemundo\Content\Index\Search\Site\SearchSite;
 use Nemundo\Package\Bootstrap\Autocomplete\AbstractAutocompleteJsonSite;
+use Nemundo\Package\Bootstrap\Navbar\BootstrapNavbarBrand;
 use Nemundo\Package\Bootstrap\Navbar\BootstrapNavbarLogo;
 use Nemundo\Package\Bootstrap\Navbar\BootstrapNavbarSearchForm;
 use Nemundo\Package\Bootstrap\Navbar\BootstrapNavbarToggler;
@@ -24,6 +27,8 @@ class AdminSiteNavbar extends BootstrapSiteNavbar
 {
 
     public $logoUrl;
+
+    public $brand='Home';
 
     /**
      * @var bool
@@ -41,13 +46,28 @@ class AdminSiteNavbar extends BootstrapSiteNavbar
     public $searchSourceSite;
 
 
+    /**
+     * @var bool
+     */
+    public $showPasswordChange = true;
+
     public function getContent()
     {
 
+
+        if ($this->logoUrl !==null) {
         $logo = new BootstrapNavbarLogo();
         $logo->logoSite = new BaseUrlSite();
         $logo->logoUrl = $this->logoUrl;
         $this->containerDiv->addContainerAtFirst($logo);
+        } else {
+
+            $brand=new BootstrapNavbarBrand();
+            $brand->content = $this->brand;
+             $this->containerDiv->addContainerAtFirst($brand);
+
+        }
+
 
         $toggler = new BootstrapNavbarToggler();
         $this->containerDiv->addContainerAtFirst($toggler);
@@ -59,6 +79,15 @@ class AdminSiteNavbar extends BootstrapSiteNavbar
             $search->sourceSite = $this->searchSourceSite;
 
         }
+
+
+        if ($this->showPasswordChange) {
+            $this->addUserMenuSite(PasswordChangeSite::$site);
+            $this->addUserMenuDivider();
+        }
+
+        $this->addUserMenuSite(LogoutSite::$site);
+
 
         return parent::getContent();
 

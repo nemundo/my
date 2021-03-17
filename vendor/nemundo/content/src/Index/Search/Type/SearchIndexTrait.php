@@ -69,6 +69,7 @@ trait SearchIndexTrait
     protected function deleteSearchIndex()
     {
 
+
         $searchIndexReader = new SearchIndexReader();
         $searchIndexReader->filter->andEqual($searchIndexReader->model->contentId, $this->getContentId());
         foreach ($searchIndexReader->getData() as $searchIndexRow) {

@@ -35,7 +35,7 @@ class ProjectBuilderScript extends AbstractBase
         $builder->project = $project;
         $builder->createProject();
 
-        (new AdminBuilderScript())->run();
+        //(new AdminBuilderScript())->run();
 
     }
 

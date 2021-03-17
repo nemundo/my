@@ -10,14 +10,23 @@ use Nemundo\Web\Site\AbstractSite;
 class MySqlSite extends AbstractSite
 {
 
+    /**
+     * @var MySqlSite
+     */
+    public static $site;
+
     protected function loadSite()
     {
 
         $this->title = 'MySql';
         $this->url = 'mysql';
 
+        MySqlSite::$site=$this;
+
+        new MySqlTableSite($this);
         new DropTableSite($this);
         new EmptyTableSite($this);
+        new DatabaseSite($this);
 
     }
 

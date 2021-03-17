@@ -9,6 +9,7 @@ class LargeTextContentType extends AbstractLargeTextContentType
 
     public $largeText;
 
+
     protected function loadContentType()
     {
 

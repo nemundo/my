@@ -26,6 +26,11 @@ public $source;
 */
 public $sourceUrl;
 
+/**
+* @var \Nemundo\Model\Type\Number\YesNoType
+*/
+public $crawling;
+
 protected function loadModel() {
 $this->tableName = "imagetimeline_image_timeline";
 $this->aliasTableName = "imagetimeline_image_timeline";
@@ -71,6 +76,13 @@ $this->sourceUrl->aliasFieldName = "imagetimeline_image_timeline_source_url";
 $this->sourceUrl->label = "Source Url";
 $this->sourceUrl->allowNullValue = true;
 $this->sourceUrl->length = 255;
+
+$this->crawling = new \Nemundo\Model\Type\Number\YesNoType($this);
+$this->crawling->tableName = "imagetimeline_image_timeline";
+$this->crawling->fieldName = "crawling";
+$this->crawling->aliasFieldName = "imagetimeline_image_timeline_crawling";
+$this->crawling->label = "Crawling";
+$this->crawling->allowNullValue = false;
 
 $index = new \Nemundo\Model\Definition\Index\ModelUniqueIndex($this);
 $index->indexName = "imge_url";

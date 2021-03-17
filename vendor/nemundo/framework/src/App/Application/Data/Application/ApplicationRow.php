@@ -46,6 +46,16 @@ public $projectId;
 */
 public $project;
 
+/**
+* @var bool
+*/
+public $appMenu;
+
+/**
+* @var bool
+*/
+public $adminMenu;
+
 public function __construct(\Nemundo\Db\Row\AbstractDataRow $row, $model) {
 parent::__construct($row->getData());
 $this->row = $row;
@@ -58,6 +68,8 @@ $this->projectId = intval($this->getModelValue($model->projectId));
 if ($model->project !== null) {
 $this->loadNemundoAppApplicationDataProjectProjectprojectRow($model->project);
 }
+$this->appMenu = boolval($this->getModelValue($model->appMenu));
+$this->adminMenu = boolval($this->getModelValue($model->adminMenu));
 }
 private function loadNemundoAppApplicationDataProjectProjectprojectRow($model) {
 $this->project = new \Nemundo\App\Application\Data\Project\ProjectRow($this->row, $model);

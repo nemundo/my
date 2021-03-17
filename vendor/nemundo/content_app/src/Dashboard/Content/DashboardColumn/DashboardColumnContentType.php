@@ -2,6 +2,8 @@
 
 namespace Nemundo\Content\App\Dashboard\Content\DashboardColumn;
 
+use Nemundo\Content\App\Dashboard\Content\DashboardColumn\View\PageDashboardColumnContentView;
+use Nemundo\Content\App\Dashboard\Content\DashboardColumn\View\WidgetDashboardColumnContentView;
 use Nemundo\Content\App\Dashboard\Data\DashboardColumn\DashboardColumn;
 use Nemundo\Content\App\Dashboard\Data\DashboardColumn\DashboardColumnDelete;
 use Nemundo\Content\App\Dashboard\Data\DashboardColumn\DashboardColumnReader;
@@ -19,10 +21,13 @@ class DashboardColumnContentType extends AbstractContentType
 
     protected function loadContentType()
     {
+
         $this->typeLabel = 'Dashboard Column';
         $this->typeId = 'dbf55c01-20af-4f83-a417-320bd1ba9e52';
         $this->formClassList[] = DashboardColumnContentForm::class;
-        $this->viewClassList[] = DashboardColumnContentView::class;
+        $this->viewClassList[] = WidgetDashboardColumnContentView::class;
+        $this->viewClassList[] = PageDashboardColumnContentView::class;
+
     }
 
     protected function onCreate()
@@ -75,6 +80,5 @@ class DashboardColumnContentType extends AbstractContentType
         return $subject;
 
     }
-
 
 }

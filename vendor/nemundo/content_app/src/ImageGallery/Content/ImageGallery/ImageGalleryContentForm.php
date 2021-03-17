@@ -64,9 +64,10 @@ class ImageGalleryContentForm extends AbstractContentForm
             $img=new BootstrapResponsiveImage($row);
             $img->src = $imageRow->image->getImageUrl($imageRow->model->imageAutoSize400);
 
+            /*
             $site=clone(ImageDeleteSite::$site);
             $site->addParameter(new ImageParameter($imageRow->id));
-            $row->addIconSite($site);
+            $row->addIconSite($site);*/
 
         }
 

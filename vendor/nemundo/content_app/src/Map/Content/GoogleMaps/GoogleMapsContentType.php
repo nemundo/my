@@ -2,9 +2,10 @@
 
 namespace Nemundo\Content\App\Map\Content\GoogleMaps;
 
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
 
-class GoogleMapsContentType extends AbstractTreeContentType
+use Nemundo\Content\Type\AbstractContentType;
+
+class GoogleMapsContentType extends AbstractContentType
 {
     protected function loadContentType()
     {

@@ -5,7 +5,7 @@ namespace Nemundo\Content\App\Text\Content\VersionLargeText;
 use Nemundo\Content\App\Text\Content\LargeText\AbstractLargeTextContentType;
 use Nemundo\Content\App\Text\Data\VersionText\VersionText;
 use Nemundo\Content\App\Text\Data\VersionText\VersionTextCount;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+
 
 class VersionLargeTextContentType extends AbstractLargeTextContentType
 {

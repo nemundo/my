@@ -6,8 +6,12 @@ class VersionLargeTextContentView extends AbstractContentView {
 * @var VersionLargeTextContentType
 */
 public $contentType;
+protected function loadView()
+{
+    // TODO: Implement loadView() method.
+}
 
-public function getContent() {
+    public function getContent() {
 return parent::getContent();
 }
 }

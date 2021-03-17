@@ -2,8 +2,8 @@
 
 namespace Nemundo\Content\App\File\Content\Upload;
 
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
 use Nemundo\Content\Type\AbstractContentType;
+use Nemundo\Content\View\ContentView;
 
 
 // FileUpload
@@ -16,6 +16,8 @@ class UploadContentType extends AbstractContentType
         $this->formClassList[] = UploadContentForm::class;
         $this->formClassList[] = UrlUploadContentForm::class;
         $this->formClassList[] = UrlDownloadJobContentForm::class;
+
+        $this->viewClassList[]= UploadContentView::class; // ContentView::class;
 
     }
 

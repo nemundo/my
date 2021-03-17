@@ -8,7 +8,7 @@ use Nemundo\Db\Index\TextIdPrimaryIndex;
 use Nemundo\Db\Index\UniqueIdPrimaryIndex;
 use Nemundo\Db\Provider\MySql\Field\MySqlField;
 use Nemundo\Db\Provider\MySql\Field\MySqlTableFieldReader;
-use Nemundo\Db\Provider\MySql\Index\MySqlIndexReader;
+use Nemundo\Db\Provider\MySql\Index\Reader\MySqlIndexReader;
 use Nemundo\Db\Reader\SqlReader;
 use Nemundo\Db\Sql\Parameter\SqlStatement;
 use Nemundo\Db\Table\AbstractTable;
@@ -19,12 +19,13 @@ class MySqlTable extends AbstractTable
     /**
      * @var string
      */
-    public $charset = 'utf8';
+    public $charset = 'utf8mb4';
+    //public $charset = 'utf8';
 
     /**
      * @var MySqlEngine
      */
-    public $engine = MySqlEngine::MY_ISAM;
+    public $engine = MySqlEngine::INNODB;  // MySqlEngine::MY_ISAM;
 
     /**
      * @var MySqlField[]
@@ -41,6 +42,13 @@ class MySqlTable extends AbstractTable
 
     public function addTextField($fieldName, $length = 255, $allowNull = false)
     {
+
+        // Tmp
+        /*if ($length>150) {
+        $length = 150;
+        }*/
+
+
         $field = new MySqlField($this);
         $field->fieldName = $fieldName;
         $field->fieldType = 'varchar(' . $length . ')';

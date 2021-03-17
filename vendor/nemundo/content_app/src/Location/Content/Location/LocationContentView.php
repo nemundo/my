@@ -18,6 +18,16 @@ class LocationContentView extends AbstractContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='9922f65f-70c1-43b2-bef7-f44ed3f65139';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

@@ -17,6 +17,10 @@ class IssueTrackerContentView extends AbstractContentView
 
     public $viewName= 'Pagination';
 
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
 
     public function getContent()
     {

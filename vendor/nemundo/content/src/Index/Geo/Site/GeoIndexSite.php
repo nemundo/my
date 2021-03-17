@@ -25,9 +25,6 @@ class GeoIndexSite extends AbstractSite
 
         new GeoIndexKmlSite($this);
 
-        //new GeoContentKmlSite($this);
-
-
     }
 
     public function loadContent()

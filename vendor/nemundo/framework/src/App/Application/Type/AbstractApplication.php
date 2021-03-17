@@ -13,6 +13,9 @@ use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\App\Application\Type\Install\AbstractUninstall;
 use Nemundo\Web\Site\AbstractSite;
 
+
+// splitting ???
+
 abstract class AbstractApplication extends AbstractBaseClass
 {
 
@@ -71,7 +74,7 @@ abstract class AbstractApplication extends AbstractBaseClass
      * @var string
      */
     protected $siteClass;
-
+// appSiteClass
 
     //protected $projectClass;
 
@@ -92,6 +95,23 @@ abstract class AbstractApplication extends AbstractBaseClass
     public function __construct()
     {
         $this->loadApplication();
+    }
+
+
+
+    public function hasModelCollection()
+    {
+
+        $value = false;
+        if ($this->modelCollectionClass !== null) {
+            if (class_exists($this->modelCollectionClass)) {
+                $value = true;
+            } else {
+                (new Debug())->write('Model Collection Class not found. Class: ' . $this->modelCollectionClass);
+            }
+        }
+        return $value;
+
     }
 
 
@@ -175,6 +195,19 @@ abstract class AbstractApplication extends AbstractBaseClass
     }
 
 
+
+    public function setAppMenuActive() {
+
+        $update = new ApplicationUpdate();
+        $update->appMenu = true;
+        $update->updateById($this->applicationId);
+
+        return $this;
+
+    }
+
+
+
     public function hasUninstall()
     {
 
@@ -198,6 +231,8 @@ abstract class AbstractApplication extends AbstractBaseClass
 
             $update = new ApplicationUpdate();
             $update->install = false;
+            $update->appMenu=false;
+            $update->adminMenu=false;
             $update->updateById($this->applicationId);
 
 
@@ -216,9 +251,12 @@ abstract class AbstractApplication extends AbstractBaseClass
         $this->uninstallApp();
         $this->installApp();
 
+        return $this;
+
     }
 
 
+    // hasAppSite
     public function hasSite()
     {
 
@@ -231,6 +269,7 @@ abstract class AbstractApplication extends AbstractBaseClass
     }
 
 
+    // getAppSite
     public function getSite(AbstractSite $parentSite)
     {
 

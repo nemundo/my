@@ -14,10 +14,10 @@ use Nemundo\Content\App\TimeSeries\Data\TimeSeriesData\TimeSeriesDataDelete;
 use Nemundo\Content\App\TimeSeries\Index\TimeSeriesIndex;
 use Nemundo\Content\App\TimeSeries\Parameter\TimeSeriesParameter;
 use Nemundo\Content\App\TimeSeries\Site\TimeSeriesSite;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Core\Type\DateTime\DateTime;
 
-class TimeSeriesContentType extends AbstractTreeContentType
+class TimeSeriesContentType extends AbstractContentType
 {
 
     use TimeSeriesIndex;

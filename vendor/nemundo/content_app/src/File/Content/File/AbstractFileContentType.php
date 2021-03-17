@@ -4,8 +4,6 @@
 namespace Nemundo\Content\App\File\Content\File;
 
 
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
-use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Content\Type\AbstractSearchContentType;
 use Nemundo\Model\Data\Property\File\FileProperty;
 

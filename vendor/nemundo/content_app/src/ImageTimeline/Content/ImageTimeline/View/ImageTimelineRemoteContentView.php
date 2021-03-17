@@ -11,7 +11,14 @@ use Nemundo\Package\Bootstrap\Image\BootstrapResponsiveImage;
 class ImageTimelineRemoteContentView extends AbstractImageTimelineContentView
 {
 
-    public $viewName='Remote Image';
+    protected function loadView()
+    {
+
+        $this->viewName='Remote Image';
+        $this->viewId='b94cc676-bd6e-4f6c-9294-98e5c39dd22d';
+        $this->defaultView=false;
+
+    }
 
     public function getContent()
     {

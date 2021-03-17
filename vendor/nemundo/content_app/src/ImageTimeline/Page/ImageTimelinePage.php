@@ -10,6 +10,8 @@ use Nemundo\Content\App\ImageTimeline\Com\ListBox\ImageTimelineListBox;
 use Nemundo\Content\App\ImageTimeline\Data\Image\ImageReader;
 use Nemundo\Db\Sql\Order\SortOrder;
 use Nemundo\Package\Bootstrap\Carousel\BootstrapImageCarousel;
+use Nemundo\Package\Bootstrap\FormElement\BootstrapFromToDatePicker;
+use Nemundo\Package\Bootstrap\Image\BootstrapResponsiveImage;
 use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
 
 class ImageTimelinePage extends AbstractTemplateDocument
@@ -27,12 +29,18 @@ class ImageTimelinePage extends AbstractTemplateDocument
         $timeline->column = true;
         $timeline->columnSize = 2;
 
+        $dateFromTo=new BootstrapFromToDatePicker($row);
+        $dateFromTo->column = true;
+        $dateFromTo->columnSize = 2;
+
 
         if ($timeline->hasValue()) {
 
 
             $carousel = new BootstrapImageCarousel($this);
             $carousel->slideEffect = false;
+            $carousel->slideshow=true;
+            $carousel->slideshowInterval = 1000;
 
             //$table = new AdminTable($this);
 
@@ -46,6 +54,9 @@ class ImageTimelinePage extends AbstractTemplateDocument
 
                 //$row = new TableRow($table);
                 //$row->addText($imageRow->dateTime->getIsoDateTimeFormat());
+
+                //$img = new BootstrapResponsiveImage($row);
+                //$img->src = $imageRow->image->getImageUrl($imageRow->model->imageAutoSize800);
 
             }
 

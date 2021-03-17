@@ -10,17 +10,17 @@ use Nemundo\Content\App\UserProfile\Data\UserProfile\UserProfileRow;
 use Nemundo\Content\App\UserProfile\Data\UserProfile\UserProfileUpdate;
 use Nemundo\Content\App\UserProfile\Mail\UserProfileMailContainer;
 use Nemundo\Content\App\UserProfile\Usergroup\DefaultUsergroup;
-use Nemundo\Content\Index\Group\Type\GroupIndexTrait;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+
+use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Core\Debug\Debug;
 use Nemundo\User\Builder\UserBuilder;
-use Nemundo\User\Type\UserItemType;
+
 
 // UserProfileGroupContentType
-class UserProfileContentType extends AbstractTreeContentType
+class UserProfileContentType extends AbstractContentType
 {
 
-    use GroupIndexTrait;
+    //use GroupIndexTrait;
 
     public $lastName;
 

@@ -4,11 +4,13 @@
 namespace Nemundo\Content\App\Favorite\Content;
 
 
-use Nemundo\Content\App\Favorite\Com\FavoriteContainer;
-use Nemundo\Content\Data\Content\ContentReader;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
 
-class FavoriteContentType extends AbstractTreeContentType
+use Nemundo\Content\App\Favorite\Com\Container\FavoriteContainer;
+use Nemundo\Content\Data\Content\ContentReader;
+use Nemundo\Content\Type\AbstractContentType;
+
+
+class FavoriteContentType extends AbstractContentType
 {
     protected function loadContentType()
     {

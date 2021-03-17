@@ -28,6 +28,11 @@ class AdminConfig
     /**
      * @var string
      */
-    public static $pageTitle = 'Admin';
+    //public static $pageTitle = 'Admin';
+
+
+    // AdminTemplate (static)
+
+    public static $showPasswordChange = true;
 
 }

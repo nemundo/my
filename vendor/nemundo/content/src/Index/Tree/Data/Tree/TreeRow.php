@@ -42,7 +42,7 @@ public $parent;
 public $itemOrder;
 
 /**
-* @var int
+* @var string
 */
 public $viewId;
 
@@ -64,7 +64,7 @@ if ($model->parent !== null) {
 $this->loadNemundoContentDataContentContentparentRow($model->parent);
 }
 $this->itemOrder = intval($this->getModelValue($model->itemOrder));
-$this->viewId = intval($this->getModelValue($model->viewId));
+$this->viewId = $this->getModelValue($model->viewId);
 if ($model->view !== null) {
 $this->loadNemundoContentDataContentViewContentViewviewRow($model->view);
 }

@@ -19,7 +19,14 @@ class ImageTimelineLatestContentView extends AbstractImageTimelineContentView
      */
     public $contentType;
 
-    public $viewName='Latest Image';
+    protected function loadView()
+    {
+
+        $this->viewName='Latest Image';
+        $this->viewId='d0b55995-c7ed-4f63-92a4-e25078c49f45';
+        $this->defaultView=true;
+
+    }
 
     public function getContent()
     {

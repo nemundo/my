@@ -3,9 +3,10 @@
 namespace Nemundo\Package\Bootstrap\Layout\Container;
 
 
+use Nemundo\Html\Block\Div;
 use Nemundo\Html\Container\AbstractHtmlContainer;
 
-class BootstrapContainer extends AbstractHtmlContainer
+class BootstrapContainer extends Div  // AbstractHtmlContainer
 {
 
     /**
@@ -17,7 +18,7 @@ class BootstrapContainer extends AbstractHtmlContainer
     public function getContent()
     {
 
-        $this->tagName = 'div';
+        //$this->tagName = 'div';
 
         if ($this->fullWidth) {
             $this->addCssClass('container-fluid');

@@ -44,7 +44,7 @@ class DashboardContentForm extends AbstractContentForm
         $this->columnCount = new BootstrapListBox($this);
         $this->columnCount->label = 'Column Count';  // $model->columnCount->label;
         $this->columnCount->validation = true;
-        $this->columnCount->emptyValueAsDefault=false;
+        $this->columnCount->emptyValueAsDefault = false;
 
         $loop = new ForLoop();
         $loop->minNumber = 1;
@@ -53,8 +53,9 @@ class DashboardContentForm extends AbstractContentForm
             $this->columnCount->addItem($number, $number);
         }
 
-        $this->active=new BootstrapCheckBox($this);
+        $this->active = new BootstrapCheckBox($this);
         $this->active->label = $model->active->label;
+        $this->active->value = true;
 
 
         return parent::getContent();
@@ -65,9 +66,9 @@ class DashboardContentForm extends AbstractContentForm
     protected function loadUpdateForm()
     {
 
-        $dashboardRow=$this->contentType->getDataRow();
-        $this->dashboard->value=$dashboardRow->dashboard;
-        $this->active->value=$dashboardRow->active;
+        $dashboardRow = $this->contentType->getDataRow();
+        $this->dashboard->value = $dashboardRow->dashboard;
+        $this->active->value = $dashboardRow->active;
 
         //$this->columnCount->visible=false;
 
@@ -79,7 +80,7 @@ class DashboardContentForm extends AbstractContentForm
 
         $this->contentType->dashboard = $this->dashboard->getValue();
         $this->contentType->columnCount = $this->columnCount->getValue();
-        $this->contentType->active=$this->active->getValue();
+        $this->contentType->active = $this->active->getValue();
         $this->contentType->saveType();
 
     }

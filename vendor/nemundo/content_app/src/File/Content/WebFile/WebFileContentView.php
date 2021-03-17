@@ -18,6 +18,15 @@ class WebFileContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

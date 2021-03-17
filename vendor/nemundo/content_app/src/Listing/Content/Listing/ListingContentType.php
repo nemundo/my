@@ -3,9 +3,10 @@
 namespace Nemundo\Content\App\Listing\Content\Listing;
 
 use Nemundo\Content\App\Listing\Data\Listing\Listing;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class ListingContentType extends AbstractTreeContentType
+
+class ListingContentType extends AbstractContentType
 {
 
     public $listing;

@@ -1,7 +1,9 @@
 <?php
 namespace Nemundo\Content\App\Translation\Content\TranslationLargeText;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
-class TranslationLargeTextContentType extends AbstractTreeContentType {
+
+use Nemundo\Content\Type\AbstractContentType;
+
+class TranslationLargeTextContentType extends AbstractContentType {
 protected function loadContentType() {
 $this->typeLabel = 'TranslationLargeText';
 $this->typeId = '77e6d129-8b48-40de-ad9f-c759f7b2382e';

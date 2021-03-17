@@ -11,5 +11,6 @@ $this->addModel(new \Nemundo\Content\Data\ContentType\ContentTypeModel());
 $this->addModel(new \Nemundo\Content\Data\ContentTypeCollection\ContentTypeCollectionModel());
 $this->addModel(new \Nemundo\Content\Data\ContentTypeCollectionContentType\ContentTypeCollectionContentTypeModel());
 $this->addModel(new \Nemundo\Content\Data\ContentView\ContentViewModel());
+$this->addModel(new \Nemundo\Content\Data\ViewContentType\ViewContentTypeModel());
 }
 }

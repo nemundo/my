@@ -5,9 +5,9 @@ namespace Nemundo\Content\App\Task\Content;
 
 
 
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class TaskWidgetContentType extends AbstractTreeContentType
+class TaskWidgetContentType extends AbstractContentType
 {
 
     protected function loadContentType()

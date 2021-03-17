@@ -26,7 +26,7 @@ use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
 use Nemundo\Package\Bootstrap\Pagination\BootstrapPagination;
 use Nemundo\Package\Bootstrap\Table\BootstrapClickableTableRow;
 
-class GeoIndexPage extends AbstractTemplateDocument  // ContentTemplate
+class GeoIndexPage extends AbstractTemplateDocument
 {
 
     public function getContent()
@@ -124,8 +124,11 @@ class GeoIndexPage extends AbstractTemplateDocument  // ContentTemplate
             $content = $contentParameter->getContent(false);
 
             $widget = new ContentWidget($layout->col2);
+            $widget->redirectSite= GeoIndexSite::$site;
+
             $widget->contentType=$content;
             //$widget->loadAction=true;
+
 
             $widget->addContentAction(new EditContentAction());
             $widget->addContentAction(new ViewContentAction());

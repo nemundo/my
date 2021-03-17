@@ -45,7 +45,7 @@
                     "label": "From",
                     "field_name": "from",
                     "variable_name": "from",
-                    "allow_null": false,
+                    "allow_null": true,
                     "is_deleted": false,
                     "external_model_id": "23f00db8-b303-40e4-ab45-32054a954434"
                 },
@@ -54,7 +54,7 @@
                     "label": "Message",
                     "field_name": "message",
                     "variable_name": "message",
-                    "allow_null": false,
+                    "allow_null": true,
                     "is_deleted": false
                 },
                 {

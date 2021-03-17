@@ -1,9 +1,9 @@
 ### myNemundo
 
-Lokale mit Sqlite betriebenes Content System. 
+Inhalte lokal verwalten. Basierend auf sqLite. 
 
 
-###Installation
+### Installation
 
 - Installation von Php (z.B. mittels Xampp)
 - git clone ... oder Download des Zip
@@ -26,7 +26,7 @@ sudo chown -R www-data:www-data web/data;sudo chown -R www-data:www-data log;sud
 
 ### Start 
 
-Über die Verknüpfung "start.bat" oder den Php Befehl:
+Über die Verknüpfung "start.bat" oder den Php Befehl. Es wird ein lokaler Web Server gestartet. 
 
 ```
 php -S localhost:333
@@ -35,10 +35,10 @@ php -S localhost:333
 
 ### Login
 
-Es wird ein Passwort erstellt. 
+Es wird ein Benutzer erstellt. 
 
-User admin
-Pwd admin
+Login       admin
+Password    admin
 
 
 

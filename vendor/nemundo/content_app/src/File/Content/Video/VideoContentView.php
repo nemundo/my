@@ -12,6 +12,17 @@ class VideoContentView extends AbstractContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='ecf82d1b-bbbf-44ba-805d-a4ca28caeaed';
+        $this->defaultView=true;
+
+    }
+
+
     public function getContent()
     {
 

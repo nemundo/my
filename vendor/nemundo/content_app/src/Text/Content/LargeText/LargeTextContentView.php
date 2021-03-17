@@ -17,6 +17,16 @@ class LargeTextContentView extends AbstractContentView
      */
     public $contentType;
 
+
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='43f5cb0d-0c70-4c6c-a33c-244dfea6dfb8';
+        $this->defaultView=true;
+
+    }
+
     public function getContent()
     {
 

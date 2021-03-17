@@ -12,9 +12,7 @@ use Nemundo\Content\Type\AbstractContentType;
 use Nemundo\Package\Bootstrap\Breadcrumb\BootstrapBreadcrumb;
 use Nemundo\Web\Site\AbstractSite;
 
-// nach Content/Index/Com
 
-// TreeParentBreadcrumb
 class TreeBreadcrumb extends BootstrapBreadcrumb
 {
 
@@ -26,15 +24,9 @@ class TreeBreadcrumb extends BootstrapBreadcrumb
     public $redirectSite;
 
 
-    /**
-     * @var AbstractTreeContentType
-     */
-    //public $contentType;
 
-    /**
-     * @var
-     */
-    //public $redirectSite;
+    // PROBLEM REDIRECT nach addparent etc.
+
 
     private $itemCount = 0;
 

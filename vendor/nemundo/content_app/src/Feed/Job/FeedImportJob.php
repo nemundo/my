@@ -15,8 +15,8 @@ class FeedImportJob extends AbstractJobContentType
         $this->typeLabel='Feed Import';
         $this->typeId='1aed9213-308e-4ecd-9fc3-0d04de0822e3';
 
-
     }
+
 
     public function run()
     {

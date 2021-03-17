@@ -3,6 +3,7 @@
 namespace Nemundo\Content\Index\Tree\Install;
 
 use Nemundo\App\Application\Setup\ApplicationSetup;
+use Nemundo\Content\Index\Tree\Action\ChildOrder\ChildOrderContentAction;
 use Nemundo\Content\Index\Tree\Action\ViewChange\ViewChangeContentAction;
 use Nemundo\Content\Index\Tree\Application\TreeApplication;
 use Nemundo\Content\Index\Tree\Data\TreeModelCollection;
@@ -18,6 +19,7 @@ class TreeInstall extends AbstractInstall
         (new ModelCollectionSetup())->addCollection(new TreeModelCollection());
 
         (new ContentActionSetup())
+            ->addContentAction(new ChildOrderContentAction())
             ->addContentAction(new ViewChangeContentAction());
 
     }

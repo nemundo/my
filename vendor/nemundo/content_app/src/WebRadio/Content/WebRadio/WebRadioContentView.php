@@ -13,6 +13,16 @@ class WebRadioContentView extends AbstractContentView
      */
     public $contentType;
 
+    protected function loadView()
+    {
+
+        $this->viewName='default';
+        $this->viewId='46a123a2-058a-42fd-980b-b4015e2de4e4';
+        $this->defaultView=true;
+
+    }
+
+
     public function getContent()
     {
 

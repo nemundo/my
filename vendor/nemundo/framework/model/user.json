@@ -46,7 +46,7 @@
                     "label": "eMail",
                     "field_name": "email",
                     "variable_name": "email",
-                    "allow_null": false,
+                    "allow_null": true,
                     "is_deleted": false,
                     "length": "255"
                 },
@@ -69,7 +69,15 @@
                     "length": "255"
                 }
             ],
-            "index": []
+            "index": [
+                {
+                    "index_name": "login",
+                    "index_type": "unique_index",
+                    "field_name": [
+                        "login"
+                    ]
+                }
+            ]
         },
         {
             "template": "default",

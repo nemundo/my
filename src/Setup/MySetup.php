@@ -4,9 +4,7 @@ namespace My\Setup;
 
 use Nemundo\App\Application\Application\ApplicationApplication;
 use Nemundo\App\Application\Data\ApplicationModelCollection;
-use Nemundo\App\Application\Install\ApplicationInstall;
 use Nemundo\App\Application\Setup\ApplicationSetup;
-use Nemundo\App\Script\Application\ScriptApplication;
 use Nemundo\App\Script\Data\ScriptModelCollection;
 use Nemundo\App\Script\Install\ScriptInstall;
 use Nemundo\App\Script\Type\AbstractScript;
@@ -25,9 +23,13 @@ use Nemundo\Content\App\File\Content\File\FileContentType;
 use Nemundo\Content\App\File\Content\Image\ImageContentType;
 use Nemundo\Content\App\File\Content\Video\VideoContentType;
 use Nemundo\Content\App\ImageGallery\Application\ImageGalleryApplication;
+use Nemundo\Content\App\Location\Application\LocationApplication;
+use Nemundo\Content\App\Location\Content\Location\LocationContentType;
 use Nemundo\Content\App\Note\Application\NoteApplication;
+use Nemundo\Content\App\Note\Content\Note\NoteContentType;
 use Nemundo\Content\App\PublicShare\Application\PublicShareApplication;
 use Nemundo\Content\App\Text\Application\TextApplication;
+use Nemundo\Content\App\Text\Content\Html\HtmlContentType;
 use Nemundo\Content\App\Text\Content\RichText\RichTextContentType;
 use Nemundo\Content\App\Video\Application\VideoApplication;
 use Nemundo\Content\App\Video\Content\IframeVideo\IframeVideoContentType;
@@ -36,15 +38,10 @@ use Nemundo\Content\App\Webcam\Application\WebcamApplication;
 use Nemundo\Content\Application\ContentApplication;
 use Nemundo\Content\Index\Tree\Setup\RestrictedContentTypeSetup;
 use Nemundo\Core\Debug\Debug;
-use Nemundo\Core\Path\Path;
-use Nemundo\Core\Type\File\File;
-use Nemundo\Db\DbConfig;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\Project\Install\ProjectInstall;
 use Nemundo\User\Application\UserApplication;
 use Nemundo\User\Builder\UserBuilder;
 use Nemundo\User\Data\UserModelCollection;
-use Nemundo\User\Install\UserInstall;
 
 class MySetup extends AbstractScript
 {
@@ -53,10 +50,9 @@ class MySetup extends AbstractScript
 
 
         (new ModelCollectionSetup())
-        ->addCollection(new UserModelCollection())
+            ->addCollection(new UserModelCollection())
             ->addCollection(new ScriptModelCollection())
             ->addCollection(new ApplicationModelCollection());
-
 
 
         //(new ApplicationInstall())->install();
@@ -75,14 +71,16 @@ class MySetup extends AbstractScript
         (new ContentAppApplicationInstall())->install();
 
         (new ApplicationApplication())->installApp();
-        (new ContentApplication())->installApp();
-        (new ExplorerApplication())->installApp();
+        (new ContentApplication())->installApp()->setAppMenuActive();
+        (new ExplorerApplication())->installApp()->setAppMenuActive();
         (new BookmarkApplication())->installApp();
         (new FileApplication())->installApp();
-        (new CalendarApplication())->installApp();
+        (new CalendarApplication())->installApp()->setAppMenuActive();
         (new VideoApplication())->installApp();
-        (new FileApplication())->installApp();
+        (new FileApplication())->installApp()->setAppMenuActive();
         (new TextApplication())->installApp();
+        (new NoteApplication())->installApp();
+        (new LocationApplication())->installApp();
 
 
         (new FavoriteApplication())->installApp();
@@ -100,16 +98,18 @@ class MySetup extends AbstractScript
             ->addRestrictedContentType(new RichTextContentType())
             ->addRestrictedContentType(new CalendarContentType())
             ->addRestrictedContentType(new YouTubeContentType())
-            ->addRestrictedContentType(new IframeVideoContentType());
+            ->addRestrictedContentType(new IframeVideoContentType())
+            ->addRestrictedContentType(new HtmlContentType())
+            ->addRestrictedContentType(new NoteContentType())
+            ->addRestrictedContentType(new LocationContentType());
 
 
         (new ApplicationSetup())
             ->addApplication(new WebcamApplication())
-            ->addApplication(new NoteApplication())
+            // ->addApplication(new NoteApplication())
             ->addApplication(new ImageGalleryApplication())
             ->addApplication(new PublicShareApplication())
             ->addApplication(new ContentPrintApplication());
-
 
 
         $user = new UserBuilder();
@@ -123,9 +123,6 @@ class MySetup extends AbstractScript
         (new Debug())->write('User was created.');
         (new Debug())->write('Login:        admin');
         (new Debug())->write('Password:     admin');
-
-
-
 
 
     }

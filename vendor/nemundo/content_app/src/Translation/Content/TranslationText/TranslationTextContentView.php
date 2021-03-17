@@ -12,7 +12,10 @@ class TranslationTextContentView extends AbstractContentView
      * @var TranslationTextContentType
      */
     public $contentType;
-
+    protected function loadView()
+    {
+        // TODO: Implement loadView() method.
+    }
     public function getContent()
     {
 

@@ -6,9 +6,10 @@ use Nemundo\Content\App\Inbox\Type\InboxTrait;
 use Nemundo\Content\App\Message\Data\Message\Message;
 use Nemundo\Content\App\Message\Data\Message\MessageReader;
 use Nemundo\Content\App\Message\Data\Message\MessageRow;
-use Nemundo\Content\Index\Tree\Type\AbstractTreeContentType;
+use Nemundo\Content\Type\AbstractContentType;
 
-class MessageContentType extends AbstractTreeContentType
+
+class MessageContentType extends AbstractContentType
 {
 
     use InboxTrait;

@@ -36,6 +36,16 @@ public $install;
 */
 public $projectId;
 
+/**
+* @var bool
+*/
+public $appMenu;
+
+/**
+* @var bool
+*/
+public $adminMenu;
+
 public function __construct() {
 parent::__construct();
 $this->model = new ApplicationModel();
@@ -48,6 +58,8 @@ $this->typeValueList->setModelValue($this->model->setupStatus, $this->setupStatu
 $this->typeValueList->setModelValue($this->model->applicationClass, $this->applicationClass);
 $this->typeValueList->setModelValue($this->model->install, $this->install);
 $this->typeValueList->setModelValue($this->model->projectId, $this->projectId);
+$this->typeValueList->setModelValue($this->model->appMenu, $this->appMenu);
+$this->typeValueList->setModelValue($this->model->adminMenu, $this->adminMenu);
 $id = parent::save();
 return $id;
 }

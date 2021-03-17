@@ -57,6 +57,14 @@ abstract class AbstractModelSetup extends AbstractDbBase
     protected $model;
 
 
+
+    // split !!!
+
+    // addModel($model)
+    // removeModel($model)
+
+
+
     // createModel(AbstractModel $model)
     public function createTable()
     {
