@@ -51,14 +51,14 @@ class DashboardAdminPage extends DashboardAdminTemplate // AbstractTemplateDocum
         $header = new AdminTableHeader($table);
         $header->addText($reader->model->active->label);
         $header->addText($reader->model->dashboard->label);
-
-
+        $header->addText($reader->model->url->label);
 
         foreach ($reader->getData() as $dashboardRow) {
 
             $row = new BootstrapClickableTableRow($table);
             $row->addYesNo($dashboardRow->active);
             $row->addText($dashboardRow->dashboard);
+            $row->addText($dashboardRow->url);
 
             $site = clone(DashboardEditSite::$site);
             //$site->addParameter(new DashboardParameter($dashboardRow->id));

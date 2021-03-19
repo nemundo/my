@@ -8,6 +8,8 @@ use Nemundo\Content\App\Camera\Install\CameraInstall;
 use Nemundo\Content\App\Camera\Install\CameraUninstall;
 use Nemundo\Content\App\Camera\Site\CameraSite;
 use Nemundo\Content\App\ContentAppProject;
+use Nemundo\Package\Dropzone\DropzonePackage;
+use Nemundo\Package\Fancybox\FancyboxPackage;
 
 class CameraApplication extends AbstractApplication
 {
@@ -20,5 +22,9 @@ class CameraApplication extends AbstractApplication
         $this->installClass = CameraInstall::class;
         $this->uninstallClass = CameraUninstall::class;
         $this->siteClass = CameraSite::class;
+
+        $this->addPackage(new DropzonePackage());
+        $this->addPackage(new FancyboxPackage());
+
     }
 }

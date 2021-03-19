@@ -7,7 +7,7 @@ use Nemundo\Core\Http\Domain\DomainInformation;
 use Nemundo\Core\Http\Url\UrlRedirect;
 use Nemundo\User\Access\UserRestrictionTrait;
 use Nemundo\Web\Parameter\AbstractUrlParameter;
-use Nemundo\Web\Url\Url;
+use Nemundo\Web\Url\UrlBuilder;
 use Nemundo\Web\WebConfig;
 
 
@@ -95,7 +95,7 @@ abstract class AbstractSite extends AbstractSiteTree
     {
 
         $returnValue = false;
-        if ((new Url())->getUrlWithoutParameter() == $this->getUrlWithoutParameter()) {
+        if ((new UrlBuilder())->getUrlWithoutParameter() == $this->getUrlWithoutParameter()) {
             $returnValue = true;
         }
 

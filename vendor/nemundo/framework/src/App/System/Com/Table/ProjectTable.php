@@ -5,7 +5,7 @@ namespace Nemundo\App\System\Com\Table;
 
 use Nemundo\Admin\Com\Table\AdminLabelValueTable;
 use Nemundo\Db\DbConfig;
-use Nemundo\Db\Provider\MySql\Database\MySqlDatabase;
+use Nemundo\Db\Provider\MySql\Connection\MySqlConnection;
 use Nemundo\Project\Path\CachePath;
 use Nemundo\Project\Path\ProjectPath;
 use Nemundo\Project\ProjectConfig;
@@ -17,7 +17,7 @@ class ProjectTable extends AdminLabelValueTable
     public function getContent()
     {
 
-        if (DbConfig::$defaultConnection->isObjectOfClass(MySqlDatabase::class)) {
+        if (DbConfig::$defaultConnection->isObjectOfClass(MySqlConnection::class)) {
 
             $this->addLabelValue('Host', DbConfig::$defaultConnection->connectionParameter->host);
             $this->addLabelValue('Port', DbConfig::$defaultConnection->connectionParameter->port);
@@ -27,11 +27,10 @@ class ProjectTable extends AdminLabelValueTable
         }
 
         $this->addLabelValue('Web Url', WebConfig::$webUrl);
-        $this->addLabelValue('Project Path' , (new ProjectPath())->getFullFilename());  // ProjectConfig::$projectPath);
-        $this->addLabelValue('Project Path' , ProjectConfig::$projectPath);
+        $this->addLabelValue('Project Path', (new ProjectPath())->getFullFilename());  // ProjectConfig::$projectPath);
+        $this->addLabelValue('Project Path', ProjectConfig::$projectPath);
 
         $this->addLabelValue('Cache Path', (new CachePath())->getFullFilename());
-
 
 
         return parent::getContent();

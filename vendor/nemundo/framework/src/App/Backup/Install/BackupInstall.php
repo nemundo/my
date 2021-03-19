@@ -4,6 +4,7 @@
 namespace Nemundo\App\Backup\Install;
 
 
+use Nemundo\App\Backup\Application\BackupApplication;
 use Nemundo\App\Backup\Path\DumpBackupPath;
 use Nemundo\App\Backup\Path\RestoreBackupPath;
 use Nemundo\App\Backup\Scheduler\BackupDumpScheduler;
@@ -22,10 +23,10 @@ class BackupInstall extends AbstractInstall
         (new DumpBackupPath())->createPath();
         (new RestoreBackupPath())->createPath();
 
-        (new SchedulerSetup())
+        (new SchedulerSetup(new BackupApplication()))
             ->addScheduler(new BackupDumpScheduler());
 
-        (new ScriptSetup())
+        (new ScriptSetup(new BackupApplication()))
             ->addScript(new DumpRestoreScript())
             ->addScript(new BackupCleanScript());
 

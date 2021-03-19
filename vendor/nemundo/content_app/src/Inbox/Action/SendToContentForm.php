@@ -12,7 +12,7 @@ use Nemundo\Html\Form\Input\HiddenInput;
 use Nemundo\Html\Form\Input\TextInput;
 use Nemundo\Package\Bootstrap\FormElement\BootstrapLargeTextBox;
 use Nemundo\User\Com\ListBox\UserListBox;
-use Nemundo\Web\Url\Url;
+use Nemundo\Web\Url\UrlBuilder;
 
 class SendToContentForm extends AbstractContentForm
 {

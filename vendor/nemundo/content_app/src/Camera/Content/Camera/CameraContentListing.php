@@ -3,15 +3,18 @@
 namespace Nemundo\Content\App\Camera\Content\Camera;
 
 
+use Nemundo\Admin\Com\Redefine\AdminSearchRedefine;
 use Nemundo\Admin\Com\Table\AdminTable;
 use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\Admin\Com\Table\Sorting\AdminUpdDownSortingHyperlink;
 use Nemundo\Com\TableBuilder\TableRow;
+use Nemundo\Content\App\Camera\Com\Redefine\YearRedefine;
 use Nemundo\Content\App\Camera\Data\Camera\CameraPaginationReader;
 use Nemundo\Content\App\Camera\Data\Camera\CameraReader;
 use Nemundo\Content\App\Camera\Parameter\YearParameter;
 use Nemundo\Content\View\AbstractContentListing;
 use Nemundo\Core\File\FileSize;
+use Nemundo\Db\Sql\Field\CountField;
 use Nemundo\Package\Bootstrap\Card\BootstrapCard;
 use Nemundo\Package\Bootstrap\Image\BootstrapResponsiveImage;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
@@ -78,8 +81,9 @@ class CameraContentListing extends AbstractContentListing
         $pagination->paginationReader = $cameraReader;
 
 
-        $card = new BootstrapCard($layout->col2);
-        $card->header = 'by year';
+        $card = new AdminSearchRedefine($layout->col2);  // new BootstrapCard($layout->col2);
+        $card->searchTopic = 'Year';
+        $card->hideAtStartup=false;
 
 
         // Clear
@@ -87,15 +91,19 @@ class CameraContentListing extends AbstractContentListing
 
         // Redefine Card
 
-        $list = new BootstrapSiteList($card);
+        //$list = new BootstrapSiteList($card);
 
         $reader = new CameraReader();
         $reader->addGroup($reader->model->year);
+
+        $count = new CountField($reader);
+
         foreach ($reader->getData() as $cameraRow) {
             $site = new Site();
             $site->title = $cameraRow->year;
             $site->addParameter(new YearParameter($cameraRow->year));
-            $list->addSite($site);
+            $card->addItemSite($site, $cameraRow->getModelValue($count) );
+            //$list->addSite($site);
         }
 
         return parent::getContent();

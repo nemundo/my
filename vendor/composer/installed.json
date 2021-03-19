@@ -2,23 +2,23 @@
     "packages": [
         {
             "name": "nemundo/content",
-            "version": "0.21",
-            "version_normalized": "0.21.0.0",
+            "version": "0.22",
+            "version_normalized": "0.22.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/content.git",
-                "reference": "dcdd98d2c254dfce0e440d7868a2405730b85e68"
+                "reference": "3e0633dc4c87de3d0a5fbdd40d27f916d7dae0a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/content/zipball/dcdd98d2c254dfce0e440d7868a2405730b85e68",
-                "reference": "dcdd98d2c254dfce0e440d7868a2405730b85e68",
+                "url": "https://api.github.com/repos/nemundo/content/zipball/3e0633dc4c87de3d0a5fbdd40d27f916d7dae0a3",
+                "reference": "3e0633dc4c87de3d0a5fbdd40d27f916d7dae0a3",
                 "shasum": ""
             },
             "require": {
                 "nemundo/framework": "*"
             },
-            "time": "2021-03-17T09:45:52+00:00",
+            "time": "2021-03-18T10:49:21+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -39,29 +39,29 @@
             "description": "Content",
             "support": {
                 "issues": "https://github.com/nemundo/content/issues",
-                "source": "https://github.com/nemundo/content/tree/0.21"
+                "source": "https://github.com/nemundo/content/tree/0.22"
             },
             "install-path": "../nemundo/content"
         },
         {
             "name": "nemundo/content_app",
-            "version": "0.23",
-            "version_normalized": "0.23.0.0",
+            "version": "0.26",
+            "version_normalized": "0.26.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/content_app.git",
-                "reference": "e8eab607861877420a1d6bcbbfa27b227a566aeb"
+                "reference": "b0c932a3900b1f67f798037166f73dcbf3616ae9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/content_app/zipball/e8eab607861877420a1d6bcbbfa27b227a566aeb",
-                "reference": "e8eab607861877420a1d6bcbbfa27b227a566aeb",
+                "url": "https://api.github.com/repos/nemundo/content_app/zipball/b0c932a3900b1f67f798037166f73dcbf3616ae9",
+                "reference": "b0c932a3900b1f67f798037166f73dcbf3616ae9",
                 "shasum": ""
             },
             "require": {
                 "nemundo/content": "*"
             },
-            "time": "2021-03-17T09:46:25+00:00",
+            "time": "2021-03-19T07:06:08+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -82,26 +82,26 @@
             "description": "Content App",
             "support": {
                 "issues": "https://github.com/nemundo/content_app/issues",
-                "source": "https://github.com/nemundo/content_app/tree/0.23"
+                "source": "https://github.com/nemundo/content_app/tree/0.26"
             },
             "install-path": "../nemundo/content_app"
         },
         {
             "name": "nemundo/core",
-            "version": "0.48",
-            "version_normalized": "0.48.0.0",
+            "version": "0.49",
+            "version_normalized": "0.49.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/core.git",
-                "reference": "a633a6834fdee0e960c4f4dc2db9ebf561a6c7df"
+                "reference": "47a79cf470c91133df8ae3ebe1a6e003b7056a35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/core/zipball/a633a6834fdee0e960c4f4dc2db9ebf561a6c7df",
-                "reference": "a633a6834fdee0e960c4f4dc2db9ebf561a6c7df",
+                "url": "https://api.github.com/repos/nemundo/core/zipball/47a79cf470c91133df8ae3ebe1a6e003b7056a35",
+                "reference": "47a79cf470c91133df8ae3ebe1a6e003b7056a35",
                 "shasum": ""
             },
-            "time": "2021-03-17T09:37:50+00:00",
+            "time": "2021-03-18T05:54:06+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -122,29 +122,29 @@
             "description": "Core Function",
             "support": {
                 "issues": "https://github.com/nemundo/core/issues",
-                "source": "https://github.com/nemundo/core/tree/0.48"
+                "source": "https://github.com/nemundo/core/tree/0.49"
             },
             "install-path": "../nemundo/core"
         },
         {
             "name": "nemundo/db",
-            "version": "0.50",
-            "version_normalized": "0.50.0.0",
+            "version": "0.51",
+            "version_normalized": "0.51.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/db.git",
-                "reference": "dc05a62c2e2e04e410b38bbb4e0beef1f733b699"
+                "reference": "8a203e7fdfbe922db30dee0c4e51eb7fa8917d44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/db/zipball/dc05a62c2e2e04e410b38bbb4e0beef1f733b699",
-                "reference": "dc05a62c2e2e04e410b38bbb4e0beef1f733b699",
+                "url": "https://api.github.com/repos/nemundo/db/zipball/8a203e7fdfbe922db30dee0c4e51eb7fa8917d44",
+                "reference": "8a203e7fdfbe922db30dee0c4e51eb7fa8917d44",
                 "shasum": ""
             },
             "require": {
                 "nemundo/core": "*"
             },
-            "time": "2021-03-17T09:45:15+00:00",
+            "time": "2021-03-18T05:50:33+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -165,23 +165,23 @@
             "description": "Database Access",
             "support": {
                 "issues": "https://github.com/nemundo/db/issues",
-                "source": "https://github.com/nemundo/db/tree/0.50"
+                "source": "https://github.com/nemundo/db/tree/0.51"
             },
             "install-path": "../nemundo/db"
         },
         {
             "name": "nemundo/framework",
-            "version": "0.91",
-            "version_normalized": "0.91.0.0",
+            "version": "0.94",
+            "version_normalized": "0.94.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nemundo/framework.git",
-                "reference": "07b6e19e8d4d7906f01e4fb06e19c56ffd3199e5"
+                "reference": "95bb5d247b5ce3c7606fbe10c8af597d9ae412a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nemundo/framework/zipball/07b6e19e8d4d7906f01e4fb06e19c56ffd3199e5",
-                "reference": "07b6e19e8d4d7906f01e4fb06e19c56ffd3199e5",
+                "url": "https://api.github.com/repos/nemundo/framework/zipball/95bb5d247b5ce3c7606fbe10c8af597d9ae412a0",
+                "reference": "95bb5d247b5ce3c7606fbe10c8af597d9ae412a0",
                 "shasum": ""
             },
             "require": {
@@ -189,7 +189,7 @@
                 "nemundo/db": "*",
                 "nemundo/html": "*"
             },
-            "time": "2021-03-17T16:08:56+00:00",
+            "time": "2021-03-18T18:58:07+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -210,7 +210,7 @@
             "description": "Nemundo Framework",
             "support": {
                 "issues": "https://github.com/nemundo/framework/issues",
-                "source": "https://github.com/nemundo/framework/tree/0.91"
+                "source": "https://github.com/nemundo/framework/tree/0.94"
             },
             "install-path": "../nemundo/framework"
         },

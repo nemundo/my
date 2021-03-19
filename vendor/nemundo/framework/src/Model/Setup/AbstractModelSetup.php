@@ -51,10 +51,14 @@ use Nemundo\Orm\Model\AbstractOrmModel;
 abstract class AbstractModelSetup extends AbstractDbBase
 {
 
+
     /**
      * @var AbstractModel
      */
-    protected $model;
+    public static $setupLog=[];
+
+
+
 
 
 
@@ -269,9 +273,12 @@ abstract class AbstractModelSetup extends AbstractDbBase
         }
 
 
-        /*
+
+        //AbstractModelSetup::$setupLog
+
         SetupLog::$modelList[] = $this->model;
 
+        /*
         $logFilename = (new SetupLogPath())->getFilename();
 
         $fileWriter = new TextFileWriter($logFilename);

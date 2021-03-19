@@ -45,10 +45,11 @@ abstract class AbstractContainerContentType extends AbstractSearchContentType  /
         $update->description = $this->description;
         $update->updateById($this->dataId);
 
+        /*
         $type = new ContainerRenameLogContentType();
         $type->itemContentId = $this->getContentId();
         $type->containerNew = $this->container;
-        $type->saveType();
+        $type->saveType();*/
 
     }
 

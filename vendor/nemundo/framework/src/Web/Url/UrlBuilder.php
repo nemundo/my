@@ -3,14 +3,16 @@
 namespace Nemundo\Web\Url;
 
 use Nemundo\Core\Base\AbstractBaseClass;
+use Nemundo\Core\Http\Url\AbstractUrlBuilder;
 use Nemundo\Core\Http\Url\UrlRedirect;
 use Nemundo\Core\Type\Text\Text;
 use Nemundo\Web\Parameter\AbstractUrlParameter;
 use Nemundo\Web\WebConfig;
 
-class Url extends AbstractBaseClass
+class UrlBuilder extends AbstractUrlBuilder  // AbstractBaseClass
 {
 
+    /*
     private $url;
 
     protected $parameter;
@@ -19,14 +21,16 @@ class Url extends AbstractBaseClass
     {
 
         $this->url = $_SERVER['REQUEST_URI'];
-        parse_str(parse_url($this->url, PHP_URL_QUERY), $this->parameter);
+        parse_str(parse_url($this->url, PHP_URL_QUERY), $this->requestList);
 
-    }
+    }*/
 
 
     public function getParameterList()
     {
-        return $this->parameter;
+
+        
+        return $this->requestList;
     }
 
 
@@ -34,8 +38,8 @@ class Url extends AbstractBaseClass
     {
 
         $value = '';
-        if (isset($this->parameter[$parameter])) {
-            $value = $this->parameter[$parameter];
+        if (isset($this->requestList[$parameter])) {
+            $value = $this->requestList[$parameter];
         }
 
         return $value;
@@ -45,38 +49,39 @@ class Url extends AbstractBaseClass
 
     public function addParameter(AbstractUrlParameter $parameter)
     {
-        $this->parameter[$parameter->getParameterName()] = $parameter->getValue();
+        $this->requestList[$parameter->getParameterName()] = $parameter->getValue();
         return $this;
     }
 
 
     public function removeParameter(AbstractUrlParameter $paramter)
     {
-        unset($this->parameter[$paramter->getParameterName()]);
+        unset($this->requestList[$paramter->getParameterName()]);
         return $this;
     }
 
 
     public function removeAllParameter()
     {
-        $this->parameter = [];
+        $this->requestList = [];
         return $this;
     }
 
 
+    /*
     public function getUrl()
     {
 
         $url = strtok($this->url, '?');
 
-        if (sizeof($this->parameter) > 0) {
-            $query_string = http_build_query($this->parameter);
+        if (sizeof($this->requestList) > 0) {
+            $query_string = http_build_query($this->requestList);
             $url = $url . '?' . $query_string;
         }
 
         return $url;
 
-    }
+    }*/
 
 
     // seperate !!!

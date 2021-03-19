@@ -2,19 +2,23 @@
 
 namespace Nemundo\Content\App\ImageTimeline\Content\ImageTimeline;
 
+use Nemundo\Content\App\ImageTimeline\Content\Image\ImageContentType;
 use Nemundo\Content\App\ImageTimeline\Content\ImageTimeline\View\ImageTimelineLatestContentView;
 use Nemundo\Content\App\ImageTimeline\Content\ImageTimeline\View\ImageTimelineRemoteContentView;
 use Nemundo\Content\App\ImageTimeline\Content\ImageTimeline\View\ImageTimelineSliderContentView;
+use Nemundo\Content\App\ImageTimeline\Data\Image\ImageReader;
 use Nemundo\Content\App\ImageTimeline\Data\ImageTimeline\ImageTimeline;
 use Nemundo\Content\App\ImageTimeline\Data\ImageTimeline\ImageTimelineCount;
+use Nemundo\Content\App\ImageTimeline\Data\ImageTimeline\ImageTimelineDelete;
 use Nemundo\Content\App\ImageTimeline\Data\ImageTimeline\ImageTimelineId;
 use Nemundo\Content\App\ImageTimeline\Data\ImageTimeline\ImageTimelineReader;
 use Nemundo\Content\App\ImageTimeline\Data\ImageTimeline\ImageTimelineRow;
 use Nemundo\Content\App\ImageTimeline\Data\ImageTimeline\ImageTimelineUpdate;
 use Nemundo\Content\Index\Tree\Com\Form\ContentSearchForm;
 use Nemundo\Content\Type\AbstractContentType;
+use Nemundo\Content\Type\AbstractSearchContentType;
 
-abstract class AbstractImageTimelineContentType extends AbstractContentType
+abstract class AbstractImageTimelineContentType extends AbstractSearchContentType
 {
 
     public $timeline;
@@ -82,10 +86,24 @@ abstract class AbstractImageTimelineContentType extends AbstractContentType
 
         // image delete
 
+        $reader = new ImageReader();
+        $reader->filter->andEqual($reader->model->timelineId,$this->getDataId());
+        foreach($reader->getData() as $imageRow) {
+            (new ImageContentType($imageRow->id))->deleteType();
+        }
+
+
+        (new ImageTimelineDelete())->deleteById($this->dataId);
+
+
     }
 
     protected function onIndex()
     {
+
+        $this->addSearchText($this->getDataRow()->timeline);
+
+
     }
 
     protected function onDataRow()

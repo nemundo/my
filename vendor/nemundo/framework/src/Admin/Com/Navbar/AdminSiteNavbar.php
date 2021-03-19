@@ -8,8 +8,6 @@ namespace Nemundo\Admin\Com\Navbar;
 
 use Nemundo\App\UserAction\Site\LogoutSite;
 use Nemundo\App\UserAction\Site\PasswordChangeSite;
-use Nemundo\Content\Index\Search\Site\Json\SearchJsonSite;
-use Nemundo\Content\Index\Search\Site\SearchSite;
 use Nemundo\Package\Bootstrap\Autocomplete\AbstractAutocompleteJsonSite;
 use Nemundo\Package\Bootstrap\Navbar\BootstrapNavbarBrand;
 use Nemundo\Package\Bootstrap\Navbar\BootstrapNavbarLogo;
@@ -23,12 +21,14 @@ use Nemundo\Web\Site\BaseUrlSite;
 // ContentSiteNavbar
 // ContentAppSiteNavbar
 
+
+// AdminNavbar
 class AdminSiteNavbar extends BootstrapSiteNavbar
 {
 
     public $logoUrl;
 
-    public $brand='Home';
+    public $brand = 'Home';
 
     /**
      * @var bool
@@ -55,16 +55,16 @@ class AdminSiteNavbar extends BootstrapSiteNavbar
     {
 
 
-        if ($this->logoUrl !==null) {
-        $logo = new BootstrapNavbarLogo();
-        $logo->logoSite = new BaseUrlSite();
-        $logo->logoUrl = $this->logoUrl;
-        $this->containerDiv->addContainerAtFirst($logo);
+        if ($this->logoUrl !== null) {
+            $logo = new BootstrapNavbarLogo();
+            $logo->logoSite = new BaseUrlSite();
+            $logo->logoUrl = $this->logoUrl;
+            $this->containerDiv->addContainerAtFirst($logo);
         } else {
 
-            $brand=new BootstrapNavbarBrand();
+            $brand = new BootstrapNavbarBrand();
             $brand->content = $this->brand;
-             $this->containerDiv->addContainerAtFirst($brand);
+            $this->containerDiv->addContainerAtFirst($brand);
 
         }
 
@@ -75,19 +75,21 @@ class AdminSiteNavbar extends BootstrapSiteNavbar
         if ($this->searchMode) {
 
             $search = new BootstrapNavbarSearchForm($this);
-            $search->site =  $this->searchSite;
+            $search->site = $this->searchSite;
             $search->sourceSite = $this->searchSourceSite;
 
         }
 
 
-        if ($this->showPasswordChange) {
-            $this->addUserMenuSite(PasswordChangeSite::$site);
-            $this->addUserMenuDivider();
+        if ($this->userMode) {
+
+            if ($this->showPasswordChange) {
+                $this->addUserMenuSite(PasswordChangeSite::$site);
+                $this->addUserMenuDivider();
+            }
+
+            $this->addUserMenuSite(LogoutSite::$site);
         }
-
-        $this->addUserMenuSite(LogoutSite::$site);
-
 
         return parent::getContent();
 

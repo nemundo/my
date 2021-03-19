@@ -44,7 +44,8 @@ class AdminTemplate extends BootstrapDocument
 
         $this->navbar = new AdminSiteNavbar();  // new BootstrapSiteNavbar();
         $this->navbar->site = AdminConfig::$webController;
-        $this->navbar->userMode = true;
+        $this->navbar->userMode = AdminConfig::$userMode;  // false;
+
         $this->navbar->showPasswordChange= AdminConfig::$showPasswordChange;  // false;
 
         if (AdminConfig::$logoUrl !== null) {
@@ -54,9 +55,6 @@ class AdminTemplate extends BootstrapDocument
         } else {
             $this->navbar->brand = ResponseConfig::$title;
         }
-
-
-
 
         parent::addContainer($this->navbar);
 

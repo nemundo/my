@@ -5,6 +5,9 @@ namespace Nemundo\Content\App\Dashboard\Site;
 use Nemundo\Content\App\Dashboard\Data\Dashboard\DashboardReader;
 use Nemundo\Content\App\Dashboard\Site\Edit\ContentNewSite;
 use Nemundo\Content\App\Dashboard\Site\Admin\DashboardEditSite;
+use Nemundo\Content\Template\DefaultContentTemplate;
+use Nemundo\Dev\App\Factory\DefaultTemplateFactory;
+use Nemundo\Html\Paragraph\Paragraph;
 use Nemundo\Web\Site\AbstractSite;
 use Nemundo\Web\Site\PlainSite;
 
@@ -43,6 +46,13 @@ class DashboardSite extends AbstractSite
 
     public function loadContent()
     {
+
+        $page= (new DefaultTemplateFactory())->getDefaultTemplate();
+
+        $p=new Paragraph($page);
+        $p->content = 'Kein Dashboard vorhanden.';
+
+        $page->render();
 
     }
 

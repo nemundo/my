@@ -29,8 +29,10 @@ class AppSite extends AbstractSite
         foreach ($reader->getData() as $applicationRow) {
 
             $app = $applicationRow->getApplication();
-            if ($app->hasSite()) {
-                $app->getSite($this);
+            if ($app!==null) {
+                if ($app->hasSite()) {
+                    $app->getSite($this);
+                }
             }
 
         }

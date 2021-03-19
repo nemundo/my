@@ -6,7 +6,7 @@ namespace Nemundo\Web\Site;
 use Nemundo\Core\Type\Text\Text;
 use Nemundo\Web\Parameter\UrlParameterList;
 use Nemundo\Web\Parameter\UrlParameter;
-use Nemundo\Web\Url\Url;
+use Nemundo\Web\Url\UrlBuilder;
 use Nemundo\Web\WebConfig;
 
 
@@ -17,9 +17,9 @@ class Site extends AbstractSite
     protected function loadSite()
     {
 
-        $url = new Url();
+        $url = new UrlBuilder();
 
-        $urlText = new Text((new Url())->getUrlWithoutParameter());
+        $urlText = new Text((new UrlBuilder())->getUrlWithoutParameter());
         $urlText->removeLeft(WebConfig::$webUrl);
         $this->url = $urlText->getValue();
 

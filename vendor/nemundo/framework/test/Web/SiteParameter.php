@@ -4,7 +4,7 @@ require '../config.php';
 
 // ?a[]=1&a[]=2
 
-$url=new \Nemundo\Web\Url\Url();
+$url=new \Nemundo\Web\Url\UrlBuilder();
 (new \Nemundo\Core\Debug\Debug())->write($url->getUrl());
 
 

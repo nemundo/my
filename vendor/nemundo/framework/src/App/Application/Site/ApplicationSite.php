@@ -30,6 +30,8 @@ class ApplicationSite extends AbstractSite
 
         new DataSite($this);
 
+        new ClearSite($this);
+
     }
 
 

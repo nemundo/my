@@ -4,11 +4,14 @@
 namespace Nemundo\App\Application\Page;
 
 
+use Nemundo\Admin\Com\Button\AdminIconSiteButton;
 use Nemundo\Admin\Com\Table\AdminTable;
+use Nemundo\Admin\Com\Table\AdminTableHeader;
 use Nemundo\App\Application\Com\ListBox\ProjectListBox;
 use Nemundo\App\Application\Data\Application\ApplicationReader;
 use Nemundo\App\Application\Parameter\ApplicationParameter;
 use Nemundo\App\Application\Site\ApplicationEditSite;
+use Nemundo\App\Application\Site\ClearSite;
 use Nemundo\App\Application\Site\InstallSite;
 use Nemundo\App\Application\Site\ReinstallSite;
 use Nemundo\App\Application\Site\UninstallSite;
@@ -17,7 +20,6 @@ use Nemundo\Com\FormBuilder\SearchForm;
 use Nemundo\Com\Html\Listing\UnorderedList;
 use Nemundo\Com\TableBuilder\TableHeader;
 use Nemundo\Com\TableBuilder\TableRow;
-use Nemundo\Com\Template\AbstractTemplateDocument;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
 use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
 
@@ -29,16 +31,18 @@ class ApplicationPage extends ApplicationTemplate
 
         $layout = new BootstrapTwoColumnLayout($this);
 
-        $form=new SearchForm($layout->col1);
+        $form = new SearchForm($layout->col1);
 
         $formRow = new BootstrapRow($form);
 
-        $project=new ProjectListBox($formRow);
-        $project->submitOnChange=true;
-        $project->searchMode=true;
-        $project->column=true;
-        $project->columnSize=2;
+        $project = new ProjectListBox($formRow);
+        $project->submitOnChange = true;
+        $project->searchMode = true;
+        $project->column = true;
+        $project->columnSize = 3;
 
+        $btn=new AdminIconSiteButton($formRow);
+        $btn->site = ClearSite::$site;
 
         $table = new AdminTable($layout->col1);
 
@@ -46,13 +50,13 @@ class ApplicationPage extends ApplicationTemplate
         $applicationReader->model->loadProject();
 
         if ($project->hasValue()) {
-            $applicationReader->filter->andEqual($applicationReader->model->projectId,$project->getValue());
+            $applicationReader->filter->andEqual($applicationReader->model->projectId, $project->getValue());
         }
 
 
         $applicationReader->addOrder($applicationReader->model->application);
 
-        $header = new TableHeader($table);
+        $header = new AdminTableHeader($table);
 
         $header->addText($applicationReader->model->application->label);
         $header->addText($applicationReader->model->install->label);
@@ -112,9 +116,7 @@ class ApplicationPage extends ApplicationTemplate
                 }
 
 
-
                 $row->addText('');
-
 
 
             } else {
@@ -122,10 +124,9 @@ class ApplicationPage extends ApplicationTemplate
             }
 
 
-            $site=clone(ApplicationEditSite::$site);
+            $site = clone(ApplicationEditSite::$site);
             $site->addParameter(new ApplicationParameter($applicationRow->id));
             $row->addIconSite($site);
-
 
 
         }

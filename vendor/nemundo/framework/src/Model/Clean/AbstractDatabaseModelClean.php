@@ -7,7 +7,8 @@ use Nemundo\Core\Base\AbstractBase;
 use Nemundo\Core\Debug\Debug;
 use Nemundo\Db\Provider\MySql\Field\MySqlTableFieldReader;
 use Nemundo\Db\Provider\MySql\Table\MySqlTableReader;
-use Nemundo\Model\Log\SetupLog;
+
+use Nemundo\Model\Setup\SetupLog;
 use Nemundo\Model\Type\Complex\AbstractComplexType;
 use Nemundo\App\Application\Type\Install\AbstractInstall;
 
@@ -55,6 +56,7 @@ abstract class AbstractDatabaseModelClean extends AbstractBase
         foreach ($tableReader->getData() as $mySqlTable) {
 
             $found = false;
+
             foreach (SetupLog::$modelList as $model) {
 
                 if ($model->tableName == $mySqlTable->tableName) {

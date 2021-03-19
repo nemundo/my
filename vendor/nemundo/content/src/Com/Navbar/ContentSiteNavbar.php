@@ -15,14 +15,14 @@ class ContentSiteNavbar extends AdminSiteNavbar
     /**
      * @var bool
      */
-    public $showPasswordChange = true;
+   // public $showPasswordChange = true;
 
     protected function loadContainer()
     {
         parent::loadContainer();
 
-        $this->searchMode = true;
-        $this->userMode = true;
+        //$this->searchMode = true;
+        //$this->userMode = true;
 
         $this->searchSite = SearchSite::$site;
         $this->searchSourceSite = SearchJsonSite::$site;
@@ -33,12 +33,12 @@ class ContentSiteNavbar extends AdminSiteNavbar
     public function getContent()
     {
 
-        if ($this->showPasswordChange) {
+      /*  if ($this->showPasswordChange) {
             $this->addUserMenuSite(PasswordChangeSite::$site);
             $this->addUserMenuDivider();
         }
 
-        $this->addUserMenuSite(LogoutSite::$site);
+        $this->addUserMenuSite(LogoutSite::$site);*/
 
         return parent::getContent();
 

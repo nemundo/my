@@ -2,6 +2,7 @@
 
 namespace Nemundo\Content\App\Timeline\Page;
 
+use Nemundo\Admin\Com\Button\AdminIconSiteButton;
 use Nemundo\Admin\Com\Button\AdminSearchButton;
 use Nemundo\Admin\Com\Table\AdminClickableTable;
 use Nemundo\Admin\Com\Table\AdminTableHeader;
@@ -9,6 +10,7 @@ use Nemundo\Com\FormBuilder\SearchForm;
 use Nemundo\Com\Template\AbstractTemplateDocument;
 use Nemundo\Content\App\Timeline\Data\Timeline\TimelinePaginationReader;
 use Nemundo\Content\App\Timeline\Data\Timeline\TimelineReader;
+use Nemundo\Content\App\Timeline\Site\ClearSite;
 use Nemundo\Content\App\Timeline\Site\ItemSite;
 use Nemundo\Content\App\Timeline\Site\TimelineSite;
 use Nemundo\Content\Com\Widget\ContentWidget;
@@ -63,6 +65,8 @@ class TimelinePage extends AbstractTemplateDocument
 
         new AdminSearchButton($formRow);
 
+        $btn=new AdminIconSiteButton($formRow);
+        $btn->site=ClearSite::$site;
 
         // ajax loading
         // search from to

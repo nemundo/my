@@ -7,7 +7,6 @@ use Nemundo\Model\Definition\Index\ModelUniqueIndex;
 use Nemundo\Model\Definition\Model\ModelTrait\ActiveModelTrait;
 use Nemundo\Orm\Model\AbstractOrmModel;
 use Nemundo\Orm\Type\Text\TextOrmType;
-use Nemundo\Orm\Type\Web\EmailOrmType;
 
 
 class UserOrmModel extends AbstractOrmModel
@@ -56,39 +55,32 @@ class UserOrmModel extends AbstractOrmModel
         $this->login->fieldName = 'login';
         $this->login->variableName = 'login';
         $this->login->label = 'Login';
-        //$this->login->validation = true;
         $this->login->isEditable = false;
 
         $this->password = new TextOrmType($this);
         $this->password->fieldName = 'password';
         $this->password->variableName = 'password';
         $this->password->label = 'Passwort';
-        /*$this->password->visible->form = false;
-        $this->password->visible->table = false;
-        $this->password->visible->view = false;*/
+        $this->password->allowNullValue=true;
         $this->password->isEditable = false;
 
-        $this->email = new TextOrmType($this);  // new EmailOrmType($this);
+        $this->email = new TextOrmType($this);
         $this->email->fieldName = 'email';
         $this->email->variableName = 'email';
         $this->email->label = 'eMail';
-        //$this->email->validation = true;
+        $this->email->allowNullValue=true;
         $this->email->isEditable = false;
 
         $this->displayName = new TextOrmType($this);
         $this->displayName->fieldName = 'display_name';
         $this->displayName->variableName = 'displayName';
         $this->displayName->label = 'Display Name';
-        //$this->displayName->visible->form = false;
         $this->displayName->isEditable = false;
 
         $this->secureToken = new TextOrmType($this);
         $this->secureToken->fieldName = 'secure_token';
         $this->secureToken->variableName = 'secureToken';
         $this->secureToken->label = 'Secure Token';
-        /*$this->secureToken->visible->form = false;
-        $this->secureToken->visible->table = false;
-        $this->secureToken->visible->view = false;*/
         $this->secureToken->isEditable = false;
 
         $this->addDefaultType($this->displayName);

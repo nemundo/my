@@ -24,11 +24,7 @@ class ScriptSetup extends AbstractSetup
         $count->filter->andEqual($count->model->scriptClass, $script->getClassName());
         if ($count->getCount() == 0) {
 
-            //$data->scriptClass = $script->getClassName();
-
-
             $data = new Script();
-            //$data->updateOnDuplicate = true;
             $data->setupStatus = true;
             $data->scriptName = $script->scriptName;
             $data->description = $script->scriptDescription;
@@ -41,13 +37,11 @@ class ScriptSetup extends AbstractSetup
 
         } else {
 
-
             $id = new ScriptId();
             $id->filter->andEqual($id->model->scriptClass, $scriptClass);
             $scriptId = $id->getId();
 
             $update = new ScriptUpdate();
-            //$data->updateOnDuplicate = true;
             $update->setupStatus = true;
             $update->scriptName = $script->scriptName;
             $update->description = $script->scriptDescription;
@@ -59,7 +53,6 @@ class ScriptSetup extends AbstractSetup
             $update->updateById($scriptId);
 
         }
-
 
         return $this;
 

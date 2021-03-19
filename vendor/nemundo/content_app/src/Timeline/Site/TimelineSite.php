@@ -20,6 +20,8 @@ class TimelineSite extends AbstractSite
 
         TimelineSite::$site=$this;
 
+        new ClearSite($this);
+
         //new ItemSite($this);
 
     }

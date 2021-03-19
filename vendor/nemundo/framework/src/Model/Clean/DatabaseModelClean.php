@@ -13,5 +13,4 @@ class DatabaseModelClean extends AbstractDatabaseModelClean
         parent::addInstall($install);
     }
 
-
 }

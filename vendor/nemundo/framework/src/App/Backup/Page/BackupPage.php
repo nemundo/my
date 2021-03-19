@@ -14,6 +14,7 @@ use Nemundo\Com\TableBuilder\TableHeader;
 use Nemundo\Com\TableBuilder\TableRow;
 use Nemundo\Com\Template\AbstractTemplateDocument;
 use Nemundo\Core\File\DirectoryReader;
+use Nemundo\Html\Form\Input\AcceptFileType;
 use Nemundo\Html\Typography\Code;
 use Nemundo\Package\Bootstrap\Layout\BootstrapTwoColumnLayout;
 use Nemundo\Package\Dropzone\DropzoneUploadForm;
@@ -54,10 +55,8 @@ class BackupPage extends AbstractTemplateDocument
         $widget->widgetTitle = 'Dump Upload (Zip File)';
 
         $dropzone = new DropzoneUploadForm($widget);
+        $dropzone->acceptedFileType=AcceptFileType::ZIP;
         $dropzone->saveSite = UploadSite::$site;
-
-        //new UploadForm($widget);
-
 
         $widget = new AdminWidget($layout->col2);
         $widget->widgetTitle = 'Restore Dump';
@@ -75,6 +74,12 @@ class BackupPage extends AbstractTemplateDocument
             $row->addText($file->filename);
             $row->addText($file->getFileSizeText());
         }
+
+
+        /*
+        $code = new Code($widget);
+        $code->content = 'sudo php bin/cmd.php backup-dump';
+*/
 
         $code = new Code($widget);
         $code->content = 'sudo php bin/cmd.php backup-restore';

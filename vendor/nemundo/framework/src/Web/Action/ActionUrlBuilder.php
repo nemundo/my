@@ -2,11 +2,11 @@
 
 namespace Nemundo\Web\Action;
 
-use Nemundo\Web\Url\Url;
+use Nemundo\Web\Url\UrlBuilder;
 use Nemundo\Core\Http\Url\UrlRedirect;
 
 
-class ActionUrl extends Url
+class ActionUrlBuilder extends UrlBuilder
 {
 
     /**

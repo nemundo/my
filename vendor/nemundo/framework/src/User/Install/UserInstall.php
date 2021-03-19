@@ -25,10 +25,9 @@ class UserInstall extends AbstractInstall
         (new ModelCollectionSetup())
             ->addCollection(new UserModelCollection());
 
-        (new ScriptSetup())
+        (new ScriptSetup(new UserApplication()))
             ->addScript(new AdminUserScript())
             ->addScript(new UsergroupCleanScript());
-
 
     }
 

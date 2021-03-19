@@ -35,4 +35,9 @@ class AdminConfig
 
     public static $showPasswordChange = true;
 
+    public static $userMode = false;
+
+    public static $searchMode = false;
+
+
 }

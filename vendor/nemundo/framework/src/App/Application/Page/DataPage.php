@@ -22,7 +22,7 @@ use Nemundo\Model\Factory\ModelCollectionFactory;
 use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapRow;
 use Nemundo\Package\Bootstrap\Layout\Grid\BootstrapColumn;
 use Nemundo\Package\Bootstrap\Listing\BootstrapHyperlinkList;
-use Nemundo\Web\Url\Url;
+use Nemundo\Web\Url\UrlBuilder;
 
 
 // nach Application ???
@@ -63,7 +63,7 @@ class DataPage extends ApplicationTemplate
                 $collection = (new ModelCollectionFactory())->getModelCollectionByClassName($application->modelCollectionClass);
                 foreach ($collection->getModelList() as $model) {
 
-                    $url = new Url();
+                    $url = new UrlBuilder();
                     $url->addParameter((new TableParameter($model->tableName)));
 
                     $listbox->addHyperlink($model->tableName, $url->getUrl());

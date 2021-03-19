@@ -5,6 +5,7 @@ namespace Nemundo\Content\App\Dashboard\Install;
 
 
 use Nemundo\App\Application\Setup\ApplicationSetup;
+use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\App\Script\Setup\ScriptSetup;
 use Nemundo\Content\App\Dashboard\Application\DashboardApplication;
 use Nemundo\Content\App\Dashboard\Content\Dashboard\DashboardContentType;
@@ -18,7 +19,6 @@ use Nemundo\Content\Application\ContentApplication;
 use Nemundo\Content\Index\Tree\Setup\RestrictedContentTypeSetup;
 use Nemundo\Content\Setup\ContentTypeSetup;
 use Nemundo\Model\Setup\ModelCollectionSetup;
-use Nemundo\App\Application\Type\Install\AbstractInstall;
 use Nemundo\User\Setup\UsergroupSetup;
 
 
@@ -45,11 +45,10 @@ class DashboardInstall extends AbstractInstall
         (new ContentTypeSetup(new DashboardApplication()))
             ->addContentTypeCollection(new DashboardContentTypeCollection());
 
-        //    ->addContentType(new DashboardContentType())
-        //    ->addContentType(new DashboardColumnContentType());
-        //    ->addContentType(new UserDashboardContentType());
-
         (new RestrictedContentTypeSetup(new DashboardContentType()))
+            ->addRestrictedContentType(new DashboardColumnContentType());
+
+        (new RestrictedContentTypeSetup(new UserDashboardContentType()))
             ->addRestrictedContentType(new DashboardColumnContentType());
 
 

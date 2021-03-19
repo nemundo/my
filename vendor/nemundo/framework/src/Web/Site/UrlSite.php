@@ -6,7 +6,7 @@ namespace Nemundo\Web\Site;
 use Nemundo\Core\Type\Text\Text;
 use Nemundo\Web\Parameter\UrlParameterList;
 use Nemundo\Web\Parameter\UrlParameter;
-use Nemundo\Web\Url\Url;
+use Nemundo\Web\Url\UrlBuilder;
 use Nemundo\Web\WebConfig;
 
 

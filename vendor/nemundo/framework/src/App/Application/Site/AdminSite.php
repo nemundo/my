@@ -6,7 +6,6 @@ namespace Nemundo\App\Application\Site;
 
 use Nemundo\App\Application\Data\Application\ApplicationReader;
 use Nemundo\App\Application\Usergroup\AdminUsergroup;
-use Nemundo\App\Application\Usergroup\AppUsergroup;
 use Nemundo\Web\Site\AbstractSite;
 
 
@@ -29,8 +28,10 @@ class AdminSite extends AbstractSite
         foreach ($reader->getData() as $applicationRow) {
 
             $app = $applicationRow->getApplication();
-            if ($app->hasAdminSite()) {
-                $app->getAdminSite($this);
+            if ($app !== null) {
+                if ($app->hasAdminSite()) {
+                    $app->getAdminSite($this);
+                }
             }
 
         }

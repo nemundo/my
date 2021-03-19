@@ -36,8 +36,10 @@ class MySqlPage extends MySqlTemplate
 
         //new MySqlTableTable($this);
 
+        $layout = new BootstrapTwoColumnLayout($this);
 
-        $table = new AdminClickableTable($this);
+
+        $table = new AdminClickableTable($layout->col1);
 
         $header=new AdminTableHeader($table);
         $header->addText('Table Name');

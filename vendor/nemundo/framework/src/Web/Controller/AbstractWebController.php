@@ -8,7 +8,7 @@ use Nemundo\Core\Http\Response\StatusCode;
 use Nemundo\Web\Site\AbstractSite;
 use Nemundo\Web\Site\AbstractSiteTree;
 use Nemundo\Web\Site\AbstractWildcardSite;
-use Nemundo\Web\Url\Url;
+use Nemundo\Web\Url\UrlBuilder;
 use Nemundo\Web\WebConfig;
 
 abstract class AbstractWebController extends AbstractSiteTree
@@ -57,7 +57,7 @@ abstract class AbstractWebController extends AbstractSiteTree
     public function render()
     {
 
-        $url = new Url();
+        $url = new UrlBuilder();
         $this->urlList = $url->getUrlList();
 
         $this->urlListCount = sizeof($this->urlList);

@@ -19,7 +19,6 @@ use Nemundo\Core\Url\UrlConverter;
 class DashboardContentType extends AbstractSearchContentType
 {
 
-
     public $dashboard;
 
     /**
@@ -156,6 +155,22 @@ class DashboardContentType extends AbstractSearchContentType
 
         return $subject;
 
+
+    }
+
+
+    public function existItem()
+    {
+
+        $value = false;
+
+        $count = new DashboardCount();
+        $count->filter->andEqual($count->model->id, $this->dataId);
+        if ($count->getCount() == 1) {
+            $value = true;
+        }
+
+        return $value;
 
     }
 

@@ -3,6 +3,7 @@
 namespace Nemundo\Content\Index\Tree\Setup;
 
 
+use Nemundo\Content\Collection\AbstractContentTypeCollection;
 use Nemundo\Content\Index\Tree\Data\RestrictedContentType\RestrictedContentType;
 use Nemundo\Content\Index\Tree\Data\RestrictedContentType\RestrictedContentTypeCount;
 use Nemundo\Content\Type\AbstractContentType;
@@ -50,6 +51,18 @@ class RestrictedContentTypeSetup extends AbstractBase
 
             }
 
+        }
+
+        return $this;
+
+    }
+
+
+    public function addRestrictedContentTypeCollection(AbstractContentTypeCollection $restrictedContentTypeCollection)
+    {
+
+        foreach ($restrictedContentTypeCollection->getContentTypeList() as $contentType) {
+            $this->addRestrictedContentType($contentType);
         }
 
         return $this;

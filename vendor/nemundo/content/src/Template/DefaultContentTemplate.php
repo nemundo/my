@@ -44,10 +44,11 @@ class DefaultContentTemplate extends BootstrapDocument
 
         $this->navbar = new ContentSiteNavbar();
         $this->navbar->showPasswordChange=false;
-        //$this->navbar->logoUrl = WebConfig::$webUrl . 'img/logo.png';
+        $this->navbar->searchMode=AdminConfig::$searchMode;
+        $this->navbar->logoUrl = AdminConfig::$logoUrl;  // WebConfig::$webUrl . 'img/logo.png';
         $this->navbar->brand= ResponseConfig::$title;
         $this->navbar->site = AdminConfig::$webController;
-        $this->navbar->searchMode=false;
+        $this->navbar->searchMode= AdminConfig::$searchMode;  // false;
 
         parent::addContainer($this->navbar);
 

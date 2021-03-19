@@ -11,7 +11,7 @@ use Nemundo\Html\Layout\Nav;
 use Nemundo\Html\Listing\Li;
 use Nemundo\Html\Listing\Ul;
 use Nemundo\Web\Site\Site;
-use Nemundo\Web\Url\Url;
+use Nemundo\Web\Url\UrlBuilder;
 
 // SitePagination
 abstract class AbstractBootstrapPagination extends Nav
@@ -109,7 +109,7 @@ abstract class AbstractBootstrapPagination extends Nav
 
                 $parameter = new PageParameter($number);
 
-                $url = new Url();
+                $url = new UrlBuilder();
                 $url->addParameter($parameter);
 
                 $hyperlink->href = $url->getUrl();

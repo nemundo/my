@@ -4,8 +4,6 @@ namespace Nemundo\App\Application\Script;
 
 use Nemundo\App\Application\Data\Application\ApplicationReader;
 use Nemundo\App\Script\Type\AbstractConsoleScript;
-use Nemundo\Com\Package\PackageSetup;
-use Nemundo\Core\Debug\Debug;
 
 class AppInstallScript extends AbstractConsoleScript
 {
@@ -23,10 +21,11 @@ class AppInstallScript extends AbstractConsoleScript
 
             $application = $applicationRow->getApplication();
 
-            if ($application->hasInstall()) {
-                $application->installApp();
+            if ($application !== null) {
+                if ($application->hasInstall()) {
+                    $application->installApp();
+                }
             }
-
 
         }
 

@@ -5,6 +5,7 @@ namespace Nemundo\Content\Page\Admin;
 
 
 use Nemundo\Admin\Com\Button\AdminSearchButton;
+use Nemundo\Admin\Com\Button\AdminSiteButton;
 use Nemundo\Admin\Com\Table\AdminClickableTable;
 use Nemundo\Admin\Com\Table\AdminLabelValueTable;
 use Nemundo\App\Application\Com\ApplicationListBox;
@@ -16,6 +17,7 @@ use Nemundo\Content\Data\Content\ContentModel;
 use Nemundo\Content\Data\Content\ContentPaginationReader;
 use Nemundo\Content\Parameter\ContentParameter;
 use Nemundo\Content\Parameter\ContentTypeParameter;
+use Nemundo\Content\Site\Admin\ContentRemoveSite;
 use Nemundo\Content\Site\ContentDeleteSite;
 use Nemundo\Content\Site\ContentEditSite;
 use Nemundo\Content\Site\ContentViewSite;
@@ -109,11 +111,12 @@ class ContentAdminPage extends ContentAdminTemplate
         if ($contentTypeParameter->hasValue()) {
 
 
-            /*$btn = new AdminSiteButton($this);
-            $btn->site = clone(ContentTypeRemoveSite::$site);
-            $btn->site->addParameter($contentTypeParameter);*/
+            $btn = new AdminSiteButton($this);
+            $btn->site = clone(ContentRemoveSite::$site);
+            $btn->site->addParameter($contentTypeParameter);
 
-            //          $filter->andEqual($model->contentTypeId, $contentTypeParameter->getValue());
+
+           $filter->andEqual($model->contentTypeId, $contentTypeParameter->getValue());
 
             $contentType = $contentTypeParameter->getContentType();
 

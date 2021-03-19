@@ -11,10 +11,8 @@ use Nemundo\App\Application\Type\AbstractApplication;
 class ApplicationCustomRow extends ApplicationRow
 {
 
-
     public function getApplication()
     {
-
 
         $application = null;
 

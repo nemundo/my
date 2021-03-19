@@ -30,7 +30,7 @@ class ImageFancyboxContentView extends AbstractContentView
         $imageRow = $this->contentType->getDataRow();
 
         $fancybox = new FancyboxHyperlink($this);
-        $fancybox->imageUrl = $imageRow->image->getUrl();
+        $fancybox->imageUrl = $imageRow->image->getImageUrl($imageRow->model->imageAutoSize1200);
 
         $img = new BootstrapResponsiveImage($fancybox);
         $img->src = $imageRow->image->getImageUrl($imageRow->model->imageAutoSize400);
